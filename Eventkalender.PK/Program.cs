@@ -16,15 +16,13 @@ namespace Eventkalender.PK
     {
         public static void Main(string[] args)
         {
-            string con = DatabaseClient.GetEntityFrameworkConnectionString("eventkalender-db.xml");
-            Console.WriteLine(con);
-
             EventkalenderDAL dal = new EventkalenderDAL();
-            Person p = dal.GetPerson(1);
-            Console.WriteLine(p.FirstName);
 
-            string s = DatabaseClient.GetConnectionString("eventkalender-db.xml");
-            Console.WriteLine(s);
+            List<Person> persons = dal.GetPersons();
+            foreach (Person p in persons)
+            {
+                Console.WriteLine(p.FullName);
+            }
 
             Console.ReadKey();
         }

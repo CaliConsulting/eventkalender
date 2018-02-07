@@ -2,6 +2,7 @@
 using Eventkalender.Database.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,69 +11,85 @@ namespace Eventkalender.Database.DAL
 {
     public class EventkalenderDAL
     {
-        private EventkalenderContext context;
+        //private EventkalenderContext context;
 
         public EventkalenderDAL()
         {
-            context = new EventkalenderContext(DatabaseClient.GetEntityFrameworkConnectionString("eventkalender-db.xml"));
+            //context = new EventkalenderContext(DatabaseClient.GetConnectionString("eventkalender-db.xml"));
         }
 
         public void AddNation(Nation n)
         {
-            using (context)
+            using (var context = new EventkalenderContext())
             {
-                context.Nations.Add(n);
+                context.Nation.Add(n);
                 context.SaveChanges();
             }
         }
 
         public Nation GetNation(int id)
         {
-            using (context)
+            using (var context = new EventkalenderContext())
             {
-                return context.Nations.Find(id);
+                return context.Nation.Find(id);
             }
         }
 
-        //public List<Nation> GetNations()
-        //{
-        //    using (context)
-        //    {
-        //        return context.Nations.
-        //    }
-        //}
+        public IQueryable<Nation> GetNations()
+        {
+            using (var context = new EventkalenderContext())
+            {
+                return context.Nation;
+            }
+        }
 
         public void AddEvent(Event e)
         {
-            using (context)
+            using (var context = new EventkalenderContext())
             {
-                context.Events.Add(e);
+                context.Event.Add(e);
                 context.SaveChanges();
             }
         }
 
         public Event GetEvent(int id)
         {
-            using (context)
+            using (var context = new EventkalenderContext())
             {
-                return context.Events.Find(id);
+                return context.Event.Find(id);
+            }
+        }
+
+        public IQueryable<Event> GetEvents()
+        {
+            using (var context = new EventkalenderContext())
+            {
+                return context.Event;
             }
         }
 
         public void AddPerson(Person p)
         {
-            using (context)
+            using (var context = new EventkalenderContext())
             {
-                context.Persons.Add(p);
+                context.Person.Add(p);
                 context.SaveChanges();
             }
         }
 
         public Person GetPerson(int id)
         {
-            using (context)
+            using (var context = new EventkalenderContext())
             {
-                return context.Persons.Find(id);
+                return context.Person.Find(id);
+            }
+        }
+
+        public List<Person> GetPersons()
+        {
+            using (var context = new EventkalenderContext())
+            {
+                return context.Person.ToList();
             }
         }
 

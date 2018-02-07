@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
-    public class Configuration : DbConfiguration
+    public class SqlServerConfiguration : DbConfiguration
     {
-        public Configuration()
+        public SqlServerConfiguration()
         {
             SetDefaultConnectionFactory(new SqlConnectionFactory());
         }

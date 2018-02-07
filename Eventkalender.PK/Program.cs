@@ -1,9 +1,10 @@
-﻿using Eventkalender.Database;
+﻿using Eventkalender.Database.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,17 +14,10 @@ namespace Eventkalender.PK
     {
         public static void Main(string[] args)
         {
-            //DatabaseClient client = new DatabaseClient("eventkalender-db.xml");
+            Nation n = new Nation();
+            n.Name = "TestName";
 
-            string d = Directory.GetCurrentDirectory();
-            Console.WriteLine(d);
-            Console.Read();
-
-            using (SqlConnection c = DatabaseClient.GetConnection("eventkalender-db.xml"))
-            {
-                string version = c.ServerVersion;
-                Console.WriteLine("V: " + version);
-            }
+            Console.WriteLine(n.Name);
 
             Console.ReadKey();
         }

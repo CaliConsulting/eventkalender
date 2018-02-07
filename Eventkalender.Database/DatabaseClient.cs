@@ -12,17 +12,20 @@ namespace Eventkalender.Database
     {
         public static SqlConnection GetConnection(string xmlPath)
         {
+            SqlConnection connection = new SqlConnection(GetConnectionString(xmlPath));
+            connection.Open();
+            return connection;
+        }
+
+        public static string GetConnectionString(string xmlPath)
+        {
             Dictionary<string, string> values = ReadXmlFile(xmlPath);
             string dataSource = values["DataSource"];
             string database = values["Database"];
             string username = values["Username"];
             string password = values["Password"];
 
-            String connectionString = String.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3};", dataSource, database, username, password);
-
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-            return connection;
+            return String.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3};", dataSource, database, username, password);
         }
 
         public static Dictionary<string, string> ReadXmlFile(string xmlPath)

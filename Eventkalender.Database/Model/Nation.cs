@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Model
+namespace Eventkalender.Database.Model
 {
     public class Nation
     {
@@ -12,17 +12,13 @@ namespace Eventkalender.Model
 
         private List<Event> events;
 
-        public string Name
+        public Nation()
         {
-            get { return name; }
-            set { name = value; }
+
         }
 
-        public List<Event> Events
-        {
-            get { return events; }
-            set { events = value; }
-        }
+        public string Name { get; set; }
+        public List<Event> Events { get; set; }
 
     }
 }

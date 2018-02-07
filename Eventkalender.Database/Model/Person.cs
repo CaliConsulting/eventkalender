@@ -8,8 +8,8 @@ namespace Eventkalender.Database.Model
 {
     public class Person
     {
-        private string firstname;
-        private string lastname;
+        private string firstName;
+        private string lastName;
 
         private List<Event> events;
 
@@ -18,8 +18,8 @@ namespace Eventkalender.Database.Model
 
         }
 
-        public string Lastname { get; set; }
-        public string Firstname { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
         public List<Event> Events { get; set; }
 
     }

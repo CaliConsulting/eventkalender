@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,15 @@ namespace Eventkalender.Database
             string password = values["Password"];
 
             return String.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3};", dataSource, database, username, password);
+        }
+
+        public static string GetEntityFrameworkConnectionString(string xmlPath)
+        {
+            EntityConnectionStringBuilder entityBuilder = new EntityConnectionStringBuilder();
+            entityBuilder.Provider = "System.Data.SqlClient";
+            entityBuilder.ProviderConnectionString = GetConnectionString(xmlPath);
+            //entityBuilder.Metadata = @"res://*/Model.csdl|res://*/Model.ssdl|res://*/Model.msl";
+            return entityBuilder.ConnectionString.Replace("\"", "'");
         }
 
         public static Dictionary<string, string> ReadXmlFile(string xmlPath)

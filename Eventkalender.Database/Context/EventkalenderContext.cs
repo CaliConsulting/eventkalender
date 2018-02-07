@@ -12,7 +12,7 @@ namespace Eventkalender.Database.Context
     {
         public EventkalenderContext(string connectionString) : base(connectionString)
         {
-
+            //this.Database.Connection.ConnectionString = DatabaseClient.GetConnectionString("eventkalender-db.xml");
         }
 
         public DbSet<Nation> Nations { get; set; }

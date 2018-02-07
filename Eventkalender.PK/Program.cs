@@ -1,4 +1,6 @@
-﻿using Eventkalender.Database.Model;
+﻿using Eventkalender.Database;
+using Eventkalender.Database.DAL;
+using Eventkalender.Database.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,10 +16,15 @@ namespace Eventkalender.PK
     {
         public static void Main(string[] args)
         {
-            Nation n = new Nation();
-            n.Name = "TestName";
+            string con = DatabaseClient.GetEntityFrameworkConnectionString("eventkalender-db.xml");
+            Console.WriteLine(con);
 
-            Console.WriteLine(n.Name);
+            EventkalenderDAL dal = new EventkalenderDAL();
+            Person p = dal.GetPerson(1);
+            Console.WriteLine(p.FirstName);
+
+            string s = DatabaseClient.GetConnectionString("eventkalender-db.xml");
+            Console.WriteLine(s);
 
             Console.ReadKey();
         }

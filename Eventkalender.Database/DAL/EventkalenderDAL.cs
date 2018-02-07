@@ -14,7 +14,7 @@ namespace Eventkalender.Database.DAL
 
         public EventkalenderDAL()
         {
-            context = new EventkalenderContext(DatabaseClient.GetConnectionString("eventkalender-db.xml"));
+            context = new EventkalenderContext(DatabaseClient.GetEntityFrameworkConnectionString("eventkalender-db.xml"));
         }
 
         public void AddNation(Nation n)
@@ -34,6 +34,14 @@ namespace Eventkalender.Database.DAL
             }
         }
 
+        //public List<Nation> GetNations()
+        //{
+        //    using (context)
+        //    {
+        //        return context.Nations.
+        //    }
+        //}
+
         public void AddEvent(Event e)
         {
             using (context)
@@ -48,6 +56,23 @@ namespace Eventkalender.Database.DAL
             using (context)
             {
                 return context.Events.Find(id);
+            }
+        }
+
+        public void AddPerson(Person p)
+        {
+            using (context)
+            {
+                context.Persons.Add(p);
+                context.SaveChanges();
+            }
+        }
+
+        public Person GetPerson(int id)
+        {
+            using (context)
+            {
+                return context.Persons.Find(id);
             }
         }
 

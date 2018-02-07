@@ -24,7 +24,7 @@ Create Table Person (
 	CONSTRAINT PK_Person PRIMARY KEY(ID))
 
 CREATE TABLE Attending(
-	PersonID INT NOT NULL IDENTITY(1,1),
+	PersonID INT NOT NULL,
 	NationEventID INT NOT NULL
 	CONSTRAINT PK_Attending PRIMARY KEY(PersonID,NationEventID)
 	CONSTRAINT FK_Attending_Person FOREIGN KEY (PersonID)
@@ -40,8 +40,8 @@ INSERT INTO Person VALUES ('Philip','Ericsson')
 INSERT INTO Person VALUES ('Philip','Eriksson')
 INSERT INTO Person VALUES ('Hampus','Sandell')
 
-INSERT INTO NationEvent VALUES('Casanova','20180224 22:30:00','20180223 02:00:00', 'Meat is back on the menu boys')
-INSERT INTO NationEvent VALUES('Sunset','20180222 22:30:00','20180223 02:00:00', 'Meat is back on the menu girls')
-
 INSERT INTO Nation VALUES ('Malmo Nation')
 INSERT INTO Nation VALUES ('Ostgota Nation')
+
+INSERT INTO NationEvent VALUES('Casanova','20180224 22:30:00','20180223 02:00:00', 'Meat is back on the menu boys',1)
+INSERT INTO NationEvent VALUES('Sunset','20180222 22:30:00','20180223 02:00:00', 'Meat is back on the menu girls',2)

@@ -34,5 +34,13 @@ CREATE TABLE Attending(
 	ON DELETE CASCADE)
 
 INSERT INTO Person VALUES ('Daniel','Nilsson')
+INSERT INTO Person VALUES ('Johan','Dyster-Aas')
+INSERT INTO Person VALUES ('Philip','Ericsson')
+INSERT INTO Person VALUES ('Philip','Eriksson')
+INSERT INTO Person VALUES ('Hampus','Sandell')
+
+INSERT INTO NationEvent VALUES('Casanova','20180224 22:30:00','20180223 02:00:00', 'Meat is back on the menu boys')
 INSERT INTO NationEvent VALUES('Sunset','20180222 22:30:00','20180223 02:00:00', 'Meat is back on the menu girls')
+
+INSERT INTO Nation VALUES ('Malmo Nation')
 INSERT INTO Nation VALUES ('Ostgota Nation')

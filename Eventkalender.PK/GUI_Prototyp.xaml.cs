@@ -23,5 +23,11 @@ namespace Eventkalender.PK.GUI
         {
             InitializeComponent();
         }
+
+        public void ProgramKonstruktion()
+        {
+                
+        }
+
     }
 }

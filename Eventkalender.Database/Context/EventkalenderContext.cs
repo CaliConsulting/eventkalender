@@ -26,8 +26,5 @@ namespace Eventkalender.Database.Context
         public DbSet<Event> Event { get; set; }
 
         public DbSet<Person> Person { get; set; }
-
-        //public DbSet<Attendant> Attendants { get; set; }
-
     }
 }

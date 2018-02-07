@@ -31,15 +31,15 @@ namespace Eventkalender.Database.DAL
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Nation.Find(id);
+                return context.Nation.Include(n => n.Events).SingleOrDefault(n => n.Id == id);
             }
         }
 
-        public IQueryable<Nation> GetNations()
+        public List<Nation> GetNations()
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Nation;
+                return context.Nation.Include(n => n.Events).ToList();
             }
         }
 
@@ -56,15 +56,15 @@ namespace Eventkalender.Database.DAL
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Event.Find(id);
+                return context.Event.Include(e => e.Persons).SingleOrDefault(e => e.Id == id);
             }
         }
 
-        public IQueryable<Event> GetEvents()
+        public List<Event> GetEvents()
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Event;
+                return context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
             }
         }
 
@@ -81,7 +81,7 @@ namespace Eventkalender.Database.DAL
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Person.Find(id);
+                return context.Person.Include(p => p.Events).SingleOrDefault(p => p.Id == id);
             }
         }
 
@@ -89,7 +89,7 @@ namespace Eventkalender.Database.DAL
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Person.ToList();
+                return context.Person.Include(p => p.Events).ToList();
             }
         }
 

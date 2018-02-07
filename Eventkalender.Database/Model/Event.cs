@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 
 namespace Eventkalender.Database.Model
 {
-    [Table("NationEvent")]
     public class Event
     {
-        //private int id;
-        //private string name;
-        //private string summary;
-
-        //private DateTime startTime;
-        //private DateTime endTime;
-
-        //private List<Person> persons;
-
         public Event()
         {
 
+        }
+
+        public Event(string name, string summary, DateTime startTime, DateTime endTime) : base()
+        {
+            Name = name;
+            Summary = summary;
+            StartTime = startTime;
+            EndTime = endTime;
         }
 
         [Key]
@@ -36,6 +34,8 @@ namespace Eventkalender.Database.Model
 
         public DateTime EndTime { get; set; }
 
-        public List<Person> Persons { get; set; }
+        public virtual Nation Nation { get; set; }
+
+        public virtual ICollection<Person> Persons { get; set; }
     }
 }

@@ -10,23 +10,23 @@ namespace Eventkalender.Database.Model
 {
     public class Person
     {
-        //private int id;
-        //private string firstName;
-        //private string lastName;
-
-        //private List<Event> events;
-
         public Person()
         {
 
         }
 
+        public Person(string firstName, string lastName) : base()
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
         [Key]
         public int Id { get; set; }
 
-        public string LastName { get; set; }
-
         public string FirstName { get; set; }
+
+        public string LastName { get; set; }
 
         [NotMapped]
         public string FullName
@@ -35,6 +35,6 @@ namespace Eventkalender.Database.Model
             private set { }
         }
 
-        public List<Event> Events { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

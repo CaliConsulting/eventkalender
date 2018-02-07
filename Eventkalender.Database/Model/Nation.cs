@@ -9,14 +9,14 @@ namespace Eventkalender.Database.Model
 {
     public class Nation
     {
-        //private int id;
-        //private string name;
-
-        //private List<Event> events;
-
         public Nation()
         {
 
+        }
+
+        public Nation(string name) : base()
+        {
+            Name = name;
         }
 
         [Key]
@@ -24,6 +24,6 @@ namespace Eventkalender.Database.Model
 
         public string Name { get; set; }
 
-        public List<Event> Events { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

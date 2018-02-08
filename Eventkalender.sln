@@ -1,11 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventkalender.PK", "Eventkalender.PK\Eventkalender.PK.csproj", "{40777A24-0BED-4116-A023-D69E62DC3703}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventkalender.Database", "Eventkalender.Database\Eventkalender.Database.csproj", "{3FB7F54B-1B3E-4A38-AE08-F487A6276D29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventkalender.Database", "Eventkalender.Database\Eventkalender.Database.csproj", "{3FB7F54B-1B3E-4A38-AE08-F487A6276D29}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Eventkalender.WS", "Eventkalender.WS\", "{DAB7DE03-1425-4FD6-AED6-58D6F585252E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{3fb7f54b-1b3e-4a38-ae08-f487a6276d29}|Eventkalender.Database.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52314"
+		Debug.AspNetCompiler.PhysicalPath = "Eventkalender.WS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52314\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52314"
+		Release.AspNetCompiler.PhysicalPath = "Eventkalender.WS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52314\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52314"
+		SlnRelativePath = "Eventkalender.WS\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +74,22 @@ Global
 		{3FB7F54B-1B3E-4A38-AE08-F487A6276D29}.Release|x64.Build.0 = Release|Any CPU
 		{3FB7F54B-1B3E-4A38-AE08-F487A6276D29}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FB7F54B-1B3E-4A38-AE08-F487A6276D29}.Release|x86.Build.0 = Release|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|x64.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Debug|x86.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|ARM.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|ARM.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x64.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x64.Build.0 = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x86.ActiveCfg = Debug|Any CPU
+		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

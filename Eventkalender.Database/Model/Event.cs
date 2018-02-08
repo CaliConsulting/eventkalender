@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Eventkalender.Database.Model
 {
+    [Serializable]
     public class Event
     {
         public Event()

@@ -35,7 +35,9 @@
                                     Text ="Sök"
                                     Grid.Row="2"
                                     Grid.Column="1"
-                                    Width="100"/>
+                                    Width="100"
+                                    Height="20"
+                                    AutoWordSelection="True"/>
                                 <TextBlock 
                                     Grid.Column="1"
                                     Grid.Row="3"

@@ -25,7 +25,7 @@ public class CronusService : WebService
         cronusController = new CronusController();
     }
 
-    [WebMethod]
+    /* [WebMethod]
     public void Update()
     {
 
@@ -49,6 +49,7 @@ public class CronusService : WebService
 
         return cronusController.Select();
     }
+    */
     [WebMethod]
     public List<String> GetKeys()
     {
@@ -79,7 +80,9 @@ public class CronusService : WebService
 
         return cronusController.GetColumnsForEmployeeTable();
     }
-    [WebMethod]
+
+   /* [WebMethod]
+
 
 
     public void Employee()
@@ -103,6 +106,6 @@ public class CronusService : WebService
     public void GetIllestEmployee()
     {
 
-        return cronusController.GetIllestEmployee();
-    }
+        return cronusController.GetIllestEmployee(); 
+    } */
 }

@@ -11,14 +11,24 @@ namespace Eventkalender.Database
 {
     public class DatabaseClient
     {
-        //public static SqlConnection GetConnection(string xmlPath)
-        //{
-        //    SqlConnection connection = new SqlConnection(GetConnectionString(xmlPath));
-        //    connection.Open();
-        //    return connection;
-        //}
+        public static SqlConnection GetConnection(string xmlPath)
+        {
+            SqlConnection connection = new SqlConnection(GetSqlServerConnectionString(xmlPath));
+            return connection;
+        }
 
-        public static string GetConnectionString(string xmlPath)
+        public static string GetOdbcConnectionString(string xmlPath)
+        {
+            Dictionary<string, string> values = ReadXmlFile(xmlPath);
+            string dataSource = values["DataSource"];
+            string database = values["Database"];
+            string username = values["Username"];
+            string password = values["Password"];
+
+            return String.Format("Driver={{ODBC Driver 13 for SQL Server}};server={0};database={1};uid={2};pwd={3};", dataSource, database, username, password);
+        }
+
+        public static string GetSqlServerConnectionString(string xmlPath)
         {
             Dictionary<string, string> values = ReadXmlFile(xmlPath);
             string dataSource = values["DataSource"];

@@ -53,7 +53,14 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,8 +85,7 @@
     <Compile Include="GUI_Prototyp.xaml.cs">
       <DependentUpon>GUI_Prototyp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Event.cs" />
-    <Compile Include="Model\Nation.cs" />
+    <Compile Include="Controller\Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -131,5 +137,12 @@
   <ItemGroup>
     <Folder Include="GUI\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eventkalender.Database\Eventkalender.Database.csproj">
+      <Project>{3fb7f54b-1b3e-4a38-ae08-f487a6276d29}</Project>
+      <Name>Eventkalender.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

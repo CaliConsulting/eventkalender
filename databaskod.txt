@@ -1,0 +1,47 @@
+
+Create Table Nation (
+	ID  int NOT NULL IDENTITY(1,1),
+	Name varchar(20) NOT NULL,
+	CONSTRAINT PK_Nation PRIMARY KEY (ID))
+
+Create Table NationEvent (
+	ID INT NOT NULL IDENTITY(1,1),
+	Name VARCHAR(30) NOT NULL,
+	StartTime DATETIME NOT NULL,
+	EndTime DATETIME NOT NULL,
+	Summary VARCHAR(300) NOT NULL,
+	NationID INT NOT NULL
+	CONSTRAINT PK_NationEvent PRIMARY KEY(ID)
+	CONSTRAINT FK_NationEvent_Nation FOREIGN KEY(NationID)
+	REFERENCES Nation(ID)
+	ON DELETE CASCADE)
+
+
+Create Table Person (
+	ID INT NOT NULL IDENTITY(1,1),
+	FirstName VARCHAR(20) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	CONSTRAINT PK_Person PRIMARY KEY(ID))
+
+CREATE TABLE Attending(
+	PersonID INT NOT NULL,
+	NationEventID INT NOT NULL
+	CONSTRAINT PK_Attending PRIMARY KEY(PersonID,NationEventID)
+	CONSTRAINT FK_Attending_Person FOREIGN KEY (PersonID)
+	REFERENCES Person(ID)
+	ON DELETE CASCADE,
+	CONSTRAINT FK_Attending_NationEvent FOREIGN KEY (NationEventID)
+	REFERENCES NationEvent(ID)
+	ON DELETE CASCADE)
+
+INSERT INTO Person VALUES ('Daniel','Nilsson')
+INSERT INTO Person VALUES ('Johan','Dyster-Aas')
+INSERT INTO Person VALUES ('Philip','Ericsson')
+INSERT INTO Person VALUES ('Philip','Eriksson')
+INSERT INTO Person VALUES ('Hampus','Sandell')
+
+INSERT INTO Nation VALUES ('Malmo Nation')
+INSERT INTO Nation VALUES ('Ostgota Nation')
+
+INSERT INTO NationEvent VALUES('Casanova','20180224 22:30:00','20180223 02:00:00', 'Meat is back on the menu boys',1)
+INSERT INTO NationEvent VALUES('Sunset','20180222 22:30:00','20180223 02:00:00', 'Meat is back on the menu girls',2)

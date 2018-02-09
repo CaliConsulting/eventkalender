@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using Eventkalender.Database.Controller;
 
 [WebService(Namespace = "http://www.ics.lu.se.cali/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -15,11 +16,13 @@ using System.Web.Services;
 public class Service : System.Web.Services.WebService
 {
 
-    private EventkalenderDAL eventkalender;
+    
+    private EventkalenderController eventkalenderController;
 
     public Service () {
 
-        eventkalender = new EventkalenderDAL();
+      
+        eventkalenderController = new EventkalenderController();
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
         
@@ -35,52 +38,52 @@ public class Service : System.Web.Services.WebService
     [WebMethod]
     public Nation GetNation(int id) {
 
-        return eventkalender.GetNation(id);
+        return eventkalenderController.GetNation(id);
     }
     [WebMethod]
     public List<Nation> GetNations()
     {
-        return eventkalender.GetNations();
+        return eventkalenderController.GetNations();
     }
     [WebMethod]
     public void AddNation(string name)
     {
-        eventkalender.AddNation(new Nation(name));
+        eventkalenderController.AddNation(name);
        //parameter in här med namn?? string name?
     }
     [WebMethod]
-    public void AddEvent(string name, string summary)
+    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime)
     {
-        eventkalender.AddEvent(new Event(name,summary, DateTime.Now, DateTime.Now));
+        eventkalenderController.AddEvent(name,summary, startTime, endTime);
         //parameter in här med namn?? string name?
     }
     [WebMethod]
     public Event GetEvent(int id)
     {
-        return eventkalender.GetEvent(id);
+        return eventkalenderController.GetEvent(id);
         
     }
     [WebMethod]
     public List<Event> GetEvents()
     {
-        return eventkalender.GetEvents();
+        return eventkalenderController.GetEvents();
     }
     [WebMethod]
-    public void AddPerson(string name, string lastname)
+    public void AddPerson(string firstName, string lastName)
     {
-        eventkalender.AddPerson(new Person(name, lastname));
+        eventkalenderController.AddPerson(firstName, lastName);
         //parameter in här med namn?? string name?
     }
     [WebMethod]
     public Person GetPerson(int id)
     {
-        return eventkalender.GetPerson(id);
+        return eventkalenderController.GetPerson(id);
 
     }
     [WebMethod]
     public List<Person> GetPersons()
     {
-        return eventkalender.GetPersons();
+        return eventkalenderController.GetPersons();
     }
 
 

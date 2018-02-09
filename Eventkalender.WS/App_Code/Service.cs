@@ -43,15 +43,15 @@ public class Service : System.Web.Services.WebService
         return eventkalender.GetNations();
     }
     [WebMethod]
-    public void AddNation()
+    public void AddNation(string name)
     {
-        eventkalender.AddNation(new Nation());
+        eventkalender.AddNation(new Nation(name));
        //parameter in här med namn?? string name?
     }
     [WebMethod]
-    public void AddEvent()
+    public void AddEvent(string name, string summary)
     {
-        eventkalender.AddEvent(new Event());
+        eventkalender.AddEvent(new Event(name,summary, DateTime.Now, DateTime.Now));
         //parameter in här med namn?? string name?
     }
     [WebMethod]
@@ -66,9 +66,9 @@ public class Service : System.Web.Services.WebService
         return eventkalender.GetEvents();
     }
     [WebMethod]
-    public void AddPerson()
+    public void AddPerson(string name, string lastname)
     {
-        eventkalender.AddPerson(new Person());
+        eventkalender.AddPerson(new Person(name, lastname));
         //parameter in här med namn?? string name?
     }
     [WebMethod]

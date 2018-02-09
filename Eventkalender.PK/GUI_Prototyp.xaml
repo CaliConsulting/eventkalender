@@ -120,6 +120,11 @@
                                         <Calendar>
                                         </Calendar>
                                     </ComboBox>
+                                    <TextBlock Text="Beskrivning:"/>
+                                    <TextBox Height="100" FlowDirection="LeftToRight"
+                                             >
+                                        
+                                    </TextBox>
                                 </StackPanel>
                             </Canvas>
                         </TabItem>

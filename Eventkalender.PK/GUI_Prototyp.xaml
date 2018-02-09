@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eventkalender.PK.GUI"
+        xmlns:wpf="http://wpfcontrols.com/"
         mc:Ignorable="d"
         Title="GUI_Prototyp" Height="600" Width="600">
 
@@ -14,7 +15,8 @@
                 <StackPanel>
                     <TabControl>
                         <TabItem Header="Hitta events">
-                            <Grid Margin="0,0,-4.8,0">
+                            <Border>
+                            <Grid Margin="0,0,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="auto"/>
@@ -23,21 +25,21 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-
-                                <TextBox x:Name="SearchBox"
-                                    Text ="Sök"
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                <wpf:AutoCompleteTextBox x:Name="SearchBox"
+                                    GotKeyboardFocus="SearchBox_GotKeyboardFocus"
+                                    Watermark="Sök"
                                     Grid.Row="2"
                                     Grid.Column="1"
                                     Width="100"
-                                    Height="20"
-                                    AutoWordSelection="True"/>
+                                    Height="20"/>
                                 <TextBlock 
                                     Grid.Column="1"
                                     Grid.Row="3"
@@ -53,18 +55,68 @@
                                     <ComboBoxItem x:Name="Datum" Content="Tid"/>
                                     <ComboBoxItem x:Name="Nation" Content="Nation"/>
                                 </ComboBox>
+                                <ComboBox
+                                    Grid.Column="1"
+                                    Grid.Row="5"
+                                    Height="22"
+                                    Margin="0,5,0,0">
+                                    <ComboBoxItem Content="Starttid"/>
+                                    <ComboBoxItem Content="Stängningstid"/>
+                                </ComboBox>
                                 <DataGrid Grid.Column="3"
                                     Grid.Row="2"
                                     Width="400"
                                     Height="500"
                                     Grid.RowSpan="5" 
                                     Grid.ColumnSpan="2" 
-                                    Margin="1.6,0.4,0,-0.4">
+                                    Margin="1.6,0.4,0,-0.4"
+                                    IsReadOnly="True">
                                 </DataGrid>
                             </Grid>
+                          </Border>
                         </TabItem>
-                        <TabItem Header="Skapa events">
-                            Vi skapar events här
+                        <TabItem Header="Eventhantering">
+
+                            <Canvas Height="520" Margin="0,0,0.2,0">
+                                <StackPanel Canvas.Left="10" Canvas.Top="10"  >
+                                   <!-- <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                -->
+                                    <TextBlock Text="Lägg till Event"
+                                               FontWeight="BOLD"/>
+                                    <TextBlock Text="Eventnamn"/>
+                                    <TextBox Margin="5"
+                                             AcceptsReturn="True"
+                                             AcceptsTab="False"
+                                             Width="150">
+                                    </TextBox>
+                                    <TextBlock Text="Nation"/>
+                                    <wpf:AutoCompleteTextBox Grid.Column="2"
+                                             Grid.Row="3"
+                                             Margin="5"
+                                             Width="150">
+                                    </wpf:AutoCompleteTextBox>
+                                    <TextBlock Text="Datum"/>
+                                    <Calendar></Calendar>
+                                    <TextBlock Text="Tidpunkt"/>
+                                    
+
+                                </StackPanel>
+                            </Canvas>
                         </TabItem>
                     </TabControl>
                 </StackPanel>

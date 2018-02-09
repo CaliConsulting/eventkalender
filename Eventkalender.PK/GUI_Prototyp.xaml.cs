@@ -24,5 +24,9 @@ namespace Eventkalender.PK.GUI
             InitializeComponent();
         }
 
+        private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            
+        }
     }
 }

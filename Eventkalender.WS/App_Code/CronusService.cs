@@ -49,4 +49,58 @@ public class CronusService : WebService
 
         return cronusController.Select();
     }
+    [WebMethod]
+    public void GetKeys()
+    {
+
+        return cronusController.GetKeys();
+    }
+    [WebMethod]
+    public void GetIndexes()
+    {
+
+        return cronusController.GetIndexes();
+    }
+    [WebMethod]
+    public void GetTableConstraints()
+    {
+
+        return cronusController.GetTableConstraints();
+    }
+    [WebMethod]
+    public void GetTables()
+    {
+
+        return cronusController.GetTables();
+    }
+    [WebMethod]
+    public void GetTableColumns()
+    {
+
+        return cronusController.GetTableColumns();
+    }
+    [WebMethod]
+    public void Employee()
+    {
+
+        return cronusController.GetEmployee();
+    }
+    [WebMethod]
+    public void GetEmployeeRelatives()
+    {
+
+        return cronusController.GetEmployeeRelatives();
+    }
+    [WebMethod]
+    public void GetIllemployee(int year)
+    {
+
+        return cronusController.GetIllEmployee();
+    }
+    [WebMethod]
+    public void GetIllestEmployee()
+    {
+
+        return cronusController.GetIllestEmployee();
+    }
 }

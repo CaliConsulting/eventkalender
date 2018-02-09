@@ -19,7 +19,7 @@ public class EventkalenderService : System.Web.Services.WebService
     
     private EventkalenderController eventkalenderController;
 
-    public EventkalenderService ()
+    public EventkalenderService()
     {
 
       

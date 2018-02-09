@@ -13,13 +13,14 @@ using Eventkalender.Database.Controller;
 // [System.Web.Script.Services.ScriptService]
 // Anropa controller här istället för att direkt anropa databasen. sen till controller så jag kan göra using, fixa reference.
 
-public class Service : System.Web.Services.WebService
+public class EventkalenderService : System.Web.Services.WebService
 {
 
     
     private EventkalenderController eventkalenderController;
 
-    public Service () {
+    public EventkalenderService ()
+    {
 
       
         eventkalenderController = new EventkalenderController();

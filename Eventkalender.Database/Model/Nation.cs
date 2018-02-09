@@ -24,6 +24,6 @@ namespace Eventkalender.Database.Model
 
         public string Name { get; set; }
 
-        public virtual ICollection<Event> Events { get; set; }
+        public virtual List<Event> Events { get; set; }
     }
 }

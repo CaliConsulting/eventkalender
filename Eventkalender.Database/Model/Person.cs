@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Eventkalender.Database.Model
 {
@@ -29,12 +30,13 @@ namespace Eventkalender.Database.Model
         public string LastName { get; set; }
 
         [NotMapped]
+        [XmlIgnore]
         public string FullName
         {
             get { return String.Format("{0} {1}", FirstName, LastName); }
             private set { }
         }
 
-        public virtual ICollection<Event> Events { get; set; }
+        public virtual List<Event> Events { get; set; }
     }
 }

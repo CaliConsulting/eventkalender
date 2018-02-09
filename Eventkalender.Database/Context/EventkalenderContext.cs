@@ -13,7 +13,7 @@ namespace Eventkalender.Database.Context
     {
         public EventkalenderContext() : base(DatabaseClient.GetSqlServerConnectionString("eventkalender-db.xml"))
         {
-
+            Configuration.ProxyCreationEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

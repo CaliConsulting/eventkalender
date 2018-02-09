@@ -19,7 +19,7 @@ using Eventkalender.Database.Controller;
 public class CronusService : WebService
 {
 
-    private CronusController cronsusController;
+    private CronusController cronusController;
     public CronusService()
     {
         cronusController = new CronusController();
@@ -50,36 +50,38 @@ public class CronusService : WebService
         return cronusController.Select();
     }
     [WebMethod]
-    public void GetKeys()
+    public List<String> GetKeys()
     {
 
         return cronusController.GetKeys();
     }
     [WebMethod]
-    public void GetIndexes()
+    public List<String> GetIndexes()
     {
 
         return cronusController.GetIndexes();
     }
     [WebMethod]
-    public void GetTableConstraints()
+    public List<String> GetTableConstraints()
     {
 
         return cronusController.GetTableConstraints();
     }
     [WebMethod]
-    public void GetTables()
+    public List<String> GetTables()
     {
 
         return cronusController.GetTables();
     }
     [WebMethod]
-    public void GetColumnsForEmployeeTable()
+    public List<String> GetColumnsForEmployeeTable()
     {
 
         return cronusController.GetColumnsForEmployeeTable();
     }
     [WebMethod]
+
+
     public void Employee()
     {
 

@@ -11,7 +11,7 @@ namespace Eventkalender.Database.Context
 {
     public class EventkalenderContext : DbContext
     {
-        public EventkalenderContext() : base(DatabaseClient.GetConnectionString("eventkalender-db.xml"))
+        public EventkalenderContext() : base(DatabaseClient.GetSqlServerConnectionString("eventkalender-db.xml"))
         {
 
         }

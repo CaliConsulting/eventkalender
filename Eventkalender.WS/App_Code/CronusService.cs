@@ -74,10 +74,10 @@ public class CronusService : WebService
         return cronusController.GetTables();
     }
     [WebMethod]
-    public void GetTableColumns()
+    public void GetColumnsForEmployeeTable()
     {
 
-        return cronusController.GetTableColumns();
+        return cronusController.GetColumnsForEmployeeTable();
     }
     [WebMethod]
     public void Employee()

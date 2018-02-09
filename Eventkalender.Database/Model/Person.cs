@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 
 namespace Eventkalender.Database.Model
 {
+    [Serializable]
     public class Person
     {
         public Person()

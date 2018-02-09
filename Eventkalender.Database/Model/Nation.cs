@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Eventkalender.Database.Model
 {
+    [Serializable]
     public class Nation
     {
         public Nation()

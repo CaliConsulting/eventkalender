@@ -1,0 +1,18 @@
+SELECT * FROM Person;
+
+SELECT * FROM Nation;
+
+SELECT * FROM Event;
+
+SELECT * FROM PersonEvent;
+
+/*
+INSERT INTO Person (FirstName, LastName) VALUES ('Daniel', 'Nilsson');
+INSERT INTO Person (FirstName, LastName) VALUES ('Hampus', 'Sandell');
+
+INSERT INTO Nation (Name) VALUES ('Malmo Nation');
+
+INSERT INTO Event (Name, Summary, StartTime, EndTime, Nation_Id) VALUES ('TestEventMalmo', 'This is test', GETDATE(), GETDATE(), 1);
+
+INSERT INTO PersonEvent (Person_Id, Event_Id) VALUES (1, 1);
+*/

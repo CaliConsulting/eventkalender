@@ -38,8 +38,7 @@ namespace Eventkalender.Database.Model
             get { return String.Format("{0} {1}", FirstName, LastName); }
             private set { }
         }
-
-        [XmlIgnore]
+        
         public virtual List<Event> Events { get; set; }
     }
 }

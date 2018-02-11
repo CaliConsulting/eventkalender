@@ -11,7 +11,6 @@ using System.Xml.Serialization;
 namespace Eventkalender.Database.Model
 {
     [Serializable]
-    [DataContract(IsReference = true)]
     public class Event
     {
         public Event()

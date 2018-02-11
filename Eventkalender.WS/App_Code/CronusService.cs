@@ -7,19 +7,12 @@ using System.Web;
 using System.Web.Services;
 using Eventkalender.Database.Controller;
 
-
-
 [WebService(Namespace = "http://www.ics.lu.se.cali/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-
-// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-// [System.Web.Script.Services.ScriptService]
-
-
 public class CronusService : WebService
 {
-
     private CronusController cronusController;
+
     public CronusService()
     {
         cronusController = new CronusController();
@@ -50,34 +43,34 @@ public class CronusService : WebService
         return cronusController.Select();
     }
     */
+
     [WebMethod]
     public List<String> GetKeys()
     {
-
         return cronusController.GetKeys();
     }
+
     [WebMethod]
     public List<String> GetIndexes()
     {
-
         return cronusController.GetIndexes();
     }
+
     [WebMethod]
     public List<String> GetTableConstraints()
     {
-
         return cronusController.GetTableConstraints();
     }
+
     [WebMethod]
     public List<String> GetTables()
     {
-
         return cronusController.GetTables();
     }
+
     [WebMethod]
     public List<String> GetColumnsForEmployeeTable()
     {
-
         return cronusController.GetColumnsForEmployeeTable();
     }
 

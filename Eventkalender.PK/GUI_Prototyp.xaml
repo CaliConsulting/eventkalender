@@ -163,10 +163,12 @@
                                             Margin="0,15,0,0"
                                             Width="100"
                                             HorizontalAlignment="Left"/>
-                                    <DataGrid Height="200"
+                                    <DataGrid x:Name="datagrid_ErasePerson"
+                                              Height="200"
                                               Width="300"
                                               Margin="0,15,0,0"/>
-                                    <Button Content="Radera"
+                                    <Button x:Name="btn_ErasePerson"
+                                            Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"/>
                                 </StackPanel>

@@ -42,5 +42,10 @@ namespace Eventkalender.Database.Controller
         {
             return metadataDAL.GetColumnsForEmployeeTable();
         }
+
+        public Model.Tuple GetIllestPerson()
+        {
+            return dataDAL.GetIllestPerson();
+        }
     }
 }

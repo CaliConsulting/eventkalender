@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Eventkalender.Database.Model
 {
+    [Serializable]
     public class Tuple
     {
+        [XmlAttribute]
         private Dictionary<string, string> values;
 
         public Tuple()
@@ -20,12 +23,14 @@ namespace Eventkalender.Database.Model
             values.Add(column, value);
         }
 
+        [XmlIgnore]
         public Dictionary<string, string>.KeyCollection Columns
         {
             get { return values.Keys; }
             private set { }
         }
 
+        [XmlIgnore]
         public Dictionary<string, string>.ValueCollection Values
         {
             get { return values.Values; }

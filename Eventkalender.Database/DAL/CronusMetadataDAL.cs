@@ -123,5 +123,72 @@ namespace Eventkalender.Database.DAL
             }
         }
 
+        public List<string> GetMetaData(string inputQuery)
+        {
+            using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
+            {
+                connection.Open();
+                    
+                string query = inputQuery;
+
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<string> metadata = new List<string>();
+                while (reader.Read())
+                {
+
+                      for (int i = 0; i < reader.FieldCount; i++)
+                     {
+                        metadata.Add(reader.GetValue(i).ToString());
+                      //  metadata.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                    }
+                    
+                }
+                return metadata;
+            }
+        }
+    
+        public List<String> GetEmployeeMetaData()
+        {
+            string inputQuery = "Insätt Query";
+            return GetMetaData(inputQuery);
+
+        }
+
+        public List<String> GetEmployeeAbsenceMetaData()
+        {
+            string inputQuery = "Insätt Query";
+            return GetMetaData(inputQuery);
+            
+        }
+
+        public List<String> GetEmployeeRelativeMetaData()
+        {
+            string inputQuery = "Insätt Query";
+            return GetMetaData(inputQuery);
+
+        }
+
+        public List<String> GetEmployeePortalSetupMetaData()
+        {
+            string inputQuery = "Insätt Query";
+            return GetMetaData(inputQuery);
+
+        }
+
+        public List<String> GetEmployeeQualificationMetaData()
+        {
+            string inputQuery = "Insätt Query";
+            return GetMetaData(inputQuery);
+
+        }
+
+        public List<String> GetEmployeeStatisticsGroupMetaData()
+        {
+            string inputQuery = "Insätt Query";
+            return GetMetaData(inputQuery);
+
+        }
     }
 }

@@ -18,38 +18,107 @@ namespace Eventkalender.Database.Controller
             dataDAL = new CronusDataDAL();
         }
 
-        public List<string> GetKeys()
+        public List<String> GetKeys()
         {
             return metadataDAL.GetKeys();
         }
 
-        public List<string> GetIndexes()
+        public List<String> GetIndexes()
         {
             return metadataDAL.GetIndexes();
         }
 
-        public List<string> GetTableConstraints()
+        public List<String> GetTableConstraints()
         {
             return metadataDAL.GetTableConstraints();
         }
 
-        public List<string> GetTables()
+        public List<String> GetTables()
         {
             return metadataDAL.GetTables();
         }
 
-        public List<string> GetColumnsForEmployeeTable()
+        public List<String> GetColumnsForEmployeeTable()
         {
             return metadataDAL.GetColumnsForEmployeeTable();
         }
+
+        public List<String> GetEmployeeMetaData()
+        {
+            return metadataDAL.GetEmployeeMetaData();
+        }
+
+        public List<String> GetEmployeeAbsenceMetaData()
+        {
+            return metadataDAL.GetEmployeeAbsenceMetaData();
+        }
+
+        public List<String> GetEmployeeRelativeMetaData()
+        {
+            return metadataDAL.GetEmployeeRelativeMetaData();
+        }
+
+        public List<String> GetEmployeeQualificationMetaData()
+        {
+            return metadataDAL.GetEmployeeQualificationMetaData();
+        }
+
+        public List<String> GetEmployeePortalSetupMetaData()
+        {
+            return metadataDAL.GetEmployeePortalSetupMetaData();
+        }
+
+        public List<String> GetEmployeeStatisticsGroupMetaData()
+        {
+            return metadataDAL.GetEmployeeStatisticsGroupMetaData();
+        }
+
+        //HÄR BÖRJAR DATADAL
 
         public Model.Tuple GetIllestPerson()
         {
             return dataDAL.GetIllestPerson();
         }
-        public List<Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+
+        public List<Model.Tuple> GetIllPersonsByYear(int startYear, int endYear)
         {
-            return dataDAL.GetSickPersonByYear(startYear, endYear);
+            return dataDAL.GetIllPersonsByYear(startYear, endYear);
         }
+
+        public List<Model.Tuple> GetEmployeeAndRelatives()
+        {
+            return dataDAL.GetEmployeeAndRelatives();
+        }
+
+        public List<Model.Tuple> GetEmployeeData()
+        {
+            return dataDAL.GetEmployeeData();
+        }
+
+        public List<Model.Tuple> GetEmployeeAbsenceData()
+        {
+            return dataDAL.GetEmployeeAbsenceData();
+        }
+
+        public List<Model.Tuple> GetEmployeeRelativeData()
+        {
+            return dataDAL.GetEmployeeRelativeData();
+        }
+
+        public List<Model.Tuple> GetEmployeeQualificationData()
+        {
+            return dataDAL.GetEmployeeQualificationData();
+        }
+
+        public List<Model.Tuple> GetEmployeePortalSetupData()
+        {
+            return dataDAL.GetEmployeePortalSetupData();
+        }
+
+        public List<Model.Tuple> GetEmployeeStatisticsGroupData()
+        {
+            return dataDAL.GetEmployeeStatisticsGroupData();
+        }
+
     }
 }

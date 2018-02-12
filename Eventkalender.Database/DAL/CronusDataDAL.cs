@@ -47,7 +47,7 @@ namespace Eventkalender.Database.DAL
                 return person;
             }
         }
-        public List<Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+        public List<Model.Tuple> GetIllPersonsByYear(int startYear, int endYear)
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -69,7 +69,7 @@ namespace Eventkalender.Database.DAL
                 startDateParam.Value = startDate;
                 command.Parameters.Add(startDateParam);
 
-                SqlParameter endDateParam = new SqlParameter("@endDate", System.Data.SqlDbType.Date);
+                SqlParameter endDateParam = new SqlParameter("@endDate", System.Data.SqlDbType.DateTime);
                 endDateParam.Value = endDate;
                 command.Parameters.Add(endDateParam);
 
@@ -90,6 +90,103 @@ namespace Eventkalender.Database.DAL
                 return tuples;
             }
         }
+        public List<Model.Tuple> GetEmployeeAndRelatives()
+        {
+            using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
+            {
+                connection.Open();
+
+                StringBuilder builder = new StringBuilder();
+                builder.Append("SELECT a.[First Name], a.[Last Name], b.[Relative Code] AS Relative, b.[First Name], b.[Last Name] FROM ");
+                builder.Append("[CRONUS Sverige AB$Employee] a JOIN [CRONUS Sverige AB$Employee Relative] b ON a.No_ = b.[Employee No_]");
+      
+                string query = builder.ToString();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<Model.Tuple> tuples = new List<Model.Tuple>();
+                while (reader.Read())
+                {
+                    Model.Tuple person = new Model.Tuple();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        person.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                    }
+                    tuples.Add(person);
+                }
+                return tuples;
+            }
+        }
+
+        public List<Model.Tuple> GetData(string inputQuery)
+        {
+            using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
+            {
+                connection.Open();
+
+                string query = inputQuery;
+
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<Model.Tuple> tuples = new List<Model.Tuple>();
+                while (reader.Read())
+                {
+                    Model.Tuple person = new Model.Tuple();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        person.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                    }
+                    tuples.Add(person);
+                }
+                return tuples;
+            }
+        }
+
+        public List<Model.Tuple> GetEmployeeData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee]";
+            return GetData(inputQuery);
+
+        }
+
+        public List<Model.Tuple> GetEmployeeAbsenceData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Absence]";
+            return GetData(inputQuery);
+
+        }
+
+        public List<Model.Tuple> GetEmployeeRelativeData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Relative]";
+            return GetData(inputQuery);
+
+        }
+
+        public List<Model.Tuple> GetEmployeePortalSetupData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Portal Setup]";
+            return GetData(inputQuery);
+
+        }
+
+        public List<Model.Tuple> GetEmployeeQualificationData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Qualification]";
+            return GetData(inputQuery);
+
+        }
+
+        public List<Model.Tuple> GetEmployeeStatisticsGroupData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Statistics Group]";
+            return GetData(inputQuery);
+
+        }
+
 
     }
 }

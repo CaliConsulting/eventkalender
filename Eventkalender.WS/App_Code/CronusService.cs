@@ -80,36 +80,88 @@ public class CronusService : WebService
         return cronusController.GetIllestPerson();
     }
     [WebMethod]
-    public List<Eventkalender.Database.Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+    public List<Eventkalender.Database.Model.Tuple> GetIllPersonsByYear(int startYear, int endYear)
     {
-        return cronusController.GetSickPersonByYear(startYear, endYear);
+        return cronusController.GetIllPersonsByYear(startYear, endYear);
+    }
+    [WebMethod]
+    public List<Eventkalender.Database.Model.Tuple> GetEmployeeAndRelatves()
+    {
+        return cronusController.GetEmployeeAndRelatives();
     }
 
-    /* [WebMethod]
 
-
-
-     public void Employee()
+    [WebMethod]
+     public List<Eventkalender.Database.Model.Tuple> GetEmployeeData()
      {
-
-         return cronusController.GetEmployee();
+        return cronusController.GetEmployeeData();
      }
-     [WebMethod]
-     public void GetEmployeeRelatives()
-     {
 
-         return cronusController.GetEmployeeRelatives();
+    [WebMethod]
+    public List<Eventkalender.Database.Model.Tuple> GetEmployeeAbsenceData()
+    {
+        return cronusController.GetEmployeeAbsenceData();
+    }
+
+    [WebMethod]
+     public List<Eventkalender.Database.Model.Tuple> GetEmployeeRelativeData()
+     {
+        return cronusController.GetEmployeeRelativeData();
      }
-     [WebMethod]
-     public void GetIllemployee(int year)
-     {
 
-         return cronusController.GetIllEmployee();
+     [WebMethod]
+     public List<Eventkalender.Database.Model.Tuple> GetEmployeeQualificationData()
+     {
+        return cronusController.GetEmployeeQualificationData();
      }
-     [WebMethod]
-     public void GetIllestEmployee()
-     {
 
-         return cronusController.GetIllestEmployee(); 
-     } */
+    [WebMethod]
+    public List<Eventkalender.Database.Model.Tuple> GetEmployeePortalSetupData()
+    {
+        return cronusController.GetEmployeePortalSetupData();
+    }
+
+
+    [WebMethod]
+     public List<Eventkalender.Database.Model.Tuple> GetEmployeeStatisticsGroupData()
+     {
+        return cronusController.GetEmployeeStatisticsGroupData();
+     }
+
+    [WebMethod]
+    public List<String> GetEmployeeMetaData()
+    {
+        return cronusController.GetEmployeeMetaData();
+    }
+
+    [WebMethod]
+    public List<string> GetEmployeeAbsenceMetaData()
+    {
+        return cronusController.GetEmployeeAbsenceMetaData();
+    }
+
+    [WebMethod]
+    public List<string> GetEmployeeRelativeMetaData()
+    {
+        return cronusController.GetEmployeeRelativeMetaData();
+    }
+
+    [WebMethod]
+    public List<string> GetEmployeeQualificationMetaData()
+    {
+        return cronusController.GetEmployeeQualificationMetaData();
+    }
+
+    [WebMethod]
+    public List<string> GetEmployeePortalSetupMetaData()
+    {
+        return cronusController.GetEmployeePortalSetupMetaData();
+    }
+
+
+    [WebMethod]
+    public List<string> GetEmployeeStatisticsGroupMetaData()
+    {
+        return cronusController.GetEmployeeStatisticsGroupMetaData();
+    }
 }

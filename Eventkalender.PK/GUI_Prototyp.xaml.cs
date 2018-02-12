@@ -33,5 +33,15 @@ namespace Eventkalender.PK.GUI
         {
 
         }
+        
+        private void datagridEvents_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
+
+        private void datagridEvents_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

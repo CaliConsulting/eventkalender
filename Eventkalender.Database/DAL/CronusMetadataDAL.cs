@@ -29,7 +29,7 @@ namespace Eventkalender.Database.DAL
                 List<string> keys = new List<string>();
                 while (reader.Read())
                 {
-                    keys.Add(reader.GetString(0));
+                    keys.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
                 }
                 return keys;
             }
@@ -48,7 +48,7 @@ namespace Eventkalender.Database.DAL
                 List<string> indexes = new List<string>();
                 while (reader.Read())
                 {
-                    indexes.Add(reader.GetString(0));
+                    indexes.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
                 }
                 return indexes;
             }
@@ -67,7 +67,7 @@ namespace Eventkalender.Database.DAL
                 List<string> constraints = new List<string>();
                 while (reader.Read())
                 {
-                    constraints.Add(reader.GetString(0));
+                    constraints.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
                 }
                 return constraints;
             }
@@ -90,7 +90,7 @@ namespace Eventkalender.Database.DAL
                 List<string> tables = new List<string>();
                 while (reader.Read())
                 {
-                    tables.Add(reader.GetString(0));
+                    tables.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
                 }
                 return tables;
             }
@@ -103,8 +103,8 @@ namespace Eventkalender.Database.DAL
                 connection.Open();
 
                 StringBuilder builder = new StringBuilder();
-                builder.Append("SELECT c.name AS name FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id");
-                builder.Append("WHERE t.name = [CRONUS Sverige AB$Employee] ORDER BY name");
+                builder.Append("SELECT c.name AS name FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id ");
+                builder.Append("WHERE t.name = 'CRONUS Sverige AB$Employee' ORDER BY name");
 
                 string query = builder.ToString();
 
@@ -117,7 +117,7 @@ namespace Eventkalender.Database.DAL
                 List<string> columns = new List<string>();
                 while (reader.Read())
                 {
-                    columns.Add(reader.GetString(0));
+                    columns.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
                 }
                 return columns;
             }

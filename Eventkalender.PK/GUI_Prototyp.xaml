@@ -82,12 +82,13 @@
                                              Width="150"
                                              HorizontalAlignment="Left"/>
                                     <TextBlock Text="Nation"/>
-                                    <wpf:AutoCompleteTextBox x:Name="autotxtBox_Nation"
+                                    <ComboBox x:Name="cmBox_Nation"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Left"
+                                             MaxWidth="150"
                                              Width="150"
                                              SelectedItem="{Binding Nationer}"
-                                             MaxWidth="150"/>
+                                             IsEditable="True"/>
                                     <TextBlock Text="Start av event:"/>
                                     <ComboBox x:Name="cmBox_StartTime"
                                               IsEditable="True"

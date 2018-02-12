@@ -19,7 +19,6 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
-
         public GUI_Prototyp()
         {
             InitializeComponent();

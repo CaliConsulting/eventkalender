@@ -79,6 +79,11 @@ public class CronusService : WebService
     {
         return cronusController.GetIllestPerson();
     }
+    [WebMethod]
+    public List<Eventkalender.Database.Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+    {
+        return cronusController.GetSickPersonByYear(startYear, endYear);
+    }
 
     /* [WebMethod]
 

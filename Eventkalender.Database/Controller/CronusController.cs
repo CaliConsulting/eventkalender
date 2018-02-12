@@ -47,5 +47,9 @@ namespace Eventkalender.Database.Controller
         {
             return dataDAL.GetIllestPerson();
         }
+        public List<Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+        {
+            return dataDAL.GetSickPersonByYear(startYear, endYear);
+        }
     }
 }

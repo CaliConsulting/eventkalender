@@ -37,6 +37,6 @@ namespace Eventkalender.Database.Model
 
         public virtual Nation Nation { get; set; }
 
-        public virtual ICollection<Person> Persons { get; set; }
+        public virtual List<Person> Persons { get; set; }
     }
 }

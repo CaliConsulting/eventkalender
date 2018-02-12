@@ -10,10 +10,12 @@ namespace Eventkalender.Database.Controller
     public class CronusController
     {
         private CronusMetadataDAL metadataDAL;
+        private CronusDataDAL dataDAL;
 
         public CronusController()
         {
             metadataDAL = new CronusMetadataDAL();
+            dataDAL = new CronusDataDAL();
         }
 
         public List<string> GetKeys()

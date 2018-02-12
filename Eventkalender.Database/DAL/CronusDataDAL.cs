@@ -8,9 +8,12 @@ namespace Eventkalender.Database.DAL
 {
     public class CronusDataDAL
     {
+
+        private string xmlPath;
+
         public CronusDataDAL()
         {
-
+            xmlPath = "cronus-db.xml";
         }
 
 

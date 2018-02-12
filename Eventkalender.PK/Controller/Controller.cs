@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eventkalender.Database.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,11 @@ namespace Eventkalender.PK.Controller
     public class Controller
     {
         // placeholder
+
+        public Controller()
+        {
+            Nation n = new Nation();
+        }
+
     }
 }

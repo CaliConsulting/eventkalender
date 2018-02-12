@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Eventkalender
+namespace Eventkalender.PK.GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GUI_Prototyp.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GUI_Prototyp : Window
     {
-        public MainWindow()
+
+        public GUI_Prototyp()
         {
             InitializeComponent();
+        }
+        private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

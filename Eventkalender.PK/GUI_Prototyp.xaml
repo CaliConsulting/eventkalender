@@ -75,41 +75,42 @@
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
                                     <TextBlock Text="Eventnamn"/>
-                                    <TextBox Margin="5"
+                                    <TextBox x:Name="txtBox_EventName"
+                                             Margin="0,0,0,0"
                                              AcceptsReturn="True"
                                              AcceptsTab="False"
                                              Width="150"
-                                             HorizontalAlignment="Left">
-                                    </TextBox>
+                                             HorizontalAlignment="Left"/>
                                     <TextBlock Text="Nation"/>
-                                    <wpf:AutoCompleteTextBox
-                                             Margin="5,0,0,0"
-                                        HorizontalAlignment="Left"
+                                    <wpf:AutoCompleteTextBox x:Name="autotxtBox_Nation"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Left"
                                              Width="150"
                                              SelectedItem="{Binding Nationer}"
-                                             MaxWidth="150">
-                                    </wpf:AutoCompleteTextBox>
+                                             MaxWidth="150"/>
                                     <TextBlock Text="Start av event:"/>
-                                    <ComboBox IsEditable="True"
+                                    <ComboBox x:Name="cmBox_StartTime"
+                                              IsEditable="True"
                                               MaxWidth="150"
                                               Width="150"
                                               HorizontalAlignment="Left">
-                                        <Calendar>
-                                        </Calendar>
+                                        <Calendar x:Name="cal_StartTime"/>
                                     </ComboBox>
                                     <TextBlock Text="Eventets slut:"/>
-                                    <ComboBox IsEditable="True"
+                                    <ComboBox x:Name="cmBox_EndTime"
+                                              IsEditable="True"
                                               Width="150"
                                               MaxWidth="150"
                                               HorizontalAlignment="Left">
-                                        <Calendar>
-                                        </Calendar>
+                                        <Calendar x:Name="cal_EndTime"/>
                                     </ComboBox>
                                     <TextBlock Text="Beskrivning:"/>
-                                    <TextBox Height="100" 
+                                    <TextBox x:Name="txtBox_Summary"
+                                             Height="100" 
                                              Width="250"
                                              TextWrapping="Wrap"/>
-                                    <Button Content="Registrera"
+                                    <Button x:Name="btn_RegsterEvent"
+                                            Content="Registrera"
                                             Margin="0,15,0,0"
                                             Width="100"/>
                                 </StackPanel>

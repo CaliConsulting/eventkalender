@@ -72,23 +72,6 @@
                         <TabItem Header="Eventhantering">
                             <Canvas Height="525" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10"  >
-                                    <!-- <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="5"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                -->
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
                                     <TextBlock Text="Eventnamn"/>
@@ -107,12 +90,18 @@
                                              MaxWidth="150">
                                     </wpf:AutoCompleteTextBox>
                                     <TextBlock Text="Start av event:"/>
-                                    <ComboBox IsEditable="True">
+                                    <ComboBox IsEditable="True"
+                                              MaxWidth="150"
+                                              Width="150"
+                                              HorizontalAlignment="Left">
                                         <Calendar>
                                         </Calendar>
                                     </ComboBox>
                                     <TextBlock Text="Eventets slut:"/>
-                                    <ComboBox IsEditable="True">
+                                    <ComboBox IsEditable="True"
+                                              Width="150"
+                                              MaxWidth="150"
+                                              HorizontalAlignment="Left">
                                         <Calendar>
                                         </Calendar>
                                     </ComboBox>
@@ -121,20 +110,70 @@
                                              Width="250"
                                              TextWrapping="Wrap"/>
                                     <Button Content="Registrera"
-                                            Margin="0,15,0,0"/>
+                                            Margin="0,15,0,0"
+                                            Width="100"/>
                                 </StackPanel>
                                 <StackPanel Canvas.Left="325" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
+                                    <TextBlock Text="Filtrera"/>
+                                    <TextBox x:Name="txtBox_Events"
+                                             Width="150"
+                                             MaxWidth="150"
+                                             HorizontalAlignment="Left"/>
+                                    <Button Content="Sök"
+                                            Margin="0,15,0,0"
+                                            Width="100"
+                                            HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="datagridEvents" 
                                              ScrollBar.Scroll="datagridEvents_Scroll"
-                                             Height="100"
-                                             Width="250">
-
+                                             Height="300"
+                                             Width="250"
+                                              Margin="0,15,0,0">
                                     </DataGrid>
-                                    <Button Margin="0,15,0,0"
-                                            Content="Radera"/>
+                                    <Button Content="Radera"
+                                            Margin="0,15,0,0"
+                                            Width="100"/>
                                 </StackPanel>
                             </Canvas>
+                        </TabItem>
+                        <TabItem Header="Personhantering">
+                            <Canvas Height="525" Margin="0,0,0,0">
+                                <StackPanel Canvas.Left="10" Canvas.Top="10">
+                                    <TextBlock Text="Lägg till Person"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Förnamn"/>
+                                    <TextBox x:Name="txtBoxFirstName"/>
+                                    <TextBlock Text="Efternamn"/>
+                                    <TextBox x:Name="txtBoxLastName"/>
+                                    <Button x:Name="btnRegPers"
+                                            Content="Registrera"
+                                            Margin="0,15,0,0"/>
+                                </StackPanel>
+                                <StackPanel Canvas.Left="150" 
+                                            Canvas.Top="10">
+                                    <TextBlock Text="Radera personer"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Namnsökning"/>
+                                    <TextBox x:Name="txtBox_SrchName"
+                                             MaxWidth="150"
+                                             Width="150"
+                                             HorizontalAlignment="Left"/>
+                                    <Button x:Name="btn_SrchName"
+                                            Content="Sök"
+                                            Margin="0,15,0,0"
+                                            Width="100"
+                                            HorizontalAlignment="Left"/>
+                                    <DataGrid Height="200"
+                                              Width="300"
+                                              Margin="0,15,0,0"/>
+                                    <Button Content="Radera"
+                                            Margin="0,15,0,0"
+                                            Width="100"/>
+                                </StackPanel>
+                            </Canvas>
+                        </TabItem>
+                        <TabItem Header="Inbjudningar">
+                            
                         </TabItem>
                     </TabControl>
                 </StackPanel>

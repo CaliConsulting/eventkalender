@@ -56,7 +56,7 @@ namespace Eventkalender.Database.DAL
         {
             using (var context = new EventkalenderContext())
             {
-                return context.Event.Include(e => e.Persons).Include(e => e.Persons).SingleOrDefault(e => e.Id == id);
+                return context.Event.Include(e => e.Nation).Include(e => e.Persons).SingleOrDefault(e => e.Id == id);
             }
         }
 

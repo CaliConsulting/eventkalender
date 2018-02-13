@@ -13,6 +13,8 @@ namespace Eventkalender.Database
 
         public CronusDataDAL()
         {
+
+
             xmlPath = "cronus-db.xml";
         }
         public DataTuple GetIllestPerson()
@@ -83,6 +85,15 @@ namespace Eventkalender.Database
                     tuples.Add(tuple);
                 }
                 return tuples;
+            }
+        }
+
+        public void AddEmployee(Employee e)
+        {
+            using (var context = new CronusContext())
+            {
+                context.Employee.Add(e);
+                context.SaveChanges();
             }
         }
 

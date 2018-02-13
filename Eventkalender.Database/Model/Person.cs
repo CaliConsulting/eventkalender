@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Eventkalender.Database.Model
+namespace Eventkalender.Database
 {
     [Serializable]
     public class Person
     {
         public Person()
         {
-
+            Events = new List<Event>();
         }
 
         public Person(string firstName, string lastName) : base()

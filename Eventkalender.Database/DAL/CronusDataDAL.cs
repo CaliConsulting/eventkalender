@@ -5,18 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.DAL
+namespace Eventkalender.Database
 {
     public class CronusDataDAL
     {
-
         private string xmlPath;
 
         public CronusDataDAL()
         {
             xmlPath = "cronus-db.xml";
         }
-        public Model.Tuple GetIllestPerson()
+        public DataTuple GetIllestPerson()
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -30,24 +29,20 @@ namespace Eventkalender.Database.DAL
 
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader reader = command.ExecuteReader();
-
-
-                Model.Tuple person = new Model.Tuple();
-                reader.Read();
-
-                for (int i = 0; i < reader.FieldCount; i++)
+                
+                DataTuple tuple = new DataTuple();
+                if (reader.Read())
                 {
-
-                    person.Add(reader.GetName(i), reader.GetValue(i).ToString());
-                       
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        tuple.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                    }
+                    
                 }
-
-
-
-                return person;
+                return tuple;
             }
         }
-        public List<Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+        public List<DataTuple> GetSickPersonByYear(int startYear, int endYear)
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -77,15 +72,15 @@ namespace Eventkalender.Database.DAL
                 
                 SqlDataReader reader = command.ExecuteReader();
                 
-                List<Model.Tuple> tuples = new List<Model.Tuple>();
+                List<DataTuple> tuples = new List<DataTuple>();
                 while (reader.Read())
                 {
-                    Model.Tuple person = new Model.Tuple();
+                    DataTuple tuple = new DataTuple();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
-                        person.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                        tuple.Add(reader.GetName(i), reader.GetValue(i).ToString());
                     }
-                    tuples.Add(person);
+                    tuples.Add(tuple);
                 }
                 return tuples;
             }

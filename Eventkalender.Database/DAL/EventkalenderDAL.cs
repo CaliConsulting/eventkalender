@@ -1,13 +1,11 @@
-﻿using Eventkalender.Database.Context;
-using Eventkalender.Database.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.DAL
+namespace Eventkalender.Database
 {
     public class EventkalenderDAL
     {

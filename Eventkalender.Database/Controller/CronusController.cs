@@ -1,21 +1,20 @@
-﻿using Eventkalender.Database.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.Controller
+namespace Eventkalender.Database
 {
     public class CronusController
     {
-        private CronusMetadataDAL metadataDAL;
         private CronusDataDAL dataDAL;
+        private CronusMetadataDAL metadataDAL;
 
         public CronusController()
         {
-            metadataDAL = new CronusMetadataDAL();
             dataDAL = new CronusDataDAL();
+            metadataDAL = new CronusMetadataDAL();
         }
 
         public List<string> GetKeys()
@@ -43,11 +42,12 @@ namespace Eventkalender.Database.Controller
             return metadataDAL.GetColumnsForEmployeeTable();
         }
 
-        public Model.Tuple GetIllestPerson()
+        public DataTuple GetIllestPerson()
         {
             return dataDAL.GetIllestPerson();
         }
-        public List<Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+
+        public List<DataTuple> GetSickPersonByYear(int startYear, int endYear)
         {
             return dataDAL.GetSickPersonByYear(startYear, endYear);
         }

@@ -7,14 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Eventkalender.Database.Model
+namespace Eventkalender.Database
 {
     [Serializable]
     public class Nation
     {
         public Nation()
         {
-
+            Events = new List<Event>();
         }
 
         public Nation(string name) : base()

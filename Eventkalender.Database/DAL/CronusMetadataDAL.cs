@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.DAL
+namespace Eventkalender.Database
 {
     public class CronusMetadataDAL
     {

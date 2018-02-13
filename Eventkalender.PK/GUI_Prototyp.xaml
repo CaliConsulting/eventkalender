@@ -136,14 +136,16 @@
                                             ToolTip="Söker upp eventen som matchar det ifyllda värdet i sökfältet. Lämnas tomt för att visa alla tillgängliga evenemang"
                                             ToolTipService.BetweenShowDelay="50000"/>
                                     
-                                    <DataGrid x:Name="datagridEvents" 
-                                             ScrollBar.Scroll="datagridEvents_Scroll"
-                                             Height="300"
-                                             Width="250"
-                                             Margin="0,15,0,0"
-                                             VerticalScrollBarVisibility="Auto"/>
+                                    <DataGrid x:Name="datagridEvents"
+                                              SelectionMode="Extended"
+                                              Height="300"
+                                              Width="300"
+                                              Margin="0,15,0,0"
+                                              VerticalScrollBarVisibility="Auto"/>
 
-                                    <Button Content="Radera"
+                                    <Button x:Name="btn_DeleteEvent"
+                                            Click="btn_DeleteEvent_Click"
+                                            Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"/>
                                     

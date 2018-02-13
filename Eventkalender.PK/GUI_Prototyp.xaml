@@ -112,7 +112,7 @@
                                     </ComboBox>
                                     <TextBlock Text="Beskrivning:"/>
                                     <TextBox x:Name="txtBox_Summary"
-                                             Height="100" 
+                                             Height="200" 
                                              Width="250"
                                              TextWrapping="Wrap"/>
                                     <Button x:Name="btn_RegsterEvent"

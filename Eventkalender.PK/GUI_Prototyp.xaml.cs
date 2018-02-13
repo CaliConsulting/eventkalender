@@ -42,5 +42,18 @@ namespace Eventkalender.PK.GUI
         {
 
         }
+
+        private void btn_EraseFromList_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
+            if(raderaResultat == MessageBoxResult.Yes)
+            {
+
+            }
+            if(raderaResultat == MessageBoxResult.No)
+            {
+
+            }
+        }
     }
 }

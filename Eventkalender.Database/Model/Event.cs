@@ -15,7 +15,7 @@ namespace Eventkalender.Database
     {
         public Event()
         {
-
+            Persons = new List<Person>();
         }
 
         public Event(string name, string summary, DateTime startTime, DateTime endTime) : base()

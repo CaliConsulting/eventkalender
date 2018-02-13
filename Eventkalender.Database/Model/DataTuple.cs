@@ -47,21 +47,21 @@ namespace Eventkalender.Database
     }
 
     [Serializable]
-    public class SerializableKeyValuePair<TKey, TValue>
+    public class SerializableKeyValuePair<K, V>
     {
         public SerializableKeyValuePair()
         {
 
         }
 
-        public SerializableKeyValuePair(TKey key, TValue value)
+        public SerializableKeyValuePair(K key, V value)
         {
             Key = key;
             Value = value;
         }
 
-        public TKey Key { get; set; }
-        public TValue Value { get; set; }
+        public K Key { get; set; }
 
+        public V Value { get; set; }
     }
 }

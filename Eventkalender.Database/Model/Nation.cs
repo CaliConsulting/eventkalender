@@ -14,7 +14,7 @@ namespace Eventkalender.Database
     {
         public Nation()
         {
-
+            Events = new List<Event>();
         }
 
         public Nation(string name) : base()

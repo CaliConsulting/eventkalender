@@ -11,10 +11,11 @@ namespace Eventkalender.Database
     {
         private string xmlPath;
 
-        public CronusDataDAL()
+        public CronusDataDAL(string xmlPath)
         {
-            xmlPath = "cronus-db.xml";
+            this.xmlPath = xmlPath;
         }
+
         public DataTuple GetIllestPerson()
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))

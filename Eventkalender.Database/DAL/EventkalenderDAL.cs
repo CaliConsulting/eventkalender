@@ -9,16 +9,16 @@ namespace Eventkalender.Database
 {
     public class EventkalenderDAL
     {
-        //private EventkalenderContext context;
+        private string xmlPath;
 
-        public EventkalenderDAL()
+        public EventkalenderDAL(string xmlPath)
         {
-            //context = new EventkalenderContext(DatabaseClient.GetConnectionString("eventkalender-db.xml"));
+            this.xmlPath = xmlPath;
         }
 
         public void AddEvent(Event e)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 context.Event.Add(e);
                 context.SaveChanges();
@@ -27,7 +27,7 @@ namespace Eventkalender.Database
 
         public void AddNation(Nation n)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 context.Nation.Add(n);
                 context.SaveChanges();
@@ -36,7 +36,7 @@ namespace Eventkalender.Database
 
         public void AddPerson(Person p)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 context.Person.Add(p);
                 context.SaveChanges();
@@ -45,7 +45,7 @@ namespace Eventkalender.Database
 
         public Event GetEvent(int id)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 Event dbEvent = context.Event.Include(e => e.Nation).Include(e => e.Persons).SingleOrDefault(e => e.Id == id);
 
@@ -61,7 +61,7 @@ namespace Eventkalender.Database
 
         public List<Event> GetEvents()
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 List<Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
 
@@ -80,7 +80,7 @@ namespace Eventkalender.Database
 
         public Nation GetNation(int id)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 Nation dbNation = context.Nation.Include(n => n.Events).SingleOrDefault(n => n.Id == id);
 
@@ -95,7 +95,7 @@ namespace Eventkalender.Database
 
         public List<Nation> GetNations()
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 List<Nation> dbNations = context.Nation.Include(n => n.Events).ToList();
 
@@ -113,7 +113,7 @@ namespace Eventkalender.Database
 
         public Person GetPerson(int id)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 Person dbPerson = context.Person.Include(p => p.Events).SingleOrDefault(p => p.Id == id);
 
@@ -128,7 +128,7 @@ namespace Eventkalender.Database
 
         public List<Person> GetPersons()
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 List<Person> dbPersons = context.Person.Include(p => p.Events).Include(p => p.Events.Select(n => n.Nation)).ToList();
 

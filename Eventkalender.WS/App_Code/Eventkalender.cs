@@ -13,10 +13,8 @@ public class EventkalenderService : WebService
 
     public EventkalenderService()
     {
-        eventkalenderController = new EventkalenderController();
-
-        //Uncomment the following line if using designed components 
-        //InitializeComponent(); 
+        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/eventkalender-db.xml");
+        eventkalenderController = new EventkalenderController(xmlPath);
     }
 
     [WebMethod]

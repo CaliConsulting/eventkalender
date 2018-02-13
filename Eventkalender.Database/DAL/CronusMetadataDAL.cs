@@ -11,9 +11,9 @@ namespace Eventkalender.Database
     {
         private string xmlPath;
 
-        public CronusMetadataDAL()
+        public CronusMetadataDAL(string xmlPath)
         {
-            xmlPath = "cronus-db.xml";
+            this.xmlPath = xmlPath;
         }
 
         public List<string> GetKeys()

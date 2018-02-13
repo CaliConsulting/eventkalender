@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eventkalender.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,14 @@ namespace Eventkalender.PK.GUI
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
         {
+            EventkalenderController c = new EventkalenderController();
+            c.GetEvents();
+        }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EventkalenderController c = new EventkalenderController();
+            c.GetEvents();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Eventkalender.Database
     {
         private EventkalenderDAL dal;
 
-        public EventkalenderController()
+        public EventkalenderController(string xmlPath)
         {
-            dal = new EventkalenderDAL();
+            dal = new EventkalenderDAL(xmlPath);
         }
 
         public void AddNation(string name)

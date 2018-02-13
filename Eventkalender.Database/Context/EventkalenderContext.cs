@@ -10,10 +10,9 @@ namespace Eventkalender.Database
 {
     public class EventkalenderContext : DbContext
     {
-        public EventkalenderContext() : base(DatabaseClient.GetSqlServerConnectionString("eventkalender-db.xml"))
+        public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
-            //Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

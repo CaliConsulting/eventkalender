@@ -135,14 +135,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Eventkalender.Database\Eventkalender.Database.csproj">
       <Project>{3fb7f54b-1b3e-4a38-ae08-f487a6276d29}</Project>
       <Name>Eventkalender.Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\cronus-db.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\eventkalender-db.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

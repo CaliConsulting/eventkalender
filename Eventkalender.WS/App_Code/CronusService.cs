@@ -13,7 +13,8 @@ public class CronusService : WebService
 
     public CronusService()
     {
-        cronusController = new CronusController();
+        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/cronus-db.xml");
+        cronusController = new CronusController(xmlPath);
     }
 
     ///* [WebMethod]

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Eventkalender.PK.GUI"
         xmlns:wpf="http://wpfcontrols.com/"
         mc:Ignorable="d"
-        Title="GUI_Prototyp" Height="600" Width="645">
+        Title="GUI_Prototyp" Height="600" Width="640">
 
     <StackPanel Margin="0,0,0,0">
         <TabControl Height="570"
@@ -69,7 +69,7 @@
                                     </DataGrid>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Eventhantering">
+                        <TabItem Header="Eventhantering" Margin="0,0,0,0">
                             <Canvas Height="525" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10"  >
                                     <TextBlock Text="Lägg till Event"
@@ -140,7 +140,8 @@
                                              ScrollBar.Scroll="datagridEvents_Scroll"
                                              Height="300"
                                              Width="250"
-                                             Margin="0,15,0,0"/>
+                                             Margin="0,15,0,0"
+                                             VerticalScrollBarVisibility="Auto"/>
 
                                     <Button Content="Radera"
                                             Margin="0,15,0,0"
@@ -217,8 +218,68 @@
                                               ToolTipService.BetweenShowDelay="50000"/>
                             </Canvas>
                         </TabItem>
-                        <TabItem Header="Inbjudningar">
-                            
+                        <TabItem Header="Inbjudningar" Margin="0,0,0,0">
+                            <Canvas>
+                                <StackPanel Canvas.Left="10"
+                                            Canvas.Top="10">
+                                    <TextBlock Text="Personer" FontWeight="Bold"/>
+                                    <TextBox Margin="0,15,0,0"
+                                             Width="100"
+                                             MaxWidth="100"
+                                             TextWrapping="NoWrap"
+                                             HorizontalAlignment="Left"/>
+                                    <Button x:Name="btn_InvSrchPerson"
+                                            Margin="0,15,0,0"
+                                            Content="Sök"
+                                            Width="100"
+                                            MaxWidth="100"
+                                            HorizontalAlignment="Left"/>
+                                    <DataGrid x:Name="datagrid_InvitePersons" 
+                                             ScrollBar.Scroll="datagridEvents_Scroll"
+                                             Height="300"
+                                             Width="250"
+                                             MaxWidth="250"
+                                             Margin="0,15,0,0"
+                                             VerticalScrollBarVisibility="Auto"
+                                             SelectionMode="Extended"/>
+                                    <Button x:Name="btn_MarkAllPerson"
+                                            Content="Markera alla"
+                                            Margin="0,15,0,0"
+                                            Width="100"/>
+                                </StackPanel>
+                                <StackPanel Canvas.Left="360"
+                                            Canvas.Top="10">
+                                    <TextBlock Text="Events" FontWeight="Bold"/>
+                                    <TextBox Margin="0,15,0,0"
+                                             Width="100"
+                                             MaxWidth="100"
+                                             TextWrapping="NoWrap"
+                                             HorizontalAlignment="Left"/>
+                                    <Button x:Name="btn_InvSrchEvent"
+                                            Margin="0,15,0,0"
+                                            Content="Sök"
+                                            Width="100"
+                                            MaxWidth="100"
+                                            HorizontalAlignment="Left"/>
+                                    <DataGrid x:Name="datagrid_InviteEvent" 
+                                             ScrollBar.Scroll="datagridEvents_Scroll"
+                                             Height="300"
+                                             Width="250"
+                                             MaxWidth="250"
+                                             Margin="0,15,0,0"
+                                             VerticalScrollBarVisibility="Auto"
+                                             SelectionMode="Extended"/>
+                                    <Button x:Name="btn_MarkAllEvents"
+                                            Content="Markera alla"
+                                            Margin="0,15,0,0"
+                                            Width="100"/>
+                                </StackPanel>
+                                <Button x:Name="btn_InvToEvent"
+                                        Content="Bjud in"
+                                        Canvas.Bottom="40"
+                                        Canvas.Left="275"
+                                        Width="70"/>
+                            </Canvas>
                         </TabItem>
                     </TabControl>
                 </StackPanel>

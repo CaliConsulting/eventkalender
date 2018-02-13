@@ -10,10 +10,12 @@ namespace Eventkalender.Database.Controller
     public class CronusController
     {
         private CronusMetadataDAL metadataDAL;
+        private CronusDataDAL dataDAL;
 
         public CronusController()
         {
             metadataDAL = new CronusMetadataDAL();
+            dataDAL = new CronusDataDAL();
         }
 
         public List<string> GetKeys()
@@ -39,6 +41,15 @@ namespace Eventkalender.Database.Controller
         public List<string> GetColumnsForEmployeeTable()
         {
             return metadataDAL.GetColumnsForEmployeeTable();
+        }
+
+        public Model.Tuple GetIllestPerson()
+        {
+            return dataDAL.GetIllestPerson();
+        }
+        public List<Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
+        {
+            return dataDAL.GetSickPersonByYear(startYear, endYear);
         }
     }
 }

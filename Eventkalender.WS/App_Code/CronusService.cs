@@ -73,32 +73,43 @@ public class CronusService : WebService
     {
         return cronusController.GetColumnsForEmployeeTable();
     }
-
-   /* [WebMethod]
-
-
-
-    public void Employee()
+    
+    [WebMethod]
+    public Eventkalender.Database.Model.Tuple GetIllestPerson()
     {
-
-        return cronusController.GetEmployee();
+        return cronusController.GetIllestPerson();
     }
     [WebMethod]
-    public void GetEmployeeRelatives()
+    public List<Eventkalender.Database.Model.Tuple> GetSickPersonByYear(int startYear, int endYear)
     {
-
-        return cronusController.GetEmployeeRelatives();
+        return cronusController.GetSickPersonByYear(startYear, endYear);
     }
-    [WebMethod]
-    public void GetIllemployee(int year)
-    {
 
-        return cronusController.GetIllEmployee();
-    }
-    [WebMethod]
-    public void GetIllestEmployee()
-    {
+    /* [WebMethod]
 
-        return cronusController.GetIllestEmployee(); 
-    } */
+
+
+     public void Employee()
+     {
+
+         return cronusController.GetEmployee();
+     }
+     [WebMethod]
+     public void GetEmployeeRelatives()
+     {
+
+         return cronusController.GetEmployeeRelatives();
+     }
+     [WebMethod]
+     public void GetIllemployee(int year)
+     {
+
+         return cronusController.GetIllEmployee();
+     }
+     [WebMethod]
+     public void GetIllestEmployee()
+     {
+
+         return cronusController.GetIllestEmployee(); 
+     } */
 }

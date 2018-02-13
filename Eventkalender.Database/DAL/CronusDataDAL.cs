@@ -5,18 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.DAL
+namespace Eventkalender.Database
 {
     public class CronusDataDAL
     {
-
         private string xmlPath;
 
-        public CronusDataDAL()
+        public CronusDataDAL(string xmlPath)
         {
-            xmlPath = "cronus-db.xml";
+            this.xmlPath = xmlPath;
         }
-        public Model.Tuple GetIllestPerson()
+
+        public DataTuple GetIllestPerson()
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -30,24 +30,21 @@ namespace Eventkalender.Database.DAL
 
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader reader = command.ExecuteReader();
-
-
-                Model.Tuple person = new Model.Tuple();
-                reader.Read();
-
-                for (int i = 0; i < reader.FieldCount; i++)
+                
+                DataTuple tuple = new DataTuple();
+                if (reader.Read())
                 {
-
-                    person.Add(reader.GetName(i), reader.GetValue(i).ToString());
-                       
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        tuple.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                    }
+                    
                 }
-
-
-
-                return person;
+                return tuple;
             }
         }
-        public List<Model.Tuple> GetIllPersonsByYear(int startYear, int endYear)
+
+        public List<DataTuple> GetIllPersonsByYear(int startYear, int endYear)
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -77,20 +74,20 @@ namespace Eventkalender.Database.DAL
                 
                 SqlDataReader reader = command.ExecuteReader();
                 
-                List<Model.Tuple> tuples = new List<Model.Tuple>();
+                List<DataTuple> tuples = new List<DataTuple>();
                 while (reader.Read())
                 {
-                    Model.Tuple person = new Model.Tuple();
+                    DataTuple tuple = new DataTuple();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
-                        person.Add(reader.GetName(i), reader.GetValue(i).ToString());
+                        tuple.Add(reader.GetName(i), reader.GetValue(i).ToString());
                     }
-                    tuples.Add(person);
+                    tuples.Add(tuple);
                 }
                 return tuples;
             }
         }
-        public List<Model.Tuple> GetEmployeeAndRelatives()
+        public List<DataTuple> GetEmployeeAndRelatives()
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -106,10 +103,10 @@ namespace Eventkalender.Database.DAL
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                List<Model.Tuple> tuples = new List<Model.Tuple>();
+                List<DataTuple> tuples = new List<DataTuple>();
                 while (reader.Read())
                 {
-                    Model.Tuple person = new Model.Tuple();
+                    DataTuple person = new DataTuple();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         person.Add(reader.GetName(i), reader.GetValue(i).ToString());
@@ -120,7 +117,7 @@ namespace Eventkalender.Database.DAL
             }
         }
 
-        public List<Model.Tuple> GetData(string inputQuery)
+        public List<DataTuple> GetData(string inputQuery)
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -131,10 +128,10 @@ namespace Eventkalender.Database.DAL
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
-                List<Model.Tuple> tuples = new List<Model.Tuple>();
+                List<DataTuple> tuples = new List<DataTuple>();
                 while (reader.Read())
                 {
-                    Model.Tuple person = new Model.Tuple();
+                    DataTuple person = new DataTuple();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         person.Add(reader.GetName(i), reader.GetValue(i).ToString());
@@ -145,42 +142,42 @@ namespace Eventkalender.Database.DAL
             }
         }
 
-        public List<Model.Tuple> GetEmployeeData()
+        public List<DataTuple> GetEmployeeData()
         {
             string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee]";
             return GetData(inputQuery);
 
         }
 
-        public List<Model.Tuple> GetEmployeeAbsenceData()
+        public List<DataTuple> GetEmployeeAbsenceData()
         {
             string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Absence]";
             return GetData(inputQuery);
 
         }
 
-        public List<Model.Tuple> GetEmployeeRelativeData()
+        public List<DataTuple> GetEmployeeRelativeData()
         {
             string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Relative]";
             return GetData(inputQuery);
 
         }
 
-        public List<Model.Tuple> GetEmployeePortalSetupData()
+        public List<DataTuple> GetEmployeePortalSetupData()
         {
             string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Portal Setup]";
             return GetData(inputQuery);
 
         }
 
-        public List<Model.Tuple> GetEmployeeQualificationData()
+        public List<DataTuple> GetEmployeeQualificationData()
         {
             string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Qualification]";
             return GetData(inputQuery);
 
         }
 
-        public List<Model.Tuple> GetEmployeeStatisticsGroupData()
+        public List<DataTuple> GetEmployeeStatisticsGroupData()
         {
             string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Statistics Group]";
             return GetData(inputQuery);

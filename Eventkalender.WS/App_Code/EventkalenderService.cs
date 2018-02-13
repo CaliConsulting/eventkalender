@@ -1,11 +1,9 @@
-﻿using Eventkalender.Database.DAL;
-using Eventkalender.Database.Model;
+﻿using Eventkalender.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using Eventkalender.Database.Controller;
 
 [WebService(Namespace = "http://www.ics.lu.se.cali/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -15,10 +13,8 @@ public class EventkalenderService : WebService
 
     public EventkalenderService()
     {
-        eventkalenderController = new EventkalenderController();
-
-        //Uncomment the following line if using designed components 
-        //InitializeComponent(); 
+        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/eventkalender-db.xml");
+        eventkalenderController = new EventkalenderController(xmlPath);
     }
 
     [WebMethod]

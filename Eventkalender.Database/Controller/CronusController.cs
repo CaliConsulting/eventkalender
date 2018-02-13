@@ -1,21 +1,20 @@
-﻿using Eventkalender.Database.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.Controller
+namespace Eventkalender.Database
 {
     public class CronusController
     {
-        private CronusMetadataDAL metadataDAL;
         private CronusDataDAL dataDAL;
+        private CronusMetadataDAL metadataDAL;
 
-        public CronusController()
+        public CronusController(string xmlPath)
         {
-            metadataDAL = new CronusMetadataDAL();
-            dataDAL = new CronusDataDAL();
+            dataDAL = new CronusDataDAL(xmlPath);
+            metadataDAL = new CronusMetadataDAL(xmlPath);
         }
 
         public List<String> GetKeys()
@@ -42,7 +41,7 @@ namespace Eventkalender.Database.Controller
         {
             return metadataDAL.GetColumnsForEmployeeTable();
         }
-
+        
         public List<String> GetEmployeeMetaData()
         {
             return metadataDAL.GetEmployeeMetaData();
@@ -75,47 +74,47 @@ namespace Eventkalender.Database.Controller
 
         //HÄR BÖRJAR DATADAL
 
-        public Model.Tuple GetIllestPerson()
+        public DataTuple GetIllestPerson()
         {
             return dataDAL.GetIllestPerson();
         }
 
-        public List<Model.Tuple> GetIllPersonsByYear(int startYear, int endYear)
+        public List<DataTuple> GetIllPersonsByYear(int startYear, int endYear)
         {
             return dataDAL.GetIllPersonsByYear(startYear, endYear);
         }
 
-        public List<Model.Tuple> GetEmployeeAndRelatives()
+        public List<DataTuple> GetEmployeeAndRelatives()
         {
             return dataDAL.GetEmployeeAndRelatives();
         }
 
-        public List<Model.Tuple> GetEmployeeData()
+        public List<DataTuple> GetEmployeeData()
         {
             return dataDAL.GetEmployeeData();
         }
 
-        public List<Model.Tuple> GetEmployeeAbsenceData()
+        public List<DataTuple> GetEmployeeAbsenceData()
         {
             return dataDAL.GetEmployeeAbsenceData();
         }
 
-        public List<Model.Tuple> GetEmployeeRelativeData()
+        public List<DataTuple> GetEmployeeRelativeData()
         {
             return dataDAL.GetEmployeeRelativeData();
         }
 
-        public List<Model.Tuple> GetEmployeeQualificationData()
+        public List<DataTuple> GetEmployeeQualificationData()
         {
             return dataDAL.GetEmployeeQualificationData();
         }
 
-        public List<Model.Tuple> GetEmployeePortalSetupData()
+        public List<DataTuple> GetEmployeePortalSetupData()
         {
             return dataDAL.GetEmployeePortalSetupData();
         }
 
-        public List<Model.Tuple> GetEmployeeStatisticsGroupData()
+        public List<DataTuple> GetEmployeeStatisticsGroupData()
         {
             return dataDAL.GetEmployeeStatisticsGroupData();
         }

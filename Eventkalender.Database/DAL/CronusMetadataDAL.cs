@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.DAL
+namespace Eventkalender.Database
 {
     public class CronusMetadataDAL
     {
         private string xmlPath;
 
-        public CronusMetadataDAL()
+        public CronusMetadataDAL(string xmlPath)
         {
-            xmlPath = "cronus-db.xml";
+            this.xmlPath = xmlPath;
         }
 
         public List<string> GetKeys()

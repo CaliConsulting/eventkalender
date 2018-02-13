@@ -1,11 +1,9 @@
-﻿using Eventkalender.Database.DAL;
-using Eventkalender.Database.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using Eventkalender.Database.Controller;
+using Eventkalender.Database;
 
 [WebService(Namespace = "http://www.ics.lu.se.cali/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -15,34 +13,35 @@ public class CronusService : WebService
 
     public CronusService()
     {
-        cronusController = new CronusController();
+        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/cronus-db.xml");
+        cronusController = new CronusController(xmlPath);
     }
 
-    /* [WebMethod]
-    public void Update()
-    {
+    ///* [WebMethod]
+    //public void Update()
+    //{
 
-        return cronusController.Update();
-    }
-    [WebMethod]
-    public void Insert()
-    {
+    //    return cronusController.Update();
+    //}
+    //[WebMethod]
+    //public void Insert()
+    //{
 
-        return cronusController.Insert();
-    }
-    [WebMethod]
-    public void Delete()
-    {
+    //    return cronusController.Insert();
+    //}
+    //[WebMethod]
+    //public void Delete()
+    //{
 
-        return cronusController.Delete();
-    }
-    [WebMethod]
-    public void Select()
-    {
+    //    return cronusController.Delete();
+    //}
+    //[WebMethod]
+    //public void Select()
+    //{
 
-        return cronusController.Select();
-    }
-    */
+    //    return cronusController.Select();
+    //}
+    //*/
 
     [WebMethod]
     public List<String> GetKeys()
@@ -73,57 +72,58 @@ public class CronusService : WebService
     {
         return cronusController.GetColumnsForEmployeeTable();
     }
-    
+
     [WebMethod]
-    public Eventkalender.Database.Model.Tuple GetIllestPerson()
+    public DataTuple GetIllestPerson()
     {
         return cronusController.GetIllestPerson();
     }
+
     [WebMethod]
-    public List<Eventkalender.Database.Model.Tuple> GetIllPersonsByYear(int startYear, int endYear)
+    public List<DataTuple> GetIllPersonsByYear(int startYear, int endYear)
     {
         return cronusController.GetIllPersonsByYear(startYear, endYear);
     }
     [WebMethod]
-    public List<Eventkalender.Database.Model.Tuple> GetEmployeeAndRelatves()
+    public List<DataTuple> GetEmployeeAndRelatves()
     {
         return cronusController.GetEmployeeAndRelatives();
     }
 
 
     [WebMethod]
-     public List<Eventkalender.Database.Model.Tuple> GetEmployeeData()
+     public List<DataTuple> GetEmployeeData()
      {
         return cronusController.GetEmployeeData();
      }
 
     [WebMethod]
-    public List<Eventkalender.Database.Model.Tuple> GetEmployeeAbsenceData()
+    public List<DataTuple> GetEmployeeAbsenceData()
     {
         return cronusController.GetEmployeeAbsenceData();
     }
 
     [WebMethod]
-     public List<Eventkalender.Database.Model.Tuple> GetEmployeeRelativeData()
+     public List<DataTuple> GetEmployeeRelativeData()
      {
         return cronusController.GetEmployeeRelativeData();
      }
 
      [WebMethod]
-     public List<Eventkalender.Database.Model.Tuple> GetEmployeeQualificationData()
+     public List<DataTuple> GetEmployeeQualificationData()
      {
         return cronusController.GetEmployeeQualificationData();
      }
 
     [WebMethod]
-    public List<Eventkalender.Database.Model.Tuple> GetEmployeePortalSetupData()
+    public List<DataTuple> GetEmployeePortalSetupData()
     {
         return cronusController.GetEmployeePortalSetupData();
     }
 
 
     [WebMethod]
-     public List<Eventkalender.Database.Model.Tuple> GetEmployeeStatisticsGroupData()
+     public List<DataTuple> GetEmployeeStatisticsGroupData()
      {
         return cronusController.GetEmployeeStatisticsGroupData();
      }

@@ -56,17 +56,17 @@
                                         <ComboBoxItem x:Name="cmbitmStart" Content="Starttid"/>
                                         <ComboBoxItem x:Name="cmbitmClosing" Content="Stängningstid"/>
                                     </ComboBox>
-                                    <DataGrid Grid.Column="3"
+                                <DataGrid Grid.Column="3"
                                     Grid.Row="2"
-                                    Width="455"
+                                    Width="450"
                                     Height="500"
                                     Grid.RowSpan="5" 
                                     Grid.ColumnSpan="2" 
                                     Margin="1.6,0.4,0,-0.4"
                                     IsReadOnly="True"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
-                                    ToolTipService.BetweenShowDelay="50000">
-                                    </DataGrid>
+                                    ToolTipService.BetweenShowDelay="50000"/>
+
                             </Grid>
                         </TabItem>
                         <TabItem Header="Eventhantering" Margin="0,0,0,0">
@@ -129,7 +129,8 @@
                                              Width="150"
                                              MaxWidth="150"
                                              HorizontalAlignment="Left"/>
-                                    <Button Content="Sök"
+                                    <Button x:Name="btn_SrchEvent"
+                                            Content="Sök"
                                             Margin="0,15,0,0"
                                             Width="100"
                                             HorizontalAlignment="Left"
@@ -139,7 +140,7 @@
                                     <DataGrid x:Name="datagridEvents"
                                               SelectionMode="Extended"
                                               Height="300"
-                                              Width="300"
+                                              Width="290"
                                               Margin="0,15,0,0"
                                               VerticalScrollBarVisibility="Auto"/>
 
@@ -147,8 +148,9 @@
                                             Click="btn_DeleteEvent_Click"
                                             Content="Radera"
                                             Margin="0,15,0,0"
-                                            Width="100"/>
-                                    
+                                            Width="100"
+                                            ToolTip="Raderar de valda evenemangen"
+                                            ToolTipService.BetweenShowDelay="50000"/>
                                 </StackPanel>
                             </Canvas>
                         </TabItem>

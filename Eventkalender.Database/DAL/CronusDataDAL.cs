@@ -141,38 +141,38 @@ namespace Eventkalender.Database
                 return tuples;
             }
         }
-
+        // Ta tre/fyra st attribut istället för allt (*)
         public List<DataTuple> GetEmployeeData()
         {
-            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee]";
+            string inputQuery = "SELECT No_, [First Name], [Last Name] FROM [CRONUS Sverige AB$Employee]";
             return GetData(inputQuery);
 
         }
 
         public List<DataTuple> GetEmployeeAbsenceData()
         {
-            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Absence]";
+            string inputQuery = "SELECT [Entry No_], [Employee No_], [Cause of Absence Code] FROM [CRONUS Sverige AB$Employee Absence]";
             return GetData(inputQuery);
 
         }
 
         public List<DataTuple> GetEmployeeRelativeData()
         {
-            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Relative]";
+            string inputQuery = "SELECT [Employee No_], [Relative Code], [First Name] FROM [CRONUS Sverige AB$Employee Relative]";
             return GetData(inputQuery);
 
         }
 
         public List<DataTuple> GetEmployeePortalSetupData()
         {
-            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Portal Setup]";
+            string inputQuery = "SELECT [Primary Key], [Temp_ Key Index], [Temp_ Option Caption] FROM [CRONUS Sverige AB$Employee Portal Setup]";
             return GetData(inputQuery);
 
         }
 
         public List<DataTuple> GetEmployeeQualificationData()
         {
-            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Qualification]";
+            string inputQuery = "SELECT [Employee No_], [Qualification Code], Description FROM [CRONUS Sverige AB$Employee Qualification]";
             return GetData(inputQuery);
 
         }

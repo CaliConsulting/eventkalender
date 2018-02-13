@@ -18,12 +18,6 @@ public class EventkalenderService : WebService
     }
 
     [WebMethod]
-    public string Testmetod()
-    {
-        return "Det är en testmetod";
-    }
-
-    [WebMethod]
     public Nation GetNation(int id) {
         return eventkalenderController.GetNation(id);
     }
@@ -35,17 +29,17 @@ public class EventkalenderService : WebService
     }
 
     [WebMethod]
-    public void AddNation(string name)
+    public void AddNation(string name)  //Lösning så att tid sätts in i rätt format för datetime
     {
         eventkalenderController.AddNation(name);
-       //parameter in här med namn?? string name?
+       
     }
 
     [WebMethod]
     public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime)
     {
         eventkalenderController.AddEvent(name,summary, startTime, endTime);
-        //parameter in här med namn?? string name?
+        
     }
 
     [WebMethod]
@@ -64,7 +58,7 @@ public class EventkalenderService : WebService
     public void AddPerson(string firstName, string lastName)
     {
         eventkalenderController.AddPerson(firstName, lastName);
-        //parameter in här med namn?? string name?
+      
     }
 
     [WebMethod]

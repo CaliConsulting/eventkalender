@@ -42,32 +42,32 @@ namespace Eventkalender.Database
             return metadataDAL.GetColumnsForEmployeeTable();
         }
         
-        public List<String> GetEmployeeMetaData()
+        public List<DataTuple> GetEmployeeMetaData()
         {
             return metadataDAL.GetEmployeeMetaData();
         }
 
-        public List<String> GetEmployeeAbsenceMetaData()
+        public List<DataTuple> GetEmployeeAbsenceMetaData()
         {
             return metadataDAL.GetEmployeeAbsenceMetaData();
         }
 
-        public List<String> GetEmployeeRelativeMetaData()
+        public List<DataTuple> GetEmployeeRelativeMetaData()
         {
             return metadataDAL.GetEmployeeRelativeMetaData();
         }
 
-        public List<String> GetEmployeeQualificationMetaData()
+        public List<DataTuple> GetEmployeeQualificationMetaData()
         {
             return metadataDAL.GetEmployeeQualificationMetaData();
         }
 
-        public List<String> GetEmployeePortalSetupMetaData()
+        public List<DataTuple> GetEmployeePortalSetupMetaData()
         {
             return metadataDAL.GetEmployeePortalSetupMetaData();
         }
 
-        public List<String> GetEmployeeStatisticsGroupMetaData()
+        public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
         {
             return metadataDAL.GetEmployeeStatisticsGroupMetaData();
         }

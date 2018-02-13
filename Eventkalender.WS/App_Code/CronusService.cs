@@ -44,31 +44,31 @@ public class CronusService : WebService
     //*/
 
     [WebMethod]
-    public List<String> GetKeys()
+    public List<string> GetKeys()
     {
         return cronusController.GetKeys();
     }
 
     [WebMethod]
-    public List<String> GetIndexes()
+    public List<string> GetIndexes()
     {
         return cronusController.GetIndexes();
     }
 
     [WebMethod]
-    public List<String> GetTableConstraints()
+    public List<string> GetTableConstraints()
     {
         return cronusController.GetTableConstraints();
     }
 
     [WebMethod]
-    public List<String> GetTables()
+    public List<string> GetTables()
     {
         return cronusController.GetTables();
     }
 
     [WebMethod]
-    public List<String> GetColumnsForEmployeeTable()
+    public List<string> GetColumnsForEmployeeTable()
     {
         return cronusController.GetColumnsForEmployeeTable();
     }
@@ -129,38 +129,37 @@ public class CronusService : WebService
      }
 
     [WebMethod]
-    public List<String> GetEmployeeMetaData()
+    public List<DataTuple> GetEmployeeMetaData()
     {
         return cronusController.GetEmployeeMetaData();
     }
 
     [WebMethod]
-    public List<string> GetEmployeeAbsenceMetaData()
+    public List<DataTuple> GetEmployeeAbsenceMetaData()
     {
         return cronusController.GetEmployeeAbsenceMetaData();
     }
 
     [WebMethod]
-    public List<string> GetEmployeeRelativeMetaData()
+    public List<DataTuple> GetEmployeeRelativeMetaData()
     {
         return cronusController.GetEmployeeRelativeMetaData();
     }
 
     [WebMethod]
-    public List<string> GetEmployeeQualificationMetaData()
+    public List<DataTuple> GetEmployeeQualificationMetaData()
     {
         return cronusController.GetEmployeeQualificationMetaData();
     }
 
     [WebMethod]
-    public List<string> GetEmployeePortalSetupMetaData()
+    public List<DataTuple> GetEmployeePortalSetupMetaData()
     {
         return cronusController.GetEmployeePortalSetupMetaData();
     }
 
-
     [WebMethod]
-    public List<string> GetEmployeeStatisticsGroupMetaData()
+    public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
     {
         return cronusController.GetEmployeeStatisticsGroupMetaData();
     }

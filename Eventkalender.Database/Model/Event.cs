@@ -37,10 +37,8 @@ namespace Eventkalender.Database.Model
 
         public DateTime EndTime { get; set; }
 
-        [XmlIgnore]
         public virtual Nation Nation { get; set; }
 
-        [XmlIgnore]
         public virtual List<Person> Persons { get; set; }
     }
 }

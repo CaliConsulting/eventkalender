@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Eventkalender.Database.Model
+namespace Eventkalender.Database
 {
     [Serializable]
-    public class Tuple
+    public class DataTuple
     {
         //[XmlAttribute]
         private List<SerializableKeyValuePair<string, string>> values;
 
-        public Tuple()
+        public DataTuple()
         {
             values = new List<SerializableKeyValuePair<string, string>>();
         }

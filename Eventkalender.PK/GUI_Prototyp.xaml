@@ -45,17 +45,21 @@
                                     Margin="0,5,0,0"
                                     Text="Sortera efter:"
                                     Grid.RowSpan="1"/>
-                                <ComboBox x:Name="cmBox_SortEvents"
+                                <ComboBox x:Name="cmb_SortEvents"
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     Margin="0,0,0,0"
                                     Text="Aktivitet"
-                                    Grid.RowSpan="1" 
-									SelectionChanged="cmBox_SortEvents_SelectionChanged">
-                                        <ComboBoxItem x:Name="Datum" Content="Tid"/>
-                                        <ComboBoxItem x:Name="Nation" Content="Nation"/>
+                                    Grid.RowSpan="1"
+                                    Selected="cmb_SortEvents_Selected">
+                                    <ComboBoxItem x:Name="Datum" 
+                                                  Content="Datum"
+                                                  />
+                                        <ComboBoxItem x:Name="Nation"
+                                                      Content="Nation"/>
 									</ComboBox>
-                                <DataGrid Grid.Column="3"
+                                <DataGrid x:Name="dtg_ShowEvents"
+                                    Grid.Column="3"
                                     Grid.Row="2"
                                     Width="450"
                                     Height="500"
@@ -90,21 +94,21 @@
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
-                                    <DatePickerTextBox x:Name="dtpick_StartTime"
+                                    <DatePicker x:Name="dtpick_StartTime"
                                               MaxWidth="150"
                                               Width="150"
                                               HorizontalAlignment="Left"
-                                              ToolTip="Vilket datum och tid äger evenemanget rum? Fylls i som YYYY:MM:DD HH:MM:SS"
-                                              ToolTipService.BetweenShowDelay="50000">
-                                    </DatePickerTextBox>
+                                              ToolTip="Vilket datum äger evenemanget rum?"
+                                              ToolTipService.BetweenShowDelay="50000"/>
+                                    
                                     <TextBlock Text="Eventets slut:"/>
                                     <DatePicker x:Name="cmBox_EndTime"
                                               Width="150"
                                               MaxWidth="150"
                                               HorizontalAlignment="Left"
-                                              ToolTip="Vilket datum och tid äger evenemanget rum? Fylls i som YYYY:MM:DD HH:MM:SS"
-                                            ToolTipService.BetweenShowDelay="50000">
-                                    </DatePicker>
+                                              ToolTip="Vilket datum slutar evenemanget?"
+                                            ToolTipService.BetweenShowDelay="50000"/>
+
                                     <TextBlock Text="Beskrivning:"/>
                                     <TextBox x:Name="txtBox_Summary"
                                              Height="200" 
@@ -117,6 +121,16 @@
                                             ToolTip="Registrerar evenemanget med de ifyllda attributen"
                                             ToolTipService.BetweenShowDelay="50000"/>
                                 </StackPanel>
+                                <TextBlock Text="Tid:"
+                                           Canvas.Top="100"
+                                           Canvas.Left="170"/>
+                                <ComboBox IsEditable="True"
+                                          MaxWidth="150"
+                                          Canvas.Left="170"
+                                          Canvas.Top="115"
+                                          ItemsSource="{Binding timeList}"
+                                          >
+                                </ComboBox>
                                 <StackPanel Canvas.Left="320" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
                                     <TextBlock Text="Filtrera"/>

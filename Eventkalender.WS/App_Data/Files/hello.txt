@@ -1,0 +1,1 @@
+Hello, this is the contents of hello.txt. I'm a part of the project.

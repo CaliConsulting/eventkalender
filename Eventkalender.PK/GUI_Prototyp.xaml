@@ -51,7 +51,7 @@
                                     Margin="0,0,0,0"
                                     Text="Aktivitet"
                                     Grid.RowSpan="1"
-                                    Selected="cmb_SortEvents_Selected">
+                                    >
                                     <ComboBoxItem x:Name="Datum" 
                                                   Content="Datum"
                                                   />
@@ -129,7 +129,7 @@
                                           MaxWidth="150"
                                           Canvas.Left="170"
                                           Canvas.Top="115"
-                                          ItemsSource="{Binding timeList}"
+                                          ItemsSource="{Binding timesList}"
                                           >
                                 </ComboBox>
                                 <TextBlock Text="Tid:"
@@ -140,7 +140,7 @@
                                           MaxWidth="150"
                                           Canvas.Left="170"
                                           Canvas.Top="155"
-                                          ItemsSource="{Binding timeList}"
+                                          ItemsSource="{Binding times}"
                                           >
                                 </ComboBox>
                                 <StackPanel Canvas.Left="320" Canvas.Top="10">
@@ -310,10 +310,21 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Webservices">
-                <Grid/>
+                <TabControl>
+                    <TabItem Header="Run web">
+                        Nätet körs här.
+                    </TabItem>
+                    <TabItem Header="Spindelmannen swingar">
+                        Tom flik som kan användas
+                    </TabItem>
+                </TabControl>
             </TabItem>
             <TabItem Header="ERP Integration">
-                <Grid/>
+                <TabControl>
+                    <TabItem Header="Cronus">
+                        Hämtar data från Cronusdatabasen
+                    </TabItem>
+                </TabControl>
             </TabItem>
         </TabControl>
     </StackPanel>

@@ -124,10 +124,22 @@
                                 <TextBlock Text="Tid:"
                                            Canvas.Top="100"
                                            Canvas.Left="170"/>
-                                <ComboBox IsEditable="True"
+                                <ComboBox x:Name="cmb_StartTime"
+                                          IsEditable="True"
                                           MaxWidth="150"
                                           Canvas.Left="170"
                                           Canvas.Top="115"
+                                          ItemsSource="{Binding timeList}"
+                                          >
+                                </ComboBox>
+                                <TextBlock Text="Tid:"
+                                           Canvas.Top="140"
+                                           Canvas.Left="170"/>
+                                <ComboBox x:Name="cmb_EndTime"
+                                          IsEditable="True"
+                                          MaxWidth="150"
+                                          Canvas.Left="170"
+                                          Canvas.Top="155"
                                           ItemsSource="{Binding timeList}"
                                           >
                                 </ComboBox>

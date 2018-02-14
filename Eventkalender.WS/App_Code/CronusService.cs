@@ -1,111 +1,166 @@
-﻿using Eventkalender.Database.DAL;
-using Eventkalender.Database.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using Eventkalender.Database.Controller;
-
-
+using Eventkalender.Database;
 
 [WebService(Namespace = "http://www.ics.lu.se.cali/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-
-// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-// [System.Web.Script.Services.ScriptService]
-
-
 public class CronusService : WebService
 {
-
     private CronusController cronusController;
+
     public CronusService()
     {
-        cronusController = new CronusController();
+        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/cronus-db.xml");
+        cronusController = new CronusController(xmlPath);
     }
 
-    /* [WebMethod]
-    public void Update()
-    {
+    ///* [WebMethod]
+    //public void Update()
+    //{
 
-        return cronusController.Update();
-    }
+    //    return cronusController.Update();
+    //}
+    //[WebMethod]
+    //public void Insert()
+    //{
+
+    //    return cronusController.Insert();
+    //}
+    //[WebMethod]
+    //public void Delete()
+    //{
+
+    //    return cronusController.Delete();
+    //}
+    //[WebMethod]
+    //public void Select()
+    //{
+
+    //    return cronusController.Select();
+    //}
+    //*/
+
     [WebMethod]
-    public void Insert()
+    public List<string> GetKeys()
     {
-
-        return cronusController.Insert();
-    }
-    [WebMethod]
-    public void Delete()
-    {
-
-        return cronusController.Delete();
-    }
-    [WebMethod]
-    public void Select()
-    {
-
-        return cronusController.Select();
-    }
-    */
-    [WebMethod]
-    public List<String> GetKeys()
-    {
-
         return cronusController.GetKeys();
     }
-    [WebMethod]
-    public List<String> GetIndexes()
-    {
 
+    [WebMethod]
+    public List<string> GetIndexes()
+    {
         return cronusController.GetIndexes();
     }
-    [WebMethod]
-    public List<String> GetTableConstraints()
-    {
 
+    [WebMethod]
+    public List<string> GetTableConstraints()
+    {
         return cronusController.GetTableConstraints();
     }
-    [WebMethod]
-    public List<String> GetTables()
-    {
 
+    [WebMethod]
+    public List<string> GetTables()
+    {
         return cronusController.GetTables();
     }
-    [WebMethod]
-    public List<String> GetColumnsForEmployeeTable()
-    {
 
+    [WebMethod]
+    public List<string> GetColumnsForEmployeeTable()
+    {
         return cronusController.GetColumnsForEmployeeTable();
     }
 
-   /* [WebMethod]
-
-
-
-    public void Employee()
+    [WebMethod]
+    public DataTuple GetIllestPerson()
     {
+        return cronusController.GetIllestPerson();
+    }
 
-        return cronusController.GetEmployee();
+    [WebMethod]
+    public List<DataTuple> GetIllPersonsByYear(int startYear, int endYear)
+    {
+        return cronusController.GetIllPersonsByYear(startYear, endYear);
     }
     [WebMethod]
-    public void GetEmployeeRelatives()
+    public List<DataTuple> GetEmployeeAndRelatves()
     {
-
-        return cronusController.GetEmployeeRelatives();
+        return cronusController.GetEmployeeAndRelatives();
     }
-    [WebMethod]
-    public void GetIllemployee(int year)
-    {
 
-        return cronusController.GetIllEmployee();
+
+    [WebMethod]
+     public List<DataTuple> GetEmployeeData()
+     {
+        return cronusController.GetEmployeeData();
+     }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeeAbsenceData()
+    {
+        return cronusController.GetEmployeeAbsenceData();
     }
-    [WebMethod]
-    public void GetIllestEmployee()
-    {
 
-        return cronusController.GetIllestEmployee(); 
-    } */
+    [WebMethod]
+     public List<DataTuple> GetEmployeeRelativeData()
+     {
+        return cronusController.GetEmployeeRelativeData();
+     }
+
+     [WebMethod]
+     public List<DataTuple> GetEmployeeQualificationData()
+     {
+        return cronusController.GetEmployeeQualificationData();
+     }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeePortalSetupData()
+    {
+        return cronusController.GetEmployeePortalSetupData();
+    }
+
+
+    [WebMethod]
+     public List<DataTuple> GetEmployeeStatisticsGroupData()
+     {
+        return cronusController.GetEmployeeStatisticsGroupData();
+     }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeeMetaData()
+    {
+        return cronusController.GetEmployeeMetaData();
+    }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeeAbsenceMetaData()
+    {
+        return cronusController.GetEmployeeAbsenceMetaData();
+    }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeeRelativeMetaData()
+    {
+        return cronusController.GetEmployeeRelativeMetaData();
+    }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeeQualificationMetaData()
+    {
+        return cronusController.GetEmployeeQualificationMetaData();
+    }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeePortalSetupMetaData()
+    {
+        return cronusController.GetEmployeePortalSetupMetaData();
+    }
+
+    [WebMethod]
+    public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
+    {
+        return cronusController.GetEmployeeStatisticsGroupMetaData();
+    }
 }

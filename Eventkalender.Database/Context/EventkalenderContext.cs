@@ -1,5 +1,4 @@
-﻿using Eventkalender.Database.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -7,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.Context
+namespace Eventkalender.Database
 {
     public class EventkalenderContext : DbContext
     {
-        public EventkalenderContext() : base(DatabaseClient.GetSqlServerConnectionString("eventkalender-db.xml"))
+        public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
         }

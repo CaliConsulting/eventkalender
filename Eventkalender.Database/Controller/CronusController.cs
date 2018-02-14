@@ -1,44 +1,123 @@
-﻿using Eventkalender.Database.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eventkalender.Database.Controller
+namespace Eventkalender.Database
 {
     public class CronusController
     {
+        private CronusDataDAL dataDAL;
         private CronusMetadataDAL metadataDAL;
 
-        public CronusController()
+        public CronusController(string xmlPath)
         {
-            metadataDAL = new CronusMetadataDAL();
+            dataDAL = new CronusDataDAL(xmlPath);
+            metadataDAL = new CronusMetadataDAL(xmlPath);
         }
 
-        public List<string> GetKeys()
+        public List<String> GetKeys()
         {
             return metadataDAL.GetKeys();
         }
 
-        public List<string> GetIndexes()
+        public List<String> GetIndexes()
         {
             return metadataDAL.GetIndexes();
         }
 
-        public List<string> GetTableConstraints()
+        public List<String> GetTableConstraints()
         {
             return metadataDAL.GetTableConstraints();
         }
 
-        public List<string> GetTables()
+        public List<String> GetTables()
         {
             return metadataDAL.GetTables();
         }
 
-        public List<string> GetColumnsForEmployeeTable()
+        public List<String> GetColumnsForEmployeeTable()
         {
             return metadataDAL.GetColumnsForEmployeeTable();
         }
+        
+        public List<DataTuple> GetEmployeeMetaData()
+        {
+            return metadataDAL.GetEmployeeMetaData();
+        }
+
+        public List<DataTuple> GetEmployeeAbsenceMetaData()
+        {
+            return metadataDAL.GetEmployeeAbsenceMetaData();
+        }
+
+        public List<DataTuple> GetEmployeeRelativeMetaData()
+        {
+            return metadataDAL.GetEmployeeRelativeMetaData();
+        }
+
+        public List<DataTuple> GetEmployeeQualificationMetaData()
+        {
+            return metadataDAL.GetEmployeeQualificationMetaData();
+        }
+
+        public List<DataTuple> GetEmployeePortalSetupMetaData()
+        {
+            return metadataDAL.GetEmployeePortalSetupMetaData();
+        }
+
+        public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
+        {
+            return metadataDAL.GetEmployeeStatisticsGroupMetaData();
+        }
+
+        //HÄR BÖRJAR DATADAL
+
+        public DataTuple GetIllestPerson()
+        {
+            return dataDAL.GetIllestPerson();
+        }
+
+        public List<DataTuple> GetIllPersonsByYear(int startYear, int endYear)
+        {
+            return dataDAL.GetIllPersonsByYear(startYear, endYear);
+        }
+
+        public List<DataTuple> GetEmployeeAndRelatives()
+        {
+            return dataDAL.GetEmployeeAndRelatives();
+        }
+
+        public List<DataTuple> GetEmployeeData()
+        {
+            return dataDAL.GetEmployeeData();
+        }
+
+        public List<DataTuple> GetEmployeeAbsenceData()
+        {
+            return dataDAL.GetEmployeeAbsenceData();
+        }
+
+        public List<DataTuple> GetEmployeeRelativeData()
+        {
+            return dataDAL.GetEmployeeRelativeData();
+        }
+
+        public List<DataTuple> GetEmployeeQualificationData()
+        {
+            return dataDAL.GetEmployeeQualificationData();
+        }
+
+        public List<DataTuple> GetEmployeePortalSetupData()
+        {
+            return dataDAL.GetEmployeePortalSetupData();
+        }
+
+        public List<DataTuple> GetEmployeeStatisticsGroupData()
+        {
+            return dataDAL.GetEmployeeStatisticsGroupData();
+        }
+
     }
 }

@@ -36,10 +36,9 @@ public class EventkalenderService : WebService
     }
 
     [WebMethod]
-    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime)
+    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime, int nationId)
     {
-        eventkalenderController.AddEvent(name,summary, startTime, endTime);
-        
+        eventkalenderController.AddEvent(name,summary, startTime, endTime, nationId);
     }
 
     [WebMethod]

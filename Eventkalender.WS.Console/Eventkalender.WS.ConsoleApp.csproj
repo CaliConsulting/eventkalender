@@ -44,11 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\CronusReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\EventkalenderReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="CronusApp.cs" />
+    <Compile Include="CronusData.cs" />
+    <Compile Include="CronusMetaData.cs" />
     <Compile Include="EventkalenderApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +66,73 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\CronusReference\CronusService.wsdl" />
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.DataTuple.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetColumnsForEmployeeTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetIllestPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetIllPersonsByYearResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetIndexesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetKeysResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetTableConstraintsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetTablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -70,6 +145,7 @@
     <None Include="Connected Services\EventkalenderReference\EventkalenderService.wsdl" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CronusReference\" />
     <WCFMetadataStorage Include="Connected Services\EventkalenderReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +156,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\EventkalenderReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CronusReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CronusReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CronusReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

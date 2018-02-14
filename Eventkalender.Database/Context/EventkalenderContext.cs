@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eventkalender.Database.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -18,6 +19,8 @@ namespace Eventkalender.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Conventions.Add(new ForeignKeyNamingConvention());
         }
 
         public DbSet<Nation> Nation { get; set; }

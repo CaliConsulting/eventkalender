@@ -31,9 +31,9 @@ namespace Eventkalender.Database
             return dal.GetNations();
         }
 
-        public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime)
+        public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
         {
-            Event e = new Event(name, summary, startTime, endTime);
+            Event e = new Event(name, summary, startTime, endTime, nationId);
             dal.AddEvent(e);
         }
 

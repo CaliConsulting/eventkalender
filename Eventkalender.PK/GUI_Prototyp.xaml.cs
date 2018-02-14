@@ -33,7 +33,7 @@ namespace Eventkalender.PK.GUI
         {
 
         }
-        
+
         private void datagridEvents_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
 
@@ -47,11 +47,11 @@ namespace Eventkalender.PK.GUI
         private void btn_EraseFromList_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
-            if(raderaResultat == MessageBoxResult.Yes)
+            if (raderaResultat == MessageBoxResult.Yes)
             {
 
             }
-            if(raderaResultat == MessageBoxResult.No)
+            if (raderaResultat == MessageBoxResult.No)
             {
 
             }
@@ -69,7 +69,10 @@ namespace Eventkalender.PK.GUI
 
             }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        }
+
+        private void cmBox_SortEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

@@ -155,7 +155,7 @@ namespace Eventkalender.WS.ConsoleApp
 
                 string userInput = Console.ReadLine();             
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
-                if (!isNumeric)
+                if (!isNumeric) //Trams
                 {
                     Console.WriteLine("Hata tenta och data, älska int när instruktionen säger att man ska använda int");
                 }

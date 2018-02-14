@@ -90,25 +90,21 @@
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
-                                    <ComboBox x:Name="cmBox_StartTime"
-                                              IsEditable="True"
+                                    <DatePickerTextBox x:Name="dtpick_StartTime"
                                               MaxWidth="150"
                                               Width="150"
                                               HorizontalAlignment="Left"
                                               ToolTip="Vilket datum och tid äger evenemanget rum? Fylls i som YYYY:MM:DD HH:MM:SS"
-                                            ToolTipService.BetweenShowDelay="50000">
-                                        <Calendar x:Name="cal_StartTime"/>
-                                    </ComboBox>
+                                              ToolTipService.BetweenShowDelay="50000">
+                                    </DatePickerTextBox>
                                     <TextBlock Text="Eventets slut:"/>
-                                    <ComboBox x:Name="cmBox_EndTime"
-                                              IsEditable="True"
+                                    <DatePicker x:Name="cmBox_EndTime"
                                               Width="150"
                                               MaxWidth="150"
                                               HorizontalAlignment="Left"
                                               ToolTip="Vilket datum och tid äger evenemanget rum? Fylls i som YYYY:MM:DD HH:MM:SS"
                                             ToolTipService.BetweenShowDelay="50000">
-                                        <Calendar x:Name="cal_EndTime"/>
-                                    </ComboBox>
+                                    </DatePicker>
                                     <TextBlock Text="Beskrivning:"/>
                                     <TextBox x:Name="txtBox_Summary"
                                              Height="200" 

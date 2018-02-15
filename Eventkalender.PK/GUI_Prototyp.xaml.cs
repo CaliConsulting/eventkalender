@@ -24,6 +24,7 @@ namespace Eventkalender.PK.GUI
 
         private List<string> timesList;
         private List<Nation> Nationer = new List<Nation>();
+        
 
 
         public GUI_Prototyp()
@@ -77,6 +78,11 @@ namespace Eventkalender.PK.GUI
                 timesList = GenerateList();
             }
         }
+        public List<Nation> Nationerlist
+        {
+            get { return Nationer; }
+            set { Nationer = controller.GetNations(); }
+        }
    
         private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
@@ -106,6 +112,19 @@ namespace Eventkalender.PK.GUI
             if (raderaResultat == MessageBoxResult.No)
             {
 
+            }
+        }
+
+        private void btn_RegNationName_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtBox_NationName.Text != "")
+            {
+                controller.AddNation(txtBox_NationName.Text);
+                txtBox_NationName.Text = "";
+             }
+            else
+            {
+                MessageBox.Show("Inget värde ifyllt");
             }
         }
     }

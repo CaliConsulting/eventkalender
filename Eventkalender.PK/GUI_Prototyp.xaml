@@ -69,11 +69,14 @@
                                     ItemsSource="{Binding Path=EventsList}"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
                                     ToolTipService.BetweenShowDelay="50000"/>
-
+                                <TextBlock  Text="{Binding Path=StatusProperty}"
+                                            Grid.Column="1"
+                                            Grid.Row="6"
+                                            VerticalAlignment="Bottom"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Eventhantering" Margin="0,0,0,0">
-                            <Canvas Height="525" Margin="0,0,0,0">
+                            <Canvas Height="515" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10"  >
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
@@ -90,7 +93,7 @@
                                              HorizontalAlignment="Left"
                                              MaxWidth="150"
                                              Width="150"
-                                             SelectedItem="{Binding Path=Nationer}"
+                                             ItemsSource="{Binding Path=NationerList}"
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
@@ -173,6 +176,9 @@
                                             ToolTip="Raderar de valda evenemangen"
                                             ToolTipService.BetweenShowDelay="50000"/>
                                 </StackPanel>
+                                <TextBlock  Text="{Binding Path=StatusProperty}"
+                                            Canvas.Bottom="10"
+                                            Canvas.Left="10"/>
                             </Canvas>
                         </TabItem>
                         <TabItem Header="Personhantering" Margin="0,-0,0,0">
@@ -200,6 +206,7 @@
                                              Width="150"
                                              HorizontalAlignment="Left"/>
                                     <Button x:Name="btn_RegNationName"
+                                            Click="btn_RegNationName_Click"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             Width="100"
@@ -212,7 +219,7 @@
                                            Canvas.Left="10"/>
                                 <ComboBox x:Name="cmBox_filterList"
                                           Canvas.Left="10"
-                                          Canvas.Bottom="215"
+                                          Canvas.Bottom="230"
                                           Width="100"
                                           MaxWidth="100"
                                           HorizontalAlignment="Left"
@@ -226,21 +233,24 @@
                                             Width="100"
                                             MaxWidth="150"
                                             Canvas.Right="20"
-                                            Canvas.Bottom="215"
+                                            Canvas.Bottom="230"
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.BetweenShowDelay="50000"
                                             Click="btn_EraseFromList_Click"/>
                                 <DataGrid x:Name="datagrid_ErasePerson"
                                               Height="200"
                                               Width="600"
-                                              Margin="0,15,0,0"
-                                              Canvas.Bottom="10"
+                                              Margin="0,0,0,0"
+                                              Canvas.Bottom="25"
                                               Canvas.Left="10"
                                               VerticalScrollBarVisibility="Auto"
                                               HeadersVisibility="Column"
                                               SelectionMode="Extended" 
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
                                               ToolTipService.BetweenShowDelay="50000"/>
+                                <TextBlock  Text="{Binding Path=StatusProperty}"
+                                            Canvas.Bottom="10"
+                                            Canvas.Left="10"/>
                             </Canvas>
                         </TabItem>
                         <TabItem Header="Inbjudningar" Margin="0,0,0,0">
@@ -302,6 +312,9 @@
                                         Canvas.Bottom="40"
                                         Canvas.Left="275"
                                         Width="70"/>
+                                <TextBlock  Text="{Binding Path=StatusProperty}"
+                                            Canvas.Bottom="10"
+                                            Canvas.Left="10"/>
                             </Canvas>
                         </TabItem>
                     </TabControl>

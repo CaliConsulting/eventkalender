@@ -9,12 +9,16 @@ using Eventkalender.Database;
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 public class CronusService : WebService
 {
+    private string physicalPath;
+
     private CronusController cronusController;
 
     public CronusService()
     {
-        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/cronus-db.xml");
-        cronusController = new CronusController(xmlPath);
+        physicalPath = HttpContext.Current.Server.MapPath("~/App_Data");
+
+        string databaseFilePath = physicalPath + "/cronus-db.xml";
+        cronusController = new CronusController(databaseFilePath);
     }
 
     ///* [WebMethod]

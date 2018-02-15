@@ -6,92 +6,93 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-[WebService(Namespace = "http://www.ics.lu.se.cali/")]
-[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-public class EventkalenderService : WebService
+namespace Eventkalender.WS
 {
-    private string physicalPath;
-
-    private EventkalenderController eventkalenderController;
-
-    public EventkalenderService()
+    [WebService(Namespace = "http://www.ics.lu.se.cali/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    public class EventkalenderService : WebService
     {
-        string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
-        eventkalenderController = new EventkalenderController(databaseFilePath);
-    }
+        private EventkalenderController eventkalenderController;
 
-    [WebMethod]
-    public string GetFile(string path)
-    {
-        string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
-        return File.ReadAllText(filePath);
-    }
+        public EventkalenderService()
+        {
+            string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
+            eventkalenderController = new EventkalenderController(databaseFilePath);
+        }
 
-    //[WebMethod]
-    //public void AddFile(string path, string content)
-    //{
-    //    string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
+        [WebMethod]
+        public string GetFile(string path)
+        {
+            string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+            return File.ReadAllText(filePath);
+        }
 
-    //    FileStream ms = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
-    //    using (StreamWriter sw = new StreamWriter(ms))
-    //    {
-    //        sw.WriteLine(content);
-    //    }
-    //    //File.WriteAllText(path, content);
-    //}
+        //[WebMethod]
+        //public void AddFile(string path, string content)
+        //{
+        //    string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
 
-    [WebMethod]
-    public Nation GetNation(int id)
-    {
-        return eventkalenderController.GetNation(id);
-    }
+        //    FileStream ms = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+        //    using (StreamWriter sw = new StreamWriter(ms))
+        //    {
+        //        sw.WriteLine(content);
+        //    }
+        //    //File.WriteAllText(path, content);
+        //}
 
-    [WebMethod]
-    public List<Nation> GetNations()
-    {
-        return eventkalenderController.GetNations();
-    }
+        [WebMethod]
+        public Nation GetNation(int id)
+        {
+            return eventkalenderController.GetNation(id);
+        }
 
-    [WebMethod]
-    public void AddNation(string name)
-    {
-        eventkalenderController.AddNation(name);
-    }
+        [WebMethod]
+        public List<Nation> GetNations()
+        {
+            return eventkalenderController.GetNations();
+        }
 
-    [WebMethod]
-    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime, int nationId)
-    {
-        //Lösning så att tid sätts in i rätt format för datetime?
-        eventkalenderController.AddEvent(name,summary, startTime, endTime, nationId);
-    }
+        [WebMethod]
+        public void AddNation(string name)
+        {
+            eventkalenderController.AddNation(name);
+        }
 
-    [WebMethod]
-    public Event GetEvent(int id)
-    {
-        return eventkalenderController.GetEvent(id);
-    }
+        [WebMethod]
+        public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
+        {
+            //Lösning så att tid sätts in i rätt format för datetime?
+            eventkalenderController.AddEvent(name, summary, startTime, endTime, nationId);
+        }
 
-    [WebMethod]
-    public List<Event> GetEvents()
-    {
-        return eventkalenderController.GetEvents();
-    }
+        [WebMethod]
+        public Event GetEvent(int id)
+        {
+            return eventkalenderController.GetEvent(id);
+        }
 
-    [WebMethod]
-    public void AddPerson(string firstName, string lastName)
-    {
-        eventkalenderController.AddPerson(firstName, lastName);
-    }
+        [WebMethod]
+        public List<Event> GetEvents()
+        {
+            return eventkalenderController.GetEvents();
+        }
 
-    [WebMethod]
-    public Person GetPerson(int id)
-    {
-        return eventkalenderController.GetPerson(id);
-    }
+        [WebMethod]
+        public void AddPerson(string firstName, string lastName)
+        {
+            eventkalenderController.AddPerson(firstName, lastName);
+        }
 
-    [WebMethod]
-    public List<Person> GetPersons()
-    {
-        return eventkalenderController.GetPersons();
+        [WebMethod]
+        public Person GetPerson(int id)
+        {
+            return eventkalenderController.GetPerson(id);
+        }
+
+        [WebMethod]
+        public List<Person> GetPersons()
+        {
+            return eventkalenderController.GetPersons();
+        }
     }
 }

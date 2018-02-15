@@ -51,21 +51,32 @@ namespace Eventkalender.Database
             return xmlValues;
         }
 
-        private static void WarmupEntityFramework2(object xmlPath)
+        public static void WarmupEntityFramework2(object xmlPath)
         {
             string path = xmlPath as string;
-            using (EventkalenderContext context = new EventkalenderContext(DatabaseClient.GetSqlServerConnectionString(path)))
-            {
-                context.Nation.FirstOrDefault();
-            }
+            EventkalenderController c = new EventkalenderController(path);
+            List<Nation> nations = c.GetNations();
+
+            Console.WriteLine("WARMUP2 DONE");
+
+            //foreach (Nation n in nations)
+            //{
+            //    Console.WriteLine(n);
+            //}
+
+            //string path = xmlPath as string;
+            //using (EventkalenderContext context = new EventkalenderContext(path))
+            //{
+            //    context.Nation.FirstOrDefault();
+            //}
         }
 
         public static void WarmupEntityFramework(string xmlPath)
         {
             ParameterizedThreadStart pts = new ParameterizedThreadStart(WarmupEntityFramework2);
             Thread t = new Thread(pts);
-            t.Start();
-            Console.WriteLine("DONE");
+            t.Start(xmlPath);
+            Console.WriteLine("WARMUP DONE");
         }
 
     }

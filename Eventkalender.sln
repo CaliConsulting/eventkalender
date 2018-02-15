@@ -30,7 +30,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Eventkalender.WS", "Eventka
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventkalender.WS.ConsoleApp", "Eventkalender.WS.Console\Eventkalender.WS.ConsoleApp.csproj", "{A358412C-74BB-4871-B794-4BFD55898C89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventkalender.WS.ConsoleApp", "Eventkalender.WS.ConsoleApp\Eventkalender.WS.ConsoleApp.csproj", "{A358412C-74BB-4871-B794-4BFD55898C89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

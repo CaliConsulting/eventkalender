@@ -54,10 +54,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="CronusApp.cs" />
-    <Compile Include="CronusAppData.cs" />
-    <Compile Include="CronusAppMetadata.cs" />
-    <Compile Include="EventkalenderApp.cs" />
+    <Compile Include="Cronus\CronusApp.cs" />
+    <Compile Include="Cronus\CronusAppData.cs" />
+    <Compile Include="Cronus\CronusAppMetadata.cs" />
+    <Compile Include="Eventkalender\EventkalenderApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

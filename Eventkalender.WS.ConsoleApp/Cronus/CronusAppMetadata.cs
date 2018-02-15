@@ -9,10 +9,11 @@ namespace Eventkalender.WS.ConsoleApp
 {
     public class CronusAppMetadata
     {
-        private CronusServiceSoapClient cronusclient;
-        private EventkalenderApp eventApp;
         private bool returnBool;
         private int caseSwitch;
+
+        private CronusServiceSoapClient cronusclient;
+        private EventkalenderApp eventApp;
 
         public CronusAppMetadata()
         {

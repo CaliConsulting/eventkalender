@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Eventkalender.WS.ConsoleApp
 {
     public class CronusApp
     {        
-        private EventkalenderApp eventApp;
-        private CronusAppData cronusData;
-        private CronusAppMetadata cronusMetadata;
         private int caseSwitch;
         private bool returnBool;
 
+        private CronusAppData cronusData;
+        private CronusAppMetadata cronusMetadata;
+        private EventkalenderApp eventApp;
+
         public CronusApp()
         {
-            eventApp = new EventkalenderApp();
             cronusData = new CronusAppData();
             cronusMetadata = new CronusAppMetadata();
+            eventApp = new EventkalenderApp();
         }
 
         public void ReturnMethod()

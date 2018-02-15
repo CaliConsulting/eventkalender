@@ -12,7 +12,13 @@ namespace Eventkalender.WS.ConsoleApp
         private int caseSwitch;
         private int id;
         private bool returnBool;
-        EventkalenderServiceSoapClient eventclient = new EventkalenderServiceSoapClient();
+
+        private EventkalenderServiceSoapClient eventclient;
+
+        public EventkalenderApp()
+        {
+            eventclient = new EventkalenderServiceSoapClient();
+        }
 
         public void GetNation()
         {
@@ -68,6 +74,7 @@ namespace Eventkalender.WS.ConsoleApp
             }
             ExitQuestion();
         }
+
         public void GetEvents()
         {
             Console.WriteLine("Följande är alla nationer: ");
@@ -78,6 +85,7 @@ namespace Eventkalender.WS.ConsoleApp
             }
             ExitQuestion();
         }
+
         public void GetPerson()
         {
             Console.WriteLine("Ange personens ID: ");
@@ -107,6 +115,7 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("\nEasterEgg - Bli inte bilprogrammerare\n");
         }
+
         public void GetPersons()
         {
             Console.WriteLine("Följande är alla personer: ");
@@ -132,7 +141,6 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 returnBool = false;
             }
-           
         }
 
         public void Start()
@@ -159,7 +167,6 @@ namespace Eventkalender.WS.ConsoleApp
                 {               
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 6!");
                     ExitQuestion();
-                    
                 }
                 switch (caseSwitch)
                 {

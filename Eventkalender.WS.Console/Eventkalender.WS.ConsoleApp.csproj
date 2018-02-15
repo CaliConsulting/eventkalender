@@ -55,8 +55,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="CronusApp.cs" />
-    <Compile Include="CronusData.cs" />
-    <Compile Include="CronusMetaData.cs" />
+    <Compile Include="CronusAppData.cs" />
+    <Compile Include="CronusAppMetaData.cs" />
     <Compile Include="EventkalenderApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,7 +82,7 @@
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeDataResponse.datasource">
@@ -159,6 +159,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eventkalender.Database\Eventkalender.Database.csproj">
+      <Project>{3fb7f54b-1b3e-4a38-ae08-f487a6276d29}</Project>
+      <Name>Eventkalender.Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\CronusReference\configuration91.svcinfo" />

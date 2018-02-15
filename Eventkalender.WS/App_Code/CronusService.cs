@@ -85,7 +85,7 @@ public class CronusService : WebService
         return cronusController.GetIllPersonsByYear(startYear, endYear);
     }
     [WebMethod]
-    public List<DataTuple> GetEmployeeAndRelatves()
+    public List<DataTuple> GetEmployeeAndRelatives()
     {
         return cronusController.GetEmployeeAndRelatives();
     }

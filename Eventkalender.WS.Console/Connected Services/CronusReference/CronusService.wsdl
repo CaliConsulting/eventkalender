@@ -98,13 +98,13 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="DataTuple" nillable="true" type="tns:DataTuple" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetEmployeeAndRelatves">
+      <s:element name="GetEmployeeAndRelatives">
         <s:complexType />
       </s:element>
-      <s:element name="GetEmployeeAndRelatvesResponse">
+      <s:element name="GetEmployeeAndRelativesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAndRelatvesResult" type="tns:ArrayOfDataTuple" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAndRelativesResult" type="tns:ArrayOfDataTuple" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -272,11 +272,11 @@
   <wsdl:message name="GetIllPersonsByYearSoapOut">
     <wsdl:part name="parameters" element="tns:GetIllPersonsByYearResponse" />
   </wsdl:message>
-  <wsdl:message name="GetEmployeeAndRelatvesSoapIn">
-    <wsdl:part name="parameters" element="tns:GetEmployeeAndRelatves" />
+  <wsdl:message name="GetEmployeeAndRelativesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAndRelatives" />
   </wsdl:message>
-  <wsdl:message name="GetEmployeeAndRelatvesSoapOut">
-    <wsdl:part name="parameters" element="tns:GetEmployeeAndRelatvesResponse" />
+  <wsdl:message name="GetEmployeeAndRelativesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAndRelativesResponse" />
   </wsdl:message>
   <wsdl:message name="GetEmployeeDataSoapIn">
     <wsdl:part name="parameters" element="tns:GetEmployeeData" />
@@ -379,9 +379,9 @@
       <wsdl:input message="tns:GetIllPersonsByYearSoapIn" />
       <wsdl:output message="tns:GetIllPersonsByYearSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeAndRelatves">
-      <wsdl:input message="tns:GetEmployeeAndRelatvesSoapIn" />
-      <wsdl:output message="tns:GetEmployeeAndRelatvesSoapOut" />
+    <wsdl:operation name="GetEmployeeAndRelatives">
+      <wsdl:input message="tns:GetEmployeeAndRelativesSoapIn" />
+      <wsdl:output message="tns:GetEmployeeAndRelativesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeData">
       <wsdl:input message="tns:GetEmployeeDataSoapIn" />
@@ -497,8 +497,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeAndRelatves">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAndRelatves" style="document" />
+    <wsdl:operation name="GetEmployeeAndRelatives">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAndRelatives" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -680,8 +680,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeAndRelatves">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAndRelatves" style="document" />
+    <wsdl:operation name="GetEmployeeAndRelatives">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAndRelatives" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

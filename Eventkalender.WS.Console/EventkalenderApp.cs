@@ -9,11 +9,10 @@ namespace Eventkalender.WS.ConsoleApp
 {
     public class EventkalenderApp
     {
-        int caseSwitch;
-        int id;
-        bool returnBool;
+        private int caseSwitch;
+        private int id;
+        private bool returnBool;
         EventkalenderServiceSoapClient eventclient = new EventkalenderServiceSoapClient();
-
 
         public void GetNation()
         {
@@ -189,7 +188,7 @@ namespace Eventkalender.WS.ConsoleApp
                         VeryGoodMethod();
                         break;
                 }              
-                if(returnBool == false)
+                if(!returnBool)
                 {
                     break;
                 }

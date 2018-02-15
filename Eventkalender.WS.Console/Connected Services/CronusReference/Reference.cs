@@ -141,12 +141,12 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIllPersonsByYear", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetIllPersonsByYearResponse> GetIllPersonsByYearAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetIllPersonsByYearRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeAndRelatvesResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAndRelatves", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse GetEmployeeAndRelatves(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeeAndRelativesResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAndRelatives", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse GetEmployeeAndRelatives(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAndRelatves", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse> GetEmployeeAndRelatvesAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAndRelatives", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse> GetEmployeeAndRelativesAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest request);
         
         // CODEGEN: Generating message contract since element name GetEmployeeDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeData", ReplyAction="*")]
@@ -675,15 +675,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeAndRelatvesRequest {
+    public partial class GetEmployeeAndRelativesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelatves", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelatives", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequestBody Body;
         
-        public GetEmployeeAndRelatvesRequest() {
+        public GetEmployeeAndRelativesRequest() {
         }
         
-        public GetEmployeeAndRelatvesRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequestBody Body) {
+        public GetEmployeeAndRelativesRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -692,9 +692,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeeAndRelatvesRequestBody {
+    public partial class GetEmployeeAndRelativesRequestBody {
         
-        public GetEmployeeAndRelatvesRequestBody() {
+        public GetEmployeeAndRelativesRequestBody() {
         }
     }
     
@@ -702,15 +702,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeAndRelatvesResponse {
+    public partial class GetEmployeeAndRelativesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelatvesResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelativesResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponseBody Body;
         
-        public GetEmployeeAndRelatvesResponse() {
+        public GetEmployeeAndRelativesResponse() {
         }
         
-        public GetEmployeeAndRelatvesResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponseBody Body) {
+        public GetEmployeeAndRelativesResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -719,16 +719,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeeAndRelatvesResponseBody {
+    public partial class GetEmployeeAndRelativesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAndRelatvesResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAndRelativesResult;
         
-        public GetEmployeeAndRelatvesResponseBody() {
+        public GetEmployeeAndRelativesResponseBody() {
         }
         
-        public GetEmployeeAndRelatvesResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAndRelatvesResult) {
-            this.GetEmployeeAndRelatvesResult = GetEmployeeAndRelatvesResult;
+        public GetEmployeeAndRelativesResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAndRelativesResult) {
+            this.GetEmployeeAndRelativesResult = GetEmployeeAndRelativesResult;
         }
     }
     
@@ -1657,26 +1657,26 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAndRelatves(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest request) {
-            return base.Channel.GetEmployeeAndRelatves(request);
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAndRelatives(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest request) {
+            return base.Channel.GetEmployeeAndRelatives(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAndRelatves() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAndRelatves(inValue);
-            return retVal.Body.GetEmployeeAndRelatvesResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAndRelatives() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAndRelatives(inValue);
+            return retVal.Body.GetEmployeeAndRelativesResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAndRelatvesAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest request) {
-            return base.Channel.GetEmployeeAndRelatvesAsync(request);
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAndRelativesAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest request) {
+            return base.Channel.GetEmployeeAndRelativesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesResponse> GetEmployeeAndRelatvesAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelatvesRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAndRelatvesAsync(inValue);
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse> GetEmployeeAndRelativesAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAndRelativesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

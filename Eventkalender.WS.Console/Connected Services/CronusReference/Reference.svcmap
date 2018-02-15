@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ef96cbda-8601-4fe5-9969-45376136cb07" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="adb1fbc1-c836-4b33-a100-5df0ce580a28" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost/EventkalenderWS/CronusService.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CronusService.wsdl" MetadataType="Wsdl" ID="315e30da-3080-4288-9687-34bedf43bd52" SourceId="1" SourceUrl="http://localhost/EventkalenderWS/CronusService.asmx?WSDL" />
+    <MetadataFile FileName="CronusService.wsdl" MetadataType="Wsdl" ID="a217ecec-5528-463c-b2db-34e55d56d661" SourceId="1" SourceUrl="http://localhost/EventkalenderWS/CronusService.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

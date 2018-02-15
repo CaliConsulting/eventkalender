@@ -17,6 +17,11 @@ namespace Eventkalender.WS.ConsoleApp
             Console.WriteLine("Hej och välkommen till den perfekta Konsollapplikationen\n");
             Console.WriteLine("Vilken applikation vill du köra?");
 
+
+            Database.DataTuple tuple = new Database.DataTuple();
+            tuple.Add("Kolumnnamn","hej");
+            Console.WriteLine(tuple);
+
             while (true)
             {
                 

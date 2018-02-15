@@ -15,9 +15,7 @@ public class CronusService : WebService
 
     public CronusService()
     {
-        physicalPath = HttpContext.Current.Server.MapPath("~/App_Data");
-
-        string databaseFilePath = physicalPath + "/cronus-db.xml";
+        string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/cronus-db.xml";
         cronusController = new CronusController(databaseFilePath);
     }
 

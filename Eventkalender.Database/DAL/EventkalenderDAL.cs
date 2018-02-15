@@ -97,7 +97,7 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                List<Nation> dbNations = context.Nation.Include(n => n.Events).ToList();
+                List<Nation> dbNations = context.Nation.Include(n => n.Events).Include(n => n.Events.Select(p => p.Persons)).ToList();
 
                 // Set fields to null to avoid circular references
                 foreach (Nation n in dbNations)
@@ -105,6 +105,10 @@ namespace Eventkalender.Database
                     foreach (Event e in n.Events)
                     {
                         e.Nation = null;
+                        foreach (Person p in e.Persons)
+                        {
+                            p.Events = null;
+                        }
                     }
                 }
                 return dbNations;

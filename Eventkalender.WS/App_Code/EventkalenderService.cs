@@ -16,9 +16,7 @@ public class EventkalenderService : WebService
 
     public EventkalenderService()
     {
-        physicalPath = HttpContext.Current.Server.MapPath("~/App_Data");
-
-        string databaseFilePath = physicalPath + "/eventkalender-db.xml";
+        string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
         eventkalenderController = new EventkalenderController(databaseFilePath);
     }
 

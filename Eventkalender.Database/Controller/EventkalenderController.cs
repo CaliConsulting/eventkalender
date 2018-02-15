@@ -17,7 +17,7 @@ namespace Eventkalender.Database
 
         public void AddNation(string name)
         {
-            Nation n = new Nation();
+            Nation n = new Nation(name);
             dal.AddNation(n);
         }
 

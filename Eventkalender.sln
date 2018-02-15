@@ -30,8 +30,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Eventkalender.WS", "Eventka
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,22 +90,6 @@ Global
 		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x64.Build.0 = Debug|Any CPU
 		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x86.ActiveCfg = Debug|Any CPU
 		{DAB7DE03-1425-4FD6-AED6-58D6F585252E}.Release|x86.Build.0 = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|ARM.Build.0 = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|x64.Build.0 = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Debug|x86.Build.0 = Debug|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|ARM.ActiveCfg = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|ARM.Build.0 = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|x64.ActiveCfg = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|x64.Build.0 = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|x86.ActiveCfg = Release|Any CPU
-		{FB4B0CC7-55B1-462A-9B79-C805C9883E0F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

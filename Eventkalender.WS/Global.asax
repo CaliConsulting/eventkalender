@@ -1,5 +1,6 @@
 ﻿<%@ Application Language="C#" %>
 <%@ Import namespace="Eventkalender.Database" %>
+<%@ Import namespace="Eventkalender.WS" %>
 
 <script runat="server">
 
@@ -16,6 +17,8 @@
         //        context.
         //    }
         //});
+
+
 
         // Warm up EntityFramework
         string eventkalenderDatabaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";

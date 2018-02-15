@@ -155,11 +155,7 @@ namespace Eventkalender.WS.ConsoleApp
 
                 string userInput = Console.ReadLine();             
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
-                if (!isNumeric) //Trams
-                {
-                    Console.WriteLine("Hata tenta och data, älska int när instruktionen säger att man ska använda int");
-                }
-
+              
                 if (!isNumeric || (caseSwitch < -1 || caseSwitch > 6))
                 {               
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 6!");

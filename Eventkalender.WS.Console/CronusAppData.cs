@@ -136,12 +136,12 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("Hämta personen som varit sjuk flest gånger: Tryck 1");
                 Console.WriteLine("Hämta sjuka personer under specifika årsintervall: Tryck 2");
                 Console.WriteLine("Hämta anställda och deras släktingar: Tryck 3");
-                Console.WriteLine("Hämta Employee Data: Tryck 6");
-                Console.WriteLine("Hämta Employee Absence Data: Tryck 7");
-                Console.WriteLine("Hämta Employee Relative Data: Tryck 8");
-                Console.WriteLine("Hämta Employee Qualification Data: Tryck 9");
-                Console.WriteLine("Hämta Employee Portal Setup Data: Tryck 10");
-                Console.WriteLine("Hämta Employee Statistics Group Data: Tryck 11");
+                Console.WriteLine("Hämta Employee Data: Tryck 4");
+                Console.WriteLine("Hämta Employee Absence Data: Tryck 5");
+                Console.WriteLine("Hämta Employee Relative Data: Tryck 6");
+                Console.WriteLine("Hämta Employee Qualification Data: Tryck 7");
+                Console.WriteLine("Hämta Employee Portal Setup Data: Tryck 8");
+                Console.WriteLine("Hämta Employee Statistics Group Data: Tryck 9");
                 Console.WriteLine("För att gå tillbaka: Tryck -1");
 
                 string userInput = Console.ReadLine();

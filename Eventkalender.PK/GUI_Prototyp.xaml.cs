@@ -122,7 +122,7 @@ namespace Eventkalender.PK.GUI
             }
             else
             {
-                MessageBox.Show("Ey, stupido, du glömde fylla i en låda. Capish?!");
+                MessageBox.Show("Ey, stupido, du glömde fylla i en box. Capish?!");
             }
         }
     }

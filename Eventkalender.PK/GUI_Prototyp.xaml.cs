@@ -21,9 +21,17 @@ namespace Eventkalender.PK.GUI
     public partial class GUI_Prototyp : Window
     {
         EventkalenderController controller = new EventkalenderController("Resources/eventkalender-db.xml");
+
+        private List<string> timesList;
+        private List<Nation> Nationer = new List<Nation>();
+
+
         public GUI_Prototyp()
         {
             InitializeComponent();
+            controller.AddNation("Östgöta Nation");
+            controller.AddNation("Helsingkrona Nation");
+            controller.AddNation("Småland nation");
         }
         public List<string> GenerateList()
         {
@@ -50,7 +58,7 @@ namespace Eventkalender.PK.GUI
             }
             return times;
         }
-        public List<string> timesList
+        public List<string> TimesList
         {
             get
             {
@@ -69,17 +77,8 @@ namespace Eventkalender.PK.GUI
                 timesList = GenerateList();
             }
         }
+   
         private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-
-        }
-
-        private void datagridEvents_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
-
-        private void datagridEvents_Selected(object sender, RoutedEventArgs e)
         {
 
         }
@@ -109,12 +108,5 @@ namespace Eventkalender.PK.GUI
 
             }
         }
-/*        private void cmb_SortEvents_Selected(object sender, RoutedEventArgs e)
-        {
-            if(cmb_SortEvents.SelectedValue == Datum)
-            {
-                
-            }
-        }*/
     }
 }

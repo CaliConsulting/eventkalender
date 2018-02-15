@@ -46,12 +46,11 @@
                                     Text="Sortera efter:"
                                     Grid.RowSpan="1"/>
                                 <ComboBox x:Name="cmb_SortEvents"
-                                    Grid.Column="1"
-                                    Grid.Row="4"
-                                    Margin="0,0,0,0"
-                                    Text="Aktivitet"
-                                    Grid.RowSpan="1"
-                                    >
+                                        Grid.Column="1"
+                                        Grid.Row="4"
+                                        Margin="0,0,0,0"
+                                        Text="Aktivitet"
+                                        Grid.RowSpan="1">
                                     <ComboBoxItem x:Name="Datum" 
                                                   Content="Datum"
                                                   />
@@ -67,6 +66,7 @@
                                     Grid.ColumnSpan="2" 
                                     Margin="1.6,0.4,0,-0.4"
                                     IsReadOnly="True"
+                                    ItemsSource="{Binding Path=EventsList}"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
                                     ToolTipService.BetweenShowDelay="50000"/>
 
@@ -90,7 +90,7 @@
                                              HorizontalAlignment="Left"
                                              MaxWidth="150"
                                              Width="150"
-                                             SelectedItem="{Binding Nationer}"
+                                             SelectedItem="{Binding Path=Nationer}"
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
@@ -129,7 +129,7 @@
                                           MaxWidth="150"
                                           Canvas.Left="170"
                                           Canvas.Top="115"
-                                          ItemsSource="{Binding timesList}"
+                                          ItemsSource="{Binding Path=TimesList}"
                                           >
                                 </ComboBox>
                                 <TextBlock Text="Tid:"
@@ -140,7 +140,7 @@
                                           MaxWidth="150"
                                           Canvas.Left="170"
                                           Canvas.Top="155"
-                                          ItemsSource="{Binding times}"
+                                          ItemsSource="{Binding Path=TimesList}"
                                           >
                                 </ComboBox>
                                 <StackPanel Canvas.Left="320" Canvas.Top="10">
@@ -259,8 +259,7 @@
                                             Width="100"
                                             MaxWidth="100"
                                             HorizontalAlignment="Left"/>
-                                    <DataGrid x:Name="datagrid_InvitePersons" 
-                                             ScrollBar.Scroll="datagridEvents_Scroll"
+                                    <DataGrid x:Name="datagrid_InvitePersons"
                                              Height="300"
                                              Width="250"
                                              MaxWidth="250"
@@ -286,8 +285,7 @@
                                             Width="100"
                                             MaxWidth="100"
                                             HorizontalAlignment="Left"/>
-                                    <DataGrid x:Name="datagrid_InviteEvent" 
-                                             ScrollBar.Scroll="datagridEvents_Scroll"
+                                    <DataGrid x:Name="datagrid_InviteEvent"
                                              Height="300"
                                              Width="250"
                                              MaxWidth="250"

@@ -23,41 +23,14 @@ namespace Eventkalender.PK.GUI
         EventkalenderController controller = new EventkalenderController("Resources/eventkalender-db.xml");
 
         private List<string> timesList;
-        private List<Nation> Nationer = new List<Nation>();
+        private List<Nation> Nationer;
+        private List<Event> Events;
         
 
 
         public GUI_Prototyp()
         {
             InitializeComponent();
-            controller.AddNation("Östgöta Nation");
-            controller.AddNation("Helsingkrona Nation");
-            controller.AddNation("Småland nation");
-        }
-        public List<string> GenerateList()
-        {
-            List<string> times = new List<string>();
-            for (int i = 0; i < 48; i++)
-            {
-                int hour = (int)Math.Floor(i / 2d);
-                string strHour = hour.ToString();
-                if (hour < 10)
-                {
-                    strHour = "0" + strHour;
-                }
-                string res = strHour + ":";
-                if (i % 2 == 1)
-                {
-                    res += "3";
-                }
-                else
-                {
-                    res += "0";
-                }
-                res += "0";
-                times.Add(res);
-            }
-            return times;
         }
         public List<string> TimesList
         {
@@ -65,7 +38,7 @@ namespace Eventkalender.PK.GUI
             {
                 if (timesList == null)
                 {
-                    timesList = GenerateList();
+                    timesList = Utility.GenerateList();
                     return timesList;
                 }
                 else
@@ -75,13 +48,18 @@ namespace Eventkalender.PK.GUI
             }
             set
             {
-                timesList = GenerateList();
+                timesList = Utility.GenerateList();
             }
         }
         public List<Nation> Nationerlist
         {
             get { return Nationer; }
             set { Nationer = controller.GetNations(); }
+        }
+        public List<Event> EventList
+        {
+            get { return Events; }
+            set { Events = controller.GetEvents(); }
         }
    
         private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -125,6 +103,26 @@ namespace Eventkalender.PK.GUI
             else
             {
                 MessageBox.Show("Inget värde ifyllt");
+            }
+        }
+
+        private void btn_SrchEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_RegsterEvent_Click(object sender, RoutedEventArgs e)
+        {
+            if(Utility.CheckIfEmpty(txtBox_EventName.Text, cmBox_Nation.Text, dtpick_StartDate.Text, cmb_StartTime.Text, dtpick_EndDate.Text, cmb_EndTime.Text, txtBox_Summary.Text))
+            {
+                DateTime dateStart = Utility.ToDate(dtpick_StartDate.Text, cmb_StartTime.Text);
+                DateTime dateEnd = Utility.ToDate(dtpick_StartDate.Text, cmb_StartTime.Text);
+                int NationID = Convert.ToInt32(cmBox_Nation.Text);
+                controller.AddEvent(txtBox_EventName.Text, txtBox_Summary.Text, dateStart, dateEnd, NationID);
+            }
+            else
+            {
+                MessageBox.Show("Ey, stupido, du glömde fylla i en låda. Capish?!");
             }
         }
     }

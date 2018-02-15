@@ -97,7 +97,7 @@
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
-                                    <DatePicker x:Name="dtpick_StartTime"
+                                    <DatePicker x:Name="dtpick_StartDate"
                                               MaxWidth="150"
                                               Width="150"
                                               HorizontalAlignment="Left"
@@ -105,7 +105,7 @@
                                               ToolTipService.BetweenShowDelay="50000"/>
                                     
                                     <TextBlock Text="Eventets slut:"/>
-                                    <DatePicker x:Name="cmBox_EndTime"
+                                    <DatePicker x:Name="dtpick_EndDate"
                                               Width="150"
                                               MaxWidth="150"
                                               HorizontalAlignment="Left"
@@ -118,6 +118,7 @@
                                              Width="250"
                                              TextWrapping="Wrap"/>
                                     <Button x:Name="btn_RegsterEvent"
+                                            Click="btn_RegsterEvent_Click"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             Width="100"
@@ -154,6 +155,7 @@
                                              MaxWidth="150"
                                              HorizontalAlignment="Left"/>
                                     <Button x:Name="btn_SrchEvent"
+                                            Click="btn_SrchEvent_Click"
                                             Content="Sök"
                                             Margin="0,15,0,0"
                                             Width="100"
@@ -166,7 +168,8 @@
                                               Height="300"
                                               Width="290"
                                               Margin="0,15,0,0"
-                                              VerticalScrollBarVisibility="Auto"/>
+                                              VerticalScrollBarVisibility="Auto"
+                                              ItemsSource="{Binding Path=EventsList}"/>
 
                                     <Button x:Name="btn_DeleteEvent"
                                             Click="btn_DeleteEvent_Click"

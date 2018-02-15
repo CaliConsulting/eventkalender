@@ -12,7 +12,7 @@ namespace Eventkalender.WS.ConsoleApp
         
         EventkalenderApp eventApp = new EventkalenderApp();
         CronusAppData cronusData = new CronusAppData();
-        CronusAppMetaData cronusMetaData = new CronusAppMetaData();
+        CronusAppMetaData cronusMetadata = new CronusAppMetaData();
         private int caseSwitch;
         private bool returnBool;
 
@@ -40,7 +40,7 @@ namespace Eventkalender.WS.ConsoleApp
                 switch (caseSwitch)
                 {
                     case 1:
-                        cronusMetaData.Start();
+                        cronusMetadata.Start();
                         break;
                     case 2:
                         cronusData.Start();

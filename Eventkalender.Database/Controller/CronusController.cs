@@ -42,34 +42,34 @@ namespace Eventkalender.Database
             return metadataDAL.GetColumnsForEmployeeTable();
         }
         
-        public List<DataTuple> GetEmployeeMetaData()
+        public List<DataTuple> GetEmployeeMetadata()
         {
-            return metadataDAL.GetEmployeeMetaData();
+            return metadataDAL.GetEmployeeMetadata();
         }
 
-        public List<DataTuple> GetEmployeeAbsenceMetaData()
+        public List<DataTuple> GetEmployeeAbsenceMetadata()
         {
-            return metadataDAL.GetEmployeeAbsenceMetaData();
+            return metadataDAL.GetEmployeeAbsenceMetadata();
         }
 
-        public List<DataTuple> GetEmployeeRelativeMetaData()
+        public List<DataTuple> GetEmployeeRelativeMetadata()
         {
-            return metadataDAL.GetEmployeeRelativeMetaData();
+            return metadataDAL.GetEmployeeRelativeMetadata();
         }
 
-        public List<DataTuple> GetEmployeeQualificationMetaData()
+        public List<DataTuple> GetEmployeeQualificationMetadata()
         {
-            return metadataDAL.GetEmployeeQualificationMetaData();
+            return metadataDAL.GetEmployeeQualificationMetadata();
         }
 
-        public List<DataTuple> GetEmployeePortalSetupMetaData()
+        public List<DataTuple> GetEmployeePortalSetupMetadata()
         {
-            return metadataDAL.GetEmployeePortalSetupMetaData();
+            return metadataDAL.GetEmployeePortalSetupMetadata();
         }
 
-        public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
+        public List<DataTuple> GetEmployeeStatisticsGroupMetadata()
         {
-            return metadataDAL.GetEmployeeStatisticsGroupMetaData();
+            return metadataDAL.GetEmployeeStatisticsGroupMetadata();
         }
 
         //HÄR BÖRJAR DATADAL

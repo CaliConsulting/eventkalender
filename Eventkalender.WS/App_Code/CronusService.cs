@@ -129,38 +129,38 @@ public class CronusService : WebService
      }
 
     [WebMethod]
-    public List<DataTuple> GetEmployeeMetaData()
+    public List<DataTuple> GetEmployeeMetadata()
     {
-        return cronusController.GetEmployeeMetaData();
+        return cronusController.GetEmployeeMetadata();
     }
 
     [WebMethod]
-    public List<DataTuple> GetEmployeeAbsenceMetaData()
+    public List<DataTuple> GetEmployeeAbsenceMetadata()
     {
-        return cronusController.GetEmployeeAbsenceMetaData();
+        return cronusController.GetEmployeeAbsenceMetadata();
     }
 
     [WebMethod]
-    public List<DataTuple> GetEmployeeRelativeMetaData()
+    public List<DataTuple> GetEmployeeRelativeMetadata()
     {
-        return cronusController.GetEmployeeRelativeMetaData();
+        return cronusController.GetEmployeeRelativeMetadata();
     }
 
     [WebMethod]
-    public List<DataTuple> GetEmployeeQualificationMetaData()
+    public List<DataTuple> GetEmployeeQualificationMetadata()
     {
-        return cronusController.GetEmployeeQualificationMetaData();
+        return cronusController.GetEmployeeQualificationMetadata();
     }
 
     [WebMethod]
-    public List<DataTuple> GetEmployeePortalSetupMetaData()
+    public List<DataTuple> GetEmployeePortalSetupMetadata()
     {
-        return cronusController.GetEmployeePortalSetupMetaData();
+        return cronusController.GetEmployeePortalSetupMetadata();
     }
 
     [WebMethod]
-    public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
+    public List<DataTuple> GetEmployeeStatisticsGroupMetadata()
     {
-        return cronusController.GetEmployeeStatisticsGroupMetaData();
+        return cronusController.GetEmployeeStatisticsGroupMetadata();
     }
 }

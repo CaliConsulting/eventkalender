@@ -8,13 +8,19 @@ using System.Threading.Tasks;
 namespace Eventkalender.WS.ConsoleApp
 {
     public class CronusApp
-    {
-        
-        EventkalenderApp eventApp = new EventkalenderApp();
-        CronusAppData cronusData = new CronusAppData();
-        CronusAppMetaData cronusMetadata = new CronusAppMetaData();
+    {        
+        private EventkalenderApp eventApp;
+        private CronusAppData cronusData;
+        private CronusAppMetadata cronusMetadata;
         private int caseSwitch;
         private bool returnBool;
+
+        public CronusApp()
+        {
+            eventApp = new EventkalenderApp();
+            cronusData = new CronusAppData();
+            cronusMetadata = new CronusAppMetadata();
+        }
 
         public void ReturnMethod()
         {

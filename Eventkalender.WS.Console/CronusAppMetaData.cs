@@ -7,12 +7,18 @@ using Eventkalender.WS.ConsoleApp.CronusReference;
 
 namespace Eventkalender.WS.ConsoleApp
 {
-    public class CronusAppMetaData
+    public class CronusAppMetadata
     {
-        CronusServiceSoapClient cronusclient = new CronusServiceSoapClient();
-        EventkalenderApp eventApp = new EventkalenderApp();
+        private CronusServiceSoapClient cronusclient;
+        private EventkalenderApp eventApp;
         private bool returnBool;
         private int caseSwitch;
+
+        public CronusAppMetadata()
+        {
+            cronusclient = new CronusServiceSoapClient();
+            eventApp = new EventkalenderApp();
+        }
 
         public void GetMetadataListOfString(List<string> metod)
         {
@@ -62,7 +68,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetTables()
         {
             Console.WriteLine("Följande är alla tables: ");
-            GetMetaDataListOfString(cronusclient.GetTables());
+            GetMetadataListOfString(cronusclient.GetTables());
             ExitQuestion();
         }
         
@@ -91,7 +97,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetEmployeeRelativeMetadata()
         {
             Console.WriteLine("Employee Relative Metadata är följande: ");
-            GetMetadataByDataTuples(cronusclient.GetEmployeeRelativedetaData());
+            GetMetadataByDataTuples(cronusclient.GetEmployeeRelativeMetadata());
             ExitQuestion();
         }
         

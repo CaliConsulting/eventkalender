@@ -190,47 +190,47 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupDataResponse> GetEmployeeStatisticsGroupDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeMetaDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeMetaData", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse GetEmployeeMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeeMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeMetadata", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse GetEmployeeMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeMetaData", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse> GetEmployeeMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeMetadata", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse> GetEmployeeMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeAbsenceMetaDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetaData", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse GetEmployeeAbsenceMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeeAbsenceMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetadata", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse GetEmployeeAbsenceMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetaData", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse> GetEmployeeAbsenceMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetadata", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse> GetEmployeeAbsenceMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeRelativeMetaDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeMetaData", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse GetEmployeeRelativeMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeeRelativeMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeMetadata", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse GetEmployeeRelativeMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeMetaData", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse> GetEmployeeRelativeMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeMetadata", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse> GetEmployeeRelativeMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeQualificationMetaDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationMetaData", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse GetEmployeeQualificationMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeeQualificationMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationMetadata", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse GetEmployeeQualificationMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationMetaData", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse> GetEmployeeQualificationMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationMetadata", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse> GetEmployeeQualificationMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeePortalSetupMetaDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetaData", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse GetEmployeePortalSetupMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeePortalSetupMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetadata", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse GetEmployeePortalSetupMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetaData", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse> GetEmployeePortalSetupMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetadata", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse> GetEmployeePortalSetupMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeStatisticsGroupMetaDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetaData", ReplyAction="*")]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse GetEmployeeStatisticsGroupMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest request);
+        // CODEGEN: Generating message contract since element name GetEmployeeStatisticsGroupMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse GetEmployeeStatisticsGroupMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetaData", ReplyAction="*")]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse> GetEmployeeStatisticsGroupMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse> GetEmployeeStatisticsGroupMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1102,15 +1102,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeMetaDataRequest {
+    public partial class GetEmployeeMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetaData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequestBody Body;
         
-        public GetEmployeeMetaDataRequest() {
+        public GetEmployeeMetadataRequest() {
         }
         
-        public GetEmployeeMetaDataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequestBody Body) {
+        public GetEmployeeMetadataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1119,9 +1119,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeeMetaDataRequestBody {
+    public partial class GetEmployeeMetadataRequestBody {
         
-        public GetEmployeeMetaDataRequestBody() {
+        public GetEmployeeMetadataRequestBody() {
         }
     }
     
@@ -1129,15 +1129,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeMetaDataResponse {
+    public partial class GetEmployeeMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetaDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponseBody Body;
         
-        public GetEmployeeMetaDataResponse() {
+        public GetEmployeeMetadataResponse() {
         }
         
-        public GetEmployeeMetaDataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponseBody Body) {
+        public GetEmployeeMetadataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1146,16 +1146,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeeMetaDataResponseBody {
+    public partial class GetEmployeeMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeMetaDataResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeMetadataResult;
         
-        public GetEmployeeMetaDataResponseBody() {
+        public GetEmployeeMetadataResponseBody() {
         }
         
-        public GetEmployeeMetaDataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeMetaDataResult) {
-            this.GetEmployeeMetaDataResult = GetEmployeeMetaDataResult;
+        public GetEmployeeMetadataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeMetadataResult) {
+            this.GetEmployeeMetadataResult = GetEmployeeMetadataResult;
         }
     }
     
@@ -1163,15 +1163,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeAbsenceMetaDataRequest {
+    public partial class GetEmployeeAbsenceMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetaData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequestBody Body;
         
-        public GetEmployeeAbsenceMetaDataRequest() {
+        public GetEmployeeAbsenceMetadataRequest() {
         }
         
-        public GetEmployeeAbsenceMetaDataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequestBody Body) {
+        public GetEmployeeAbsenceMetadataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1180,9 +1180,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeeAbsenceMetaDataRequestBody {
+    public partial class GetEmployeeAbsenceMetadataRequestBody {
         
-        public GetEmployeeAbsenceMetaDataRequestBody() {
+        public GetEmployeeAbsenceMetadataRequestBody() {
         }
     }
     
@@ -1190,15 +1190,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeAbsenceMetaDataResponse {
+    public partial class GetEmployeeAbsenceMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetaDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponseBody Body;
         
-        public GetEmployeeAbsenceMetaDataResponse() {
+        public GetEmployeeAbsenceMetadataResponse() {
         }
         
-        public GetEmployeeAbsenceMetaDataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponseBody Body) {
+        public GetEmployeeAbsenceMetadataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1207,16 +1207,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeeAbsenceMetaDataResponseBody {
+    public partial class GetEmployeeAbsenceMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAbsenceMetaDataResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAbsenceMetadataResult;
         
-        public GetEmployeeAbsenceMetaDataResponseBody() {
+        public GetEmployeeAbsenceMetadataResponseBody() {
         }
         
-        public GetEmployeeAbsenceMetaDataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAbsenceMetaDataResult) {
-            this.GetEmployeeAbsenceMetaDataResult = GetEmployeeAbsenceMetaDataResult;
+        public GetEmployeeAbsenceMetadataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAbsenceMetadataResult) {
+            this.GetEmployeeAbsenceMetadataResult = GetEmployeeAbsenceMetadataResult;
         }
     }
     
@@ -1224,15 +1224,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeRelativeMetaDataRequest {
+    public partial class GetEmployeeRelativeMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetaData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequestBody Body;
         
-        public GetEmployeeRelativeMetaDataRequest() {
+        public GetEmployeeRelativeMetadataRequest() {
         }
         
-        public GetEmployeeRelativeMetaDataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequestBody Body) {
+        public GetEmployeeRelativeMetadataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1241,9 +1241,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeeRelativeMetaDataRequestBody {
+    public partial class GetEmployeeRelativeMetadataRequestBody {
         
-        public GetEmployeeRelativeMetaDataRequestBody() {
+        public GetEmployeeRelativeMetadataRequestBody() {
         }
     }
     
@@ -1251,15 +1251,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeRelativeMetaDataResponse {
+    public partial class GetEmployeeRelativeMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetaDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponseBody Body;
         
-        public GetEmployeeRelativeMetaDataResponse() {
+        public GetEmployeeRelativeMetadataResponse() {
         }
         
-        public GetEmployeeRelativeMetaDataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponseBody Body) {
+        public GetEmployeeRelativeMetadataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1268,16 +1268,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeeRelativeMetaDataResponseBody {
+    public partial class GetEmployeeRelativeMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeRelativeMetaDataResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeRelativeMetadataResult;
         
-        public GetEmployeeRelativeMetaDataResponseBody() {
+        public GetEmployeeRelativeMetadataResponseBody() {
         }
         
-        public GetEmployeeRelativeMetaDataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeRelativeMetaDataResult) {
-            this.GetEmployeeRelativeMetaDataResult = GetEmployeeRelativeMetaDataResult;
+        public GetEmployeeRelativeMetadataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeRelativeMetadataResult) {
+            this.GetEmployeeRelativeMetadataResult = GetEmployeeRelativeMetadataResult;
         }
     }
     
@@ -1285,15 +1285,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeQualificationMetaDataRequest {
+    public partial class GetEmployeeQualificationMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetaData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequestBody Body;
         
-        public GetEmployeeQualificationMetaDataRequest() {
+        public GetEmployeeQualificationMetadataRequest() {
         }
         
-        public GetEmployeeQualificationMetaDataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequestBody Body) {
+        public GetEmployeeQualificationMetadataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1302,9 +1302,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeeQualificationMetaDataRequestBody {
+    public partial class GetEmployeeQualificationMetadataRequestBody {
         
-        public GetEmployeeQualificationMetaDataRequestBody() {
+        public GetEmployeeQualificationMetadataRequestBody() {
         }
     }
     
@@ -1312,15 +1312,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeQualificationMetaDataResponse {
+    public partial class GetEmployeeQualificationMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetaDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponseBody Body;
         
-        public GetEmployeeQualificationMetaDataResponse() {
+        public GetEmployeeQualificationMetadataResponse() {
         }
         
-        public GetEmployeeQualificationMetaDataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponseBody Body) {
+        public GetEmployeeQualificationMetadataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1329,16 +1329,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeeQualificationMetaDataResponseBody {
+    public partial class GetEmployeeQualificationMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeQualificationMetaDataResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeQualificationMetadataResult;
         
-        public GetEmployeeQualificationMetaDataResponseBody() {
+        public GetEmployeeQualificationMetadataResponseBody() {
         }
         
-        public GetEmployeeQualificationMetaDataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeQualificationMetaDataResult) {
-            this.GetEmployeeQualificationMetaDataResult = GetEmployeeQualificationMetaDataResult;
+        public GetEmployeeQualificationMetadataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeQualificationMetadataResult) {
+            this.GetEmployeeQualificationMetadataResult = GetEmployeeQualificationMetadataResult;
         }
     }
     
@@ -1346,15 +1346,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeePortalSetupMetaDataRequest {
+    public partial class GetEmployeePortalSetupMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetaData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequestBody Body;
         
-        public GetEmployeePortalSetupMetaDataRequest() {
+        public GetEmployeePortalSetupMetadataRequest() {
         }
         
-        public GetEmployeePortalSetupMetaDataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequestBody Body) {
+        public GetEmployeePortalSetupMetadataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1363,9 +1363,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeePortalSetupMetaDataRequestBody {
+    public partial class GetEmployeePortalSetupMetadataRequestBody {
         
-        public GetEmployeePortalSetupMetaDataRequestBody() {
+        public GetEmployeePortalSetupMetadataRequestBody() {
         }
     }
     
@@ -1373,15 +1373,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeePortalSetupMetaDataResponse {
+    public partial class GetEmployeePortalSetupMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetaDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponseBody Body;
         
-        public GetEmployeePortalSetupMetaDataResponse() {
+        public GetEmployeePortalSetupMetadataResponse() {
         }
         
-        public GetEmployeePortalSetupMetaDataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponseBody Body) {
+        public GetEmployeePortalSetupMetadataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1390,16 +1390,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeePortalSetupMetaDataResponseBody {
+    public partial class GetEmployeePortalSetupMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeePortalSetupMetaDataResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeePortalSetupMetadataResult;
         
-        public GetEmployeePortalSetupMetaDataResponseBody() {
+        public GetEmployeePortalSetupMetadataResponseBody() {
         }
         
-        public GetEmployeePortalSetupMetaDataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeePortalSetupMetaDataResult) {
-            this.GetEmployeePortalSetupMetaDataResult = GetEmployeePortalSetupMetaDataResult;
+        public GetEmployeePortalSetupMetadataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeePortalSetupMetadataResult) {
+            this.GetEmployeePortalSetupMetadataResult = GetEmployeePortalSetupMetadataResult;
         }
     }
     
@@ -1407,15 +1407,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeStatisticsGroupMetaDataRequest {
+    public partial class GetEmployeeStatisticsGroupMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetaData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequestBody Body;
         
-        public GetEmployeeStatisticsGroupMetaDataRequest() {
+        public GetEmployeeStatisticsGroupMetadataRequest() {
         }
         
-        public GetEmployeeStatisticsGroupMetaDataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequestBody Body) {
+        public GetEmployeeStatisticsGroupMetadataRequest(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1424,9 +1424,9 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetEmployeeStatisticsGroupMetaDataRequestBody {
+    public partial class GetEmployeeStatisticsGroupMetadataRequestBody {
         
-        public GetEmployeeStatisticsGroupMetaDataRequestBody() {
+        public GetEmployeeStatisticsGroupMetadataRequestBody() {
         }
     }
     
@@ -1434,15 +1434,15 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetEmployeeStatisticsGroupMetaDataResponse {
+    public partial class GetEmployeeStatisticsGroupMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetaDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        public Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponseBody Body;
         
-        public GetEmployeeStatisticsGroupMetaDataResponse() {
+        public GetEmployeeStatisticsGroupMetadataResponse() {
         }
         
-        public GetEmployeeStatisticsGroupMetaDataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponseBody Body) {
+        public GetEmployeeStatisticsGroupMetadataResponse(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1451,16 +1451,16 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
-    public partial class GetEmployeeStatisticsGroupMetaDataResponseBody {
+    public partial class GetEmployeeStatisticsGroupMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeStatisticsGroupMetaDataResult;
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeStatisticsGroupMetadataResult;
         
-        public GetEmployeeStatisticsGroupMetaDataResponseBody() {
+        public GetEmployeeStatisticsGroupMetadataResponseBody() {
         }
         
-        public GetEmployeeStatisticsGroupMetaDataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeStatisticsGroupMetaDataResult) {
-            this.GetEmployeeStatisticsGroupMetaDataResult = GetEmployeeStatisticsGroupMetaDataResult;
+        public GetEmployeeStatisticsGroupMetadataResponseBody(Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeStatisticsGroupMetadataResult) {
+            this.GetEmployeeStatisticsGroupMetadataResult = GetEmployeeStatisticsGroupMetadataResult;
         }
     }
     
@@ -1818,141 +1818,141 @@ namespace Eventkalender.WS.ConsoleApp.CronusReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest request) {
-            return base.Channel.GetEmployeeMetaData(request);
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest request) {
+            return base.Channel.GetEmployeeMetadata(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeMetaData() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeMetaData(inValue);
-            return retVal.Body.GetEmployeeMetaDataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest request) {
-            return base.Channel.GetEmployeeMetaDataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse> GetEmployeeMetaDataAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeMetaDataAsync(inValue);
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeMetadata() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeMetadata(inValue);
+            return retVal.Body.GetEmployeeMetadataResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAbsenceMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest request) {
-            return base.Channel.GetEmployeeAbsenceMetaData(request);
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest request) {
+            return base.Channel.GetEmployeeMetadataAsync(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAbsenceMetaData() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAbsenceMetaData(inValue);
-            return retVal.Body.GetEmployeeAbsenceMetaDataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAbsenceMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest request) {
-            return base.Channel.GetEmployeeAbsenceMetaDataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse> GetEmployeeAbsenceMetaDataAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAbsenceMetaDataAsync(inValue);
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse> GetEmployeeMetadataAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeMetadataAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeRelativeMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest request) {
-            return base.Channel.GetEmployeeRelativeMetaData(request);
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAbsenceMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest request) {
+            return base.Channel.GetEmployeeAbsenceMetadata(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeRelativeMetaData() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeRelativeMetaData(inValue);
-            return retVal.Body.GetEmployeeRelativeMetaDataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeRelativeMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest request) {
-            return base.Channel.GetEmployeeRelativeMetaDataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse> GetEmployeeRelativeMetaDataAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeRelativeMetaDataAsync(inValue);
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeAbsenceMetadata() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAbsenceMetadata(inValue);
+            return retVal.Body.GetEmployeeAbsenceMetadataResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeQualificationMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest request) {
-            return base.Channel.GetEmployeeQualificationMetaData(request);
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeAbsenceMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest request) {
+            return base.Channel.GetEmployeeAbsenceMetadataAsync(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeQualificationMetaData() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeQualificationMetaData(inValue);
-            return retVal.Body.GetEmployeeQualificationMetaDataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeQualificationMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest request) {
-            return base.Channel.GetEmployeeQualificationMetaDataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse> GetEmployeeQualificationMetaDataAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeQualificationMetaDataAsync(inValue);
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse> GetEmployeeAbsenceMetadataAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeAbsenceMetadataAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeePortalSetupMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest request) {
-            return base.Channel.GetEmployeePortalSetupMetaData(request);
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeRelativeMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest request) {
+            return base.Channel.GetEmployeeRelativeMetadata(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeePortalSetupMetaData() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeePortalSetupMetaData(inValue);
-            return retVal.Body.GetEmployeePortalSetupMetaDataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeePortalSetupMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest request) {
-            return base.Channel.GetEmployeePortalSetupMetaDataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse> GetEmployeePortalSetupMetaDataAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeePortalSetupMetaDataAsync(inValue);
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeRelativeMetadata() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeRelativeMetadata(inValue);
+            return retVal.Body.GetEmployeeRelativeMetadataResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeStatisticsGroupMetaData(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest request) {
-            return base.Channel.GetEmployeeStatisticsGroupMetaData(request);
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeRelativeMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest request) {
+            return base.Channel.GetEmployeeRelativeMetadataAsync(request);
         }
         
-        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeStatisticsGroupMetaData() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequestBody();
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeStatisticsGroupMetaData(inValue);
-            return retVal.Body.GetEmployeeStatisticsGroupMetaDataResult;
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse> GetEmployeeRelativeMetadataAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeRelativeMetadataAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeStatisticsGroupMetaDataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest request) {
-            return base.Channel.GetEmployeeStatisticsGroupMetaDataAsync(request);
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeQualificationMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest request) {
+            return base.Channel.GetEmployeeQualificationMetadata(request);
         }
         
-        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse> GetEmployeeStatisticsGroupMetaDataAsync() {
-            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequest();
-            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataRequestBody();
-            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeStatisticsGroupMetaDataAsync(inValue);
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeQualificationMetadata() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeQualificationMetadata(inValue);
+            return retVal.Body.GetEmployeeQualificationMetadataResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeQualificationMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest request) {
+            return base.Channel.GetEmployeeQualificationMetadataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse> GetEmployeeQualificationMetadataAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeQualificationMetadataAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeePortalSetupMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest request) {
+            return base.Channel.GetEmployeePortalSetupMetadata(request);
+        }
+        
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeePortalSetupMetadata() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeePortalSetupMetadata(inValue);
+            return retVal.Body.GetEmployeePortalSetupMetadataResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeePortalSetupMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest request) {
+            return base.Channel.GetEmployeePortalSetupMetadataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse> GetEmployeePortalSetupMetadataAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeePortalSetupMetadataAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeStatisticsGroupMetadata(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request) {
+            return base.Channel.GetEmployeeStatisticsGroupMetadata(request);
+        }
+        
+        public Eventkalender.WS.ConsoleApp.CronusReference.DataTuple[] GetEmployeeStatisticsGroupMetadata() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequestBody();
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse retVal = ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeStatisticsGroupMetadata(inValue);
+            return retVal.Body.GetEmployeeStatisticsGroupMetadataResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse> Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap.GetEmployeeStatisticsGroupMetadataAsync(Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request) {
+            return base.Channel.GetEmployeeStatisticsGroupMetadataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse> GetEmployeeStatisticsGroupMetadataAsync() {
+            Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest inValue = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequest();
+            inValue.Body = new Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataRequestBody();
+            return ((Eventkalender.WS.ConsoleApp.CronusReference.CronusServiceSoap)(this)).GetEmployeeStatisticsGroupMetadataAsync(inValue);
         }
     }
 }

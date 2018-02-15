@@ -56,7 +56,7 @@
     </Compile>
     <Compile Include="CronusApp.cs" />
     <Compile Include="CronusAppData.cs" />
-    <Compile Include="CronusAppMetaData.cs" />
+    <Compile Include="CronusAppMetadata.cs" />
     <Compile Include="EventkalenderApp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,7 +79,7 @@
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetaDataResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAbsenceMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeAndRelativesResponse.datasource">
@@ -88,31 +88,31 @@
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetaDataResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetaDataResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeePortalSetupMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetaDataResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeQualificationMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetaDataResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetaDataResponse.datasource">
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetIllestPersonResponse.datasource">

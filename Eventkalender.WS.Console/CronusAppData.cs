@@ -9,12 +9,17 @@ namespace Eventkalender.WS.ConsoleApp
 {
     public class CronusAppData
     {
-        CronusServiceSoapClient cronusclient = new CronusServiceSoapClient();
-        EventkalenderApp eventApp = new EventkalenderApp();
+        private CronusServiceSoapClient cronusclient;
+        private EventkalenderApp eventApp;
         private bool returnBool;
         private int caseSwitch;
 
-
+        public CronusAppData()
+        {
+            cronusclient = new CronusServiceSoapClient();
+            eventApp = new EventkalenderApp();
+        }
+      
         public void GetDataByDataTuples(DataTuple[] inputTuple)
         {
             DataTuple[] data = inputTuple;

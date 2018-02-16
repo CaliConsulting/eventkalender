@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ics.lu.se.cali/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ics.lu.se.cali/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ics.lu.se.cali/">
+      <s:element name="GetNation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNationResult" type="tns:Nation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Nation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Event">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nation" type="tns:Nation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Persons" type="tns:ArrayOfPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Person">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNationsResult" type="tns:ArrayOfNation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Nation" nillable="true" type="tns:Nation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddNation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="summary" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="nationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventResult" type="tns:Event" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEvents">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventsResult" type="tns:ArrayOfEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPersonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonResult" type="tns:Person" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersons">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPersonsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonsResult" type="tns:ArrayOfPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNation" />
+  </wsdl:message>
+  <wsdl:message name="GetNationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNations" />
+  </wsdl:message>
+  <wsdl:message name="GetNationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNation" />
+  </wsdl:message>
+  <wsdl:message name="AddNationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEventSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEvent" />
+  </wsdl:message>
+  <wsdl:message name="AddEventSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPerson" />
+  </wsdl:message>
+  <wsdl:message name="AddPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPerson" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersons" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EventkalenderServiceSoap">
+    <wsdl:operation name="GetNation">
+      <wsdl:input message="tns:GetNationSoapIn" />
+      <wsdl:output message="tns:GetNationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNations">
+      <wsdl:input message="tns:GetNationsSoapIn" />
+      <wsdl:output message="tns:GetNationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNation">
+      <wsdl:input message="tns:AddNationSoapIn" />
+      <wsdl:output message="tns:AddNationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvent">
+      <wsdl:input message="tns:AddEventSoapIn" />
+      <wsdl:output message="tns:AddEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <wsdl:input message="tns:GetEventSoapIn" />
+      <wsdl:output message="tns:GetEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input message="tns:GetEventsSoapIn" />
+      <wsdl:output message="tns:GetEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <wsdl:input message="tns:AddPersonSoapIn" />
+      <wsdl:output message="tns:AddPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <wsdl:input message="tns:GetPersonSoapIn" />
+      <wsdl:output message="tns:GetPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons">
+      <wsdl:input message="tns:GetPersonsSoapIn" />
+      <wsdl:output message="tns:GetPersonsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EventkalenderServiceSoap" type="tns:EventkalenderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNation">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetNation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNations">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetNations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNation">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/AddNation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvent">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/AddEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/AddPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons">
+      <soap:operation soapAction="http://www.ics.lu.se.cali/GetPersons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EventkalenderServiceSoap12" type="tns:EventkalenderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNation">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetNation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNations">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetNations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNation">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/AddNation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvent">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/AddEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/AddPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersons">
+      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetPersons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EventkalenderService">
+    <wsdl:port name="EventkalenderServiceSoap" binding="tns:EventkalenderServiceSoap">
+      <soap:address location="http://localhost/EventkalenderWS/EventkalenderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EventkalenderServiceSoap12" binding="tns:EventkalenderServiceSoap12">
+      <soap12:address location="http://localhost/EventkalenderWS/EventkalenderService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

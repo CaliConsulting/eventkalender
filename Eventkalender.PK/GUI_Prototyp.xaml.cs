@@ -91,12 +91,12 @@ namespace Eventkalender.PK.GUI
             set { }
         }
    
-        private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void SearchBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
 
         }
 
-        private void btn_EraseFromList_Click(object sender, RoutedEventArgs e)
+        private void btnEraseFromListClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
             if (raderaResultat == MessageBoxResult.Yes)
@@ -109,7 +109,7 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btn_DeleteEvent_Click(object sender, RoutedEventArgs e)
+        private void btnDeleteEventClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
             if (raderaResultat == MessageBoxResult.Yes)
@@ -122,12 +122,12 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btn_RegNationName_Click(object sender, RoutedEventArgs e)
+        private void btnRegNationNameClick(object sender, RoutedEventArgs e)
         {
-            if(txtBox_NationName.Text != "")
+            if(txtBoxNationName.Text != "")
             {
-                eventkalenderController.AddNation(txtBox_NationName.Text);
-                txtBox_NationName.Text = "";
+                eventkalenderController.AddNation(txtBoxNationName.Text);
+                txtBoxNationName.Text = "";
              }
             else
             {
@@ -135,19 +135,19 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btn_SrchEvent_Click(object sender, RoutedEventArgs e)
+        private void btnSrchEventClick(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btn_RegsterEvent_Click(object sender, RoutedEventArgs e)
+        private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
-            if(Utility.CheckIfEmpty(txtBox_EventName.Text, cmBox_Nation.Text, dtpick_StartDate.Text, cmb_StartTime.Text, dtpick_EndDate.Text, cmb_EndTime.Text, txtBox_Summary.Text))
+            if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
-                DateTime dateStart = Utility.ToDate(dtpick_StartDate.Text, cmb_StartTime.Text);
-                DateTime dateEnd = Utility.ToDate(dtpick_StartDate.Text, cmb_StartTime.Text);
-                int NationID = Convert.ToInt32(cmBox_Nation.Text);
-                eventkalenderController.AddEvent(txtBox_EventName.Text, txtBox_Summary.Text, dateStart, dateEnd, NationID);
+                DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                DateTime dateEnd = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                int NationID = Convert.ToInt32(cmBoxNation.Text);
+                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, NationID);
             }
             else
             {
@@ -155,8 +155,13 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void dtg_ShowEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dtgShowEventsSelectionChanged(object sender, SelectionChangedEventArgs e)
 
+        {
+
+        }
+
+        private void btnUpdateCronusClick(object sender, RoutedEventArgs e)
         {
 
         }

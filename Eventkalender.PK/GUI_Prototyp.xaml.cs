@@ -37,10 +37,29 @@ namespace Eventkalender.PK.GUI
             nationer = new List<Nation>();
         }
 
-        public DataTuple[] GetMetaData(DataTuple[] inputData)
+        public void GetMetadataByDataTuples(DataTuple[] inputTuple)
         {
-            DataTuple[] data = inputData;
-            return data;
+            DataTuple[] data = inputTuple;
+            for (int i = 0; i < data.Length; i++)
+            {
+                Console.WriteLine(data[i].ToString());
+            }
+        }
+
+        public void GetMetadataListOfString(List<string> metod)
+        {
+            List<string> outputList = metod;
+
+            /* int limit = Math.Min(metod.Count, 65000);
+            for (int i = 0; i < limit; i++)
+            {
+                Console.WriteLine(metod.ElementAt(i));
+            } */
+
+            foreach (string row in outputList)
+            {
+                Console.WriteLine(row);
+            }
         }
 
         public List<string> TimesList

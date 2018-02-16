@@ -130,7 +130,8 @@
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmb_StartTime"
                                           IsEditable="True"
-                                          MaxWidth="150"
+                                          Width="70"
+                                          MaxWidth="70"
                                           Canvas.Left="170"
                                           Canvas.Top="115"
                                           ItemsSource="{Binding Path=TimesList}"
@@ -138,10 +139,12 @@
                                 </ComboBox>
                                 <TextBlock Text="Tid:"
                                            Canvas.Top="140"
-                                           Canvas.Left="170"/>
+                                           Canvas.Left="170"
+                                            />
                                 <ComboBox x:Name="cmb_EndTime"
                                           IsEditable="True"
-                                          MaxWidth="150"
+                                          Width="70"
+                                          MaxWidth="70"
                                           Canvas.Left="170"
                                           Canvas.Top="155"
                                           ItemsSource="{Binding Path=TimesList}"
@@ -248,9 +251,10 @@
                                               Canvas.Left="10"
                                               VerticalScrollBarVisibility="Auto"
                                               HeadersVisibility="Column"
-                                              SelectionMode="Extended" 
+                                              SelectionMode="Extended"
+                                              ItemsSource="{Binding Path=ErasePersonProp}"
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
-                                              ToolTipService.BetweenShowDelay="50000"/>
+                                              ToolTipService.InitialShowDelay="5000"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>
@@ -325,10 +329,26 @@
             </TabItem>
             <TabItem Header="Webservices">
                 <TabControl>
-                    <TabItem Header="Run web">
-                        Nätet körs här.
+                    <TabItem Header="Uppgift 1" Margin="-2,0,-2,-2">
+                        <Canvas>
+                            <StackPanel Canvas.Left="10" Canvas.Top="10">
+                                <TextBlock  HorizontalAlignment="Center"
+                                            Text="Hämta fil" FontWeight="Bold"/>
+                                <TextBox x:Name="txtbox_SearchFile"
+                                         Width="100"
+                                         MaxWidth="100"
+                                         Margin="0,15,0,0"
+                                         ToolTip="Sök efter hello.txt"
+                                         ToolTipService.InitialShowDelay="5000"/>
+                                <ItemsPresenter  x:Name="itemPresenter"
+                                                 Margin="0,15,0,0"
+                                                 Width="600"
+                                                 Height="430"
+                                                 PresentationSource.SourceChanged="ItemsPresenter_SourceChanged"/>
+                            </StackPanel>
+                        </Canvas>    
                     </TabItem>
-                    <TabItem Header="Spindelmannen swingar">
+                    <TabItem Header="Uppgift 2">
                         Tom flik som kan användas
                     </TabItem>
                 </TabControl>

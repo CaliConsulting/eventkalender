@@ -125,5 +125,10 @@ namespace Eventkalender.PK.GUI
                 MessageBox.Show("Ey, stupido, du glömde fylla i en box. Capish?!");
             }
         }
+
+        private void ItemsPresenter_SourceChanged(object sender, SourceChangedEventArgs e)
+        {
+
+        }
     }
 }

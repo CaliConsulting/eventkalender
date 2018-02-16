@@ -20,46 +20,48 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
-        EventkalenderController controller = new EventkalenderController("Resources/eventkalender-db.xml");
-
         private List<string> timesList;
-        private List<Nation> Nationer;
-        private List<Event> Events;
-        
-
+        private List<Nation> nationer;
+        private List<Event> events;
+        private EventkalenderController controller;
 
         public GUI_Prototyp()
         {
             InitializeComponent();
+            DataContext = this;
+            controller = new EventkalenderController("Resources/eventkalender-db.xml");
+            events = new List<Event>();
+            timesList = new List<string>();
+            nationer = new List<Nation>();
+
         }
         public List<string> TimesList
         {
+            set
+            {  }
             get
             {
-                if (timesList == null)
-                {
-                    timesList = Utility.GenerateList();
-                    return timesList;
-                }
-                else
-                {
-                    return timesList;
-                }
-            }
-            set
-            {
-                timesList = Utility.GenerateList();
+               return  timesList = Utility.GenerateList();
             }
         }
-        public List<Nation> Nationerlist
+        public List<string> Nationerlist
         {
-            get { return Nationer; }
-            set { Nationer = controller.GetNations(); }
+            get
+            {
+                nationer = controller.GetNations();
+                List<string> nationer1 = new List<string>();
+                foreach(Nation n in nationer)
+                {
+                    nationer1.Add(n.Name);
+                }
+                return nationer1;
+            }
+            set {  }
         }
         public List<Event> EventList
         {
-            get { return Events; }
-            set { Events = controller.GetEvents(); }
+            get { return events = controller.GetEvents(); }
+            set { }
         }
    
         private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -124,6 +126,11 @@ namespace Eventkalender.PK.GUI
             {
                 MessageBox.Show("Ey, stupido, du glömde fylla i en box. Capish?!");
             }
+        }
+
+        private void dtg_ShowEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

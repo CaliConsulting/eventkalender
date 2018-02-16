@@ -16,63 +16,61 @@
                     <TabControl Height="540" Margin="0,0,0,0">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Grid Margin="0,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="10"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="5"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <wpf:AutoCompleteTextBox x:Name="SearchBox"
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="58.326"/>
+                                    <ColumnDefinition Width="42.474"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <wpf:AutoCompleteTextBox x:Name="SearchBox"
                                     GotKeyboardFocus="SearchBox_GotKeyboardFocus"
                                     Watermark="Sök"
                                     Grid.Row="2"
                                     Grid.Column="1"
                                     Width="100"
-                                    Height="20"/>
-                                    <TextBlock 
-                                    Grid.Column="1"
+                                    Height="20" Grid.ColumnSpan="2" Margin="0.6,0.2,0.2,20.6" Grid.RowSpan="2"/>
+                                <TextBlock
                                     Grid.Row="3"
-                                    Margin="0,5,0,0"
+                                    Margin="50,5.2,0.2,22"
                                     Text="Sortera efter:"
-                                    Grid.RowSpan="1"/>
+                                    Grid.RowSpan="2" Grid.ColumnSpan="3"/>
                                 <ComboBox x:Name="cmb_SortEvents"
-                                        Grid.Column="1"
                                         Grid.Row="4"
-                                        Margin="0,0,0,0"
+                                        Margin="50,0.4,0.2,0"
                                         Text="Aktivitet"
-                                        Grid.RowSpan="1">
+                                        Grid.RowSpan="1" Grid.ColumnSpan="3">
                                     <ComboBoxItem x:Name="Datum" 
                                                   Content="Datum"
                                                   />
-                                        <ComboBoxItem x:Name="Nation"
+                                    <ComboBoxItem x:Name="Nation"
                                                       Content="Nation"/>
-									</ComboBox>
+                                </ComboBox>
                                 <DataGrid x:Name="dtg_ShowEvents"
-                                    Grid.Column="3"
+                                    Grid.Column="4"
                                     Grid.Row="2"
                                     Width="450"
                                     Height="500"
                                     Grid.RowSpan="5" 
                                     Grid.ColumnSpan="2" 
-                                    Margin="1.6,0.4,0,-0.4"
+                                    Margin="2.4,3.2,0.4,3.2"
                                     IsReadOnly="True"
-                                    ItemsSource="{Binding Path=EventsList}"
+                                    ItemsSource="{Binding Path = EventList}"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
-                                    ToolTipService.BetweenShowDelay="50000"/>
+                                    ToolTipService.BetweenShowDelay="50000" SelectionChanged="dtg_ShowEvents_SelectionChanged"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
-                                            Grid.Column="1"
                                             Grid.Row="6"
-                                            VerticalAlignment="Bottom"/>
+                                            VerticalAlignment="Bottom" Grid.ColumnSpan="3" Margin="50,0,0.2,0.2"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Eventhantering" Margin="0,0,0,0">
@@ -93,7 +91,7 @@
                                              HorizontalAlignment="Left"
                                              MaxWidth="150"
                                              Width="150"
-                                             ItemsSource="{Binding Path=NationerList}"
+                                             ItemsSource="{Binding Path=Nationerlist}"
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
@@ -103,7 +101,7 @@
                                               HorizontalAlignment="Left"
                                               ToolTip="Vilket datum äger evenemanget rum?"
                                               ToolTipService.BetweenShowDelay="50000"/>
-                                    
+
                                     <TextBlock Text="Eventets slut:"/>
                                     <DatePicker x:Name="dtpick_EndDate"
                                               Width="150"
@@ -162,14 +160,14 @@
                                             HorizontalAlignment="Left"
                                             ToolTip="Söker upp eventen som matchar det ifyllda värdet i sökfältet. Lämnas tomt för att visa alla tillgängliga evenemang"
                                             ToolTipService.BetweenShowDelay="50000"/>
-                                    
+
                                     <DataGrid x:Name="datagridEvents"
                                               SelectionMode="Extended"
                                               Height="300"
                                               Width="290"
                                               Margin="0,15,0,0"
                                               VerticalScrollBarVisibility="Auto"
-                                              ItemsSource="{Binding Path=EventsList}"/>
+                                              ItemsSource="{Binding Path=EventList}"/>
 
                                     <Button x:Name="btn_DeleteEvent"
                                             Click="btn_DeleteEvent_Click"

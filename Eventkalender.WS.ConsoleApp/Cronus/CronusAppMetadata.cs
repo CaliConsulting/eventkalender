@@ -53,8 +53,7 @@ namespace Eventkalender.WS.ConsoleApp
         
         public void GetIndexes()
         {
-            Console.WriteLine("Konsollen tillåter inte mer än 65 tusen prints vilket indexes överskrider");
-            Console.WriteLine("Därför får du iställlet denna output: Hata data, älska tenta");
+            Console.WriteLine("Följande är alla indexes: ");
             GetMetadataListOfString(cronusclient.GetIndexes());
             ExitQuestion();
         }

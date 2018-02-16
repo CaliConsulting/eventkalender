@@ -33,14 +33,14 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <wpf:AutoCompleteTextBox x:Name="SearchBox"
-                                    GotKeyboardFocus="SearchBox_GotKeyboardFocus"
-                                    Watermark="Sök"
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    Width="100"
-                                    Height="20" Grid.ColumnSpan="2" Margin="0.6,0.2,0.2,20.6" Grid.RowSpan="2"/>
-                                <TextBlock
+                                <ComboBox x:Name="cmBox_searchEvent"
+                                            Margin="0,0,0,0"
+                                            Grid.ColumnSpan="3"
+                                            Grid.Row="1"
+                                            ItemsSource="{Binding Path=Nationerlist}"
+                                            IsEditable="True"
+                                            IsTextSearchEnabled="True"/>
+                                <!--    <TextBlock
                                     Grid.Row="3"
                                     Margin="50,5.2,0.2,22"
                                     Text="Sortera efter:"
@@ -49,18 +49,19 @@
                                         Grid.Row="4"
                                         Margin="50,0.4,0.2,0"
                                         Text="Aktivitet"
-                                        Grid.RowSpan="1" Grid.ColumnSpan="3">
+                                        Grid.RowSpan="1" 
+                                        Grid.ColumnSpan="3">
                                     <ComboBoxItem x:Name="Datum" 
                                                   Content="Datum"
                                                   />
                                     <ComboBoxItem x:Name="Nation"
                                                       Content="Nation"/>
-                                </ComboBox>
+                                </ComboBox> -->
                                 <DataGrid x:Name="dtg_ShowEvents"
                                     Grid.Column="4"
                                     Grid.Row="2"
                                     Width="450"
-                                    Height="500"
+                                    Height="450"
                                     Grid.RowSpan="5" 
                                     Grid.ColumnSpan="2" 
                                     Margin="2.4,3.2,0.4,3.2"
@@ -363,7 +364,35 @@
             <TabItem Header="ERP Integration">
                 <TabControl>
                     <TabItem Header="Cronus">
-                        Hämtar data från Cronusdatabasen
+                        <Canvas>
+                            <TextBlock Text="Data" 
+                                       Canvas.Left="150"
+                                       Canvas.Top="15"/>
+                            <TextBlock Text="MetaData" 
+                                       Canvas.Left="350"
+                                       Canvas.Top="15"/>
+                            <ComboBox x:Name="cmb_Data"
+                                      Canvas.Top="30"
+                                      Canvas.Left="150"
+                                      Width="100"
+                                      IsEditable="True"
+                                      IsTextSearchEnabled="True"/>
+                            <ComboBox x:Name="cmb_MetaData"
+                                      Canvas.Top="30"
+                                      Canvas.Left="350"
+                                      Width="100"
+                                      IsEditable="True"
+                                      IsTextSearchEnabled="True"/>
+                            <DataGrid x:Name="datagrid_Cronus"
+                                      Canvas.Left="10"
+                                      Canvas.Top="70"
+                                      Width="600"
+                                      Height="400"
+                                      IsReadOnly="True"/>
+                            <TextBlock Canvas.Bottom="15"
+                                       Canvas.Left="10"
+                                       Text="{Binding Path=StatusProperty}"/>
+                        </Canvas>
                     </TabItem>
                 </TabControl>
             </TabItem>

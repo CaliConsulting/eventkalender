@@ -67,7 +67,8 @@
                                     IsReadOnly="True"
                                     ItemsSource="{Binding Path = EventList}"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
-                                    ToolTipService.BetweenShowDelay="50000" SelectionChanged="dtg_ShowEvents_SelectionChanged"/>
+                                    ToolTipService.InitialShowDelay="5000"/>
+                                
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Grid.Row="6"
                                             VerticalAlignment="Bottom" Grid.ColumnSpan="3" Margin="50,0,0.2,0.2"/>
@@ -100,7 +101,7 @@
                                               Width="150"
                                               HorizontalAlignment="Left"
                                               ToolTip="Vilket datum äger evenemanget rum?"
-                                              ToolTipService.BetweenShowDelay="50000"/>
+                                              ToolTipService.InitialShowDelay="5000"/>
 
                                     <TextBlock Text="Eventets slut:"/>
                                     <DatePicker x:Name="dtpick_EndDate"
@@ -108,7 +109,7 @@
                                               MaxWidth="150"
                                               HorizontalAlignment="Left"
                                               ToolTip="Vilket datum slutar evenemanget?"
-                                            ToolTipService.BetweenShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="5000"/>
 
                                     <TextBlock Text="Beskrivning:"/>
                                     <TextBox x:Name="txtBox_Summary"
@@ -121,7 +122,7 @@
                                             Margin="0,15,0,0"
                                             Width="100"
                                             ToolTip="Registrerar evenemanget med de ifyllda attributen"
-                                            ToolTipService.BetweenShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="5000"/>
                                 </StackPanel>
                                 <TextBlock Text="Tid:"
                                            Canvas.Top="100"
@@ -132,8 +133,7 @@
                                           MaxWidth="70"
                                           Canvas.Left="170"
                                           Canvas.Top="115"
-                                          ItemsSource="{Binding Path=TimesList}"
-                                          >
+                                          ItemsSource="{Binding Path=TimesList}">
                                 </ComboBox>
                                 <TextBlock Text="Tid:"
                                            Canvas.Top="140"
@@ -145,8 +145,7 @@
                                           MaxWidth="70"
                                           Canvas.Left="170"
                                           Canvas.Top="155"
-                                          ItemsSource="{Binding Path=TimesList}"
-                                          >
+                                          ItemsSource="{Binding Path=TimesList}">
                                 </ComboBox>
                                 <StackPanel Canvas.Left="320" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
@@ -162,7 +161,7 @@
                                             Width="100"
                                             HorizontalAlignment="Left"
                                             ToolTip="Söker upp eventen som matchar det ifyllda värdet i sökfältet. Lämnas tomt för att visa alla tillgängliga evenemang"
-                                            ToolTipService.BetweenShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="50000"/>
 
                                     <DataGrid x:Name="datagridEvents"
                                               SelectionMode="Extended"
@@ -180,7 +179,7 @@
                                             Margin="0,15,0,0"
                                             Width="100"
                                             ToolTip="Raderar de valda evenemangen"
-                                            ToolTipService.BetweenShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="50000"/>
                                 </StackPanel>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
@@ -200,7 +199,7 @@
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             ToolTip="Registerar en person med de ifyllda namnen"
-                                            ToolTipService.BetweenShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="5000"/>
                                 </StackPanel>
                                 <StackPanel Canvas.Left="150" 
                                             Canvas.Top="10">
@@ -218,7 +217,7 @@
                                             Width="100"
                                             HorizontalAlignment="Left"
                                             ToolTip="Registerar en Nation med det ifyllda namnet"
-                                            ToolTipService.BetweenShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="5000"/>
                                 </StackPanel>
                                 <TextBlock Text="Val av lista:"
                                            Canvas.Bottom="240"
@@ -230,7 +229,7 @@
                                           MaxWidth="100"
                                           HorizontalAlignment="Left"
                                           ToolTip="Hämtar och sorterar listan efter den valda parametern"
-                                          ToolTipService.BetweenShowDelay="50000">
+                                          ToolTipService.InitialShowDelay="5000">
                                     <ComboBoxItem Content="Nationer"/>
                                     <ComboBoxItem Content="Personer"/>
                                 </ComboBox>
@@ -241,7 +240,7 @@
                                             Canvas.Right="20"
                                             Canvas.Bottom="230"
                                             ToolTip="Raderar valda raderna från listan och databasen"
-                                            ToolTipService.BetweenShowDelay="50000"
+                                            ToolTipService.InitialShowDelay="50000"
                                             Click="btn_EraseFromList_Click"/>
                                 <DataGrid x:Name="datagrid_ErasePerson"
                                               Height="200"
@@ -348,13 +347,16 @@
                                 <ItemsPresenter  x:Name="itemPresenter"
                                                  Margin="0,15,0,0"
                                                  Width="600"
-                                                 Height="430"
-                                                 PresentationSource.SourceChanged="ItemsPresenter_SourceChanged"/>
+                                                 Height="430"/>
                             </StackPanel>
                         </Canvas>    
                     </TabItem>
                     <TabItem Header="Uppgift 2">
-                        Tom flik som kan användas
+                        <Canvas>
+                            <VirtualizingStackPanel>
+                                
+                            </VirtualizingStackPanel>
+                        </Canvas>
                     </TabItem>
                 </TabControl>
             </TabItem>

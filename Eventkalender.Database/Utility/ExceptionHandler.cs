@@ -67,17 +67,17 @@ namespace Eventkalender.Database
         {
             public static string GetCannotInsertNull(string message)
             {
-
+                return "";
             }
 
             public static string GetDataTypeConversionError(string message)
             {
-
+                return "";
             }
 
             public static string GetWrongCredentials(string message)
             {
-
+                return "";
             }
         }
 

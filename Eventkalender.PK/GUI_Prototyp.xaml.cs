@@ -129,6 +129,7 @@ namespace Eventkalender.PK.GUI
         }
 
         private void dtg_ShowEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
         {
 
         }

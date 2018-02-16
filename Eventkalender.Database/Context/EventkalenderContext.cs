@@ -18,8 +18,6 @@ namespace Eventkalender.Database
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            System.Data.Entity.Database.SetInitializer<EventkalenderContext>(null);
-
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Add(new ForeignKeyNamingConvention());
         }

@@ -9,18 +9,6 @@
         // Code that runs on application startup
 
         // Warm up EntityFramework
-        //Start(() =>
-        //{
-        //    string databaseFilePath = PathUtility.GetPath("~/App_Data") + "/eventkalender-db.xml";
-        //    using (EventkalenderContext context = new EventkalenderContext(databaseFilePath))
-        //    {
-        //        context.
-        //    }
-        //});
-
-
-
-        // Warm up EntityFramework
         string eventkalenderDatabaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
         using (EventkalenderContext context = new EventkalenderContext(eventkalenderDatabaseFilePath))
         {

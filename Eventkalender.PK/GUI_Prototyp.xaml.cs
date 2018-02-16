@@ -23,18 +23,45 @@ namespace Eventkalender.PK.GUI
         private List<string> timesList;
         private List<Nation> nationer;
         private List<Event> events;
-        private EventkalenderController controller;
+        private EventkalenderController eventkalenderController;
+        private CronusController cronusController;
 
         public GUI_Prototyp()
         {
             InitializeComponent();
             DataContext = this;
-            controller = new EventkalenderController("Resources/eventkalender-db.xml");
+            eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
+            cronusController = new CronusController("Resources/cronus-db.xml");
             events = new List<Event>();
             timesList = new List<string>();
             nationer = new List<Nation>();
-
         }
+
+        public void GetMetadataByDataTuples(DataTuple[] inputTuple)
+        {
+            DataTuple[] data = inputTuple;
+            for (int i = 0; i < data.Length; i++)
+            {
+                Console.WriteLine(data[i].ToString());
+            }
+        }
+
+        public void GetMetadataListOfString(List<string> metod)
+        {
+            List<string> outputList = metod;
+
+            /* int limit = Math.Min(metod.Count, 65000);
+            for (int i = 0; i < limit; i++)
+            {
+                Console.WriteLine(metod.ElementAt(i));
+            } */
+
+            foreach (string row in outputList)
+            {
+                Console.WriteLine(row);
+            }
+        }
+
         public List<string> TimesList
         {
             set
@@ -48,7 +75,7 @@ namespace Eventkalender.PK.GUI
         {
             get
             {
-                nationer = controller.GetNations();
+                nationer = eventkalenderController.GetNations();
                 List<string> nationer1 = new List<string>();
                 foreach(Nation n in nationer)
                 {
@@ -60,7 +87,7 @@ namespace Eventkalender.PK.GUI
         }
         public List<Event> EventList
         {
-            get { return events = controller.GetEvents(); }
+            get { return events = eventkalenderController.GetEvents(); }
             set { }
         }
    
@@ -99,7 +126,7 @@ namespace Eventkalender.PK.GUI
         {
             if(txtBox_NationName.Text != "")
             {
-                controller.AddNation(txtBox_NationName.Text);
+                eventkalenderController.AddNation(txtBox_NationName.Text);
                 txtBox_NationName.Text = "";
              }
             else
@@ -120,7 +147,7 @@ namespace Eventkalender.PK.GUI
                 DateTime dateStart = Utility.ToDate(dtpick_StartDate.Text, cmb_StartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpick_StartDate.Text, cmb_StartTime.Text);
                 int NationID = Convert.ToInt32(cmBox_Nation.Text);
-                controller.AddEvent(txtBox_EventName.Text, txtBox_Summary.Text, dateStart, dateEnd, NationID);
+                eventkalenderController.AddEvent(txtBox_EventName.Text, txtBox_Summary.Text, dateStart, dateEnd, NationID);
             }
             else
             {

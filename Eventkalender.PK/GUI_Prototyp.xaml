@@ -385,7 +385,8 @@
                                       Canvas.Left="350"
                                       Width="100"
                                       IsEditable="True"
-                                      IsTextSearchEnabled="True"/>
+                                      ItemsSource="{Binding Path=MetadataCombobox}"
+                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged"/>
                             <DataGrid x:Name="datagridCronus"
                                       Canvas.Left="10"
                                       Canvas.Top="85"

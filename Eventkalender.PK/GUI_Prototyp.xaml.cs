@@ -38,7 +38,7 @@ namespace Eventkalender.PK.GUI
             timesList = new List<string>();
         }
 
-        public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
+      /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
         {
             CronusReference.DataTuple[] data = inputTuple;
             for (int i = 0; i < data.Length; i++)
@@ -49,29 +49,24 @@ namespace Eventkalender.PK.GUI
 
         public void GetMetadataListOfString(List<string> metod)
         {
-            List<string> outputList = metod;
-
-            /* int limit = Math.Min(metod.Count, 65000);
-            for (int i = 0; i < limit; i++)
-            {
-                Console.WriteLine(metod.ElementAt(i));
-            } */
-
-            foreach (string row in outputList)
+            foreach (string row in metod)
             {
                 Console.WriteLine(row);
             }
-        }
+        } */
 
         public void GetEmployeeMetadata()
         {
-            GetMetadataByDataTuples(cronusController.GetEmployeeMetadata());
+            cronusController.GetEmployeeMetadata();
+            cronusController.GetIndexes();
         }
 
         public void GetEmployeeAbsenceMetadata()
         {
-            GetMetadataByDataTuples(cronusController.GetEmployeeAbsenceMetadata());
+            cronusController.GetEmployeeAbsenceMetadata();
         }
+       
+
         public List<string> TimesList
         {
             set
@@ -95,6 +90,36 @@ namespace Eventkalender.PK.GUI
             }
             set {  }
         }
+
+        public List<string> MetadataCombobox
+        {
+            get
+            {
+                List<string> lst = new List<string>();
+                lst.Add("GetIndexes");
+                lst.Add("GetKeys");
+                return lst;
+            } 
+            private set { }
+        }
+
+        public List<string> GetMetadata
+        {
+            get
+            {
+                switch (cmbMetaData.SelectedIndex)
+                {
+                    case 0:
+                        List<string> values = cronusController.GetTableConstraints(); //Combobox.whatever(i) i = val i listan
+                        return values;
+                }
+                return null;
+
+
+            }
+            set { }
+        }
+
         public List<Database.Event> Events
         {
             get
@@ -178,6 +203,11 @@ namespace Eventkalender.PK.GUI
         private void btnUpdateCronusClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datagridCronus.ItemsSource = GetMetadata;
         }
     }
 }

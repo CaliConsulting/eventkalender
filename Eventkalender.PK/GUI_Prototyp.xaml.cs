@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Eventkalender.PK.CronusReference;
+using Eventkalender.PK.EventkalenderReference;
 
 namespace Eventkalender.PK.GUI
 {
@@ -21,25 +23,24 @@ namespace Eventkalender.PK.GUI
     public partial class GUI_Prototyp : Window
     {
         private List<string> timesList;
-        private List<Nation> nationer;
-        private List<Event> events;
         private EventkalenderController eventkalenderController;
-        private CronusController cronusController;
+        private CronusServiceSoapClient cronusController;
+        private EventkalenderServiceSoapClient eventkalenderWSController;
+        
 
         public GUI_Prototyp()
         {
             InitializeComponent();
             DataContext = this;
             eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
-            cronusController = new CronusController("Resources/cronus-db.xml");
-            events = new List<Event>();
+            cronusController = new CronusServiceSoapClient();
+            eventkalenderWSController = new EventkalenderServiceSoapClient();
             timesList = new List<string>();
-            nationer = new List<Nation>();
         }
 
-        public void GetMetadataByDataTuples(DataTuple[] inputTuple)
+        public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
         {
-            DataTuple[] data = inputTuple;
+            CronusReference.DataTuple[] data = inputTuple;
             for (int i = 0; i < data.Length; i++)
             {
                 Console.WriteLine(data[i].ToString());
@@ -62,6 +63,15 @@ namespace Eventkalender.PK.GUI
             }
         }
 
+        public void GetEmployeeMetadata()
+        {
+            GetMetadataByDataTuples(cronusController.GetEmployeeMetadata());
+        }
+
+        public void GetEmployeeAbsenceMetadata()
+        {
+            GetMetadataByDataTuples(cronusController.GetEmployeeAbsenceMetadata());
+        }
         public List<string> TimesList
         {
             set
@@ -71,23 +81,27 @@ namespace Eventkalender.PK.GUI
                return  timesList = Utility.GenerateList();
             }
         }
-        public List<string> Nationerlist
+        public List<string> Nationer
         {
             get
             {
-                nationer = eventkalenderController.GetNations();
-                List<string> nationer1 = new List<string>();
-                foreach(Nation n in nationer)
+                List<Database.Nation> nationer = eventkalenderController.GetNations();
+                List<string> nationerNamn = new List<string>();
+                foreach(Database.Nation n in nationer)
                 {
-                    nationer1.Add(n.Name);
+                    nationerNamn.Add(n.Name);
                 }
-                return nationer1;
+                return nationerNamn;
             }
             set {  }
         }
-        public List<Event> EventList
+        public List<Database.Event> Events
         {
-            get { return events = eventkalenderController.GetEvents(); }
+            get
+            {
+                List<Database.Event> events = eventkalenderController.GetEvents();
+                return events;
+            }
             set { }
         }
    

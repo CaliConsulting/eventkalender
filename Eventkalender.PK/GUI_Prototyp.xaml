@@ -37,7 +37,7 @@
                                             Margin="0,0,0,0"
                                             Grid.ColumnSpan="3"
                                             Grid.Row="1"
-                                            ItemsSource="{Binding Path=Nationerlist}"
+                                            ItemsSource="{Binding Path=Events}"
                                             IsEditable="True"
                                             IsTextSearchEnabled="True"/>
                                 <!--    <TextBlock
@@ -66,7 +66,7 @@
                                     Grid.ColumnSpan="2" 
                                     Margin="2.4,3.2,0.4,3.2"
                                     IsReadOnly="True"
-                                    ItemsSource="{Binding Path = EventList}"
+                                    ItemsSource="{Binding Path = Events}"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
                                     ToolTipService.InitialShowDelay="5000"/>
                                 
@@ -93,7 +93,7 @@
                                              HorizontalAlignment="Left"
                                              MaxWidth="150"
                                              Width="150"
-                                             ItemsSource="{Binding Path=Nationerlist}"
+                                             ItemsSource="{Binding Path=Nationer}"
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
@@ -172,7 +172,7 @@
                                               IsReadOnly="True"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
-                                              ItemsSource="{Binding Path=EventList}"/>
+                                              ItemsSource="{Binding Path=Events}"/>
 
                                     <Button x:Name="btn_DeleteEvent"
                                             Click="btn_DeleteEvent_Click"

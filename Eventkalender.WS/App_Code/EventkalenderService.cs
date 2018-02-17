@@ -23,21 +23,25 @@ public class EventkalenderService : WebService
     public string GetFile(string path)
     {
         string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
-        return File.ReadAllText(filePath);
+        if (File.Exists(filePath))
+        {
+            return File.ReadAllText(filePath);
+        }
+        return string.Empty;
     }
 
-    //[WebMethod]
-    //public void AddFile(string path, string content)
-    //{
-    //    string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
-
-    //    FileStream ms = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
-    //    using (StreamWriter sw = new StreamWriter(ms))
-    //    {
-    //        sw.WriteLine(content);
-    //    }
-    //    //File.WriteAllText(path, content);
-    //}
+    [WebMethod]
+    public void AddFile(string path, string content)
+    {
+        string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        using (FileStream ms = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
+        {
+            using (StreamWriter sw = new StreamWriter(ms))
+            {
+                sw.WriteLine(content);
+            }
+        }
+    }
 
     [WebMethod]
     public Nation GetNation(int id)

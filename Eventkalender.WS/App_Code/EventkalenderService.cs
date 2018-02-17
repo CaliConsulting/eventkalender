@@ -34,11 +34,12 @@ public class EventkalenderService : WebService
     public void AddFile(string path, string content)
     {
         string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
         using (FileStream ms = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
         {
             using (StreamWriter sw = new StreamWriter(ms))
             {
-                sw.WriteLine(content);
+                sw.Write(content);
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,13 +23,27 @@ namespace Eventkalender.Database
 
         public static string GetErrorMessage(Exception ex)
         {
-            bool isSql = ex is SqlException;
-            if (isSql)
+            if (ex is DataException)
+            {
+                DataException dataEx = ex as DataException;
+                return GetDataErrorMessage(dataEx);
+            }
+            else if (ex is SqlException)
             {
                 SqlException sqlEx = ex as SqlException;
                 return GetSqlErrorMessage(sqlEx);
             }
             return GetGenericErrorMessage(ex);
+        }
+
+        private static string GetDataErrorMessage(DataException ex)
+        {
+            if (ex is DbEntityValidationException)
+            {
+                DbEntityValidationException valEx = ex as DbEntityValidationException;
+                return DataMessageHelper.GetDbEntityValidationExceptionMessage(valEx);
+            }
+            return "default data error message";
         }
 
         private static string GetSqlErrorMessage(SqlException ex)
@@ -88,5 +104,32 @@ namespace Eventkalender.Database
             }
         }
 
+        private static class DataMessageHelper
+        {
+            public static string GetDbEntityValidationExceptionMessage(DbEntityValidationException ex)
+            {
+                StringBuilder builder = new StringBuilder();
+                ICollection<DbEntityValidationResult> validationResults = ex.EntityValidationErrors.ToList();
+                for (int i = 0; i < validationResults.Count; i++)
+                {
+                    DbEntityValidationResult result = validationResults.ElementAt(i);
+                    ICollection<DbValidationError> validationErrors = result.ValidationErrors;
+                    for (int j = 0; j < validationErrors.Count; j++)
+                    {
+                        DbValidationError error = validationErrors.ElementAt(j);
+                        builder.Append(error.ErrorMessage);
+                        if (j != validationErrors.Count - 1)
+                        {
+                            builder.Append("; ");
+                        }
+                    }
+                    if (i != validationResults.Count - 1)
+                    {
+                        builder.AppendLine();
+                    }
+                }
+                return builder.ToString();
+            }
+        }
     }
 }

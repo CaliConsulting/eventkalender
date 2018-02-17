@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Utility\**" />
+    <EmbeddedResource Remove="Utility\**" />
+    <None Remove="Utility\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExceptionHandler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Utility\ExceptionHandler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.2.0" />
   </ItemGroup>
 

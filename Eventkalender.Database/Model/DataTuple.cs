@@ -31,6 +31,18 @@ namespace Eventkalender.Database
             set { values = value; }
         }
 
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (SerializableKeyValuePair<string, string> pair in values)
+            {
+                string key = pair.Key;
+                string value = pair.Value;
+                builder.Append(key + ": " + value);
+                builder.AppendLine();
+            }
+            return builder.ToString();
+        }
         //[XmlIgnore]
         //public Dictionary<string, string>.KeyCollection Columns
         //{

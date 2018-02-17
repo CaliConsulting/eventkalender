@@ -1,6 +1,8 @@
 ﻿using Eventkalender.Database;
+using Eventkalender.WS;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -13,12 +15,33 @@ public class EventkalenderService : WebService
 
     public EventkalenderService()
     {
-        string xmlPath = HttpContext.Current.Server.MapPath("~/App_Data/eventkalender-db.xml");
-        eventkalenderController = new EventkalenderController(xmlPath);
+        string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
+        eventkalenderController = new EventkalenderController(databaseFilePath);
     }
 
     [WebMethod]
-    public Nation GetNation(int id) {
+    public string GetFile(string path)
+    {
+        string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        return File.ReadAllText(filePath);
+    }
+
+    //[WebMethod]
+    //public void AddFile(string path, string content)
+    //{
+    //    string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
+
+    //    FileStream ms = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+    //    using (StreamWriter sw = new StreamWriter(ms))
+    //    {
+    //        sw.WriteLine(content);
+    //    }
+    //    //File.WriteAllText(path, content);
+    //}
+
+    [WebMethod]
+    public Nation GetNation(int id)
+    {
         return eventkalenderController.GetNation(id);
     }
 
@@ -29,16 +52,16 @@ public class EventkalenderService : WebService
     }
 
     [WebMethod]
-    public void AddNation(string name)  //Lösning så att tid sätts in i rätt format för datetime
+    public void AddNation(string name)
     {
         eventkalenderController.AddNation(name);
-       
     }
 
     [WebMethod]
-    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime, int nationId)
+    public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
     {
-        eventkalenderController.AddEvent(name,summary, startTime, endTime, nationId);
+        //Lösning så att tid sätts in i rätt format för datetime?
+        eventkalenderController.AddEvent(name, summary, startTime, endTime, nationId);
     }
 
     [WebMethod]
@@ -57,7 +80,6 @@ public class EventkalenderService : WebService
     public void AddPerson(string firstName, string lastName)
     {
         eventkalenderController.AddPerson(firstName, lastName);
-      
     }
 
     [WebMethod]

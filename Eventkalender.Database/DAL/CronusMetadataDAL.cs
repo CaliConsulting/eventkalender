@@ -123,7 +123,7 @@ namespace Eventkalender.Database
             }
         }
 
-        public List<DataTuple> GetMetaData(string inputQuery)
+        public List<DataTuple> GetMetadata(string inputQuery)
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
@@ -148,63 +148,63 @@ namespace Eventkalender.Database
             }
         }
 
-        public List<DataTuple> GetEmployeeMetaData()
+        public List<DataTuple> GetEmployeeMetadata()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS ");
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'");
             string inputQuery = builder.ToString();
-            return GetMetaData(inputQuery);
+            return GetMetadata(inputQuery);
 
         }
 
-        public List<DataTuple> GetEmployeeAbsenceMetaData()
+        public List<DataTuple> GetEmployeeAbsenceMetadata()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS ");
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Absence'");
             string inputQuery = builder.ToString();
-            return GetMetaData(inputQuery);
+            return GetMetadata(inputQuery);
             
         }
 
-        public List<DataTuple> GetEmployeeRelativeMetaData()
+        public List<DataTuple> GetEmployeeRelativeMetadata()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS ");
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Relative'");
             string inputQuery = builder.ToString();
-            return GetMetaData(inputQuery);
+            return GetMetadata(inputQuery);
 
         }
 
-        public List<DataTuple> GetEmployeePortalSetupMetaData()
+        public List<DataTuple> GetEmployeePortalSetupMetadata()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS ");
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Portal Setup'");
             string inputQuery = builder.ToString();
-            return GetMetaData(inputQuery);
+            return GetMetadata(inputQuery);
 
         }
 
-        public List<DataTuple> GetEmployeeQualificationMetaData()
+        public List<DataTuple> GetEmployeeQualificationMetadata()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS ");
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Qualification'");
             string inputQuery = builder.ToString();
-            return GetMetaData(inputQuery);
+            return GetMetadata(inputQuery);
 
         }
 
-        public List<DataTuple> GetEmployeeStatisticsGroupMetaData()
+        public List<DataTuple> GetEmployeeStatisticsGroupMetadata()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS ");
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Statistics Group'");
             string inputQuery = builder.ToString();
-            return GetMetaData(inputQuery);
+            return GetMetadata(inputQuery);
 
         }
     }

@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ExceptionHandler.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="Utility\ExceptionHandler.cs" />
   </ItemGroup>
 

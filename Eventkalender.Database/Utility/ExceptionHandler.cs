@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
+    interface IMessageHelper<T>
+    {
+        string GetMessage(T ex);
+    }
+
     public class ExceptionHandler
     {
         private const int CANNOT_INSERT_NULL = 515;
@@ -23,52 +30,22 @@ namespace Eventkalender.Database
 
         public static string GetErrorMessage(Exception ex)
         {
-            if (ex is DataException)
+            if (ex is IOException)
+            {
+                IOException ioEx = ex as IOException;
+                return new IOMessageHelper().GetMessage(ioEx);
+            }
+            else if (ex is DataException)
             {
                 DataException dataEx = ex as DataException;
-                return GetDataErrorMessage(dataEx);
+                return new DataMessageHelper().GetMessage(dataEx);
             }
             else if (ex is SqlException)
             {
                 SqlException sqlEx = ex as SqlException;
-                return GetSqlErrorMessage(sqlEx);
+                return new SqlMessageHelper().GetMessage(sqlEx);
             }
             return GetGenericErrorMessage(ex);
-        }
-
-        private static string GetDataErrorMessage(DataException ex)
-        {
-            if (ex is DbEntityValidationException)
-            {
-                DbEntityValidationException valEx = ex as DbEntityValidationException;
-                return DataMessageHelper.GetDbEntityValidationExceptionMessage(valEx);
-            }
-            return GetGenericErrorMessage(ex);
-        }
-
-        private static string GetSqlErrorMessage(SqlException ex)
-        {
-            string message = ex.Message;
-            switch (ex.ErrorCode)
-            {
-                case CANNOT_INSERT_NULL:
-                    return MessageHelper.GetCannotInsertNullMessage(message);
-                case DATA_TYPE_CONVERSION_ERROR:
-                    return MessageHelper.GetDataTypeConversionErrorMessage(message);
-                case LOGIN_FAILED:
-                    return "Inloggningen till databasen misslyckades; kontrollera användarnamn och lösenord";
-                case NON_MATCHING_TABLE_DEFINITION:
-                    return "Databasen accepterar inte indatan för ett fält";
-                case PRIMARY_KEY_VIOLATION:
-                    return MessageHelper.GetPrimaryKeyViolationMessage(message);
-                case RAISE_ERROR:
-                    return message;
-                case TRUNCATED_DATA:
-                    return "Ett indata-fält överskrider maximala tillåtna längden";
-                case WRONG_CREDENTIALS:
-                    return MessageHelper.GetWrongCredentialsMessage(message);
-            }
-            return ex.Message;
         }
 
         private static string GetGenericErrorMessage(Exception ex)
@@ -80,8 +57,33 @@ namespace Eventkalender.Database
             return ex.Message;
         }
 
-        private static class MessageHelper
+        private class SqlMessageHelper : IMessageHelper<SqlException>
         {
+            public string GetMessage(SqlException ex)
+            {
+                string message = ex.Message;
+                switch (ex.ErrorCode)
+                {
+                    case CANNOT_INSERT_NULL:
+                        return GetCannotInsertNullMessage(message);
+                    case DATA_TYPE_CONVERSION_ERROR:
+                        return GetDataTypeConversionErrorMessage(message);
+                    case LOGIN_FAILED:
+                        return "Inloggningen till databasen misslyckades; kontrollera användarnamn och lösenord";
+                    case NON_MATCHING_TABLE_DEFINITION:
+                        return "Databasen accepterar inte indatan för ett fält";
+                    case PRIMARY_KEY_VIOLATION:
+                        return GetPrimaryKeyViolationMessage(message);
+                    case RAISE_ERROR:
+                        return message;
+                    case TRUNCATED_DATA:
+                        return "Ett indata-fält överskrider maximala tillåtna längden";
+                    case WRONG_CREDENTIALS:
+                        return GetWrongCredentialsMessage(message);
+                }
+                return "Ett SQL-fel (SqlException) uppstod.";
+            }
+
             // Kanske förbättra dessa meddelande? T.ex. genom att extrahera värden från message-variabeln
             // som vi gjorde i databasprojektet.
             public static string GetCannotInsertNullMessage(string message)
@@ -105,9 +107,39 @@ namespace Eventkalender.Database
             }
         }
 
-        private static class DataMessageHelper
+        private class IOMessageHelper : IMessageHelper<IOException>
         {
-            public static string GetDbEntityValidationExceptionMessage(DbEntityValidationException ex)
+            public string GetMessage(IOException ex)
+            {
+                if (ex is FileNotFoundException)
+                {
+                    FileNotFoundException fileEx = ex as FileNotFoundException;
+                    return string.Format("Kunde inte hitta filen: {0}", fileEx.FileName);
+                }
+                else if (ex is DirectoryNotFoundException)
+                {
+                    DirectoryNotFoundException dirEx = ex as DirectoryNotFoundException;
+                    Regex pathMatcher = new Regex(@"[^']+");
+                    string path = pathMatcher.Matches(dirEx.Message)[1].Value;
+                    return string.Format("Kunde inte hitta sökvägen: {0}", path);
+                }
+                return "Ett indata/utdata-fel (IOException) uppstod.";
+            }
+        }
+
+        private class DataMessageHelper : IMessageHelper<DataException>
+        {
+            public string GetMessage(DataException ex)
+            {
+                if (ex is DbEntityValidationException)
+                {
+                    DbEntityValidationException valEx = ex as DbEntityValidationException;
+                    return GetDbEntityValidationExceptionMessage(valEx);
+                }
+                return "Ett datafel (DataException) uppstod.";
+            }
+
+            private static string GetDbEntityValidationExceptionMessage(DbEntityValidationException ex)
             {
                 StringBuilder builder = new StringBuilder();
                 ICollection<DbEntityValidationResult> validationResults = ex.EntityValidationErrors.ToList();

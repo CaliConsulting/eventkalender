@@ -18,6 +18,8 @@ namespace Eventkalender.Database
 
     public class ExceptionHandler
     {
+        private static Dictionary<Type, dynamic> helpers;
+
         private const int CANNOT_INSERT_NULL = 515;
         //private const int CHECK_CONSTRAINT_CONFLICT = 547;
         private const int DATA_TYPE_CONVERSION_ERROR = 8114;
@@ -28,22 +30,30 @@ namespace Eventkalender.Database
         private const int TRUNCATED_DATA = 8152;
         private const int WRONG_CREDENTIALS = 18456;
 
+        static ExceptionHandler()
+        {
+            helpers = new Dictionary<Type, dynamic>();
+            helpers.Add(typeof(IOException), new IOMessageHelper());
+            helpers.Add(typeof(SqlException), new SqlMessageHelper());
+            helpers.Add(typeof(DataException), new DataMessageHelper());
+        }
+
         public static string GetErrorMessage(Exception ex)
         {
             if (ex is IOException)
             {
                 IOException ioEx = ex as IOException;
-                return new IOMessageHelper().GetMessage(ioEx);
+                return helpers[typeof(IOException)].GetMessage(ioEx);
             }
             else if (ex is DataException)
             {
                 DataException dataEx = ex as DataException;
-                return new DataMessageHelper().GetMessage(dataEx);
+                return helpers[typeof(DataException)].GetMessage(dataEx);
             }
             else if (ex is SqlException)
             {
                 SqlException sqlEx = ex as SqlException;
-                return new SqlMessageHelper().GetMessage(sqlEx);
+                return helpers[typeof(SqlException)].GetMessage(sqlEx);
             }
             return GetGenericErrorMessage(ex);
         }

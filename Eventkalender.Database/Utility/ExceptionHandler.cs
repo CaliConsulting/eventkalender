@@ -43,7 +43,7 @@ namespace Eventkalender.Database
                 DbEntityValidationException valEx = ex as DbEntityValidationException;
                 return DataMessageHelper.GetDbEntityValidationExceptionMessage(valEx);
             }
-            return "default data error message";
+            return GetGenericErrorMessage(ex);
         }
 
         private static string GetSqlErrorMessage(SqlException ex)
@@ -75,32 +75,33 @@ namespace Eventkalender.Database
         {
             if (ex is NullReferenceException)
             {
-                // Detta felmeddelandet måste nog göras om
-                return "Fältet accepterar inte denna indata, var god kontrollera formattering på tal och text";
+                return "Programmet stötte på null-värde som det inte kan hantera, var god kontrollera alla indata-fält.";
             }
             return ex.Message;
         }
 
         private static class MessageHelper
         {
+            // Kanske förbättra dessa meddelande? T.ex. genom att extrahera värden från message-variabeln
+            // som vi gjorde i databasprojektet.
             public static string GetCannotInsertNullMessage(string message)
             {
-                return "";
+                return "Databasen accepterar inte null-värde, var god fyll i alla fält.";
             }
 
             public static string GetDataTypeConversionErrorMessage(string message)
             {
-                return "";
+                return "Kan inte konvertera datatypen.";
             }
 
             public static string GetPrimaryKeyViolationMessage(string message)
             {
-                return "";
+                return "Primärnyckeln används redan av en viss tupel, var god välj en annan.";
             }
 
             public static string GetWrongCredentialsMessage(string message)
             {
-                return "";
+                return "Fel inloggningsuppgifter till databasen, var god kontrollera dessa och försök igen.";
             }
         }
 

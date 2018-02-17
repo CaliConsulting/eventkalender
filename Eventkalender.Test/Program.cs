@@ -15,7 +15,8 @@ namespace Eventkalender.Test
 
             try
             {
-                Nation n = new Nation();
+                Nation n = new Nation("testnation");
+                n.Id = 1;
                 d.AddNation(n);
             }
             catch (Exception e)

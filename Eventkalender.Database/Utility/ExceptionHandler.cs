@@ -14,7 +14,7 @@ namespace Eventkalender.Database
         private const int DATA_TYPE_CONVERSION_ERROR = 8114;
         private const int LOGIN_FAILED = 4060;
         private const int NON_MATCHING_TABLE_DEFINITION = 213;
-        //private const int PRIMARY_KEY_VIOLATION = 2627;
+        private const int PRIMARY_KEY_VIOLATION = 2627;
         private const int RAISE_ERROR = 50000;
         private const int TRUNCATED_DATA = 8152;
         private const int WRONG_CREDENTIALS = 18456;
@@ -36,19 +36,21 @@ namespace Eventkalender.Database
             switch (ex.ErrorCode)
             {
                 case CANNOT_INSERT_NULL:
-                    return MessageHelper.GetCannotInsertNull(message);
+                    return MessageHelper.GetCannotInsertNullMessage(message);
                 case DATA_TYPE_CONVERSION_ERROR:
-                    return MessageHelper.GetCannotInsertNull(message);
+                    return MessageHelper.GetDataTypeConversionErrorMessage(message);
                 case LOGIN_FAILED:
                     return "Inloggningen till databasen misslyckades; kontrollera användarnamn och lösenord";
                 case NON_MATCHING_TABLE_DEFINITION:
-                    return "Databasen accepterar inte indatan";
+                    return "Databasen accepterar inte indatan för ett fält";
+                case PRIMARY_KEY_VIOLATION:
+                    return MessageHelper.GetPrimaryKeyViolationMessage(message);
                 case RAISE_ERROR:
                     return message;
                 case TRUNCATED_DATA:
                     return "Ett indata-fält överskrider maximala tillåtna längden";
                 case WRONG_CREDENTIALS:
-                    return MessageHelper.GetWrongCredentials(message);
+                    return MessageHelper.GetWrongCredentialsMessage(message);
             }
             return ex.Message;
         }
@@ -65,17 +67,22 @@ namespace Eventkalender.Database
 
         private static class MessageHelper
         {
-            public static string GetCannotInsertNull(string message)
+            public static string GetCannotInsertNullMessage(string message)
             {
                 return "";
             }
 
-            public static string GetDataTypeConversionError(string message)
+            public static string GetDataTypeConversionErrorMessage(string message)
             {
                 return "";
             }
 
-            public static string GetWrongCredentials(string message)
+            public static string GetPrimaryKeyViolationMessage(string message)
+            {
+                return "";
+            }
+
+            public static string GetWrongCredentialsMessage(string message)
             {
                 return "";
             }

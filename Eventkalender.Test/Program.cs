@@ -12,18 +12,21 @@ namespace Eventkalender.Test
     {
         public static void Main(string[] args)
         {
-            //EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
-            //try
-            //{
-            //    Nation n = new Nation("testnation");
-            //    n.Id = 1;
-            //    d.AddNation(n);
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
-            //}
+            EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
 
+            try
+            {
+                Nation n = null;
+                n.Name = "this is null";
+                //d.AddNation(n);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
+            }
+
+            d.GetEvent(1000);
+            d.GetEvents();
 
             string res = "";
             res = ExceptionHandler.GetErrorMessage(new FileNotFoundException("meddelande", "file.txt"));

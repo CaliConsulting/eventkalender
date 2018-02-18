@@ -18,7 +18,7 @@ namespace Eventkalender.Database
             Events = new List<Event>();
         }
 
-        public Person(string firstName, string lastName) : base()
+        public Person(string firstName, string lastName) : this()
         {
             FirstName = firstName;
             LastName = lastName;

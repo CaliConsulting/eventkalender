@@ -16,14 +16,21 @@ namespace Eventkalender.Database
         public Event()
         {
             Persons = new List<Person>();
+
+            // Creating a new nation here breaks the Entity Framework join process, so DO NOT instantiate it
+            //Nation = new Nation();
         }
 
-        public Event(string name, string summary, DateTime startTime, DateTime endTime, int nationId) : base()
+        public Event(string name, string summary, DateTime startTime, DateTime endTime) : this()
         {
             Name = name;
             Summary = summary;
             StartTime = startTime;
             EndTime = endTime;
+        }
+
+        public Event(string name, string summary, DateTime startTime, DateTime endTime, int nationId) : this(name, summary, startTime, endTime)
+        {
             NationId = nationId;
         }
 
@@ -45,7 +52,7 @@ namespace Eventkalender.Database
 
         [Required]
         public int NationId { get; set; }
-        
+
         public virtual Nation Nation { get; set; }
 
         public virtual List<Person> Persons { get; set; }

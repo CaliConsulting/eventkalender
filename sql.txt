@@ -9,10 +9,30 @@ SELECT * FROM PersonEvent;
 /*
 INSERT INTO Person (FirstName, LastName) VALUES ('Daniel', 'Nilsson');
 INSERT INTO Person (FirstName, LastName) VALUES ('Hampus', 'Sandell');
+INSERT INTO Person (FirstName, LastName) VALUES ('Johan', 'Dyster-Aas');
+INSERT INTO Person (FirstName, LastName) VALUES ('Philip', 'Eriksson');
 
-INSERT INTO Nation (Name) VALUES ('Malmo Nation');
+INSERT INTO Nation (Name) VALUES ('Malmö Nation');
+INSERT INTO Nation (Name) VALUES ('Göteborgs nation');
+INSERT INTO Nation (Name) VALUES ('Östgöta Nation');
 
-INSERT INTO Event (Name, Summary, StartTime, EndTime, Nation_Id) VALUES ('TestEventMalmo', 'This is test', GETDATE(), GETDATE(), 1);
+INSERT INTO Event (Name, Summary, StartTime, EndTime, NationId) VALUES ('Casanova', 'Terminen har börjat och pulsen i stan är högre än vanligt. När många börjat komma in i en vardaglig lunk tar Malmö Nation vid och höjer stämningen med en traditionsenlig Novischdag! Efter en heldag med tävlingar och uppdrag rör sig nationens nyaste medlemmar ner på det välkända dansgolvet på Casanova. Och vilka hittar vi bakom baren? Jo, Malmös Quratel with friends. Kom till Casanova på lördag för att testa dem på om de kan rodda en lika bra klubb som proffsen som vanligtvis styr Lunds bästa nattklubb.', GETDATE(), GETDATE(), 1);
+INSERT INTO Event (Name, Summary, StartTime, EndTime, NationId) VALUES ('GA-balen', 'Härmed välkomnar vi dig till att ta del av Gustav II Adolfsbalen under helgen den 11-12 november. Årets GA-bal är den femtiotredje i ordningen och är Skandinaviens största studentbal samt Nordens största fracksittning efter Nobelfesten.', GETDATE(), GETDATE(), 2);
+INSERT INTO Event (Name, Summary, StartTime, EndTime, NationId) VALUES ('Sunset', 'Sunset är en av Lunds absolut äldsta klubbar. Redan tidigt 80-tal slog vi upp dörrarna till vår lördagsklubb med sittning och vi har fortsatt leverera Lunds bästa klubb alltsedan dess!', GETDATE(), GETDATE(), 3);
+INSERT INTO Event (Name, Summary, StartTime, EndTime, NationId) VALUES ('Mangos', 'Välkommen till terminens första och underbara MANGOS! Kom och förgyll första veckan på terminen med trevligt sällskap och härligt häng!', GETDATE(), GETDATE(), 1);
+INSERT INTO Event (Name, Summary, StartTime, EndTime, NationId) VALUES ('Kajplats', 'Festen fortsätter och det är snart fredag igen, vilket betyder bara en sak: Kajplats! Fest på Göteborgs nation är ju ändå bäst! Härlig musik, glad servering och båda dansgolven öppna utlovas i sann fredagsanda.', GETDATE(), GETDATE(), 2);
 
-INSERT INTO PersonEvent (Person_Id, Event_Id) VALUES (1, 1);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (1, 1);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (1, 3);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (1, 4);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (2, 1);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (2, 2);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (2, 4);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (2, 5);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (3, 1);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (3, 3);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (3, 5);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (4, 2);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (4, 3);
+INSERT INTO PersonEvent (PersonId, EventId) VALUES (4, 4);
 */

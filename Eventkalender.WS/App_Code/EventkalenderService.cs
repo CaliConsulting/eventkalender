@@ -1,4 +1,5 @@
 ﻿using Eventkalender.Database;
+using Eventkalender.WS;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,37 +11,38 @@ using System.Web.Services;
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 public class EventkalenderService : WebService
 {
-    private string physicalPath;
-
     private EventkalenderController eventkalenderController;
 
     public EventkalenderService()
     {
-        physicalPath = HttpContext.Current.Server.MapPath("~/App_Data");
-
-        string databaseFilePath = physicalPath + "/eventkalender-db.xml";
+        string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
         eventkalenderController = new EventkalenderController(databaseFilePath);
     }
 
     [WebMethod]
     public string GetFile(string path)
     {
-        string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
-        return File.ReadAllText(filePath);
+        string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        if (File.Exists(filePath))
+        {
+            return File.ReadAllText(filePath);
+        }
+        return string.Empty;
     }
 
-    //[WebMethod]
-    //public void AddFile(string path, string content)
-    //{
-    //    string filePath = string.Format("{0}/Files/{1}", physicalPath, path);
-
-    //    FileStream ms = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
-    //    using (StreamWriter sw = new StreamWriter(ms))
-    //    {
-    //        sw.WriteLine(content);
-    //    }
-    //    //File.WriteAllText(path, content);
-    //}
+    [WebMethod]
+    public void AddFile(string path, string content)
+    {
+        string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+        using (FileStream ms = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
+        {
+            using (StreamWriter sw = new StreamWriter(ms))
+            {
+                sw.Write(content);
+            }
+        }
+    }
 
     [WebMethod]
     public Nation GetNation(int id)
@@ -61,10 +63,10 @@ public class EventkalenderService : WebService
     }
 
     [WebMethod]
-    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime, int nationId)
+    public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
     {
         //Lösning så att tid sätts in i rätt format för datetime?
-        eventkalenderController.AddEvent(name,summary, startTime, endTime, nationId);
+        eventkalenderController.AddEvent(name, summary, startTime, endTime, nationId);
     }
 
     [WebMethod]

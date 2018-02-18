@@ -50,11 +50,20 @@ namespace Eventkalender.Database
                 Event dbEvent = context.Event.Include(e => e.Nation).Include(e => e.Persons).SingleOrDefault(e => e.Id == id);
 
                 // Set fields to null to avoid circular references
-                foreach (Person p in dbEvent.Persons)
+                if (dbEvent != null)
                 {
-                    p.Events = null;
+                    foreach (Person p in dbEvent.Persons)
+                    {
+                        if (p != null)
+                        {
+                            p.Events = null;
+                        }
+                    }
+                    if (dbEvent.Nation != null)
+                    {
+                        dbEvent.Nation.Events = null;
+                    }
                 }
-                dbEvent.Nation.Events = null;
                 return dbEvent;
             }
         }

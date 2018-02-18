@@ -13,6 +13,7 @@ namespace Eventkalender.Test
         public static void Main(string[] args)
         {
             EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
+
             try
             {
                 Nation n = null;
@@ -37,7 +38,6 @@ namespace Eventkalender.Test
             Event e3 = new Event("testevent_ny", "testsummary_ny", DateTime.Now, DateTime.Now);
             n3.Events.Add(e3);
             d.UpdateNation(n3);
-
 
             d.GetEvent(1000);
             d.GetEvents();

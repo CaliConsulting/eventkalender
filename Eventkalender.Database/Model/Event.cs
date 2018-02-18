@@ -16,14 +16,19 @@ namespace Eventkalender.Database
         public Event()
         {
             Persons = new List<Person>();
+            Nation = new Nation();
         }
 
-        public Event(string name, string summary, DateTime startTime, DateTime endTime, int nationId) : base()
+        public Event(string name, string summary, DateTime startTime, DateTime endTime) : this()
         {
             Name = name;
             Summary = summary;
             StartTime = startTime;
             EndTime = endTime;
+        }
+
+        public Event(string name, string summary, DateTime startTime, DateTime endTime, int nationId) : this(name, summary, startTime, endTime)
+        {
             NationId = nationId;
         }
 

@@ -15,10 +15,10 @@ namespace Eventkalender.Database
     {
         public Nation()
         {
-            Events = new List<Event>();
+            //Events = new List<Event>();
         }
 
-        public Nation(string name) : base()
+        public Nation(string name) : this()
         {
             Name = name;
         }

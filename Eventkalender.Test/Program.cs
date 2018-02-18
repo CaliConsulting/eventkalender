@@ -34,10 +34,11 @@ namespace Eventkalender.Test
             //d.AddNation(n2);
 
             Nation n3 = d.GetNation(1);
+            n3.Name = "Malmö Nation" + new Random().Next(0, 1000000);
 
-            Event e3 = new Event("testevent_ny", "testsummary_ny", DateTime.Now, DateTime.Now);
-            n3.Events.Add(e3);
-            d.UpdateNation(n3);
+            Event e3 = new Event("testevent_ny", "testsummary_ny", DateTime.Now, DateTime.Now, n3.Id);
+            //n3.AddEvent(e3);
+            d.AddEvent(e3);
 
             d.GetEvent(1000);
             d.GetEvents();

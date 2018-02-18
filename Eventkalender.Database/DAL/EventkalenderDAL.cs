@@ -197,19 +197,6 @@ namespace Eventkalender.Database
             }
         }
 
-        public void UpdateNation(Nation n)
-        {
-            using (var context = new EventkalenderContext(xmlPath))
-            {
-                Nation dbNation = context.Nation.Find(n.Id);
-                if (dbNation == null)
-                {
-                    return;
-                }
-                context.Entry(dbNation).CurrentValues.SetValues(n);
-            }
-        }
-
         //public void AddNations(List<Nation> nations)
         //{
         //    context.Nations.Add()

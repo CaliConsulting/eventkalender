@@ -19,6 +19,10 @@
                             <Canvas Margin="0,0,0,0">
                                 <ComboBox x:Name="cmbEvents"
                                           ItemsSource="{Binding Path=Nations}"
+                                          DisplayMemberPath="Name"
+                                          SelectedValuePath="Id"
+                                          SelectionChanged="cmbEvents_SelectionChanged"
+                                          IsEditable="True"
                                           Margin="0,0,0,0"
                                           Width="150"
                                           Canvas.Left="20"
@@ -75,6 +79,8 @@
                                              MaxWidth="150"
                                              Width="150"
                                              ItemsSource="{Binding Path=Nations}"
+                                             DisplayMemberPath="Name"
+                                             SelectedItem="Id"
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
@@ -131,10 +137,15 @@
                                 <StackPanel Canvas.Left="400" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
                                     <TextBlock Text="Filtrera"/>
-                                    <TextBox x:Name="txtBoxSearchEvents"
+                                    <ComboBox x:Name="cmBoxSearchEvents"
+                                              ItemsSource="{Binding Path=Events, NotifyOnSourceUpdated=True}"
+                                              DisplayMemberPath="Name"
+                                              SelectedValuePath="Id"
                                              Width="150"
                                              MaxWidth="150"
-                                             HorizontalAlignment="Left"/>
+                                             HorizontalAlignment="Left"
+                                              IsEditable="True"
+                                              SelectionChanged="cmBoxSearchEvents_SelectionChanged"/>
                                     <Button x:Name="btnSrchEvent"
                                             Click="btnSrchEventClick"
                                             Content="Sök"

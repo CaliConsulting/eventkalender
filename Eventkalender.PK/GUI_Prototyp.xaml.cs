@@ -23,8 +23,11 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
-        private ObservableCollection<Database.Person> persons;
+        private int id;
+        private int index;
         private ObservableCollection<Database.Event> events;
+        private ObservableCollection<Database.Nation> nations;
+        private ObservableCollection<Database.Person> persons;
         private List<string> timesList;
         private EventkalenderController eventkalenderController;
         private CronusServiceSoapClient cronusClient;
@@ -82,20 +85,6 @@ namespace Eventkalender.PK.GUI
                 return timesList;
             }
         }
-        public List<string> Nations
-        {
-            get
-            {
-                List<Database.Nation> nations = eventkalenderController.GetNations();
-                List<string> nationName = new List<string>();
-                foreach(Database.Nation n in nations)
-                {
-                    nationName.Add(n.Name);
-                }
-                return nationName;
-            }
-            set {  }
-        }
 
         public List<string> MetadataCombobox
         {
@@ -125,6 +114,32 @@ namespace Eventkalender.PK.GUI
             }
             set { }
         }
+        public ObservableCollection<Database.Event> Events
+        {
+            get
+            {
+                if (events == null)
+                {
+                    return events = new ObservableCollection<Database.Event>(eventkalenderController.GetEvents());
+                }
+                return events;
+            }
+            set { }
+        }
+
+        public ObservableCollection<Database.Nation> Nations
+        {
+            get
+            {
+                if (nations == null)
+                {
+                    return nations = new ObservableCollection<Database.Nation>(eventkalenderController.GetNations());
+                }
+                return nations;
+            }
+            set { }
+        }
+
         public ObservableCollection <Database.Person> Persons
         {
             get
@@ -137,19 +152,7 @@ namespace Eventkalender.PK.GUI
             }
             set { }
         }
-        public ObservableCollection <Database.Event> Events
-        {
-            get
-            {
-                if( events == null)
-                { 
-                    return events = new ObservableCollection<Database.Event>(eventkalenderController.GetEvents());
-                }
-                return events;
-            }
-            set { }
-        }
-   
+
         private void SearchBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
 
@@ -213,15 +216,13 @@ namespace Eventkalender.PK.GUI
 
         private void btnSrchEventClick(object sender, RoutedEventArgs e)
         {
-            if(txtBoxSearchEvents.Text != "")
+            if(cmBoxSearchEvents.Text != "")
             {
-                bool isNumeric = int.TryParse(txtBoxSearchEvents.Text, out int eventId);
+                index = cmBoxSearchEvents.SelectedIndex;
 
-                if (isNumeric)
-                {
-                    eventkalenderController.GetEvent(eventId);
-                }
-                
+                Database.Event ev = Events.ElementAt(index);
+
+                id = ev.Id;
             }
             else
             {
@@ -236,8 +237,12 @@ namespace Eventkalender.PK.GUI
             {
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
-                int nationID = Convert.ToInt32(cmBoxNation.Text);
-                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, nationID);
+
+                index = cmBoxNation.SelectedIndex;
+                Database.Nation n = Nations.ElementAt(index);
+                id = n.Id;
+                
+                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, id);
             }
             else
             {
@@ -266,10 +271,23 @@ namespace Eventkalender.PK.GUI
             datagridEvents.ItemsSource = Events;
         }
 
-        private void btnAllEvents_Click(object sender, RoutedEventArgs e)
+        private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-           dtgShowEvents.ItemsSource = Events;
+            index = cmBoxSearchEvents.SelectedIndex;
+            Database.Event ev = Events.ElementAt(index);
+            id = ev.Id;
+            eventkalenderController.GetEvent(id);
+
+            datagridEvents.ItemsSource = null;
+            datagridEvents.ItemsSource = new List<Database.Event>() { ev };//eventkalenderController.GetEvent(id) };
+        }
+
+        private void cmbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            index = cmbEvents.SelectedIndex;
+            Database.Nation n = Nations.ElementAt(index);
+            datagridEvents.ItemsSource = null;
+            datagridEvents.ItemsSource = n.Events;
         }
     }
 }

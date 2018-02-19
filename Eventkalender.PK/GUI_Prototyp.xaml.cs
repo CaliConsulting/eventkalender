@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -22,6 +23,8 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
+        private ObservableCollection<Database.Person> persons;
+        private ObservableCollection<Database.Event> events;
         private List<string> timesList;
         private EventkalenderController eventkalenderController;
         private CronusServiceSoapClient cronusClient;
@@ -35,7 +38,6 @@ namespace Eventkalender.PK.GUI
             eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
             cronusClient = new CronusServiceSoapClient();
             eventkalenderWSClient = new EventkalenderServiceSoapClient();
-            timesList = new List<string>();
         }
 
       /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
@@ -123,12 +125,26 @@ namespace Eventkalender.PK.GUI
             }
             set { }
         }
-
-        public List<Database.Event> Events
+        public ObservableCollection <Database.Person> Persons
         {
             get
             {
-                List<Database.Event> events = eventkalenderController.GetEvents();
+                if( persons == null)
+                {
+                    return persons = new ObservableCollection<Database.Person>(eventkalenderController.GetPersons());
+                }
+                return persons;
+            }
+            set { }
+        }
+        public ObservableCollection <Database.Event> Events
+        {
+            get
+            {
+                if( events == null)
+                { 
+                    return events = new ObservableCollection<Database.Event>(eventkalenderController.GetEvents());
+                }
                 return events;
             }
             set { }
@@ -177,9 +193,40 @@ namespace Eventkalender.PK.GUI
                 MessageBox.Show("Inget värde ifyllt");
             }
         }
+        private void btnRegPers_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxFirstName.Text != "" && txtBoxLastName.Text != "")
+            {
+                eventkalenderController.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
+                txtBoxFirstName.Text = "";
+                txtBoxLastName.Text = "";
+            }
+            else if (txtBoxLastName.Text == "")
+            {
+                MessageBox.Show("Glöm inte ange efternamnet");
+            }
+            else if (txtBoxFirstName.Text == "")
+            {
+                MessageBox.Show("Glöm inte ange förnamnet");
+            }
+        }
 
         private void btnSrchEventClick(object sender, RoutedEventArgs e)
         {
+            if(txtBoxSearchEvents.Text != "")
+            {
+                bool isNumeric = int.TryParse(txtBoxSearchEvents.Text, out int eventId);
+
+                if (isNumeric)
+                {
+                    eventkalenderController.GetEvent(eventId);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Ange ett värde.");
+            }
 
         }
 
@@ -188,7 +235,7 @@ namespace Eventkalender.PK.GUI
             if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
-                DateTime dateEnd = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
                 int nationID = Convert.ToInt32(cmBoxNation.Text);
                 eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, nationID);
             }
@@ -212,6 +259,17 @@ namespace Eventkalender.PK.GUI
         private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             datagridCronus.ItemsSource = GetMetadata;
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            datagridEvents.ItemsSource = Events;
+        }
+
+        private void btnAllEvents_Click(object sender, RoutedEventArgs e)
+        {
+            
+           dtgShowEvents.ItemsSource = Events;
         }
     }
 }

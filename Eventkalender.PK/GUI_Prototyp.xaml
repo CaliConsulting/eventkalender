@@ -3,36 +3,53 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xml:lang="sv-SE"
         xmlns:local="clr-namespace:Eventkalender.PK.GUI"
         xmlns:wpf="http://wpfcontrols.com/"
         mc:Ignorable="d"
-        Title="GUI_Prototyp" Height="600" Width="640">
+        Title="GUI_Prototyp" Height="600" Width="1280">
 
     <StackPanel Margin="0,0,0,0">
         <TabControl Height="570"
                     TabStripPlacement="Top" Margin="0,0,0,0">
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
-                    <TabControl Height="535" Margin="0,0,0,0">
+                    <TabControl Height="540" Margin="0,0,0,0">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
-                                <ComboBox x:Name="cmBoxSearchEvent"
+                                <Button x:Name="btnAllEvents"
+                                        Content="Hämta eventinfo"
+                                        Click="btnAllEvents_Click"
                                             Margin="0,0,0,0"
-                                            Width="100"
+                                            Width="150"
                                             Canvas.Left="20"
-                                            Canvas.Top="20"
-                                            ItemsSource="{Binding Path=Events}"
-                                            IsEditable="True"
-                                            IsTextSearchEnabled="True"/>
+                                            Canvas.Top="20"/>
                                 <DataGrid x:Name="dtgShowEvents"
-                                    Width="450"
-                                    Height="450"
-                                    Canvas.Top="20"
-                                    Canvas.Left="150"
-                                    IsReadOnly="True"
-                                    ItemsSource="{Binding Path = Events}"
-                                    ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
-                                    ToolTipService.InitialShowDelay="5000">
+                                              SelectionMode="Extended"
+                                              Canvas.Top="20"
+                                              Canvas.Left="200"
+                                              Height="450"
+                                              Width="1050"
+                                              Margin="0,0,0,0"
+                                              IsReadOnly="True"
+                                              AutoGenerateColumns="False"
+                                              HorizontalScrollBarVisibility="Auto"
+                                              VerticalScrollBarVisibility="Auto"
+                                              ItemsSource="{Binding Path=Events}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
+                                        <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
+                                        <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
+                                        <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
+                                        <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
+                                        <DataGridTextColumn Header="Beskrivning" Width="*" Binding="{Binding Path=Summary}">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
                                 </DataGrid>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Left="20"
@@ -41,7 +58,7 @@
                             </Canvas>
                         </TabItem>
                         <TabItem Header="Eventhantering" Margin="0,0,0,0">
-                            <Canvas Height="515" Margin="0,0,0,0">
+                            <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10"  >
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
@@ -80,7 +97,7 @@
                                     <TextBlock Text="Beskrivning:"/>
                                     <TextBox x:Name="txtBoxSummary"
                                              Height="200" 
-                                             Width="250"
+                                             Width="350"
                                              TextWrapping="Wrap"/>
                                     <Button x:Name="btnRegsterEvent"
                                             Click="btnRegsterEventClick"
@@ -112,10 +129,10 @@
                                           Canvas.Top="155"
                                           ItemsSource="{Binding Path=TimesList}">
                                 </ComboBox>
-                                <StackPanel Canvas.Left="320" Canvas.Top="10">
+                                <StackPanel Canvas.Left="400" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
                                     <TextBlock Text="Filtrera"/>
-                                    <TextBox x:Name="txtBoxEvents"
+                                    <TextBox x:Name="txtBoxSearchEvents"
                                              Width="150"
                                              MaxWidth="150"
                                              HorizontalAlignment="Left"/>
@@ -126,35 +143,55 @@
                                             Width="100"
                                             HorizontalAlignment="Left"
                                             ToolTip="Söker upp eventen som matchar det ifyllda värdet i sökfältet. Lämnas tomt för att visa alla tillgängliga evenemang"
-                                            ToolTipService.InitialShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="5000"/>
 
                                     <DataGrid x:Name="datagridEvents"
                                               SelectionMode="Extended"
                                               Height="300"
-                                              Width="290"
+                                              Width="850"
                                               Margin="0,15,0,0"
                                               IsReadOnly="True"
+                                              AutoGenerateColumns="False"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
-
                                               ItemsSource="{Binding Path=Events}">
-
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
+                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
+                                            <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
+                                            <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
+                                            <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
+                                            <DataGridTextColumn Header="Beskrivning" Width="*" Binding="{Binding Path=Summary}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+                                        </DataGrid.Columns>
                                     </DataGrid>
 
                                     <Button x:Name="btnDeleteEvent"
                                             Click="btnDeleteEventClick"
+                                            HorizontalAlignment="Left"
                                             Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"
                                             ToolTip="Raderar de valda evenemangen"
-                                            ToolTipService.InitialShowDelay="50000"/>
+                                            ToolTipService.InitialShowDelay="5000"/>
                                 </StackPanel>
+                                <Button x:Name="btnUpdate"
+                                        Click="btnUpdate_Click"
+                                        Content="Uppdatera"
+                                        Canvas.Left="520"
+                                        Canvas.Top="75"
+                                        Width="100"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>
                             </Canvas>
                         </TabItem>
-                        <TabItem Header="Personhantering" Margin="0,-0,0,0">
+                        <TabItem Header="Person- och nationshantering" Margin="0,-0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Person"
@@ -164,6 +201,7 @@
                                     <TextBlock Text="Efternamn"/>
                                     <TextBox x:Name="txtBoxLastName"/>
                                     <Button x:Name="btnRegPers"
+                                            Click="btnRegPers_Click"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             ToolTip="Registerar en person med de ifyllda namnen"
@@ -188,11 +226,11 @@
                                             ToolTipService.InitialShowDelay="5000"/>
                                 </StackPanel>
                                 <TextBlock Text="Val av lista:"
-                                           Canvas.Bottom="240"
-                                           Canvas.Left="10"/>
+                                           Canvas.Top="25"
+                                           Canvas.Left="330"/>
                                 <ComboBox x:Name="cmBoxfilterList"
-                                          Canvas.Left="10"
-                                          Canvas.Bottom="230"
+                                          Canvas.Left="330"
+                                          Canvas.Top="40"
                                           Width="100"
                                           MaxWidth="100"
                                           HorizontalAlignment="Left"
@@ -205,17 +243,17 @@
                                             Content="Radera"
                                             Width="100"
                                             MaxWidth="150"
-                                            Canvas.Right="20"
-                                            Canvas.Bottom="230"
+                                            Canvas.Left="330"
+                                            Canvas.Top="375"
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.InitialShowDelay="500"
                                             Click="btnEraseFromListClick"/>
                                 <DataGrid x:Name="datagridErasePerson"
-                                              Height="200"
-                                              Width="600"
+                                              Height="290"
+                                              Width="500"
                                               Margin="0,0,0,0"
-                                              Canvas.Bottom="25"
-                                              Canvas.Left="10"
+                                              Canvas.Top="70"
+                                              Canvas.Left="330"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
                                               IsReadOnly="True"
@@ -246,19 +284,20 @@
                                             HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="datagridInvitePersons"
                                              Height="300"
-                                             Width="250"
-                                             MaxWidth="250"
+                                             Width="350"
                                              Margin="0,15,0,0"
                                              IsReadOnly="True"
                                              HorizontalScrollBarVisibility="Auto"
                                              VerticalScrollBarVisibility="Auto"
-                                             SelectionMode="Extended"/>
+                                             SelectionMode="Extended"
+                                              ItemsSource="{Binding Path=Persons}">
+                                    </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
                                             Content="Markera alla"
                                             Margin="0,15,0,0"
                                             Width="100"/>
                                 </StackPanel>
-                                <StackPanel Canvas.Left="360"
+                                <StackPanel Canvas.Left="400"
                                             Canvas.Top="10">
                                     <TextBlock Text="Events" FontWeight="Bold"/>
                                     <TextBox Margin="0,15,0,0"
@@ -274,13 +313,21 @@
                                             HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="datagridInviteEvent"
                                              Height="300"
-                                             Width="250"
-                                             MaxWidth="250"
+                                             Width="500"
                                              Margin="0,15,0,0"
                                              IsReadOnly="True"
                                              HorizontalScrollBarVisibility="Auto"
                                              VerticalScrollBarVisibility="Auto"
-                                             SelectionMode="Extended"/>
+                                             SelectionMode="Extended"
+                                             ItemsSource="{Binding Path=Events}"
+                                             AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
+                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
+                                            <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
+                                            <DataGridTextColumn Header="Start av evenemanget" Width="*" Binding="{Binding Path=StartTime}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
                                     <Button x:Name="btnMarkAllEvents"
                                             Content="Markera alla"
                                             Margin="0,15,0,0"
@@ -289,7 +336,7 @@
                                 <Button x:Name="btnInvToEvent"
                                         Content="Bjud in"
                                         Canvas.Bottom="40"
-                                        Canvas.Left="275"
+                                        Canvas.Left="340"
                                         Width="70"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
@@ -357,14 +404,12 @@
 
                                       ItemsSource="{Binding Path=MetadataCombobox}"
                                       IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged">
-                                   
-                               
                             </ComboBox>
 
                             <DataGrid x:Name="datagridCronus"
                                       Canvas.Left="10"
                                       Canvas.Top="85"
-                                      Width="600"
+                                      Width="1220"
                                       Height="390"
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
@@ -374,8 +419,8 @@
                             </DataGrid>
                             <Button x:Name="btnUpdateCronus"
                                     Content="Uppdatera"
-                                    Canvas.Top="55"
-                                    Canvas.Left="270"
+                                    Canvas.Top="60"
+                                    Canvas.Left="290"
                                     Padding="5,0,5,0"
                                     Click="btnUpdateCronusClick"/>
                             <TextBlock Canvas.Bottom="10"

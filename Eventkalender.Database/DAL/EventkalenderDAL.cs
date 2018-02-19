@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -72,7 +73,7 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                List<Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
+                List <Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
 
                 // Set fields to null to avoid circular references
                 foreach (Event e in dbEvents ?? Enumerable.Empty<Event>())

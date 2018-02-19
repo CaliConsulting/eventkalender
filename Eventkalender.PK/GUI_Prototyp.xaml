@@ -15,49 +15,30 @@
                 <StackPanel>
                     <TabControl Height="535" Margin="0,0,0,0">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
-                            <Grid Margin="0,0,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="58.326"/>
-                                    <ColumnDefinition Width="42.474"/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
+                            <Canvas Margin="0,0,0,0">
                                 <ComboBox x:Name="cmBoxSearchEvent"
                                             Margin="0,0,0,0"
-                                            Grid.ColumnSpan="3"
-                                            Grid.Row="1"
+                                            Width="100"
+                                            Canvas.Left="20"
+                                            Canvas.Top="20"
                                             ItemsSource="{Binding Path=Events}"
                                             IsEditable="True"
                                             IsTextSearchEnabled="True"/>
                                 <DataGrid x:Name="dtgShowEvents"
-                                    Grid.Column="4"
-                                    Grid.Row="2"
                                     Width="450"
                                     Height="450"
-                                    Grid.RowSpan="5" 
-                                    Grid.ColumnSpan="2" 
-                                    Margin="0,0,0,0"
+                                    Canvas.Top="20"
+                                    Canvas.Left="150"
                                     IsReadOnly="True"
                                     ItemsSource="{Binding Path = Events}"
                                     ToolTip="Visar upp alla tillgängliga evenemang samt hur många som är inbjudna"
                                     ToolTipService.InitialShowDelay="5000">
                                 </DataGrid>
-
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
-                                            Grid.Row="6"
-                                            VerticalAlignment="Bottom" Grid.ColumnSpan="3" Margin="50,0,0.2,0.2"/>
-                            </Grid>
+                                            Canvas.Left="20"
+                                            Canvas.Bottom="10"
+                                            VerticalAlignment="Bottom"/>
+                            </Canvas>
                         </TabItem>
                         <TabItem Header="Eventhantering" Margin="0,0,0,0">
                             <Canvas Height="515" Margin="0,0,0,0">
@@ -77,7 +58,7 @@
                                              HorizontalAlignment="Left"
                                              MaxWidth="150"
                                              Width="150"
-                                             ItemsSource="{Binding Path=Nationer}"
+                                             ItemsSource="{Binding Path=Nations}"
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"/>
                                     <TextBlock Text="Start av event:"/>
@@ -257,7 +238,7 @@
                                              MaxWidth="100"
                                              TextWrapping="NoWrap"
                                              HorizontalAlignment="Left"/>
-                                    <Button x:Name="btnInvSrchPerson"
+                                    <Button x:Name="btnInvSearchPerson"
                                             Margin="0,15,0,0"
                                             Content="Sök"
                                             Width="100"

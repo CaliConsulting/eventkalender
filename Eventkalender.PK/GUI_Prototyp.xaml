@@ -19,7 +19,6 @@
                             <Canvas Margin="0,0,0,0">
                                 <ComboBox x:Name="cmbEvents"
                                           ItemsSource="{Binding Path=Nations}"
-                                          DisplayMemberPath="Name"
                                           Margin="0,0,0,0"
                                           Width="150"
                                           Canvas.Left="20"

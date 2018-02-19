@@ -25,7 +25,11 @@ namespace Eventkalender.Test
                 Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
             }
 
-            Nation n2 = new Nation("testnation");
+            Nation n5 = new Nation();
+            n5.Id = 3;
+            d.DeleteNation(n5);
+
+            Console.ReadKey();
 
             //Event e2 = new Event("testevent", "testsummary", DateTime.Now, DateTime.Now);
             //e2.Nation = n2;

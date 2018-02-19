@@ -418,6 +418,7 @@
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
                                       IsReadOnly="True"
+                                      AutoGenerateColumns="False"
                                       ItemsSource="{Binding Path=GetData}" SelectionChanged="datagridCronus_SelectionChanged" 
                                       >
                             </DataGrid>

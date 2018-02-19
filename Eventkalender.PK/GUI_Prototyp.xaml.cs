@@ -122,37 +122,37 @@ namespace Eventkalender.PK.GUI
         {
             get
             {
-                switch (cmbData.SelectedIndex)
-                {
-                    case 0:
-                        CronusReference.DataTuple value = cronusClient.GetIllestPerson();
-                        CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { value };
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 1:
-                        values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 2:
-                        values = cronusClient.GetEmployeeAndRelatives();
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 3:
-                        values = cronusClient.GetEmployeeData();
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 4:
-                        values = cronusClient.GetEmployeeAbsenceData();
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 5:
-                        values = cronusClient.GetEmployeeRelativeData();
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 6:
-                        values = cronusClient.GetEmployeeQualificationData();
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 7:
-                        values = cronusClient.GetEmployeePortalSetupData();
-                        return ConvertListToDataTable(GetValuableInformation(values));
-                    case 8:
-                        values = cronusClient.GetEmployeeStatisticsGroupData();
-                        return ConvertListToDataTable(GetValuableInformation(values)); 
-                }
+                //switch (cmbData.SelectedIndex)
+                //{
+                //    case 0:
+                //        CronusReference.DataTuple value = cronusClient.GetIllestPerson();
+                //        CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { value };
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 1:
+                //        values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 2:
+                //        values = cronusClient.GetEmployeeAndRelatives();
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 3:
+                //        values = cronusClient.GetEmployeeData();
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 4:
+                //        values = cronusClient.GetEmployeeAbsenceData();
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 5:
+                //        values = cronusClient.GetEmployeeRelativeData();
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 6:
+                //        values = cronusClient.GetEmployeeQualificationData();
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 7:
+                //        values = cronusClient.GetEmployeePortalSetupData();
+                //        return ConvertListToDataTable(GetValuableInformation(values));
+                //    case 8:
+                //        values = cronusClient.GetEmployeeStatisticsGroupData();
+                //        return ConvertListToDataTable(GetValuableInformation(values)); 
+                //}
 
 
                 return null;
@@ -160,68 +160,33 @@ namespace Eventkalender.PK.GUI
             set { }
         }
 
-        static DataTable ConvertListToDataTable(List<string[]> list)
-        {
-            // New table.
-            DataTable table = new DataTable();
-
-            // Get max columns.
-            int columns = 0;
-            foreach (var array in list)
-            {
-                if (array.Length > columns)
-                {
-                    columns = array.Length;
-                }
-            }
-
-            // Add columns.
-            for (int i = 0; i < columns; i++)
-            {
-                table.Columns.Add(list.First()[i]);
-            }
-
-            // Add rows.
-            for (int j = 1; j < list.Count; j++)
-            {
-                string[] row = list[j];
-                DataRow dr = table.NewRow();
-                for (int k = 0; k < columns; k++)
-                {
-                    dr[k] = row[k];
-                }
-                
-
-                table.Rows.Add(dr);
-                
-            }
-
-            return table;
-        }
-
-        public List<string[]> GetValuableInformation(CronusReference.DataTuple[] values)
+        public List<List<string>> GetValuableInformation(CronusReference.DataTuple[] values)
         {
             bool isFirst = true;
-            List<string[]> totals = new List<string[]>();
+            List<List<string>> totals = new List<List<string>>();
             for(int i=0; i<values.Length; i++)
             {
                 CronusReference.DataTuple t = values[i];
-                string[] array = new string[t.Count];
-                string[] columns = new string[t.Count];
+
+                List<string> array2 = new List<string>();
+                List<string> columns2 = new List<string>();
+
+                //string[] array = new string[t.Count];
+                //string[] columns = new string[t.Count];
 
                 if (isFirst)
                 {
-                    totals.Add(columns);
+                    totals.Add(columns2);
                     isFirst = false;
                 }
                 for (int j = 0; j < t.Count; j++)
                 {        
                     SerializableKeyValuePairOfStringString s = t.ElementAt(j);
-                    columns[j] = s.Key;
-                    array[j] = s.Value;
+                    columns2.Add(s.Key);
+                    array2.Add(s.Value);
   
                 }
-                totals.Add(array);
+                totals.Add(array2);
             }
             
             return totals;
@@ -418,7 +383,6 @@ namespace Eventkalender.PK.GUI
         }
 
         private void dtgShowEventsSelectionChanged(object sender, SelectionChangedEventArgs e)
-
         {
 
         }
@@ -436,8 +400,22 @@ namespace Eventkalender.PK.GUI
         private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // datagridCronus.ItemsSource = GetData;
-            DataTable table = ConvertListToDataTable(GetValuableInformation(cronusClient.GetEmployeeAbsenceData()));  //new CronusReference.DataTuple[0]
-            datagridCronus.DataContext = table.DefaultView;
+            //DataTable table = ConvertListToDataTable(GetValuableInformation(cronusClient.GetEmployeeAbsenceData()));  //new CronusReference.DataTuple[0]
+
+            List<List<string>> lst = GetValuableInformation(cronusClient.GetEmployeeAbsenceData());
+
+            for (int i = 0; i < lst[0].Count; i++)
+            {
+                DataGridTextColumn t = new DataGridTextColumn();
+                t.Header = lst.First()[i];
+                t.Binding = new Binding("[" + i + "]");
+
+                datagridCronus.Columns.Add(t);
+            }
+            lst.RemoveAt(0);
+
+            datagridCronus.ItemsSource = null;
+            datagridCronus.ItemsSource = lst;
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
@@ -453,8 +431,8 @@ namespace Eventkalender.PK.GUI
 
         private void datagridCronus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataTable table = ConvertListToDataTable(GetValuableInformation(cronusClient.GetEmployeeAbsenceData()));  //new CronusReference.DataTuple[0]
-            datagridCronus.DataContext = table.DefaultView;
+            //DataTable table = ConvertListToDataTable(GetValuableInformation(cronusClient.GetEmployeeAbsenceData()));  //new CronusReference.DataTuple[0]
+            //datagridCronus.DataContext = table.DefaultView;
         }
 
         private void cmbMetaData_DropDownClosed(object sender, EventArgs e)
@@ -464,8 +442,8 @@ namespace Eventkalender.PK.GUI
 
         private void cmbData_DropDownClosed(object sender, EventArgs e)
         {
-            DataTable table = ConvertListToDataTable(GetValuableInformation(cronusClient.GetEmployeeAbsenceData()));  //new CronusReference.DataTuple[0]
-            datagridCronus.DataContext = table.DefaultView;
+            //DataTable table = ConvertListToDataTable(GetValuableInformation(cronusClient.GetEmployeeAbsenceData()));  //new CronusReference.DataTuple[0]
+            //datagridCronus.DataContext = table.DefaultView;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -158,7 +158,7 @@
                                               ItemsSource="{Binding Path=Events}">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
-                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
+                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
                                             <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
                                             <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
                                             <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
@@ -223,7 +223,8 @@
                                 <TextBlock Text="Val av lista:"
                                            Canvas.Top="25"
                                            Canvas.Left="330"/>
-                                <ComboBox x:Name="cmBoxfilterList"
+                                <ComboBox x:Name="cmbFilterList"
+                                          SelectionChanged="cmbFilterList_SelectionChanged"
                                           Canvas.Left="330"
                                           Canvas.Top="40"
                                           Width="100"
@@ -243,7 +244,7 @@
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.InitialShowDelay="500"
                                             Click="btnEraseFromListClick"/>
-                                <DataGrid x:Name="datagridErasePerson"
+                                <DataGrid x:Name="datagridPersonNation"
                                               Height="290"
                                               Width="500"
                                               Margin="0,0,0,0"
@@ -266,17 +267,15 @@
                                 <StackPanel Canvas.Left="10"
                                             Canvas.Top="10">
                                     <TextBlock Text="Personer" FontWeight="Bold"/>
-                                    <TextBox Margin="0,15,0,0"
-                                             Width="100"
-                                             MaxWidth="100"
-                                             TextWrapping="NoWrap"
+                                    <ComboBox x:Name="cmbInvitePersons"
+                                              Margin="0,15,0,0"
+                                              IsEditable="True"
+                                              Width="150"
+                                              MaxWidth="150"
+                                              ItemsSource="{Binding Path=Persons}"
+                                              DisplayMemberPath="FullName"
+                                              SelectedValuePath="Id"
                                              HorizontalAlignment="Left"/>
-                                    <Button x:Name="btnInvSearchPerson"
-                                            Margin="0,15,0,0"
-                                            Content="Sök"
-                                            Width="100"
-                                            MaxWidth="100"
-                                            HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="datagridInvitePersons"
                                              Height="300"
                                              Width="350"
@@ -302,17 +301,15 @@
                                 <StackPanel Canvas.Left="400"
                                             Canvas.Top="10">
                                     <TextBlock Text="Events" FontWeight="Bold"/>
-                                    <TextBox Margin="0,15,0,0"
-                                             Width="100"
-                                             MaxWidth="100"
-                                             TextWrapping="NoWrap"
-                                             HorizontalAlignment="Left"/>
-                                    <Button x:Name="btnInvSrchEvent"
-                                            Margin="0,15,0,0"
-                                            Content="Sök"
-                                            Width="100"
-                                            MaxWidth="100"
-                                            HorizontalAlignment="Left"/>
+                                    <ComboBox x:Name="cmbInviteEvent"
+                                              Margin="0,15,0,0"
+                                              Width="150"
+                                              MaxWidth="150"
+                                              IsEditable="True"
+                                              ItemsSource="{Binding Path=Nations}"
+                                              DisplayMemberPath="Name"
+                                              SelectedValuePath="Id"
+                                              HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="datagridInviteEvent"
                                              Height="300"
                                              Width="500"
@@ -416,15 +413,8 @@
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
                                       IsReadOnly="True"
-                                      ItemsSource="{Binding Path=EventList}"
-                                      >
+                                      ItemsSource="{Binding Path=EventList}">
                             </DataGrid>
-                            <Button x:Name="btnUpdateCronus"
-                                    Content="Uppdatera"
-                                    Canvas.Top="60"
-                                    Canvas.Left="290"
-                                    Padding="5,0,5,0"
-                                    Click="btnUpdateCronusClick"/>
                             <TextBlock Canvas.Bottom="10"
                                        Canvas.Left="10"
                                        Text="{Binding Path=StatusProperty}"/>

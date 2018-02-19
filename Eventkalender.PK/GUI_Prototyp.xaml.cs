@@ -228,33 +228,43 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btnUpdateCronusClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             datagridCronus.ItemsSource = GetMetadata;
         }
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            datagridEvents.ItemsSource = Events;
-        }
-
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             index = cmBoxSearchEvents.SelectedIndex;
-            Database.Nation n = Nations.ElementAt(index);
-            datagridEvents.ItemsSource = n.Events;
+            if(index > -1)
+            {
+                Database.Nation n = Nations.ElementAt(index);
+                datagridEvents.ItemsSource = n.Events;
+            }
+
         }
 
         private void cmbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             index = cmbEvents.SelectedIndex;
-            Database.Nation n = Nations.ElementAt(index);
-            datagridFindEvents.ItemsSource = n.Events;
+            if (index > -1)
+            {
+                Database.Nation n = Nations.ElementAt(index);
+                datagridFindEvents.ItemsSource = n.Events;
+            }
+            
+        }
+
+        private void cmbFilterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(cmbFilterList.SelectedIndex == 0)
+            {
+                datagridPersonNation.ItemsSource = Nations;
+            }
+            if(cmbFilterList.SelectedIndex == 1)
+            {
+                datagridPersonNation.ItemsSource = Persons;
+            }
         }
     }
 }

@@ -158,7 +158,7 @@
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                             <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
-                                            <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
+                                            <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
                                             <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
                                             <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
                                             <DataGridTextColumn Header="Beskrivning" Width="*" Binding="{Binding Path=Summary}">
@@ -290,7 +290,14 @@
                                              HorizontalScrollBarVisibility="Auto"
                                              VerticalScrollBarVisibility="Auto"
                                              SelectionMode="Extended"
-                                              ItemsSource="{Binding Path=Persons}">
+                                             ItemsSource="{Binding Path=Persons}"
+                                             AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
+                                            <DataGridTextColumn Header="First Name" Width="auto" Binding="{Binding Path=FirstName}"/>
+                                            <DataGridTextColumn Header="Last Name" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Attending Events" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                        </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
                                             Content="Markera alla"
@@ -324,7 +331,7 @@
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                             <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
-                                            <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
+                                            <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
                                             <DataGridTextColumn Header="Start av evenemanget" Width="*" Binding="{Binding Path=StartTime}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>

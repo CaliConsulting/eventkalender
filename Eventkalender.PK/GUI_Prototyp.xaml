@@ -27,7 +27,7 @@
                                           Width="150"
                                           Canvas.Left="20"
                                           Canvas.Top="20"/>
-                                <DataGrid x:Name="dtgShowEvents"
+                                <DataGrid x:Name="datagridFindEvents"
                                           SelectionMode="Extended"
                                           Canvas.Top="20"
                                           Canvas.Left="200"
@@ -138,7 +138,7 @@
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
                                     <TextBlock Text="Filtrera"/>
                                     <ComboBox x:Name="cmBoxSearchEvents"
-                                              ItemsSource="{Binding Path=Events, NotifyOnSourceUpdated=True}"
+                                              ItemsSource="{Binding Path=Nations, NotifyOnSourceUpdated=True}"
                                               DisplayMemberPath="Name"
                                               SelectedValuePath="Id"
                                              Width="150"
@@ -146,18 +146,9 @@
                                              HorizontalAlignment="Left"
                                               IsEditable="True"
                                               SelectionChanged="cmBoxSearchEvents_SelectionChanged"/>
-                                    <Button x:Name="btnSrchEvent"
-                                            Click="btnSrchEventClick"
-                                            Content="Sök"
-                                            Margin="0,15,0,0"
-                                            Width="100"
-                                            HorizontalAlignment="Left"
-                                            ToolTip="Söker upp eventen som matchar det ifyllda värdet i sökfältet. Lämnas tomt för att visa alla tillgängliga evenemang"
-                                            ToolTipService.InitialShowDelay="5000"/>
-
                                     <DataGrid x:Name="datagridEvents"
                                               SelectionMode="Extended"
-                                              Height="300"
+                                              Height="320"
                                               Width="850"
                                               Margin="0,15,0,0"
                                               IsReadOnly="True"
@@ -190,12 +181,6 @@
                                             ToolTip="Raderar de valda evenemangen"
                                             ToolTipService.InitialShowDelay="5000"/>
                                 </StackPanel>
-                                <Button x:Name="btnUpdate"
-                                        Click="btnUpdate_Click"
-                                        Content="Uppdatera"
-                                        Canvas.Left="520"
-                                        Canvas.Top="75"
-                                        Width="100"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>

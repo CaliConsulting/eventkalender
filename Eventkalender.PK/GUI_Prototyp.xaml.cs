@@ -153,11 +153,6 @@ namespace Eventkalender.PK.GUI
             set { }
         }
 
-        private void SearchBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-
-        }
-
         private void btnEraseFromListClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
@@ -214,23 +209,6 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btnSrchEventClick(object sender, RoutedEventArgs e)
-        {
-            if(cmBoxSearchEvents.Text != "")
-            {
-                index = cmBoxSearchEvents.SelectedIndex;
-
-                Database.Event ev = Events.ElementAt(index);
-
-                id = ev.Id;
-            }
-            else
-            {
-                MessageBox.Show("Ange ett värde.");
-            }
-
-        }
-
         private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
             if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
@@ -248,12 +226,6 @@ namespace Eventkalender.PK.GUI
             {
 
             }
-        }
-
-        private void dtgShowEventsSelectionChanged(object sender, SelectionChangedEventArgs e)
-
-        {
-
         }
 
         private void btnUpdateCronusClick(object sender, RoutedEventArgs e)
@@ -274,20 +246,15 @@ namespace Eventkalender.PK.GUI
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             index = cmBoxSearchEvents.SelectedIndex;
-            Database.Event ev = Events.ElementAt(index);
-            id = ev.Id;
-            eventkalenderController.GetEvent(id);
-
-            datagridEvents.ItemsSource = null;
-            datagridEvents.ItemsSource = new List<Database.Event>() { ev };//eventkalenderController.GetEvent(id) };
+            Database.Nation n = Nations.ElementAt(index);
+            datagridEvents.ItemsSource = n.Events;
         }
 
         private void cmbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             index = cmbEvents.SelectedIndex;
             Database.Nation n = Nations.ElementAt(index);
-            datagridEvents.ItemsSource = null;
-            datagridEvents.ItemsSource = n.Events;
+            datagridFindEvents.ItemsSource = n.Events;
         }
     }
 }

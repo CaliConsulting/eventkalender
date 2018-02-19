@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace Eventkalender.Database
         public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
+
+            // Set 20 minutes timeout
+            Database.CommandTimeout = 1200;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

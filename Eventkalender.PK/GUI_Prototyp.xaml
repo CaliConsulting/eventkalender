@@ -17,29 +17,29 @@
                     <TabControl Height="540" Margin="0,0,0,0">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
-                                <Button x:Name="btnAllEvents"
-                                        Content="Hämta eventinfo"
-                                        Click="btnAllEvents_Click"
-                                            Margin="0,0,0,0"
-                                            Width="150"
-                                            Canvas.Left="20"
-                                            Canvas.Top="20"/>
+                                <ComboBox x:Name="cmbEvents"
+                                          ItemsSource="{Binding Path=Nations}"
+                                          DisplayMemberPath="Name"
+                                          Margin="0,0,0,0"
+                                          Width="150"
+                                          Canvas.Left="20"
+                                          Canvas.Top="20"/>
                                 <DataGrid x:Name="dtgShowEvents"
-                                              SelectionMode="Extended"
-                                              Canvas.Top="20"
-                                              Canvas.Left="200"
-                                              Height="450"
-                                              Width="1050"
-                                              Margin="0,0,0,0"
-                                              IsReadOnly="True"
-                                              AutoGenerateColumns="False"
-                                              HorizontalScrollBarVisibility="Auto"
-                                              VerticalScrollBarVisibility="Auto"
-                                              ItemsSource="{Binding Path=Events}">
+                                          SelectionMode="Extended"
+                                          Canvas.Top="20"
+                                          Canvas.Left="200"
+                                          Height="450"
+                                          Width="1050"
+                                          Margin="0,0,0,0"
+                                          IsReadOnly="True"
+                                          AutoGenerateColumns="False"
+                                          HorizontalScrollBarVisibility="Auto"
+                                          VerticalScrollBarVisibility="Auto"
+                                          ItemsSource="{Binding Path=Events}">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
-                                        <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
-                                        <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
+                                        <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
+                                        <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
                                         <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
                                         <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
                                         <DataGridTextColumn Header="Beskrivning" Width="*" Binding="{Binding Path=Summary}">
@@ -323,7 +323,7 @@
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
-                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=NationId}"/>
+                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
                                             <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons}"/>
                                             <DataGridTextColumn Header="Start av evenemanget" Width="*" Binding="{Binding Path=StartTime}"/>
                                         </DataGrid.Columns>

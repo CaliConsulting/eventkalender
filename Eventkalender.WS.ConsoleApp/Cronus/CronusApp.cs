@@ -13,13 +13,11 @@ namespace Eventkalender.WS.ConsoleApp
 
         private CronusAppData cronusData;
         private CronusAppMetadata cronusMetadata;
-        private EventkalenderApp eventApp;
 
         public CronusApp()
         {
             cronusData = new CronusAppData();
             cronusMetadata = new CronusAppMetadata();
-            eventApp = new EventkalenderApp();
         }
 
         public void ReturnMethod()
@@ -37,7 +35,6 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("\nFör Metadata: Tryck 1\nFör Data: Tryck 2\nGå Tillbaka: Tryck -1");
                 string userInput = Console.ReadLine();
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
-
                 if (!isNumeric || (caseSwitch < -1 || caseSwitch > 2))
                 {
                     Console.WriteLine("Välj mellan 1,2 eller -1\n");
@@ -55,17 +52,14 @@ namespace Eventkalender.WS.ConsoleApp
                         ReturnMethod();
                         break;
                     case 0:
-                        eventApp.VeryGoodMethod();
+                        Program.VeryGoodMethod();
                         break;
                 }
                 if(!returnBool)
                 {
                     break;
                 }
-
             }
-            
         }
-
     }
 }

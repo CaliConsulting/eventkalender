@@ -13,19 +13,24 @@ namespace Eventkalender.WS.ConsoleApp
         private int id;
         private bool returnBool;
 
-        private EventkalenderServiceSoapClient eventclient;
+        private EventkalenderServiceSoapClient eventClient;
 
         public EventkalenderApp()
         {
-            eventclient = new EventkalenderServiceSoapClient();
+            eventClient = new EventkalenderServiceSoapClient();
         }
 
         public void GetNation()
         {
             Console.WriteLine("Ange nationens ID: ");
             string userInput = Console.ReadLine();
-            id = int.Parse(userInput);
-            Nation n = eventclient.GetNation(id);
+            bool isNumeric = int.TryParse(userInput, out id);
+            if (!isNumeric)
+            {
+                Console.WriteLine("Du måste sätta in ett tal.");
+            }
+
+            Nation n = eventClient.GetNation(id);
 
             if (n != null)
             {
@@ -47,7 +52,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetNations()
         {
             Console.WriteLine("Följande är alla nationer: ");
-            Nation[] nations = eventclient.GetNations();
+            Nation[] nations = eventClient.GetNations();
             for (int j = 0; j < nations.Length; j++)
             {
                 Console.WriteLine(nations[j].Name);
@@ -59,14 +64,18 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("Ange eventets ID: ");
             string userInput = Console.ReadLine();
-            id = int.Parse(userInput);
-            Event e = eventclient.GetEvent(id);
+            bool isNumeric = int.TryParse(userInput, out id);
+            if (!isNumeric)
+            {
+                Console.WriteLine("Du måste sätta in ett tal.");
+            }
+
+            Event e = eventClient.GetEvent(id);
 
             if (e != null)
             {
                 Console.WriteLine("\nEventets namn är: {0}", e.Name);
                 Console.WriteLine("{0} anordnar {1}", e.Nation.Name, e.Name);
-
             }
             else
             {
@@ -78,7 +87,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetEvents()
         {
             Console.WriteLine("Följande är alla nationer: ");
-            Event[] events = eventclient.GetEvents();
+            Event[] events = eventClient.GetEvents();
             for (int j = 0; j < events.Length; j++)
             {
                 Console.WriteLine(events[j].Name);
@@ -91,7 +100,13 @@ namespace Eventkalender.WS.ConsoleApp
             Console.WriteLine("Ange personens ID: ");
             string userInput = Console.ReadLine();
             id = int.Parse(userInput);
-            Person p = eventclient.GetPerson(id);
+            bool isNumeric = int.TryParse(userInput, out id);
+            if (!isNumeric)
+            {
+                Console.WriteLine("Du måste sätta in ett tal.");
+            }
+            
+            Person p = eventClient.GetPerson(id);
 
             if (p != null)
             {
@@ -102,7 +117,6 @@ namespace Eventkalender.WS.ConsoleApp
                 {
                     Console.WriteLine(events[j].Name);
                 }
-
             }
             else
             {
@@ -111,15 +125,10 @@ namespace Eventkalender.WS.ConsoleApp
             ExitQuestion();
         }
 
-        public void VeryGoodMethod()
-        {
-            Console.WriteLine("\nEasterEgg - Bli inte bilprogrammerare\n");
-        }
-
         public void GetPersons()
         {
             Console.WriteLine("Följande är alla personer: ");
-            Person[] personer = eventclient.GetPersons();
+            Person[] personer = eventClient.GetPersons();
             for (int j = 0; j < personer.Length; j++)
             {
                 Console.WriteLine("{0} {1}", personer[j].FirstName, personer[j].LastName);
@@ -132,11 +141,19 @@ namespace Eventkalender.WS.ConsoleApp
             returnBool = false;
             Console.WriteLine("\nDu är nu tillbaka i Huvudmenyn\n");
         }
+
         public void ExitQuestion() 
         {
             Console.WriteLine("\nVill du avsluta EventkalenderAppen? Tryck J, Återgå till menyn? Tryck M");
             string userInput = Console.ReadLine();
-            userInput = userInput.Substring(0, 1);
+
+            bool valid = Utility.ValidateAlternative(userInput, "J", "M");
+            if (!valid)
+            {
+                Console.WriteLine("Var god välj ett av alternativen.");
+                ExitQuestion();
+            }
+
             if (userInput.ToUpper().Equals("J"))
             {
                 returnBool = false;
@@ -145,8 +162,7 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void Start()
         {
-
-            Console.WriteLine("Hej och välkommen till EvenetkalenderApp\n");
+            Console.WriteLine("Hej och välkommen till EventkalenderApp\n");
             while (true)
             {
                 returnBool = true;
@@ -160,9 +176,8 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("Hämta alla Personer: Tryck 6");
                 Console.WriteLine("För att gå tillbaka: Tryck -1");
 
-                string userInput = Console.ReadLine();             
+                string userInput = Console.ReadLine();
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
-              
                 if (!isNumeric || (caseSwitch < -1 || caseSwitch > 6))
                 {               
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 6!");
@@ -192,17 +207,14 @@ namespace Eventkalender.WS.ConsoleApp
                         ReturnMethod();
                         break;
                     case 0:
-                        VeryGoodMethod();
+                        Program.VeryGoodMethod();
                         break;
-                }              
+                }
                 if(!returnBool)
                 {
                     break;
                 }
             }
-
         }
-
     }
- 
 }

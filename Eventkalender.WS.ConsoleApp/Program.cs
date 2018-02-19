@@ -40,7 +40,7 @@ namespace Eventkalender.WS.ConsoleApp
                     case -1:
                         break;
                     case 0:
-                        eventApp.VeryGoodMethod();
+                        VeryGoodMethod();
                         break;
                 }
                 if(caseSwitch == -1){
@@ -49,7 +49,10 @@ namespace Eventkalender.WS.ConsoleApp
             }
         }
 
-      
-       
+        public static void VeryGoodMethod()
+        {
+            Console.WriteLine("\nEasterEgg - Bli inte bilprogrammerare\n");
+        }
+
     }
 }

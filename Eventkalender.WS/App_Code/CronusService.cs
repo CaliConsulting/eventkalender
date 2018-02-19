@@ -6,7 +6,7 @@ using System.Web.Services;
 using Eventkalender.Database;
 using Eventkalender.WS;
 
-[WebService(Namespace = "http://www.ics.lu.se.cali.cronus/")]
+[WebService(Namespace = "http://cali.cronus/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 public class CronusService : WebService
 {

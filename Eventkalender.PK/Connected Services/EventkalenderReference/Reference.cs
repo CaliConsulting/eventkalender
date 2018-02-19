@@ -15,7 +15,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Nation", Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Nation", Namespace="http://cali.eventkalender/")]
     [System.SerializableAttribute()]
     public partial class Nation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -91,7 +91,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://cali.eventkalender/")]
     [System.SerializableAttribute()]
     public partial class Event : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -244,7 +244,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://cali.eventkalender/")]
     [System.SerializableAttribute()]
     public partial class Person : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -335,71 +335,218 @@ namespace Eventkalender.PK.EventkalenderReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ics.lu.se.cali/", ConfigurationName="EventkalenderReference.EventkalenderServiceSoap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://cali.eventkalender/", ConfigurationName="EventkalenderReference.EventkalenderServiceSoap")]
     public interface EventkalenderServiceSoap {
         
-        // CODEGEN: Generating message contract since element name GetNationResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetNation", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name path from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetFile", ReplyAction="*")]
+        Eventkalender.PK.EventkalenderReference.GetFileResponse GetFile(Eventkalender.PK.EventkalenderReference.GetFileRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetFile", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFileResponse> GetFileAsync(Eventkalender.PK.EventkalenderReference.GetFileRequest request);
+        
+        // CODEGEN: Generating message contract since element name path from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddFile", ReplyAction="*")]
+        Eventkalender.PK.EventkalenderReference.AddFileResponse AddFile(Eventkalender.PK.EventkalenderReference.AddFileRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddFile", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.AddFileResponse> AddFileAsync(Eventkalender.PK.EventkalenderReference.AddFileRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetNationResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetNation", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.GetNationResponse GetNation(Eventkalender.PK.EventkalenderReference.GetNationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetNation", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetNation", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetNationResponse> GetNationAsync(Eventkalender.PK.EventkalenderReference.GetNationRequest request);
         
-        // CODEGEN: Generating message contract since element name GetNationsResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetNations", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetNationsResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetNations", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.GetNationsResponse GetNations(Eventkalender.PK.EventkalenderReference.GetNationsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetNations", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetNations", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetNationsResponse> GetNationsAsync(Eventkalender.PK.EventkalenderReference.GetNationsRequest request);
         
-        // CODEGEN: Generating message contract since element name name from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/AddNation", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name name from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddNation", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.AddNationResponse AddNation(Eventkalender.PK.EventkalenderReference.AddNationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/AddNation", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddNation", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.AddNationResponse> AddNationAsync(Eventkalender.PK.EventkalenderReference.AddNationRequest request);
         
-        // CODEGEN: Generating message contract since element name name from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/AddEvent", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name name from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddEvent", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.AddEventResponse AddEvent(Eventkalender.PK.EventkalenderReference.AddEventRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/AddEvent", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddEvent", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.AddEventResponse> AddEventAsync(Eventkalender.PK.EventkalenderReference.AddEventRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEventResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEvent", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEventResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetEvent", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.GetEventResponse GetEvent(Eventkalender.PK.EventkalenderReference.GetEventRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEvent", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetEvent", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetEventResponse> GetEventAsync(Eventkalender.PK.EventkalenderReference.GetEventRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEventsResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEvents", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEventsResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetEvents", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.GetEventsResponse GetEvents(Eventkalender.PK.EventkalenderReference.GetEventsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEvents", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetEvents", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetEventsResponse> GetEventsAsync(Eventkalender.PK.EventkalenderReference.GetEventsRequest request);
         
-        // CODEGEN: Generating message contract since element name firstName from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/AddPerson", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name firstName from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddPerson", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.AddPersonResponse AddPerson(Eventkalender.PK.EventkalenderReference.AddPersonRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/AddPerson", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddPerson", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.AddPersonResponse> AddPersonAsync(Eventkalender.PK.EventkalenderReference.AddPersonRequest request);
         
-        // CODEGEN: Generating message contract since element name GetPersonResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetPerson", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetPersonResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetPerson", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.GetPersonResponse GetPerson(Eventkalender.PK.EventkalenderReference.GetPersonRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetPerson", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetPerson", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetPersonResponse> GetPersonAsync(Eventkalender.PK.EventkalenderReference.GetPersonRequest request);
         
-        // CODEGEN: Generating message contract since element name GetPersonsResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetPersons", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetPersonsResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetPersons", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.GetPersonsResponse GetPersons(Eventkalender.PK.EventkalenderReference.GetPersonsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetPersons", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetPersons", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetPersonsResponse> GetPersonsAsync(Eventkalender.PK.EventkalenderReference.GetPersonsRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFileRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFile", Namespace="http://cali.eventkalender/", Order=0)]
+        public Eventkalender.PK.EventkalenderReference.GetFileRequestBody Body;
+        
+        public GetFileRequest() {
+        }
+        
+        public GetFileRequest(Eventkalender.PK.EventkalenderReference.GetFileRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
+    public partial class GetFileRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string path;
+        
+        public GetFileRequestBody() {
+        }
+        
+        public GetFileRequestBody(string path) {
+            this.path = path;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFileResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFileResponse", Namespace="http://cali.eventkalender/", Order=0)]
+        public Eventkalender.PK.EventkalenderReference.GetFileResponseBody Body;
+        
+        public GetFileResponse() {
+        }
+        
+        public GetFileResponse(Eventkalender.PK.EventkalenderReference.GetFileResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
+    public partial class GetFileResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string GetFileResult;
+        
+        public GetFileResponseBody() {
+        }
+        
+        public GetFileResponseBody(string GetFileResult) {
+            this.GetFileResult = GetFileResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddFileRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddFile", Namespace="http://cali.eventkalender/", Order=0)]
+        public Eventkalender.PK.EventkalenderReference.AddFileRequestBody Body;
+        
+        public AddFileRequest() {
+        }
+        
+        public AddFileRequest(Eventkalender.PK.EventkalenderReference.AddFileRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
+    public partial class AddFileRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string path;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string content;
+        
+        public AddFileRequestBody() {
+        }
+        
+        public AddFileRequestBody(string path, string content) {
+            this.path = path;
+            this.content = content;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddFileResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddFileResponse", Namespace="http://cali.eventkalender/", Order=0)]
+        public Eventkalender.PK.EventkalenderReference.AddFileResponseBody Body;
+        
+        public AddFileResponse() {
+        }
+        
+        public AddFileResponse(Eventkalender.PK.EventkalenderReference.AddFileResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AddFileResponseBody {
+        
+        public AddFileResponseBody() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -408,7 +555,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetNationRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNation", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNation", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetNationRequestBody Body;
         
         public GetNationRequest() {
@@ -422,7 +569,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetNationRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -442,7 +589,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetNationResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNationResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNationResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetNationResponseBody Body;
         
         public GetNationResponse() {
@@ -456,7 +603,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetNationResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -476,7 +623,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetNationsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNations", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNations", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetNationsRequestBody Body;
         
         public GetNationsRequest() {
@@ -503,7 +650,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetNationsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNationsResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetNationsResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetNationsResponseBody Body;
         
         public GetNationsResponse() {
@@ -517,7 +664,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetNationsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -537,7 +684,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddNationRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddNation", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddNation", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.AddNationRequestBody Body;
         
         public AddNationRequest() {
@@ -551,7 +698,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class AddNationRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -571,7 +718,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddNationResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddNationResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddNationResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.AddNationResponseBody Body;
         
         public AddNationResponse() {
@@ -598,7 +745,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddEventRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddEvent", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddEvent", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.AddEventRequestBody Body;
         
         public AddEventRequest() {
@@ -612,7 +759,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class AddEventRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -648,7 +795,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddEventResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddEventResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddEventResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.AddEventResponseBody Body;
         
         public AddEventResponse() {
@@ -675,7 +822,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEventRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEvent", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEvent", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetEventRequestBody Body;
         
         public GetEventRequest() {
@@ -689,7 +836,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetEventRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -709,7 +856,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEventResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEventResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEventResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetEventResponseBody Body;
         
         public GetEventResponse() {
@@ -723,7 +870,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetEventResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -743,7 +890,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEventsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEvents", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEvents", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetEventsRequestBody Body;
         
         public GetEventsRequest() {
@@ -770,7 +917,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEventsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEventsResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEventsResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetEventsResponseBody Body;
         
         public GetEventsResponse() {
@@ -784,7 +931,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetEventsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -804,7 +951,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddPersonRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddPerson", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddPerson", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.AddPersonRequestBody Body;
         
         public AddPersonRequest() {
@@ -818,7 +965,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class AddPersonRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -842,7 +989,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddPersonResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddPersonResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddPersonResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.AddPersonResponseBody Body;
         
         public AddPersonResponse() {
@@ -869,7 +1016,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetPersonRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPerson", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPerson", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetPersonRequestBody Body;
         
         public GetPersonRequest() {
@@ -883,7 +1030,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetPersonRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -903,7 +1050,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetPersonResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPersonResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPersonResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetPersonResponseBody Body;
         
         public GetPersonResponse() {
@@ -917,7 +1064,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetPersonResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -937,7 +1084,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetPersonsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPersons", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPersons", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetPersonsRequestBody Body;
         
         public GetPersonsRequest() {
@@ -964,7 +1111,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetPersonsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPersonsResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPersonsResponse", Namespace="http://cali.eventkalender/", Order=0)]
         public Eventkalender.PK.EventkalenderReference.GetPersonsResponseBody Body;
         
         public GetPersonsResponse() {
@@ -978,7 +1125,7 @@ namespace Eventkalender.PK.EventkalenderReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
     public partial class GetPersonsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1017,6 +1164,57 @@ namespace Eventkalender.PK.EventkalenderReference {
         
         public EventkalenderServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.EventkalenderReference.GetFileResponse Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap.GetFile(Eventkalender.PK.EventkalenderReference.GetFileRequest request) {
+            return base.Channel.GetFile(request);
+        }
+        
+        public string GetFile(string path) {
+            Eventkalender.PK.EventkalenderReference.GetFileRequest inValue = new Eventkalender.PK.EventkalenderReference.GetFileRequest();
+            inValue.Body = new Eventkalender.PK.EventkalenderReference.GetFileRequestBody();
+            inValue.Body.path = path;
+            Eventkalender.PK.EventkalenderReference.GetFileResponse retVal = ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).GetFile(inValue);
+            return retVal.Body.GetFileResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFileResponse> Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap.GetFileAsync(Eventkalender.PK.EventkalenderReference.GetFileRequest request) {
+            return base.Channel.GetFileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFileResponse> GetFileAsync(string path) {
+            Eventkalender.PK.EventkalenderReference.GetFileRequest inValue = new Eventkalender.PK.EventkalenderReference.GetFileRequest();
+            inValue.Body = new Eventkalender.PK.EventkalenderReference.GetFileRequestBody();
+            inValue.Body.path = path;
+            return ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).GetFileAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.EventkalenderReference.AddFileResponse Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap.AddFile(Eventkalender.PK.EventkalenderReference.AddFileRequest request) {
+            return base.Channel.AddFile(request);
+        }
+        
+        public void AddFile(string path, string content) {
+            Eventkalender.PK.EventkalenderReference.AddFileRequest inValue = new Eventkalender.PK.EventkalenderReference.AddFileRequest();
+            inValue.Body = new Eventkalender.PK.EventkalenderReference.AddFileRequestBody();
+            inValue.Body.path = path;
+            inValue.Body.content = content;
+            Eventkalender.PK.EventkalenderReference.AddFileResponse retVal = ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).AddFile(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.AddFileResponse> Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap.AddFileAsync(Eventkalender.PK.EventkalenderReference.AddFileRequest request) {
+            return base.Channel.AddFileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.AddFileResponse> AddFileAsync(string path, string content) {
+            Eventkalender.PK.EventkalenderReference.AddFileRequest inValue = new Eventkalender.PK.EventkalenderReference.AddFileRequest();
+            inValue.Body = new Eventkalender.PK.EventkalenderReference.AddFileRequestBody();
+            inValue.Body.path = path;
+            inValue.Body.content = content;
+            return ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).AddFileAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

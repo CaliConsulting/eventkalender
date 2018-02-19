@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -36,6 +38,8 @@ namespace Eventkalender.Database
             helpers.Add(typeof(IOException), new IOMessageHelper());
             helpers.Add(typeof(SqlException), new SqlMessageHelper());
             helpers.Add(typeof(DataException), new DataMessageHelper());
+            //helpers.Add(typeof(SqlTypeException), new SqlTypeMessageHelper());
+            helpers.Add(typeof(FaultException), new FaultExceptionMessageHelper());
         }
 
         public static string GetErrorMessage(Exception ex)
@@ -55,6 +59,16 @@ namespace Eventkalender.Database
                 SqlException sqlEx = ex as SqlException;
                 return helpers[typeof(SqlException)].GetMessage(sqlEx);
             }
+            else if (ex is FaultException)
+            {
+                FaultException faultEx = ex as FaultException;
+                return helpers[typeof(FaultException)].GetMessage(faultEx);
+            }
+            //else if (ex is SqlTypeException)
+            //{
+            //    SqlTypeException sqlTypeEx = ex as SqlTypeException;
+            //    return helpers[typeof(SqlTypeException)].GetMessage(sqlTypeEx);
+            //}
             return GetGenericErrorMessage(ex);
         }
 
@@ -172,6 +186,40 @@ namespace Eventkalender.Database
                     }
                 }
                 return builder.ToString();
+            }
+        }
+
+        //private class SqlTypeMessageHelper : IMessageHelper<SqlTypeException>
+        //{
+        //    public string GetMessage(SqlTypeException ex)
+        //    {
+        //        return GetSqlTypeExceptionMessage(ex);
+        //    }
+
+        //    public static string GetSqlTypeExceptionMessage(SqlTypeException ex)
+        //    {
+        //        return ex.Message;
+        //    }
+        //}
+
+        // Hanterar SOAP-fel
+        private class FaultExceptionMessageHelper : IMessageHelper<FaultException>
+        {
+            public string GetMessage(FaultException ex)
+            {
+                string message = ex.Message;
+                if (message.Contains("SqlDateTime overflow"))
+                {
+                    return GetDateTimeOverflowMessage(message);
+                }
+                return "Ett SOAP-fel (FaultException) uppstod.";
+            }
+
+            // Kanske förbättra dessa meddelande? T.ex. genom att extrahera värden från message-variabeln
+            // som vi gjorde i databasprojektet.
+            public string GetDateTimeOverflowMessage(string message)
+            {
+                return "För stort eller för litet dag/månad/år/datum, var god ange ett giltigt värde.";
             }
         }
     }

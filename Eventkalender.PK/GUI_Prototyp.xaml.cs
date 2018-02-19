@@ -24,8 +24,8 @@ namespace Eventkalender.PK.GUI
     {
         private List<string> timesList;
         private EventkalenderController eventkalenderController;
-        private CronusServiceSoapClient cronusController;
-        private EventkalenderServiceSoapClient eventkalenderWSController;
+        private CronusServiceSoapClient cronusClient;
+        private EventkalenderServiceSoapClient eventkalenderWSClient;
         
 
         public GUI_Prototyp()
@@ -33,8 +33,8 @@ namespace Eventkalender.PK.GUI
             InitializeComponent();
             DataContext = this;
             eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
-            cronusController = new CronusServiceSoapClient();
-            eventkalenderWSController = new EventkalenderServiceSoapClient();
+            cronusClient = new CronusServiceSoapClient();
+            eventkalenderWSClient = new EventkalenderServiceSoapClient();
             timesList = new List<string>();
         }
 
@@ -57,13 +57,13 @@ namespace Eventkalender.PK.GUI
 
         public void GetEmployeeMetadata()
         {
-            cronusController.GetEmployeeMetadata();
-            cronusController.GetIndexes();
+            cronusClient.GetEmployeeMetadata();
+            cronusClient.GetIndexes();
         }
 
         public void GetEmployeeAbsenceMetadata()
         {
-            cronusController.GetEmployeeAbsenceMetadata();
+            cronusClient.GetEmployeeAbsenceMetadata();
         }
        
 
@@ -73,20 +73,24 @@ namespace Eventkalender.PK.GUI
             {  }
             get
             {
-               return  timesList = Utility.GenerateList();
+                if(timesList == null)
+                {
+                    return timesList = Utility.GenerateList();
+                }
+                return timesList;
             }
         }
-        public List<string> Nationer
+        public List<string> Nations
         {
             get
             {
-                List<Database.Nation> nationer = eventkalenderController.GetNations();
-                List<string> nationerNamn = new List<string>();
-                foreach(Database.Nation n in nationer)
+                List<Database.Nation> nations = eventkalenderController.GetNations();
+                List<string> nationName = new List<string>();
+                foreach(Database.Nation n in nations)
                 {
-                    nationerNamn.Add(n.Name);
+                    nationName.Add(n.Name);
                 }
-                return nationerNamn;
+                return nationName;
             }
             set {  }
         }
@@ -110,7 +114,7 @@ namespace Eventkalender.PK.GUI
                 switch (cmbMetaData.SelectedIndex)
                 {
                     case 0:
-                        List<string> values = cronusController.GetTableConstraints(); //Combobox.whatever(i) i = val i listan
+                        List<string> values = cronusClient.GetTableConstraints(); //Combobox.whatever(i) i = val i listan
                         return values;
                 }
                 return null;
@@ -185,8 +189,8 @@ namespace Eventkalender.PK.GUI
             {
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
-                int NationID = Convert.ToInt32(cmBoxNation.Text);
-                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, NationID);
+                int nationID = Convert.ToInt32(cmBoxNation.Text);
+                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, nationID);
             }
             else
             {

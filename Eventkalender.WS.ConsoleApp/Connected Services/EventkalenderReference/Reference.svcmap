@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e8393148-294b-4dbb-9f77-1b4ea44b1cb3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bc6ff1e3-94b7-40d9-9423-652e34eca842" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -18,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/EventkalenderWS/EventkalenderService.asmx?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/EventkalenderWS/EventkalenderService.asmx?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EventkalenderService.wsdl" MetadataType="Wsdl" ID="e1d44957-3a4c-4c9c-9469-0af4d05e39d2" SourceId="1" SourceUrl="http://localhost/EventkalenderWS/EventkalenderService.asmx?WSDL" />
+    <MetadataFile FileName="EventkalenderService.wsdl" MetadataType="Wsdl" ID="ef2a56e6-c3a3-4054-9704-5120c8a2044d" SourceId="1" SourceUrl="http://localhost/EventkalenderWS/EventkalenderService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

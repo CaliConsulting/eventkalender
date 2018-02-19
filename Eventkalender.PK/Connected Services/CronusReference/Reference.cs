@@ -15,21 +15,21 @@ namespace Eventkalender.PK.CronusReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://www.ics.lu.se.cali/", ItemName="string")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://cali.cronus/", ItemName="string")]
     [System.SerializableAttribute()]
     public class ArrayOfString : System.Collections.Generic.List<string> {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="DataTuple", Namespace="http://www.ics.lu.se.cali/", ItemName="Entry")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="DataTuple", Namespace="http://cali.cronus/", ItemName="Entry")]
     [System.SerializableAttribute()]
     public class DataTuple : System.Collections.Generic.List<Eventkalender.PK.CronusReference.SerializableKeyValuePairOfStringString> {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SerializableKeyValuePairOfStringString", Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SerializableKeyValuePairOfStringString", Namespace="http://cali.cronus/")]
     [System.SerializableAttribute()]
     public partial class SerializableKeyValuePairOfStringString : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -89,147 +89,147 @@ namespace Eventkalender.PK.CronusReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.ics.lu.se.cali/", ConfigurationName="CronusReference.CronusServiceSoap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://cali.cronus/", ConfigurationName="CronusReference.CronusServiceSoap")]
     public interface CronusServiceSoap {
         
-        // CODEGEN: Generating message contract since element name GetKeysResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetKeys", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetKeysResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetKeys", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetKeysResponse GetKeys(Eventkalender.PK.CronusReference.GetKeysRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetKeys", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetKeys", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetKeysResponse> GetKeysAsync(Eventkalender.PK.CronusReference.GetKeysRequest request);
         
-        // CODEGEN: Generating message contract since element name GetIndexesResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIndexes", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetIndexesResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetIndexes", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetIndexesResponse GetIndexes(Eventkalender.PK.CronusReference.GetIndexesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIndexes", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetIndexes", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetIndexesResponse> GetIndexesAsync(Eventkalender.PK.CronusReference.GetIndexesRequest request);
         
-        // CODEGEN: Generating message contract since element name GetTableConstraintsResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetTableConstraints", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetTableConstraintsResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetTableConstraints", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetTableConstraintsResponse GetTableConstraints(Eventkalender.PK.CronusReference.GetTableConstraintsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetTableConstraints", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetTableConstraints", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetTableConstraintsResponse> GetTableConstraintsAsync(Eventkalender.PK.CronusReference.GetTableConstraintsRequest request);
         
-        // CODEGEN: Generating message contract since element name GetTablesResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetTables", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetTablesResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetTables", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetTablesResponse GetTables(Eventkalender.PK.CronusReference.GetTablesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetTables", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetTables", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetTablesResponse> GetTablesAsync(Eventkalender.PK.CronusReference.GetTablesRequest request);
         
-        // CODEGEN: Generating message contract since element name GetColumnsForEmployeeTableResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetColumnsForEmployeeTable", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetColumnsForEmployeeTableResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetColumnsForEmployeeTable", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableResponse GetColumnsForEmployeeTable(Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetColumnsForEmployeeTable", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetColumnsForEmployeeTable", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableResponse> GetColumnsForEmployeeTableAsync(Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableRequest request);
         
-        // CODEGEN: Generating message contract since element name GetIllestPersonResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIllestPerson", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetIllestPersonResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetIllestPerson", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetIllestPersonResponse GetIllestPerson(Eventkalender.PK.CronusReference.GetIllestPersonRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIllestPerson", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetIllestPerson", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetIllestPersonResponse> GetIllestPersonAsync(Eventkalender.PK.CronusReference.GetIllestPersonRequest request);
         
-        // CODEGEN: Generating message contract since element name GetIllPersonsByYearResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIllPersonsByYear", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetIllPersonsByYearResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetIllPersonsByYear", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetIllPersonsByYearResponse GetIllPersonsByYear(Eventkalender.PK.CronusReference.GetIllPersonsByYearRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetIllPersonsByYear", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetIllPersonsByYear", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetIllPersonsByYearResponse> GetIllPersonsByYearAsync(Eventkalender.PK.CronusReference.GetIllPersonsByYearRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeAndRelativesResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAndRelatives", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeAndRelativesResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeAndRelatives", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeAndRelativesResponse GetEmployeeAndRelatives(Eventkalender.PK.CronusReference.GetEmployeeAndRelativesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAndRelatives", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeAndRelatives", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeAndRelativesResponse> GetEmployeeAndRelativesAsync(Eventkalender.PK.CronusReference.GetEmployeeAndRelativesRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeData", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeDataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeData", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeDataResponse GetEmployeeData(Eventkalender.PK.CronusReference.GetEmployeeDataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeDataResponse> GetEmployeeDataAsync(Eventkalender.PK.CronusReference.GetEmployeeDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeAbsenceDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceData", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeAbsenceDataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeAbsenceData", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeAbsenceDataResponse GetEmployeeAbsenceData(Eventkalender.PK.CronusReference.GetEmployeeAbsenceDataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeAbsenceData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeAbsenceDataResponse> GetEmployeeAbsenceDataAsync(Eventkalender.PK.CronusReference.GetEmployeeAbsenceDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeRelativeDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeData", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeRelativeDataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeRelativeData", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeRelativeDataResponse GetEmployeeRelativeData(Eventkalender.PK.CronusReference.GetEmployeeRelativeDataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeRelativeData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeRelativeDataResponse> GetEmployeeRelativeDataAsync(Eventkalender.PK.CronusReference.GetEmployeeRelativeDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeQualificationDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationData", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeQualificationDataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeQualificationData", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeQualificationDataResponse GetEmployeeQualificationData(Eventkalender.PK.CronusReference.GetEmployeeQualificationDataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeQualificationData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeQualificationDataResponse> GetEmployeeQualificationDataAsync(Eventkalender.PK.CronusReference.GetEmployeeQualificationDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeePortalSetupDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupData", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeePortalSetupDataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeePortalSetupData", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeePortalSetupDataResponse GetEmployeePortalSetupData(Eventkalender.PK.CronusReference.GetEmployeePortalSetupDataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeePortalSetupData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeePortalSetupDataResponse> GetEmployeePortalSetupDataAsync(Eventkalender.PK.CronusReference.GetEmployeePortalSetupDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeStatisticsGroupDataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupData", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeStatisticsGroupDataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeStatisticsGroupData", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataResponse GetEmployeeStatisticsGroupData(Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupData", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeStatisticsGroupData", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataResponse> GetEmployeeStatisticsGroupDataAsync(Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeMetadata", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeMetadataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeMetadata", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeMetadataResponse GetEmployeeMetadata(Eventkalender.PK.CronusReference.GetEmployeeMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeMetadata", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeMetadataResponse> GetEmployeeMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeeMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeAbsenceMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetadata", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeAbsenceMetadataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeAbsenceMetadata", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeAbsenceMetadataResponse GetEmployeeAbsenceMetadata(Eventkalender.PK.CronusReference.GetEmployeeAbsenceMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetadata", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeAbsenceMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeAbsenceMetadataResponse> GetEmployeeAbsenceMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeeAbsenceMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeRelativeMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeMetadata", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeRelativeMetadataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeRelativeMetadata", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataResponse GetEmployeeRelativeMetadata(Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeRelativeMetadata", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeRelativeMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataResponse> GetEmployeeRelativeMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeQualificationMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationMetadata", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeQualificationMetadataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeQualificationMetadata", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeQualificationMetadataResponse GetEmployeeQualificationMetadata(Eventkalender.PK.CronusReference.GetEmployeeQualificationMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeQualificationMetadata", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeQualificationMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeQualificationMetadataResponse> GetEmployeeQualificationMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeeQualificationMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeePortalSetupMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetadata", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeePortalSetupMetadataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeePortalSetupMetadata", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeePortalSetupMetadataResponse GetEmployeePortalSetupMetadata(Eventkalender.PK.CronusReference.GetEmployeePortalSetupMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetadata", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeePortalSetupMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeePortalSetupMetadataResponse> GetEmployeePortalSetupMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeePortalSetupMetadataRequest request);
         
-        // CODEGEN: Generating message contract since element name GetEmployeeStatisticsGroupMetadataResult from namespace http://www.ics.lu.se.cali/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name GetEmployeeStatisticsGroupMetadataResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
         Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataResponse GetEmployeeStatisticsGroupMetadata(Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataResponse> GetEmployeeStatisticsGroupMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request);
     }
     
@@ -239,7 +239,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetKeysRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetKeys", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetKeys", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetKeysRequestBody Body;
         
         public GetKeysRequest() {
@@ -266,7 +266,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetKeysResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetKeysResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetKeysResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetKeysResponseBody Body;
         
         public GetKeysResponse() {
@@ -280,7 +280,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetKeysResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -300,7 +300,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetIndexesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIndexes", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIndexes", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetIndexesRequestBody Body;
         
         public GetIndexesRequest() {
@@ -327,7 +327,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetIndexesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIndexesResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIndexesResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetIndexesResponseBody Body;
         
         public GetIndexesResponse() {
@@ -341,7 +341,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetIndexesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -361,7 +361,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetTableConstraintsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTableConstraints", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTableConstraints", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetTableConstraintsRequestBody Body;
         
         public GetTableConstraintsRequest() {
@@ -388,7 +388,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetTableConstraintsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTableConstraintsResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTableConstraintsResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetTableConstraintsResponseBody Body;
         
         public GetTableConstraintsResponse() {
@@ -402,7 +402,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetTableConstraintsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -422,7 +422,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetTablesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTables", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTables", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetTablesRequestBody Body;
         
         public GetTablesRequest() {
@@ -449,7 +449,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetTablesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTablesResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTablesResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetTablesResponseBody Body;
         
         public GetTablesResponse() {
@@ -463,7 +463,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetTablesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -483,7 +483,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetColumnsForEmployeeTableRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsForEmployeeTable", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsForEmployeeTable", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableRequestBody Body;
         
         public GetColumnsForEmployeeTableRequest() {
@@ -510,7 +510,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetColumnsForEmployeeTableResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsForEmployeeTableResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsForEmployeeTableResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableResponseBody Body;
         
         public GetColumnsForEmployeeTableResponse() {
@@ -524,7 +524,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetColumnsForEmployeeTableResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -544,7 +544,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetIllestPersonRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllestPerson", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllestPerson", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetIllestPersonRequestBody Body;
         
         public GetIllestPersonRequest() {
@@ -571,7 +571,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetIllestPersonResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllestPersonResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllestPersonResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetIllestPersonResponseBody Body;
         
         public GetIllestPersonResponse() {
@@ -585,7 +585,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetIllestPersonResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -605,7 +605,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetIllPersonsByYearRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllPersonsByYear", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllPersonsByYear", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetIllPersonsByYearRequestBody Body;
         
         public GetIllPersonsByYearRequest() {
@@ -619,7 +619,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetIllPersonsByYearRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -643,7 +643,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetIllPersonsByYearResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllPersonsByYearResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetIllPersonsByYearResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetIllPersonsByYearResponseBody Body;
         
         public GetIllPersonsByYearResponse() {
@@ -657,7 +657,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetIllPersonsByYearResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -677,7 +677,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeAndRelativesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelatives", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelatives", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeAndRelativesRequestBody Body;
         
         public GetEmployeeAndRelativesRequest() {
@@ -704,7 +704,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeAndRelativesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelativesResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelativesResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeAndRelativesResponseBody Body;
         
         public GetEmployeeAndRelativesResponse() {
@@ -718,7 +718,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeAndRelativesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -738,7 +738,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeDataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeData", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeDataRequestBody Body;
         
         public GetEmployeeDataRequest() {
@@ -765,7 +765,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeDataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeDataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeDataResponseBody Body;
         
         public GetEmployeeDataResponse() {
@@ -779,7 +779,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -799,7 +799,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeAbsenceDataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceData", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeAbsenceDataRequestBody Body;
         
         public GetEmployeeAbsenceDataRequest() {
@@ -826,7 +826,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeAbsenceDataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceDataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeAbsenceDataResponseBody Body;
         
         public GetEmployeeAbsenceDataResponse() {
@@ -840,7 +840,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeAbsenceDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -860,7 +860,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeRelativeDataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeData", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeRelativeDataRequestBody Body;
         
         public GetEmployeeRelativeDataRequest() {
@@ -887,7 +887,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeRelativeDataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeDataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeRelativeDataResponseBody Body;
         
         public GetEmployeeRelativeDataResponse() {
@@ -901,7 +901,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeRelativeDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -921,7 +921,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeQualificationDataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationData", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeQualificationDataRequestBody Body;
         
         public GetEmployeeQualificationDataRequest() {
@@ -948,7 +948,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeQualificationDataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationDataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeQualificationDataResponseBody Body;
         
         public GetEmployeeQualificationDataResponse() {
@@ -962,7 +962,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeQualificationDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -982,7 +982,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeePortalSetupDataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupData", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeePortalSetupDataRequestBody Body;
         
         public GetEmployeePortalSetupDataRequest() {
@@ -1009,7 +1009,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeePortalSetupDataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupDataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeePortalSetupDataResponseBody Body;
         
         public GetEmployeePortalSetupDataResponse() {
@@ -1023,7 +1023,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeePortalSetupDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1043,7 +1043,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeStatisticsGroupDataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupData", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupData", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataRequestBody Body;
         
         public GetEmployeeStatisticsGroupDataRequest() {
@@ -1070,7 +1070,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeStatisticsGroupDataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupDataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupDataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataResponseBody Body;
         
         public GetEmployeeStatisticsGroupDataResponse() {
@@ -1084,7 +1084,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeStatisticsGroupDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1104,7 +1104,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetadata", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeMetadataRequestBody Body;
         
         public GetEmployeeMetadataRequest() {
@@ -1131,7 +1131,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeMetadataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeMetadataResponseBody Body;
         
         public GetEmployeeMetadataResponse() {
@@ -1145,7 +1145,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1165,7 +1165,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeAbsenceMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetadata", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeAbsenceMetadataRequestBody Body;
         
         public GetEmployeeAbsenceMetadataRequest() {
@@ -1192,7 +1192,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeAbsenceMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAbsenceMetadataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeAbsenceMetadataResponseBody Body;
         
         public GetEmployeeAbsenceMetadataResponse() {
@@ -1206,7 +1206,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeAbsenceMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1226,7 +1226,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeRelativeMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetadata", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataRequestBody Body;
         
         public GetEmployeeRelativeMetadataRequest() {
@@ -1253,7 +1253,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeRelativeMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeRelativeMetadataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataResponseBody Body;
         
         public GetEmployeeRelativeMetadataResponse() {
@@ -1267,7 +1267,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeRelativeMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1287,7 +1287,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeQualificationMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetadata", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeQualificationMetadataRequestBody Body;
         
         public GetEmployeeQualificationMetadataRequest() {
@@ -1314,7 +1314,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeQualificationMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeQualificationMetadataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeQualificationMetadataResponseBody Body;
         
         public GetEmployeeQualificationMetadataResponse() {
@@ -1328,7 +1328,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeQualificationMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1348,7 +1348,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeePortalSetupMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetadata", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeePortalSetupMetadataRequestBody Body;
         
         public GetEmployeePortalSetupMetadataRequest() {
@@ -1375,7 +1375,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeePortalSetupMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeePortalSetupMetadataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeePortalSetupMetadataResponseBody Body;
         
         public GetEmployeePortalSetupMetadataResponse() {
@@ -1389,7 +1389,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeePortalSetupMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1409,7 +1409,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeStatisticsGroupMetadataRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetadata", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetadata", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataRequestBody Body;
         
         public GetEmployeeStatisticsGroupMetadataRequest() {
@@ -1436,7 +1436,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetEmployeeStatisticsGroupMetadataResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetadataResponse", Namespace="http://www.ics.lu.se.cali/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeStatisticsGroupMetadataResponse", Namespace="http://cali.cronus/", Order=0)]
         public Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataResponseBody Body;
         
         public GetEmployeeStatisticsGroupMetadataResponse() {
@@ -1450,7 +1450,7 @@ namespace Eventkalender.PK.CronusReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://www.ics.lu.se.cali/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
     public partial class GetEmployeeStatisticsGroupMetadataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]

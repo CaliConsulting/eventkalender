@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ics.lu.se.cali/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ics.lu.se.cali/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cali.cronus/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cali.cronus/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ics.lu.se.cali/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cali.cronus/">
       <s:element name="GetKeys">
         <s:complexType />
       </s:element>
@@ -435,7 +435,7 @@
   <wsdl:binding name="CronusServiceSoap" type="tns:CronusServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetKeys">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetKeys" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetKeys" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -444,7 +444,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetIndexes">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetIndexes" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetIndexes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -453,7 +453,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetTableConstraints">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetTableConstraints" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetTableConstraints" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -462,7 +462,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetTables">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetTables" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetTables" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -471,7 +471,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetColumnsForEmployeeTable">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetColumnsForEmployeeTable" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetColumnsForEmployeeTable" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -480,7 +480,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetIllestPerson">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetIllestPerson" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetIllestPerson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -489,7 +489,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetIllPersonsByYear">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetIllPersonsByYear" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetIllPersonsByYear" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -498,7 +498,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAndRelatives">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAndRelatives" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeAndRelatives" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -507,7 +507,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeData">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeData" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -516,7 +516,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAbsenceData">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAbsenceData" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeAbsenceData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -525,7 +525,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeRelativeData">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeRelativeData" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeRelativeData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -534,7 +534,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeQualificationData">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeQualificationData" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeQualificationData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -543,7 +543,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeePortalSetupData">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeePortalSetupData" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeePortalSetupData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -552,7 +552,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeStatisticsGroupData">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupData" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -561,7 +561,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeMetadata">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeMetadata" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeMetadata" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -570,7 +570,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAbsenceMetadata">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetadata" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeAbsenceMetadata" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -579,7 +579,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeRelativeMetadata">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeRelativeMetadata" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeRelativeMetadata" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -588,7 +588,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeQualificationMetadata">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeQualificationMetadata" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeQualificationMetadata" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -597,7 +597,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeePortalSetupMetadata">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetadata" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeePortalSetupMetadata" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -606,7 +606,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeStatisticsGroupMetadata">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetadata" style="document" />
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupMetadata" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -618,7 +618,7 @@
   <wsdl:binding name="CronusServiceSoap12" type="tns:CronusServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetKeys">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetKeys" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetKeys" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -627,7 +627,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetIndexes">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetIndexes" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetIndexes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -636,7 +636,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetTableConstraints">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetTableConstraints" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetTableConstraints" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -645,7 +645,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetTables">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetTables" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetTables" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -654,7 +654,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetColumnsForEmployeeTable">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetColumnsForEmployeeTable" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetColumnsForEmployeeTable" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -663,7 +663,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetIllestPerson">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetIllestPerson" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetIllestPerson" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -672,7 +672,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetIllPersonsByYear">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetIllPersonsByYear" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetIllPersonsByYear" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -681,7 +681,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAndRelatives">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAndRelatives" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeAndRelatives" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -690,7 +690,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeData">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeData" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -699,7 +699,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAbsenceData">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAbsenceData" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeAbsenceData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -708,7 +708,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeRelativeData">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeRelativeData" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeRelativeData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -717,7 +717,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeQualificationData">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeQualificationData" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeQualificationData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -726,7 +726,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeePortalSetupData">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeePortalSetupData" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeePortalSetupData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -735,7 +735,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeStatisticsGroupData">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupData" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -744,7 +744,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeMetadata">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeMetadata" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeMetadata" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -753,7 +753,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAbsenceMetadata">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeAbsenceMetadata" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeAbsenceMetadata" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -762,7 +762,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeRelativeMetadata">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeRelativeMetadata" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeRelativeMetadata" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -771,7 +771,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeQualificationMetadata">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeQualificationMetadata" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeQualificationMetadata" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -780,7 +780,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeePortalSetupMetadata">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeePortalSetupMetadata" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeePortalSetupMetadata" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -789,7 +789,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeStatisticsGroupMetadata">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEmployeeStatisticsGroupMetadata" style="document" />
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupMetadata" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

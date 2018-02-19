@@ -14,6 +14,8 @@ namespace Eventkalender.Test
         {
             EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
 
+            List<Event> events = new List<Event>();
+
             try
             {
                 Nation n = null;

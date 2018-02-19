@@ -294,9 +294,9 @@
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="First Name" Width="auto" Binding="{Binding Path=FirstName}"/>
-                                            <DataGridTextColumn Header="Last Name" Width="auto" Binding="{Binding Path=LastName}"/>
-                                            <DataGridTextColumn Header="Attending Events" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                            <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
+                                            <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Eventdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
@@ -383,7 +383,7 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="ERP Integration">
-                <TabControl Height="535">
+                <TabControl Height="535" SelectionChanged="TabControl_SelectionChanged">
                     <TabItem Header="Cronus">
                         <Canvas>
                             <TextBlock Text="Data" 
@@ -397,20 +397,17 @@
                                       Canvas.Left="150"
                                       Width="150"
                                       IsEditable="True"
-                                      IsTextSearchEnabled="True">
-                                <ComboBoxItem x:Name="cmbData1"
-                                              Content="GetColomnsForEmployee"/>
-                                <ComboBoxItem x:Name="cmbData2"
-                                              Content="GetEmployee"/>
+                                      ItemsSource="{Binding Path=DataCombobox}"    
+                                      IsTextSearchEnabled="True" SelectionChanged="cmbData_SelectionChanged" DropDownClosed="cmbData_DropDownClosed">                                
                             </ComboBox>
+                            
                             <ComboBox x:Name="cmbMetaData"
                                       Canvas.Top="30"
                                       Canvas.Left="350"
                                       Width="150"
                                       IsEditable="True"
-
                                       ItemsSource="{Binding Path=MetadataCombobox}"
-                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged">
+                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged" DropDownClosed="cmbMetaData_DropDownClosed">
                             </ComboBox>
 
                             <DataGrid x:Name="datagridCronus"
@@ -421,7 +418,7 @@
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
                                       IsReadOnly="True"
-                                      ItemsSource="{Binding Path=EventList}"
+                                      ItemsSource="{Binding Path=GetData}" SelectionChanged="datagridCronus_SelectionChanged" 
                                       >
                             </DataGrid>
                             <Button x:Name="btnUpdateCronus"

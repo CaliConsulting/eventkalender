@@ -96,6 +96,65 @@ namespace Eventkalender.PK.GUI
             }
             set {  }
         }
+        public List<string> DataCombobox
+        {
+            get
+            {
+                List<string> lst = new List<string>();
+                lst.Add("GetIllestPerson");
+                lst.Add("GetIllPersonsByYear");
+                lst.Add("GetEmployeeAndRelatives");
+                lst.Add("GetEmployeeData");
+                lst.Add("GetEmployeeAbsenceData");
+                lst.Add("GetEmployeeRelativeData");
+                lst.Add("GetEmployeeQualificationData");
+                lst.Add("GetEmployeePortalSetupData");
+                lst.Add("GetEmployeeStatisticsGroupData");
+
+
+                return lst;
+            }
+            private set { }
+        }
+
+        public CronusReference.DataTuple [] GetData
+        {
+            get
+            {
+                switch (cmbData.SelectedIndex)
+                {
+                    case 0:
+                        CronusReference.DataTuple value = cronusClient.GetIllestPerson();
+                        return new CronusReference.DataTuple[] { value };
+                    case 1:
+                        CronusReference.DataTuple[] values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
+                        return values;
+                    case 2:
+                        values = cronusClient.GetEmployeeAndRelatives();
+                        return values;
+                    case 3:
+                        values = cronusClient.GetEmployeeData();
+                        return values;
+                    case 4:
+                        values = cronusClient.GetEmployeeAbsenceData();
+                        return values;
+                    case 5:
+                        values = cronusClient.GetEmployeeRelativeData();
+                        return values;
+                    case 6:
+                        values = cronusClient.GetEmployeeQualificationData();
+                        return values;
+                    case 7:
+                        values = cronusClient.GetEmployeePortalSetupData();
+                        return values;
+                    case 8:
+                        values = cronusClient.GetEmployeeStatisticsGroupData();
+                        return values;                  
+                }
+                return null;
+            }
+            set { }
+        }
 
         public List<string> MetadataCombobox
         {
@@ -104,11 +163,21 @@ namespace Eventkalender.PK.GUI
                 List<string> lst = new List<string>();
                 lst.Add("GetIndexes");
                 lst.Add("GetKeys");
+                lst.Add("GetColumnsForEmployeeTable");
+                lst.Add("GetTableConstraints");
+                lst.Add("GetTables");
+                lst.Add("GetEmployeeMetadata");
+                lst.Add("GetEmployeeAbsenceMetadata");
+                lst.Add("GetEmployeeRelativeMetadata");
+                lst.Add("GetEmployeeQualificationMetadata");
+                lst.Add("GetEmployeePortalSetupMetadata");
+                lst.Add("GetEmployeeStatisticsGroupMetadata");
+                
                 return lst;
             } 
             private set { }
         }
-
+        
         public List<string> GetMetadata
         {
             get
@@ -118,6 +187,37 @@ namespace Eventkalender.PK.GUI
                     case 0:
                         List<string> values = cronusClient.GetTableConstraints(); //Combobox.whatever(i) i = val i listan
                         return values;
+                    case 1:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 2:
+                        values = cronusClient.GetTableConstraints();
+                        return values;
+                    case 3:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 4:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 5:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 6:
+                        values = cronusClient.GetTableConstraints();
+                        return values;
+                    case 7:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 8:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 9:
+                        values = cronusClient.GetTableConstraints(); 
+                        return values;
+                    case 10:
+                        values = cronusClient.GetTableConstraints();
+                        return values;
+                   
                 }
                 return null;
 
@@ -149,7 +249,7 @@ namespace Eventkalender.PK.GUI
             }
             set { }
         }
-   
+        
         private void SearchBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
 
@@ -261,6 +361,11 @@ namespace Eventkalender.PK.GUI
             datagridCronus.ItemsSource = GetMetadata;
         }
 
+        private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datagridCronus.ItemsSource = GetData;
+        }
+
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             datagridEvents.ItemsSource = Events;
@@ -270,6 +375,26 @@ namespace Eventkalender.PK.GUI
         {
             
            dtgShowEvents.ItemsSource = Events;
+        }
+
+        private void datagridCronus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbMetaData_DropDownClosed(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbData_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

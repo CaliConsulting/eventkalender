@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Eventkalender.PK.CronusReference;
+using Eventkalender.PK.EventkalenderReference;
 
 namespace Eventkalender.PK.GUI
 {
@@ -20,71 +22,124 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
-        EventkalenderController controller = new EventkalenderController("Resources/eventkalender-db.xml");
+        private List<string> timesList;
+        private EventkalenderController eventkalenderController;
+        private CronusServiceSoapClient cronusClient;
+        private EventkalenderServiceSoapClient eventkalenderWSClient;
+        
+
         public GUI_Prototyp()
         {
             InitializeComponent();
+            DataContext = this;
+            eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
+            cronusClient = new CronusServiceSoapClient();
+            eventkalenderWSClient = new EventkalenderServiceSoapClient();
+            timesList = new List<string>();
         }
-        public List<string> GenerateList()
+
+      /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
         {
-            List<string> times = new List<string>();
-            for (int i = 0; i < 48; i++)
+            CronusReference.DataTuple[] data = inputTuple;
+            for (int i = 0; i < data.Length; i++)
             {
-                int hour = (int)Math.Floor(i / 2d);
-                string strHour = hour.ToString();
-                if (hour < 10)
-                {
-                    strHour = "0" + strHour;
-                }
-                string res = strHour + ":";
-                if (i % 2 == 1)
-                {
-                    res += "3";
-                }
-                else
-                {
-                    res += "0";
-                }
-                res += "0";
-                times.Add(res);
+                Console.WriteLine(data[i].ToString());
             }
-            return times;
         }
-        public List<string> timesList
+
+        public void GetMetadataListOfString(List<string> metod)
+        {
+            foreach (string row in metod)
+            {
+                Console.WriteLine(row);
+            }
+        } */
+
+        public void GetEmployeeMetadata()
+        {
+            cronusClient.GetEmployeeMetadata();
+            cronusClient.GetIndexes();
+        }
+
+        public void GetEmployeeAbsenceMetadata()
+        {
+            cronusClient.GetEmployeeAbsenceMetadata();
+        }
+       
+
+        public List<string> TimesList
+        {
+            set
+            {  }
+            get
+            {
+                if(timesList == null)
+                {
+                    return timesList = Utility.GenerateList();
+                }
+                return timesList;
+            }
+        }
+        public List<string> Nations
         {
             get
             {
-                if (timesList == null)
+                List<Database.Nation> nations = eventkalenderController.GetNations();
+                List<string> nationName = new List<string>();
+                foreach(Database.Nation n in nations)
                 {
-                    timesList = GenerateList();
-                    return timesList;
+                    nationName.Add(n.Name);
                 }
-                else
-                {
-                    return timesList;
-                }
+                return nationName;
             }
-            set
+            set {  }
+        }
+
+        public List<string> MetadataCombobox
+        {
+            get
             {
-                timesList = GenerateList();
+                List<string> lst = new List<string>();
+                lst.Add("GetIndexes");
+                lst.Add("GetKeys");
+                return lst;
+            } 
+            private set { }
+        }
+
+        public List<string> GetMetadata
+        {
+            get
+            {
+                switch (cmbMetaData.SelectedIndex)
+                {
+                    case 0:
+                        List<string> values = cronusClient.GetTableConstraints(); //Combobox.whatever(i) i = val i listan
+                        return values;
+                }
+                return null;
+
+
             }
+            set { }
         }
-        private void SearchBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+
+        public List<Database.Event> Events
+        {
+            get
+            {
+                List<Database.Event> events = eventkalenderController.GetEvents();
+                return events;
+            }
+            set { }
+        }
+   
+        private void SearchBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
 
         }
 
-        private void datagridEvents_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
-
-        private void datagridEvents_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_EraseFromList_Click(object sender, RoutedEventArgs e)
+        private void btnEraseFromListClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
             if (raderaResultat == MessageBoxResult.Yes)
@@ -97,7 +152,7 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btn_DeleteEvent_Click(object sender, RoutedEventArgs e)
+        private void btnDeleteEventClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
             if (raderaResultat == MessageBoxResult.Yes)
@@ -109,12 +164,54 @@ namespace Eventkalender.PK.GUI
 
             }
         }
-/*        private void cmb_SortEvents_Selected(object sender, RoutedEventArgs e)
+
+        private void btnRegNationNameClick(object sender, RoutedEventArgs e)
         {
-            if(cmb_SortEvents.SelectedValue == Datum)
+            if(txtBoxNationName.Text != "")
             {
-                
+                eventkalenderController.AddNation(txtBoxNationName.Text);
+                txtBoxNationName.Text = "";
+             }
+            else
+            {
+                MessageBox.Show("Inget värde ifyllt");
             }
-        }*/
+        }
+
+        private void btnSrchEventClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegsterEventClick(object sender, RoutedEventArgs e)
+        {
+            if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
+            {
+                DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                DateTime dateEnd = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                int nationID = Convert.ToInt32(cmBoxNation.Text);
+                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, nationID);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void dtgShowEventsSelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        {
+
+        }
+
+        private void btnUpdateCronusClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datagridCronus.ItemsSource = GetMetadata;
+        }
     }
 }

@@ -432,6 +432,7 @@
                                       Width="150"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
+                                      SelectedIndex="{Binding Path=MetadataSelectedIndex}"
                                       IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged">
                             </ComboBox>
 

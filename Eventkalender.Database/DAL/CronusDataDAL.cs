@@ -16,31 +16,6 @@ namespace Eventkalender.Database
             this.xmlPath = xmlPath;
         }
 
-        public void AddEmployee()
-        {
-
-        }
-
-        public void DeleteEmployee()
-        {
-
-        }
-
-        public void UpdateEmployee()
-        {
-
-        }
-
-        public Employee GetEmployee(int number)
-        {
-
-        }
-
-        public List<Employee> GetEmployees()
-        {
-
-        }
-
         public DataTuple GetIllestPerson()
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))

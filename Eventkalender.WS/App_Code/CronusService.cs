@@ -19,39 +19,33 @@ public class CronusService : WebService
     }
 
     [WebMethod]
-    public void UpdateEmployee()
+    public void UpdateEmployee(string no, string firstName, string lastName)
     {
-        cronusController.UpdateEmployee();
+        cronusController.UpdateEmployee(no, firstName, lastName);
     }
 
     [WebMethod]
-    public Employee GetEmployee(int number)
+    public Employee GetEmployee(string no)
     {
-        cronusController.GetEmployee();
+        return cronusController.GetEmployee(no);
     }
 
     [WebMethod]
     public List<Employee> GetEmployees()
     {
-        cronusController.GetEmployees();
+        return cronusController.GetEmployees();
     }
 
     [WebMethod]
-    public void AddEmployee()
+    public void AddEmployee(string no, string firstName, string lastName)
     {
-        ´return cronusController.InsertEmployee();
+        cronusController.AddEmployee(no, firstName, lastName);
     }
 
     [WebMethod]
-    public void DeleteEmployee()
+    public void DeleteEmployee(string no)
     {
-        cronusController.DeleteEmployee();
-    }
-
-    [WebMethod]
-    public void SelectEmployee()
-    {
-        return cronusController.SelectEmployee();
+        cronusController.DeleteEmployee(no);
     }
 
     [WebMethod]

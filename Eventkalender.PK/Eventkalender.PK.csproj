@@ -117,10 +117,19 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Connected Services\CronusReference\CronusService.wsdl" />
+    <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.AddEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.ArrayOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.DataTuple.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.DeleteEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.GetColumnsForEmployeeTableResponse.datasource">
@@ -159,6 +168,12 @@
     <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.GetEmployeeRelativeMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.GetEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.GetEmployeesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -181,6 +196,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.GetTablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.PK.CronusReference.UpdateEmployeeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.AddEventResponse.datasource">

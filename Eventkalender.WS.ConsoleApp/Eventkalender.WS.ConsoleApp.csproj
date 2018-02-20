@@ -68,10 +68,19 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Connected Services\CronusReference\CronusService.wsdl" />
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.AddEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.ArrayOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.DataTuple.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.DeleteEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetColumnsForEmployeeTableResponse.datasource">
@@ -110,6 +119,12 @@
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeRelativeMetadataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetEmployeeStatisticsGroupDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -132,6 +147,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetTablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.UpdateEmployeeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.AddEventResponse.datasource">
@@ -189,18 +207,6 @@
     <WCFMetadataStorage Include="Connected Services\EventkalenderReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EventkalenderReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\EventkalenderReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\EventkalenderReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\CronusReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +214,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\CronusReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EventkalenderReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EventkalenderReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EventkalenderReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

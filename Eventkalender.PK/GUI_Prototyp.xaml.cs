@@ -72,15 +72,15 @@ namespace Eventkalender.PK.GUI
         {
             this.datagridCronus.Columns.Clear();
             this.datagridCronus.ItemsSource = null;
-            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
-            datagridCronus.ItemsSource = eventkalenderViewModel.Data;
+            Utility.AddColumnsToGrid(datagridCronus, eventkalenderViewModel.Metadata);
+            datagridCronus.ItemsSource = eventkalenderViewModel.Metadata;
         }
 
         private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.datagridCronus.Columns.Clear();
             this.datagridCronus.ItemsSource = null;
-            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
+            Utility.AddColumnsToGrid(datagridCronus, eventkalenderViewModel.Data);
             datagridCronus.ItemsSource = eventkalenderViewModel.Data;
             //Selected index måste med bror
             // Nope inte nödvändigt! Jag fixar detta mannen / Daniel

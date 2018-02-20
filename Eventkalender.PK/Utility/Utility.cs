@@ -22,6 +22,7 @@ namespace Eventkalender.PK
             }
             return true;
         }
+
         public static List<string> GenerateList()
         {
             List<string> times = new List<string>();
@@ -54,7 +55,7 @@ namespace Eventkalender.PK
             return dateStart;
         }
 
-        public static void AddColumns(DataGrid grid, List<List<string>> lst)
+        public static void AddColumnsToGrid(DataGrid grid, List<List<string>> lst)
         {
             for (int i = 0; i < lst[0].Count; i++)
             {
@@ -64,10 +65,10 @@ namespace Eventkalender.PK
 
                 grid.Columns.Add(t);
             }
+            lst.RemoveAt(0);
         }
 
-
-        private static List<List<string>> GetValuableInformation(CronusReference.DataTuple[] values)
+        private static List<List<string>> ExtractData(CronusReference.DataTuple[] values)
         {
             bool isFirst = true;
             List<List<string>> totals = new List<List<string>>();
@@ -97,68 +98,70 @@ namespace Eventkalender.PK
             return totals;
         }
 
-        private static List<List<string>> DataTupleToNiceFormat(List<string> lst)
+        private static List<List<string>> NormalizeStructure(List<string> lst)
         {
             List<List<string>> newList = new List<List<string>>();
-
-            //DataGridTextColumn t = new DataGridTextColumn();
-            //t.Header = 0;
-            //t.Binding = new Binding("[" + 0 + "]");
-
-            //datagridCronus.Columns.Add(t);
-
             for (int i = 0; i < lst.Count; i++)
             {
                 List<string> element = new List<string>();
                 element.Add(lst.ElementAt(i));
                 newList.Add(element);
             }
-
             return newList;
         }
 
-        private static List<List<string>> DataTupleToNiceFormat(List<List<string>> lst)
+        public static List<List<string>> GetCronusMetadata(CronusServiceSoapClient cronusClient, int index, out bool hasColumns)
         {
-            //for (int i = 0; i < lst[0].Count; i++)
-            //{
-            //    DataGridTextColumn t = new DataGridTextColumn();
-            //    t.Header = lst.First()[i];
-            //    t.Binding = new Binding("[" + i + "]");
-
-            //    datagridCronus.Columns.Add(t);
-            //}
-            lst.RemoveAt(0);
-
-            return lst;
-        }
-
-        public static List<List<string>> GetCronusMetadata(CronusServiceSoapClient cronusClient, int index)
-        {
+            List<List<string>> result = new List<List<string>>();
             switch (index)
             {
                 case 0:
-                    return DataTupleToNiceFormat(cronusClient.GetIndexes());
+                    result = NormalizeStructure(cronusClient.GetIndexes());
+                    hasColumns = false;
+                    return result;
                 case 1:
-                    return DataTupleToNiceFormat(cronusClient.GetKeys());
+                    result = NormalizeStructure(cronusClient.GetKeys());
+                    hasColumns = false;
+                    return result;
                 case 2:
-                    return DataTupleToNiceFormat(cronusClient.GetColumnsForEmployeeTable());
+                    result = NormalizeStructure(cronusClient.GetColumnsForEmployeeTable());
+                    hasColumns = false;
+                    return result;
                 case 3:
-                    return DataTupleToNiceFormat(cronusClient.GetTableConstraints());
+                    result = NormalizeStructure(cronusClient.GetTableConstraints());
+                    hasColumns = false;
+                    return result;
                 case 4:
-                    return DataTupleToNiceFormat(cronusClient.GetTables());
+                    result = NormalizeStructure(cronusClient.GetTables());
+                    hasColumns = false;
+                    return result;
                 case 5:
-                    return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeMetadata()));
+                    result = ExtractData(cronusClient.GetEmployeeMetadata());
+                    hasColumns = true;
+                    return result;
                 case 6:
-                    return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeAbsenceMetadata()));
+                    result = ExtractData(cronusClient.GetEmployeeAbsenceMetadata());
+                    hasColumns = true;
+                    return result;
                 case 7:
-                    return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeRelativeMetadata()));
+                    result = ExtractData(cronusClient.GetEmployeeRelativeMetadata());
+                    hasColumns = true;
+                    return result;
                 case 8:
-                    return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeQualificationMetadata()));
+                    result = ExtractData(cronusClient.GetEmployeeQualificationMetadata());
+                    hasColumns = true;
+                    return result;
                 case 9:
-                    return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeePortalSetupMetadata()));
+                    result = ExtractData(cronusClient.GetEmployeePortalSetupMetadata());
+                    hasColumns = true;
+                    return result;
                 case 10:
-                    return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeStatisticsGroupMetadata()));
+                    result = ExtractData(cronusClient.GetEmployeeStatisticsGroupMetadata());
+                    hasColumns = true;
+                    return result;
             }
+            // Down here we are in undefined behavior land...
+            hasColumns = false;
             return null;
         }
 
@@ -170,31 +173,31 @@ namespace Eventkalender.PK
                 case 0:
                     CronusReference.DataTuple value = cronusClient.GetIllestPerson();
                     CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { value };
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 1:
                     values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 2:
                     values = cronusClient.GetEmployeeAndRelatives();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 3:
                     values = cronusClient.GetEmployeeData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 4:
                     values = cronusClient.GetEmployeeAbsenceData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 5:
                     values = cronusClient.GetEmployeeRelativeData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 6:
                     values = cronusClient.GetEmployeeQualificationData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 7:
                     values = cronusClient.GetEmployeePortalSetupData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
                 case 8:
                     values = cronusClient.GetEmployeeStatisticsGroupData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
+                    return ExtractData(values);
             }
             return null;
         }

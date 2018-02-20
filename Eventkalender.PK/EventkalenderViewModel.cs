@@ -166,28 +166,6 @@ namespace Eventkalender.PK.GUI
             eventkalenderDAL.AddEvent(e);
         }
 
-        public List<string> DataCombobox
-
-        {
-            get
-            {
-                List<string> lst = new List<string>();
-                lst.Add("Hämta personen som har varit sjuk flest antal gånger");
-                lst.Add("Hämta sjuka personer mellan åren 2004 och 2005");
-                lst.Add("Hämta anställda och deras anhöriga");
-                lst.Add("Hämta personaldata");
-                lst.Add("Hämta personal frånvarodata");
-                lst.Add("Hämta personal anhörigdata");
-                lst.Add("Hämta personal kompetensdata");
-                lst.Add("Hämta personal portalsetupdata");
-                lst.Add("Hämta personal statisticsgroupdata");
-
-
-                return lst;
-            }
-            private set { }
-        }
-
         private List<List<string>> data;
         public List<List<string>> Data
         {
@@ -220,27 +198,6 @@ namespace Eventkalender.PK.GUI
                     NotifyPropertyChanged("Metadata");
                 }
             }
-        }
-
-        public List<string> MetadataCombobox
-        {
-            get
-            {
-                List<string> lst = new List<string>();
-                lst.Add("Hämta indexes");
-                lst.Add("Hämta nycklar");
-                lst.Add("Hämta kolumner för personal tabell");
-                lst.Add("Hämta tabellbegränsningar");
-                lst.Add("Hämta tabeller");
-                lst.Add("Hämta personal metadata");
-                lst.Add("Hämta personal frånvarometadata");
-                lst.Add("Hämta personal anhörigmetadata");
-                lst.Add("Hämta personal kompetensmetadata");
-                lst.Add("Hämta personal portalsetupmetadata");
-                lst.Add("Hämta personal statisticsgroupmetadata");
-                return lst;
-            }
-            private set { }
         }
 
         private int dataSelectedIndex = -1;
@@ -276,9 +233,60 @@ namespace Eventkalender.PK.GUI
                     metadataSelectedIndex = value;
                     NotifyPropertyChanged("MetadataSelectedIndex");
 
-                    Data = Utility.GetCronusMetadata(cronusClient, metadataSelectedIndex);
+                    Metadata = Utility.GetCronusMetadata(cronusClient, metadataSelectedIndex, out bool hasColumns);
+                    // Not all metadata results have columns so we need to handle that by 
+                    // inserting our own into the resulting list
+                    if (!hasColumns)
+                    {
+                        List<string> columns = new List<string>();
+                        for (int i = 0; i < Metadata[0].Count; i++)
+                        {
+                            columns.Add(i.ToString());
+                        }
+                        Metadata.Insert(0, columns);
+                    }
                 }
             }
+        }
+
+        public List<string> DataCombobox
+        {
+            get
+            {
+                List<string> lst = new List<string>();
+                lst.Add("Hämta personen som har varit sjuk flest antal gånger");
+                lst.Add("Hämta sjuka personer mellan åren 2004 och 2005");
+                lst.Add("Hämta anställda och deras anhöriga");
+                lst.Add("Hämta personaldata");
+                lst.Add("Hämta personal frånvarodata");
+                lst.Add("Hämta personal anhörigdata");
+                lst.Add("Hämta personal kompetensdata");
+                lst.Add("Hämta personal portalsetupdata");
+                lst.Add("Hämta personal statisticsgroupdata");
+                return lst;
+            }
+            private set { }
+        }
+
+        public List<string> MetadataCombobox
+        {
+            get
+            {
+                List<string> lst = new List<string>();
+                lst.Add("Hämta indexes");
+                lst.Add("Hämta nycklar");
+                lst.Add("Hämta kolumner för personal tabell");
+                lst.Add("Hämta tabellbegränsningar");
+                lst.Add("Hämta tabeller");
+                lst.Add("Hämta personal metadata");
+                lst.Add("Hämta personal frånvarometadata");
+                lst.Add("Hämta personal anhörigmetadata");
+                lst.Add("Hämta personal kompetensmetadata");
+                lst.Add("Hämta personal portalsetupmetadata");
+                lst.Add("Hämta personal statisticsgroupmetadata");
+                return lst;
+            }
+            private set { }
         }
 
     }

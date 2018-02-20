@@ -12,13 +12,11 @@ namespace Eventkalender.WS.ConsoleApp
         private bool returnBool;
         private int caseSwitch;
 
-        private CronusServiceSoapClient cronusclient;
-        private EventkalenderApp eventApp;
+        private CronusServiceSoapClient cronusClient;
 
         public CronusAppMetadata()
         {
-            cronusclient = new CronusServiceSoapClient();
-            eventApp = new EventkalenderApp();
+            cronusClient = new CronusServiceSoapClient();
         }
 
         public void GetMetadataListOfString(List<string> metod)
@@ -40,35 +38,35 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetColumnsForEmployeeTable()
         {
             Console.WriteLine("Följande är kolumner i Personaltabellen");
-            GetMetadataListOfString(cronusclient.GetColumnsForEmployeeTable());
+            GetMetadataListOfString(cronusClient.GetColumnsForEmployeeTable());
             ExitQuestion();
         }
 
         public void GetKeys()
         {
             Console.WriteLine("Följande är alla nycklar: ");
-            GetMetadataListOfString(cronusclient.GetKeys());
+            GetMetadataListOfString(cronusClient.GetKeys());
             ExitQuestion();
         }
         
         public void GetIndexes()
         {
             Console.WriteLine("Följande är alla indexes: ");
-            GetMetadataListOfString(cronusclient.GetIndexes());
+            GetMetadataListOfString(cronusClient.GetIndexes());
             ExitQuestion();
         }
 
         public void GetTableConstraints()
         {
             Console.WriteLine("Följande är alla constraints: ");
-            GetMetadataListOfString(cronusclient.GetTableConstraints());
+            GetMetadataListOfString(cronusClient.GetTableConstraints());
             ExitQuestion();
         }
 
         public void GetTables()
         {
             Console.WriteLine("Följande är alla tables: ");
-            GetMetadataListOfString(cronusclient.GetTables());
+            GetMetadataListOfString(cronusClient.GetTables());
             ExitQuestion();
         }
         
@@ -84,41 +82,41 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetEmployeeMetadata()
         {
             Console.WriteLine("Employee Metadata är följande: ");
-            GetMetadataByDataTuples(cronusclient.GetEmployeeMetadata());
+            GetMetadataByDataTuples(cronusClient.GetEmployeeMetadata());
             ExitQuestion();
         }
         public void GetEmployeeAbsenceMetadata()
         {
             Console.WriteLine("Employee Absence Metadata är följande:");
-            GetMetadataByDataTuples(cronusclient.GetEmployeeAbsenceMetadata());
+            GetMetadataByDataTuples(cronusClient.GetEmployeeAbsenceMetadata());
             ExitQuestion();
         }
 
         public void GetEmployeeRelativeMetadata()
         {
             Console.WriteLine("Employee Relative Metadata är följande: ");
-            GetMetadataByDataTuples(cronusclient.GetEmployeeRelativeMetadata());
+            GetMetadataByDataTuples(cronusClient.GetEmployeeRelativeMetadata());
             ExitQuestion();
         }
         
         public void GetEmployeeQualificationMetadata()
         {
             Console.WriteLine("Employee Qualification Metadata är följande: ");
-            GetMetadataByDataTuples(cronusclient.GetEmployeeQualificationMetadata());
+            GetMetadataByDataTuples(cronusClient.GetEmployeeQualificationMetadata());
             ExitQuestion();
         }
         
         public void GetEmployeePortalSetupMetadata()
         {
             Console.WriteLine("Employee Portal Setup Metadata är följande: ");
-            GetMetadataByDataTuples(cronusclient.GetEmployeePortalSetupMetadata());
+            GetMetadataByDataTuples(cronusClient.GetEmployeePortalSetupMetadata());
             ExitQuestion();
         }
 
         public void GetEmployeeStatisticsGroupMetadata()
         {
             Console.WriteLine("Employee Statistics Group Metadata är följande: ");
-            GetMetadataByDataTuples(cronusclient.GetEmployeeStatisticsGroupMetadata());
+            GetMetadataByDataTuples(cronusClient.GetEmployeeStatisticsGroupMetadata());
             ExitQuestion();
         }
 
@@ -127,16 +125,16 @@ namespace Eventkalender.WS.ConsoleApp
             returnBool = false;
             Console.WriteLine("\nDu är nu tillbaka i Cronus huvudmenyn\n");
         }
+
         public void ExitQuestion()
         {
-            Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J, Återgå till Metadatamenyn? Tryck M");
+            Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J");
+            Console.WriteLine("Vill du återgå till senaste menyn? Skriv in valfritt värde");
             string userInput = Console.ReadLine();
-            userInput = userInput.Substring(0, 1);
             if (userInput.ToUpper().Equals("J"))
             {
                 returnBool = false;
             }
-
         }
 
         public void Start()
@@ -204,7 +202,7 @@ namespace Eventkalender.WS.ConsoleApp
                         GetEmployeeStatisticsGroupMetadata();
                         break;
                     case 0:
-                        eventApp.VeryGoodMethod();
+                        Program.VeryGoodMethod();
                         break;
                     case -1:
                         ReturnMethod();

@@ -15,6 +15,762 @@ namespace Eventkalender.PK.CronusReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://cali.cronus/")]
+    [System.SerializableAttribute()]
+    public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] TimestampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MiddleNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InitialsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JobTitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SearchNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Address2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PostCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MobilePhoneNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AltAddressCodeField;
+        
+        private System.DateTime AltAddressStartDateField;
+        
+        private System.DateTime AltAddressEndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] PictureField;
+        
+        private System.DateTime BirthDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SocialSecurityNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnionCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnionMembershipNoField;
+        
+        private int SexField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryRegionCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ManagerNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmploymentContractCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatisticsGroupCodeField;
+        
+        private System.DateTime EmploymentDateField;
+        
+        private int StatusField;
+        
+        private System.DateTime InactiveDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CauseOfInactivityCodeField;
+        
+        private System.DateTime TerminationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GroundsForTermCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GlobalDimension1CodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GlobalDimension2CodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResourceNoField;
+        
+        private System.DateTime LastDateModifiedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExtensionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PagerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaxNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SalesPersPurchCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoSeriesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public byte[] Timestamp {
+            get {
+                return this.TimestampField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TimestampField, value) != true)) {
+                    this.TimestampField = value;
+                    this.RaisePropertyChanged("Timestamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string No {
+            get {
+                return this.NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoField, value) != true)) {
+                    this.NoField = value;
+                    this.RaisePropertyChanged("No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string MiddleName {
+            get {
+                return this.MiddleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MiddleNameField, value) != true)) {
+                    this.MiddleNameField = value;
+                    this.RaisePropertyChanged("MiddleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string Initials {
+            get {
+                return this.InitialsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InitialsField, value) != true)) {
+                    this.InitialsField = value;
+                    this.RaisePropertyChanged("Initials");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string JobTitle {
+            get {
+                return this.JobTitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JobTitleField, value) != true)) {
+                    this.JobTitleField = value;
+                    this.RaisePropertyChanged("JobTitle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string SearchName {
+            get {
+                return this.SearchNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SearchNameField, value) != true)) {
+                    this.SearchNameField = value;
+                    this.RaisePropertyChanged("SearchName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string Address2 {
+            get {
+                return this.Address2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address2Field, value) != true)) {
+                    this.Address2Field = value;
+                    this.RaisePropertyChanged("Address2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public string PostCode {
+            get {
+                return this.PostCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostCodeField, value) != true)) {
+                    this.PostCodeField = value;
+                    this.RaisePropertyChanged("PostCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public string County {
+            get {
+                return this.CountyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountyField, value) != true)) {
+                    this.CountyField = value;
+                    this.RaisePropertyChanged("County");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string PhoneNo {
+            get {
+                return this.PhoneNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNoField, value) != true)) {
+                    this.PhoneNoField = value;
+                    this.RaisePropertyChanged("PhoneNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public string MobilePhoneNo {
+            get {
+                return this.MobilePhoneNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MobilePhoneNoField, value) != true)) {
+                    this.MobilePhoneNoField = value;
+                    this.RaisePropertyChanged("MobilePhoneNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=16)]
+        public string AltAddressCode {
+            get {
+                return this.AltAddressCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AltAddressCodeField, value) != true)) {
+                    this.AltAddressCodeField = value;
+                    this.RaisePropertyChanged("AltAddressCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
+        public System.DateTime AltAddressStartDate {
+            get {
+                return this.AltAddressStartDateField;
+            }
+            set {
+                if ((this.AltAddressStartDateField.Equals(value) != true)) {
+                    this.AltAddressStartDateField = value;
+                    this.RaisePropertyChanged("AltAddressStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=18)]
+        public System.DateTime AltAddressEndDate {
+            get {
+                return this.AltAddressEndDateField;
+            }
+            set {
+                if ((this.AltAddressEndDateField.Equals(value) != true)) {
+                    this.AltAddressEndDateField = value;
+                    this.RaisePropertyChanged("AltAddressEndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
+        public byte[] Picture {
+            get {
+                return this.PictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PictureField, value) != true)) {
+                    this.PictureField = value;
+                    this.RaisePropertyChanged("Picture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=20)]
+        public System.DateTime BirthDate {
+            get {
+                return this.BirthDateField;
+            }
+            set {
+                if ((this.BirthDateField.Equals(value) != true)) {
+                    this.BirthDateField = value;
+                    this.RaisePropertyChanged("BirthDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
+        public string SocialSecurityNo {
+            get {
+                return this.SocialSecurityNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SocialSecurityNoField, value) != true)) {
+                    this.SocialSecurityNoField = value;
+                    this.RaisePropertyChanged("SocialSecurityNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
+        public string UnionCode {
+            get {
+                return this.UnionCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnionCodeField, value) != true)) {
+                    this.UnionCodeField = value;
+                    this.RaisePropertyChanged("UnionCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
+        public string UnionMembershipNo {
+            get {
+                return this.UnionMembershipNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnionMembershipNoField, value) != true)) {
+                    this.UnionMembershipNoField = value;
+                    this.RaisePropertyChanged("UnionMembershipNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=24)]
+        public int Sex {
+            get {
+                return this.SexField;
+            }
+            set {
+                if ((this.SexField.Equals(value) != true)) {
+                    this.SexField = value;
+                    this.RaisePropertyChanged("Sex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=25)]
+        public string CountryRegionCode {
+            get {
+                return this.CountryRegionCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryRegionCodeField, value) != true)) {
+                    this.CountryRegionCodeField = value;
+                    this.RaisePropertyChanged("CountryRegionCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
+        public string ManagerNo {
+            get {
+                return this.ManagerNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ManagerNoField, value) != true)) {
+                    this.ManagerNoField = value;
+                    this.RaisePropertyChanged("ManagerNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
+        public string EmploymentContractCode {
+            get {
+                return this.EmploymentContractCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmploymentContractCodeField, value) != true)) {
+                    this.EmploymentContractCodeField = value;
+                    this.RaisePropertyChanged("EmploymentContractCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=28)]
+        public string StatisticsGroupCode {
+            get {
+                return this.StatisticsGroupCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatisticsGroupCodeField, value) != true)) {
+                    this.StatisticsGroupCodeField = value;
+                    this.RaisePropertyChanged("StatisticsGroupCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=29)]
+        public System.DateTime EmploymentDate {
+            get {
+                return this.EmploymentDateField;
+            }
+            set {
+                if ((this.EmploymentDateField.Equals(value) != true)) {
+                    this.EmploymentDateField = value;
+                    this.RaisePropertyChanged("EmploymentDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=30)]
+        public int Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=31)]
+        public System.DateTime InactiveDate {
+            get {
+                return this.InactiveDateField;
+            }
+            set {
+                if ((this.InactiveDateField.Equals(value) != true)) {
+                    this.InactiveDateField = value;
+                    this.RaisePropertyChanged("InactiveDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=32)]
+        public string CauseOfInactivityCode {
+            get {
+                return this.CauseOfInactivityCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CauseOfInactivityCodeField, value) != true)) {
+                    this.CauseOfInactivityCodeField = value;
+                    this.RaisePropertyChanged("CauseOfInactivityCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=33)]
+        public System.DateTime TerminationDate {
+            get {
+                return this.TerminationDateField;
+            }
+            set {
+                if ((this.TerminationDateField.Equals(value) != true)) {
+                    this.TerminationDateField = value;
+                    this.RaisePropertyChanged("TerminationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=34)]
+        public string GroundsForTermCode {
+            get {
+                return this.GroundsForTermCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroundsForTermCodeField, value) != true)) {
+                    this.GroundsForTermCodeField = value;
+                    this.RaisePropertyChanged("GroundsForTermCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=35)]
+        public string GlobalDimension1Code {
+            get {
+                return this.GlobalDimension1CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GlobalDimension1CodeField, value) != true)) {
+                    this.GlobalDimension1CodeField = value;
+                    this.RaisePropertyChanged("GlobalDimension1Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=36)]
+        public string GlobalDimension2Code {
+            get {
+                return this.GlobalDimension2CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GlobalDimension2CodeField, value) != true)) {
+                    this.GlobalDimension2CodeField = value;
+                    this.RaisePropertyChanged("GlobalDimension2Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=37)]
+        public string ResourceNo {
+            get {
+                return this.ResourceNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResourceNoField, value) != true)) {
+                    this.ResourceNoField = value;
+                    this.RaisePropertyChanged("ResourceNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=38)]
+        public System.DateTime LastDateModified {
+            get {
+                return this.LastDateModifiedField;
+            }
+            set {
+                if ((this.LastDateModifiedField.Equals(value) != true)) {
+                    this.LastDateModifiedField = value;
+                    this.RaisePropertyChanged("LastDateModified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=39)]
+        public string Extension {
+            get {
+                return this.ExtensionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExtensionField, value) != true)) {
+                    this.ExtensionField = value;
+                    this.RaisePropertyChanged("Extension");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=40)]
+        public string Pager {
+            get {
+                return this.PagerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PagerField, value) != true)) {
+                    this.PagerField = value;
+                    this.RaisePropertyChanged("Pager");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=41)]
+        public string FaxNo {
+            get {
+                return this.FaxNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaxNoField, value) != true)) {
+                    this.FaxNoField = value;
+                    this.RaisePropertyChanged("FaxNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=42)]
+        public string CompanyEmail {
+            get {
+                return this.CompanyEmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyEmailField, value) != true)) {
+                    this.CompanyEmailField = value;
+                    this.RaisePropertyChanged("CompanyEmail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=43)]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=44)]
+        public string SalesPersPurchCode {
+            get {
+                return this.SalesPersPurchCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SalesPersPurchCodeField, value) != true)) {
+                    this.SalesPersPurchCodeField = value;
+                    this.RaisePropertyChanged("SalesPersPurchCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=45)]
+        public string NoSeries {
+            get {
+                return this.NoSeriesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoSeriesField, value) != true)) {
+                    this.NoSeriesField = value;
+                    this.RaisePropertyChanged("NoSeries");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://cali.cronus/", ItemName="string")]
     [System.SerializableAttribute()]
     public class ArrayOfString : System.Collections.Generic.List<string> {
@@ -91,6 +847,41 @@ namespace Eventkalender.PK.CronusReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://cali.cronus/", ConfigurationName="CronusReference.CronusServiceSoap")]
     public interface CronusServiceSoap {
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/UpdateEmployee", ReplyAction="*")]
+        Eventkalender.PK.CronusReference.UpdateEmployeeResponse UpdateEmployee(Eventkalender.PK.CronusReference.UpdateEmployeeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/UpdateEmployee", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.UpdateEmployeeResponse> UpdateEmployeeAsync(Eventkalender.PK.CronusReference.UpdateEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployee", ReplyAction="*")]
+        Eventkalender.PK.CronusReference.GetEmployeeResponse GetEmployee(Eventkalender.PK.CronusReference.GetEmployeeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployee", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeResponse> GetEmployeeAsync(Eventkalender.PK.CronusReference.GetEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetEmployeesResult from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployees", ReplyAction="*")]
+        Eventkalender.PK.CronusReference.GetEmployeesResponse GetEmployees(Eventkalender.PK.CronusReference.GetEmployeesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployees", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeesResponse> GetEmployeesAsync(Eventkalender.PK.CronusReference.GetEmployeesRequest request);
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/AddEmployee", ReplyAction="*")]
+        Eventkalender.PK.CronusReference.AddEmployeeResponse AddEmployee(Eventkalender.PK.CronusReference.AddEmployeeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/AddEmployee", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.AddEmployeeResponse> AddEmployeeAsync(Eventkalender.PK.CronusReference.AddEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://cali.cronus/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/DeleteEmployee", ReplyAction="*")]
+        Eventkalender.PK.CronusReference.DeleteEmployeeResponse DeleteEmployee(Eventkalender.PK.CronusReference.DeleteEmployeeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/DeleteEmployee", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.DeleteEmployeeResponse> DeleteEmployeeAsync(Eventkalender.PK.CronusReference.DeleteEmployeeRequest request);
         
         // CODEGEN: Generating message contract since element name GetKeysResult from namespace http://cali.cronus/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetKeys", ReplyAction="*")]
@@ -231,6 +1022,334 @@ namespace Eventkalender.PK.CronusReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://cali.cronus/GetEmployeeStatisticsGroupMetadata", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataResponse> GetEmployeeStatisticsGroupMetadataAsync(Eventkalender.PK.CronusReference.GetEmployeeStatisticsGroupMetadataRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateEmployee", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.UpdateEmployeeRequestBody Body;
+        
+        public UpdateEmployeeRequest() {
+        }
+        
+        public UpdateEmployeeRequest(Eventkalender.PK.CronusReference.UpdateEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
+    public partial class UpdateEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string firstName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string lastName;
+        
+        public UpdateEmployeeRequestBody() {
+        }
+        
+        public UpdateEmployeeRequestBody(string no, string firstName, string lastName) {
+            this.no = no;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateEmployeeResponse", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.UpdateEmployeeResponseBody Body;
+        
+        public UpdateEmployeeResponse() {
+        }
+        
+        public UpdateEmployeeResponse(Eventkalender.PK.CronusReference.UpdateEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateEmployeeResponseBody {
+        
+        public UpdateEmployeeResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployee", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.GetEmployeeRequestBody Body;
+        
+        public GetEmployeeRequest() {
+        }
+        
+        public GetEmployeeRequest(Eventkalender.PK.CronusReference.GetEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
+    public partial class GetEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        public GetEmployeeRequestBody() {
+        }
+        
+        public GetEmployeeRequestBody(string no) {
+            this.no = no;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeResponse", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.GetEmployeeResponseBody Body;
+        
+        public GetEmployeeResponse() {
+        }
+        
+        public GetEmployeeResponse(Eventkalender.PK.CronusReference.GetEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
+    public partial class GetEmployeeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Eventkalender.PK.CronusReference.Employee GetEmployeeResult;
+        
+        public GetEmployeeResponseBody() {
+        }
+        
+        public GetEmployeeResponseBody(Eventkalender.PK.CronusReference.Employee GetEmployeeResult) {
+            this.GetEmployeeResult = GetEmployeeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmployeesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployees", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.GetEmployeesRequestBody Body;
+        
+        public GetEmployeesRequest() {
+        }
+        
+        public GetEmployeesRequest(Eventkalender.PK.CronusReference.GetEmployeesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetEmployeesRequestBody {
+        
+        public GetEmployeesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmployeesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeesResponse", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.GetEmployeesResponseBody Body;
+        
+        public GetEmployeesResponse() {
+        }
+        
+        public GetEmployeesResponse(Eventkalender.PK.CronusReference.GetEmployeesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
+    public partial class GetEmployeesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Eventkalender.PK.CronusReference.Employee[] GetEmployeesResult;
+        
+        public GetEmployeesResponseBody() {
+        }
+        
+        public GetEmployeesResponseBody(Eventkalender.PK.CronusReference.Employee[] GetEmployeesResult) {
+            this.GetEmployeesResult = GetEmployeesResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddEmployee", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.AddEmployeeRequestBody Body;
+        
+        public AddEmployeeRequest() {
+        }
+        
+        public AddEmployeeRequest(Eventkalender.PK.CronusReference.AddEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
+    public partial class AddEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string firstName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string lastName;
+        
+        public AddEmployeeRequestBody() {
+        }
+        
+        public AddEmployeeRequestBody(string no, string firstName, string lastName) {
+            this.no = no;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddEmployeeResponse", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.AddEmployeeResponseBody Body;
+        
+        public AddEmployeeResponse() {
+        }
+        
+        public AddEmployeeResponse(Eventkalender.PK.CronusReference.AddEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AddEmployeeResponseBody {
+        
+        public AddEmployeeResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteEmployee", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.DeleteEmployeeRequestBody Body;
+        
+        public DeleteEmployeeRequest() {
+        }
+        
+        public DeleteEmployeeRequest(Eventkalender.PK.CronusReference.DeleteEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.cronus/")]
+    public partial class DeleteEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        public DeleteEmployeeRequestBody() {
+        }
+        
+        public DeleteEmployeeRequestBody(string no) {
+            this.no = no;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteEmployeeResponse", Namespace="http://cali.cronus/", Order=0)]
+        public Eventkalender.PK.CronusReference.DeleteEmployeeResponseBody Body;
+        
+        public DeleteEmployeeResponse() {
+        }
+        
+        public DeleteEmployeeResponse(Eventkalender.PK.CronusReference.DeleteEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class DeleteEmployeeResponseBody {
+        
+        public DeleteEmployeeResponseBody() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1489,6 +2608,134 @@ namespace Eventkalender.PK.CronusReference {
         
         public CronusServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.CronusReference.UpdateEmployeeResponse Eventkalender.PK.CronusReference.CronusServiceSoap.UpdateEmployee(Eventkalender.PK.CronusReference.UpdateEmployeeRequest request) {
+            return base.Channel.UpdateEmployee(request);
+        }
+        
+        public void UpdateEmployee(string no, string firstName, string lastName) {
+            Eventkalender.PK.CronusReference.UpdateEmployeeRequest inValue = new Eventkalender.PK.CronusReference.UpdateEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.UpdateEmployeeRequestBody();
+            inValue.Body.no = no;
+            inValue.Body.firstName = firstName;
+            inValue.Body.lastName = lastName;
+            Eventkalender.PK.CronusReference.UpdateEmployeeResponse retVal = ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).UpdateEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.UpdateEmployeeResponse> Eventkalender.PK.CronusReference.CronusServiceSoap.UpdateEmployeeAsync(Eventkalender.PK.CronusReference.UpdateEmployeeRequest request) {
+            return base.Channel.UpdateEmployeeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.UpdateEmployeeResponse> UpdateEmployeeAsync(string no, string firstName, string lastName) {
+            Eventkalender.PK.CronusReference.UpdateEmployeeRequest inValue = new Eventkalender.PK.CronusReference.UpdateEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.UpdateEmployeeRequestBody();
+            inValue.Body.no = no;
+            inValue.Body.firstName = firstName;
+            inValue.Body.lastName = lastName;
+            return ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).UpdateEmployeeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.CronusReference.GetEmployeeResponse Eventkalender.PK.CronusReference.CronusServiceSoap.GetEmployee(Eventkalender.PK.CronusReference.GetEmployeeRequest request) {
+            return base.Channel.GetEmployee(request);
+        }
+        
+        public Eventkalender.PK.CronusReference.Employee GetEmployee(string no) {
+            Eventkalender.PK.CronusReference.GetEmployeeRequest inValue = new Eventkalender.PK.CronusReference.GetEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.GetEmployeeRequestBody();
+            inValue.Body.no = no;
+            Eventkalender.PK.CronusReference.GetEmployeeResponse retVal = ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).GetEmployee(inValue);
+            return retVal.Body.GetEmployeeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeResponse> Eventkalender.PK.CronusReference.CronusServiceSoap.GetEmployeeAsync(Eventkalender.PK.CronusReference.GetEmployeeRequest request) {
+            return base.Channel.GetEmployeeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeeResponse> GetEmployeeAsync(string no) {
+            Eventkalender.PK.CronusReference.GetEmployeeRequest inValue = new Eventkalender.PK.CronusReference.GetEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.GetEmployeeRequestBody();
+            inValue.Body.no = no;
+            return ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).GetEmployeeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.CronusReference.GetEmployeesResponse Eventkalender.PK.CronusReference.CronusServiceSoap.GetEmployees(Eventkalender.PK.CronusReference.GetEmployeesRequest request) {
+            return base.Channel.GetEmployees(request);
+        }
+        
+        public Eventkalender.PK.CronusReference.Employee[] GetEmployees() {
+            Eventkalender.PK.CronusReference.GetEmployeesRequest inValue = new Eventkalender.PK.CronusReference.GetEmployeesRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.GetEmployeesRequestBody();
+            Eventkalender.PK.CronusReference.GetEmployeesResponse retVal = ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).GetEmployees(inValue);
+            return retVal.Body.GetEmployeesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeesResponse> Eventkalender.PK.CronusReference.CronusServiceSoap.GetEmployeesAsync(Eventkalender.PK.CronusReference.GetEmployeesRequest request) {
+            return base.Channel.GetEmployeesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.GetEmployeesResponse> GetEmployeesAsync() {
+            Eventkalender.PK.CronusReference.GetEmployeesRequest inValue = new Eventkalender.PK.CronusReference.GetEmployeesRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.GetEmployeesRequestBody();
+            return ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).GetEmployeesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.CronusReference.AddEmployeeResponse Eventkalender.PK.CronusReference.CronusServiceSoap.AddEmployee(Eventkalender.PK.CronusReference.AddEmployeeRequest request) {
+            return base.Channel.AddEmployee(request);
+        }
+        
+        public void AddEmployee(string no, string firstName, string lastName) {
+            Eventkalender.PK.CronusReference.AddEmployeeRequest inValue = new Eventkalender.PK.CronusReference.AddEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.AddEmployeeRequestBody();
+            inValue.Body.no = no;
+            inValue.Body.firstName = firstName;
+            inValue.Body.lastName = lastName;
+            Eventkalender.PK.CronusReference.AddEmployeeResponse retVal = ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).AddEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.AddEmployeeResponse> Eventkalender.PK.CronusReference.CronusServiceSoap.AddEmployeeAsync(Eventkalender.PK.CronusReference.AddEmployeeRequest request) {
+            return base.Channel.AddEmployeeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.AddEmployeeResponse> AddEmployeeAsync(string no, string firstName, string lastName) {
+            Eventkalender.PK.CronusReference.AddEmployeeRequest inValue = new Eventkalender.PK.CronusReference.AddEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.AddEmployeeRequestBody();
+            inValue.Body.no = no;
+            inValue.Body.firstName = firstName;
+            inValue.Body.lastName = lastName;
+            return ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).AddEmployeeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.CronusReference.DeleteEmployeeResponse Eventkalender.PK.CronusReference.CronusServiceSoap.DeleteEmployee(Eventkalender.PK.CronusReference.DeleteEmployeeRequest request) {
+            return base.Channel.DeleteEmployee(request);
+        }
+        
+        public void DeleteEmployee(string no) {
+            Eventkalender.PK.CronusReference.DeleteEmployeeRequest inValue = new Eventkalender.PK.CronusReference.DeleteEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.DeleteEmployeeRequestBody();
+            inValue.Body.no = no;
+            Eventkalender.PK.CronusReference.DeleteEmployeeResponse retVal = ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).DeleteEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.DeleteEmployeeResponse> Eventkalender.PK.CronusReference.CronusServiceSoap.DeleteEmployeeAsync(Eventkalender.PK.CronusReference.DeleteEmployeeRequest request) {
+            return base.Channel.DeleteEmployeeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.CronusReference.DeleteEmployeeResponse> DeleteEmployeeAsync(string no) {
+            Eventkalender.PK.CronusReference.DeleteEmployeeRequest inValue = new Eventkalender.PK.CronusReference.DeleteEmployeeRequest();
+            inValue.Body = new Eventkalender.PK.CronusReference.DeleteEmployeeRequestBody();
+            inValue.Body.no = no;
+            return ((Eventkalender.PK.CronusReference.CronusServiceSoap)(this)).DeleteEmployeeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

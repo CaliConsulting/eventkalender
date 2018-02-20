@@ -2,6 +2,119 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cali.cronus/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cali.cronus/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://cali.cronus/">
+      <s:element name="UpdateEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Employee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Timestamp" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="No" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobilePhoneNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AltAddressCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AltAddressStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AltAddressEndDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Picture" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SocialSecurityNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnionMembershipNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryRegionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManagerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmploymentContractCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatisticsGroupCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EmploymentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InactiveDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CauseOfInactivityCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TerminationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroundsForTermCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalDimension1Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalDimension2Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResourceNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastDateModified" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPersPurchCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoSeries" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmployees">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeesResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEmployeeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="GetKeys">
         <s:complexType />
       </s:element>
@@ -230,6 +343,36 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="UpdateEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEmployee" />
+  </wsdl:message>
+  <wsdl:message name="AddEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
+  </wsdl:message>
   <wsdl:message name="GetKeysSoapIn">
     <wsdl:part name="parameters" element="tns:GetKeys" />
   </wsdl:message>
@@ -351,6 +494,26 @@
     <wsdl:part name="parameters" element="tns:GetEmployeeStatisticsGroupMetadataResponse" />
   </wsdl:message>
   <wsdl:portType name="CronusServiceSoap">
+    <wsdl:operation name="UpdateEmployee">
+      <wsdl:input message="tns:UpdateEmployeeSoapIn" />
+      <wsdl:output message="tns:UpdateEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input message="tns:GetEmployeeSoapIn" />
+      <wsdl:output message="tns:GetEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input message="tns:GetEmployeesSoapIn" />
+      <wsdl:output message="tns:GetEmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <wsdl:input message="tns:AddEmployeeSoapIn" />
+      <wsdl:output message="tns:AddEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <wsdl:input message="tns:DeleteEmployeeSoapIn" />
+      <wsdl:output message="tns:DeleteEmployeeSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetKeys">
       <wsdl:input message="tns:GetKeysSoapIn" />
       <wsdl:output message="tns:GetKeysSoapOut" />
@@ -434,6 +597,51 @@
   </wsdl:portType>
   <wsdl:binding name="CronusServiceSoap" type="tns:CronusServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateEmployee">
+      <soap:operation soapAction="http://cali.cronus/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="http://cali.cronus/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap:operation soapAction="http://cali.cronus/GetEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <soap:operation soapAction="http://cali.cronus/AddEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap:operation soapAction="http://cali.cronus/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetKeys">
       <soap:operation soapAction="http://cali.cronus/GetKeys" style="document" />
       <wsdl:input>
@@ -617,6 +825,51 @@
   </wsdl:binding>
   <wsdl:binding name="CronusServiceSoap12" type="tns:CronusServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateEmployee">
+      <soap12:operation soapAction="http://cali.cronus/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <soap12:operation soapAction="http://cali.cronus/AddEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap12:operation soapAction="http://cali.cronus/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetKeys">
       <soap12:operation soapAction="http://cali.cronus/GetKeys" style="document" />
       <wsdl:input>

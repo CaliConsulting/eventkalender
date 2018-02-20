@@ -73,7 +73,6 @@ namespace Eventkalender.Database
         }
 
         //HÄR BÖRJAR DATADAL
-
         public DataTuple GetIllestPerson()
         {
             return dataDAL.GetIllestPerson();
@@ -117,6 +116,37 @@ namespace Eventkalender.Database
         public List<DataTuple> GetEmployeeStatisticsGroupData()
         {
             return dataDAL.GetEmployeeStatisticsGroupData();
+        }
+
+        // HÄR BÖRJAR SPECIFIKA EMPLOYEE-OPERATIONER
+
+        public void AddEmployee(string no, string firstName, string lastName)
+        {
+            Employee e = new Employee(no, firstName, lastName);
+            dataDAL.AddEmployee(e);
+        }
+
+        public void DeleteEmployee(string no)
+        {
+            Employee e = new Employee();
+            e.No = no;
+            dataDAL.DeleteEmployee(e);
+        }
+
+        public Employee GetEmployee(string no)
+        {
+            return dataDAL.GetEmployee(no);
+        }
+
+        public List<Employee> GetEmployees()
+        {
+            return dataDAL.GetEmployees();
+        }
+
+        public void UpdateEmployee(string no, string firstName, string lastName)
+        {
+            Employee e = new Employee(no, firstName, lastName);
+            dataDAL.UpdateEmployee(e);
         }
 
     }

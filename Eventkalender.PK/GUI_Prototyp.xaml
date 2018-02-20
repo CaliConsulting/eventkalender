@@ -300,9 +300,9 @@
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="First Name" Width="auto" Binding="{Binding Path=FirstName}"/>
-                                            <DataGridTextColumn Header="Last Name" Width="auto" Binding="{Binding Path=LastName}"/>
-                                            <DataGridTextColumn Header="Attending Events" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                            <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
+                                            <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Deltar i evenemang" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
@@ -421,7 +421,8 @@
                                       Canvas.Left="150"
                                       Width="150"
                                       IsEditable="True"
-                                      ItemsSource="{Binding Path=DataCombobox}"    
+                                      ItemsSource="{Binding Path=DataCombobox}"
+                                      SelectedIndex="{Binding Path=DataSelectedIndex}"
                                       IsTextSearchEnabled="True" 
                                       SelectionChanged="cmbData_SelectionChanged">
                             </ComboBox>

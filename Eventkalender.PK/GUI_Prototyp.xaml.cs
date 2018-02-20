@@ -153,7 +153,8 @@ namespace Eventkalender.PK.GUI
         {
             if (txtBoxFirstName.Text != "" && txtBoxLastName.Text != "")
             {
-                eventkalenderController.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
+                eventkalenderViewModel.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
+                //eventkalenderController.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
                 txtBoxFirstName.Text = "";
                 txtBoxLastName.Text = "";
             }

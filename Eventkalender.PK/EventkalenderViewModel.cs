@@ -19,6 +19,7 @@ namespace Eventkalender.PK.GUI
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
         private ObservableCollection<Database.Person> persons;
+        EventkalenderDAL eventkalenderDAL = new EventkalenderDAL("Resources/eventkalender-db");
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -109,6 +110,38 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-      
+        public void AddNation(string name)
+        {
+            Nation n = new Nation(name);
+
+            Nations.Add(n);
+            eventkalenderDAL.AddNation(n);
+        }
+
+        public void DeleteNation(int id)
+        {
+            Nation n = new Nation("");
+            n.Id = id;
+
+            Nations.Remove(n);
+            eventkalenderDAL.DeleteNation(n);
+        }
+        
+        public void AddPerson(string name, string lastname)
+        {
+            Person p = new Person(name, lastname);
+
+            Persons.Add(p);
+            eventkalenderDAL.AddPerson(p);
+        }
+
+        public void DeletePerson(int id)
+        {
+            Person p = new Person("","");
+            p.Id = id;
+
+            Persons.Remove(p);
+            eventkalenderDAL.DeletePerson(p);
+        }
     }
 }

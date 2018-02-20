@@ -432,7 +432,7 @@
                                       Width="150"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
-                                      SelectedIndex="{Binding Path=MetadataSelectedIndex}"
+                                      SelectedItem="{Binding Path=MetadataSelectedItem}"
                                       IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged">
                             </ComboBox>
 
@@ -443,7 +443,7 @@
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
                                       IsReadOnly="True"
-                                      ItemsSource="{Binding Path=EventList}">
+                                      ItemsSource="{Binding Path=Data}">
                             </DataGrid>
                             <TextBlock Canvas.Bottom="10"
                                        Canvas.Left="10"

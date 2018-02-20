@@ -1,11 +1,13 @@
 ﻿using Eventkalender.Database;
+using Eventkalender.WS;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-[WebService(Namespace = "http://www.ics.lu.se.cali/")]
+[WebService(Namespace = "http://cali.eventkalender/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 public class EventkalenderService : WebService
 {
@@ -13,20 +15,38 @@ public class EventkalenderService : WebService
 
     public EventkalenderService()
     {
-        eventkalenderController = new EventkalenderController();
-
-        //Uncomment the following line if using designed components 
-        //InitializeComponent(); 
+        string databaseFilePath = PathUtility.GetPhysicalPath("~/App_Data") + "/eventkalender-db.xml";
+        eventkalenderController = new EventkalenderController(databaseFilePath);
     }
 
     [WebMethod]
-    public string Testmetod()
+    public string GetFile(string path)
     {
-        return "Det är en testmetod";
+        string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        if (File.Exists(filePath))
+        {
+            return File.ReadAllText(filePath);
+        }
+        return string.Empty;
     }
 
     [WebMethod]
-    public Nation GetNation(int id) {
+    public void AddFile(string path, string content)
+    {
+        string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);
+        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+        using (FileStream ms = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
+        {
+            using (StreamWriter sw = new StreamWriter(ms))
+            {
+                sw.Write(content);
+            }
+        }
+    }
+
+    [WebMethod]
+    public Nation GetNation(int id)
+    {
         return eventkalenderController.GetNation(id);
     }
 
@@ -40,14 +60,13 @@ public class EventkalenderService : WebService
     public void AddNation(string name)
     {
         eventkalenderController.AddNation(name);
-       //parameter in här med namn?? string name?
     }
 
     [WebMethod]
-    public void AddEvent(string name, string summary, DateTime startTime , DateTime endTime)
+    public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
     {
-        eventkalenderController.AddEvent(name,summary, startTime, endTime);
-        //parameter in här med namn?? string name?
+        //Lösning så att tid sätts in i rätt format för datetime?
+        eventkalenderController.AddEvent(name, summary, startTime, endTime, nationId);
     }
 
     [WebMethod]
@@ -66,7 +85,6 @@ public class EventkalenderService : WebService
     public void AddPerson(string firstName, string lastName)
     {
         eventkalenderController.AddPerson(firstName, lastName);
-        //parameter in här med namn?? string name?
     }
 
     [WebMethod]

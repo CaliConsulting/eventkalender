@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cali.cronus/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cali.cronus/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cali.cronus/">
+      <s:element name="GetKeys">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetKeysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKeysResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIndexes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIndexesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTableConstraints">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTableConstraintsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTableConstraintsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTables">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTablesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetColumnsForEmployeeTable">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetColumnsForEmployeeTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetColumnsForEmployeeTableResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIllestPerson">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIllestPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIllestPersonResult" type="tns:DataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataTuple">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Entry" type="tns:SerializableKeyValuePairOfStringString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerializableKeyValuePairOfStringString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIllPersonsByYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIllPersonsByYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIllPersonsByYearResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataTuple">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataTuple" nillable="true" type="tns:DataTuple" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmployeeAndRelatives">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeAndRelativesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAndRelativesResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeDataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeAbsenceData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeAbsenceDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAbsenceDataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeRelativeData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeRelativeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeRelativeDataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeQualificationData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeQualificationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeQualificationDataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeePortalSetupData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeePortalSetupDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeePortalSetupDataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeStatisticsGroupData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeStatisticsGroupDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeStatisticsGroupDataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeMetadataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeAbsenceMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeAbsenceMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAbsenceMetadataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeRelativeMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeRelativeMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeRelativeMetadataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeQualificationMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeQualificationMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeQualificationMetadataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeePortalSetupMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeePortalSetupMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeePortalSetupMetadataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeStatisticsGroupMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeStatisticsGroupMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeStatisticsGroupMetadataResult" type="tns:ArrayOfDataTuple" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetKeysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKeys" />
+  </wsdl:message>
+  <wsdl:message name="GetKeysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKeysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexes" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTableConstraintsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTableConstraints" />
+  </wsdl:message>
+  <wsdl:message name="GetTableConstraintsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTableConstraintsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTablesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTables" />
+  </wsdl:message>
+  <wsdl:message name="GetTablesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetColumnsForEmployeeTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetColumnsForEmployeeTable" />
+  </wsdl:message>
+  <wsdl:message name="GetColumnsForEmployeeTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetColumnsForEmployeeTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIllestPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIllestPerson" />
+  </wsdl:message>
+  <wsdl:message name="GetIllestPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIllestPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIllPersonsByYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIllPersonsByYear" />
+  </wsdl:message>
+  <wsdl:message name="GetIllPersonsByYearSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIllPersonsByYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAndRelativesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAndRelatives" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAndRelativesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAndRelativesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAbsenceDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAbsenceData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAbsenceDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAbsenceDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRelativeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeRelativeData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRelativeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeRelativeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeQualificationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeQualificationData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeQualificationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeQualificationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeePortalSetupDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeePortalSetupData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeePortalSetupDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeePortalSetupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeStatisticsGroupDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeStatisticsGroupData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeStatisticsGroupDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeStatisticsGroupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAbsenceMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAbsenceMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAbsenceMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAbsenceMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRelativeMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeRelativeMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRelativeMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeRelativeMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeQualificationMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeQualificationMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeQualificationMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeQualificationMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeePortalSetupMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeePortalSetupMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeePortalSetupMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeePortalSetupMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeStatisticsGroupMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeStatisticsGroupMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeStatisticsGroupMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeStatisticsGroupMetadataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CronusServiceSoap">
+    <wsdl:operation name="GetKeys">
+      <wsdl:input message="tns:GetKeysSoapIn" />
+      <wsdl:output message="tns:GetKeysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexes">
+      <wsdl:input message="tns:GetIndexesSoapIn" />
+      <wsdl:output message="tns:GetIndexesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTableConstraints">
+      <wsdl:input message="tns:GetTableConstraintsSoapIn" />
+      <wsdl:output message="tns:GetTableConstraintsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTables">
+      <wsdl:input message="tns:GetTablesSoapIn" />
+      <wsdl:output message="tns:GetTablesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetColumnsForEmployeeTable">
+      <wsdl:input message="tns:GetColumnsForEmployeeTableSoapIn" />
+      <wsdl:output message="tns:GetColumnsForEmployeeTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIllestPerson">
+      <wsdl:input message="tns:GetIllestPersonSoapIn" />
+      <wsdl:output message="tns:GetIllestPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIllPersonsByYear">
+      <wsdl:input message="tns:GetIllPersonsByYearSoapIn" />
+      <wsdl:output message="tns:GetIllPersonsByYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAndRelatives">
+      <wsdl:input message="tns:GetEmployeeAndRelativesSoapIn" />
+      <wsdl:output message="tns:GetEmployeeAndRelativesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeData">
+      <wsdl:input message="tns:GetEmployeeDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAbsenceData">
+      <wsdl:input message="tns:GetEmployeeAbsenceDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeAbsenceDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRelativeData">
+      <wsdl:input message="tns:GetEmployeeRelativeDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeRelativeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQualificationData">
+      <wsdl:input message="tns:GetEmployeeQualificationDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeQualificationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePortalSetupData">
+      <wsdl:input message="tns:GetEmployeePortalSetupDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeePortalSetupDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeStatisticsGroupData">
+      <wsdl:input message="tns:GetEmployeeStatisticsGroupDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeStatisticsGroupDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeMetadata">
+      <wsdl:input message="tns:GetEmployeeMetadataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAbsenceMetadata">
+      <wsdl:input message="tns:GetEmployeeAbsenceMetadataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeAbsenceMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRelativeMetadata">
+      <wsdl:input message="tns:GetEmployeeRelativeMetadataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeRelativeMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQualificationMetadata">
+      <wsdl:input message="tns:GetEmployeeQualificationMetadataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeQualificationMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePortalSetupMetadata">
+      <wsdl:input message="tns:GetEmployeePortalSetupMetadataSoapIn" />
+      <wsdl:output message="tns:GetEmployeePortalSetupMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeStatisticsGroupMetadata">
+      <wsdl:input message="tns:GetEmployeeStatisticsGroupMetadataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeStatisticsGroupMetadataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CronusServiceSoap" type="tns:CronusServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetKeys">
+      <soap:operation soapAction="http://cali.cronus/GetKeys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexes">
+      <soap:operation soapAction="http://cali.cronus/GetIndexes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTableConstraints">
+      <soap:operation soapAction="http://cali.cronus/GetTableConstraints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTables">
+      <soap:operation soapAction="http://cali.cronus/GetTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumnsForEmployeeTable">
+      <soap:operation soapAction="http://cali.cronus/GetColumnsForEmployeeTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIllestPerson">
+      <soap:operation soapAction="http://cali.cronus/GetIllestPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIllPersonsByYear">
+      <soap:operation soapAction="http://cali.cronus/GetIllPersonsByYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAndRelatives">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeAndRelatives" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeData">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAbsenceData">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeAbsenceData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRelativeData">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeRelativeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQualificationData">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeQualificationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePortalSetupData">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeePortalSetupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeStatisticsGroupData">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeMetadata">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAbsenceMetadata">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeAbsenceMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRelativeMetadata">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeRelativeMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQualificationMetadata">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeQualificationMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePortalSetupMetadata">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeePortalSetupMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeStatisticsGroupMetadata">
+      <soap:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CronusServiceSoap12" type="tns:CronusServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetKeys">
+      <soap12:operation soapAction="http://cali.cronus/GetKeys" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexes">
+      <soap12:operation soapAction="http://cali.cronus/GetIndexes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTableConstraints">
+      <soap12:operation soapAction="http://cali.cronus/GetTableConstraints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTables">
+      <soap12:operation soapAction="http://cali.cronus/GetTables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumnsForEmployeeTable">
+      <soap12:operation soapAction="http://cali.cronus/GetColumnsForEmployeeTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIllestPerson">
+      <soap12:operation soapAction="http://cali.cronus/GetIllestPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIllPersonsByYear">
+      <soap12:operation soapAction="http://cali.cronus/GetIllPersonsByYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAndRelatives">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeAndRelatives" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeData">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAbsenceData">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeAbsenceData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRelativeData">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeRelativeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQualificationData">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeQualificationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePortalSetupData">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeePortalSetupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeStatisticsGroupData">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeMetadata">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAbsenceMetadata">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeAbsenceMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRelativeMetadata">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeRelativeMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQualificationMetadata">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeQualificationMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePortalSetupMetadata">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeePortalSetupMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeStatisticsGroupMetadata">
+      <soap12:operation soapAction="http://cali.cronus/GetEmployeeStatisticsGroupMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CronusService">
+    <wsdl:port name="CronusServiceSoap" binding="tns:CronusServiceSoap">
+      <soap:address location="http://localhost/EventkalenderWS/CronusService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CronusServiceSoap12" binding="tns:CronusServiceSoap12">
+      <soap12:address location="http://localhost/EventkalenderWS/CronusService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -4,6 +4,7 @@ using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -49,5 +50,34 @@ namespace Eventkalender.Database
             xmlValues.Add("Password", doc.Root.Element("Password").Value);
             return xmlValues;
         }
+
+        public static void WarmupEntityFramework2(object xmlPath)
+        {
+            string path = xmlPath as string;
+            EventkalenderController c = new EventkalenderController(path);
+            List<Nation> nations = c.GetNations();
+
+            Console.WriteLine("WARMUP2 DONE");
+
+            //foreach (Nation n in nations)
+            //{
+            //    Console.WriteLine(n);
+            //}
+
+            //string path = xmlPath as string;
+            //using (EventkalenderContext context = new EventkalenderContext(path))
+            //{
+            //    context.Nation.FirstOrDefault();
+            //}
+        }
+
+        public static void WarmupEntityFramework(string xmlPath)
+        {
+            ParameterizedThreadStart pts = new ParameterizedThreadStart(WarmupEntityFramework2);
+            Thread t = new Thread(pts);
+            t.Start(xmlPath);
+            Console.WriteLine("WARMUP DONE");
+        }
+
     }
 }

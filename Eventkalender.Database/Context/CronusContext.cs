@@ -10,10 +10,9 @@ namespace Eventkalender.Database
 {
     public class CronusContext : DbContext
     {
-        public CronusContext() : base(DatabaseClient.GetSqlServerConnectionString("cronus-db.xml"))
+        public CronusContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
-            //Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

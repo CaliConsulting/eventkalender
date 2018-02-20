@@ -9,16 +9,16 @@ namespace Eventkalender.Database
 {
     public class EventkalenderDAL
     {
-        //private EventkalenderContext context;
+        private string xmlPath;
 
-        public EventkalenderDAL()
+        public EventkalenderDAL(string xmlPath)
         {
-            //context = new EventkalenderContext(DatabaseClient.GetConnectionString("eventkalender-db.xml"));
+            this.xmlPath = xmlPath;
         }
 
         public void AddEvent(Event e)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 context.Event.Add(e);
                 context.SaveChanges();
@@ -27,7 +27,7 @@ namespace Eventkalender.Database
 
         public void AddNation(Nation n)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 context.Nation.Add(n);
                 context.SaveChanges();
@@ -36,43 +36,91 @@ namespace Eventkalender.Database
 
         public void AddPerson(Person p)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 context.Person.Add(p);
                 context.SaveChanges();
             }
         }
 
+        public void DeleteEvent(Event e)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                context.Event.Attach(e);
+                context.Event.Remove(e);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteNation(Nation n)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                context.Nation.Attach(n);
+                context.Nation.Remove(n);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeletePerson(Person p)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                context.Person.Attach(p);
+                context.Person.Remove(p);
+                context.SaveChanges();
+            }
+        }
+
         public Event GetEvent(int id)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 Event dbEvent = context.Event.Include(e => e.Nation).Include(e => e.Persons).SingleOrDefault(e => e.Id == id);
 
                 // Set fields to null to avoid circular references
-                foreach (Person p in dbEvent.Persons)
+                if (dbEvent != null)
                 {
-                    p.Events = null;
+                    foreach (Person p in dbEvent.Persons ?? Enumerable.Empty<Person>())
+                    {
+                        if (p != null)
+                        {
+                            p.Events = null;
+                        }
+                    }
+                    if (dbEvent.Nation != null)
+                    {
+                        dbEvent.Nation.Events = null;
+                    }
                 }
-                dbEvent.Nation.Events = null;
                 return dbEvent;
             }
         }
 
         public List<Event> GetEvents()
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 List<Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
 
                 // Set fields to null to avoid circular references
-                foreach (Event e in dbEvents)
+                foreach (Event e in dbEvents ?? Enumerable.Empty<Event>())
                 {
-                    foreach (Person p in e.Persons)
+                    if (e != null)
                     {
-                        p.Events = null;
+                        foreach (Person p in e.Persons ?? Enumerable.Empty<Person>())
+                        {
+                            if (p != null)
+                            {
+                                p.Events = null;
+                            }
+                        }
+                        if (e.Nation != null)
+                        {
+                            e.Nation.Events = null;
+                        }
                     }
-                    e.Nation.Events = null;
                 }
                 return dbEvents;
             }
@@ -80,14 +128,20 @@ namespace Eventkalender.Database
 
         public Nation GetNation(int id)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 Nation dbNation = context.Nation.Include(n => n.Events).SingleOrDefault(n => n.Id == id);
 
                 // Set fields to null to avoid circular references
-                foreach (Event e in dbNation.Events)
+                if (dbNation != null)
                 {
-                    e.Nation = null;
+                    foreach (Event e in dbNation.Events ?? Enumerable.Empty<Event>())
+                    {
+                        if (e != null)
+                        {
+                            e.Nation = null;
+                        }
+                    }
                 }
                 return dbNation;
             }
@@ -95,16 +149,29 @@ namespace Eventkalender.Database
 
         public List<Nation> GetNations()
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
-                List<Nation> dbNations = context.Nation.Include(n => n.Events).ToList();
+                List<Nation> dbNations = context.Nation.Include(n => n.Events).Include(n => n.Events.Select(p => p.Persons)).ToList();
 
                 // Set fields to null to avoid circular references
-                foreach (Nation n in dbNations)
+                foreach (Nation n in dbNations ?? Enumerable.Empty<Nation>())
                 {
-                    foreach (Event e in n.Events)
+                    if (n != null)
                     {
-                        e.Nation = null;
+                        foreach (Event e in n.Events ?? Enumerable.Empty<Event>())
+                        {
+                            if (e != null)
+                            {
+                                e.Nation = null;
+                                foreach (Person p in e.Persons ?? Enumerable.Empty<Person>())
+                                {
+                                    if (p != null)
+                                    {
+                                        p.Events = null;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 return dbNations;
@@ -113,14 +180,20 @@ namespace Eventkalender.Database
 
         public Person GetPerson(int id)
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 Person dbPerson = context.Person.Include(p => p.Events).SingleOrDefault(p => p.Id == id);
 
                 // Set fields to null to avoid circular references
-                foreach (Event e in dbPerson.Events)
+                if (dbPerson != null)
                 {
-                    e.Persons = null;
+                    foreach (Event e in dbPerson.Events ?? Enumerable.Empty<Event>())
+                    {
+                        if (e != null)
+                        {
+                            e.Persons = null;
+                        }
+                    }
                 }
                 return dbPerson;
             }
@@ -128,17 +201,26 @@ namespace Eventkalender.Database
 
         public List<Person> GetPersons()
         {
-            using (var context = new EventkalenderContext())
+            using (var context = new EventkalenderContext(xmlPath))
             {
                 List<Person> dbPersons = context.Person.Include(p => p.Events).Include(p => p.Events.Select(n => n.Nation)).ToList();
 
                 // Set fields to null to avoid circular references
-                foreach (Person p in dbPersons)
+                foreach (Person p in dbPersons ?? Enumerable.Empty<Person>())
                 {
-                    foreach (Event e in p.Events)
+                    if (p != null)
                     {
-                        e.Persons = null;
-                        e.Nation.Events = null;
+                        foreach (Event e in p.Events ?? Enumerable.Empty<Event>())
+                        {
+                            if (e != null)
+                            {
+                                e.Persons = null;
+                            }
+                            if (e.Nation != null)
+                            {
+                                e.Nation.Events = null;
+                            }
+                        }
                     }
                 }
                 return dbPersons;

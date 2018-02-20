@@ -16,6 +16,59 @@ namespace Eventkalender.Database
 
         }
 
+        public Employee(string no, string firstName, string lastName) : this()
+        {
+            No = no;
+            FirstName = firstName;
+            LastName = lastName;
+
+            // Default values
+            MiddleName = "";
+            Initials = "";
+            JobTitle = "";
+            SearchName = "";
+            Address = "";
+            Address2 = "";
+            City = "";
+            PostCode = "";
+            County = "";
+            PhoneNo = "";
+            MobilePhoneNo = "";
+            Email = "";
+            AltAddressCode = "";
+            AltAddressStartDate = DateTime.Now;
+            AltAddressEndDate = DateTime.Now.AddDays(1);
+            Picture = null;
+            BirthDate = DateTime.Now.AddYears(-20);
+            SocialSecurityNo = "";
+            UnionCode = "";
+            UnionMembershipNo = "";
+            Sex = new Random().Next(1, 2);
+            CountryRegionCode = "";
+            ManagerNo = "";
+            EmploymentContractCode = "";
+            StatisticsGroupCode = "";
+            EmploymentDate = DateTime.Now.AddYears(-1);
+            Status = new Random().Next(1, 2);
+            InactiveDate = DateTime.Now.AddDays(-1);
+            CauseOfInactivityCode = "";
+            TerminationDate = DateTime.Now;
+            GroundsForTermCode = "";
+            GlobalDimension1Code = "";
+            GlobalDimension2Code = "";
+            ResourceNo = "";
+            LastDateModified = DateTime.Now.AddDays(-20);
+            Extension = "";
+            Pager = "";
+            FaxNo = "";
+            CompanyEmail = "";
+            Title = "";
+            SalesPersPurchCode = "";
+            NoSeries = "";
+        }
+
+        [Column("timestamp")]
+        [Timestamp]
         public byte[] Timestamp { get; set; }
 
         [Key]
@@ -69,10 +122,10 @@ namespace Eventkalender.Database
         [Column("Alt_ Address End Date")]
         public DateTime AltAddressEndDate { get; set; }
         
-        public Image Picture { get; set; }
+        public byte[] Picture { get; set; }
 
         [Column("Birth Date")]
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         [Column("Social Security No_")]
         public string SocialSecurityNo { get; set; }
@@ -93,13 +146,13 @@ namespace Eventkalender.Database
         public string ManagerNo { get; set; }
 
         [Column("Emplymt_ Contract Code")]
-        public string Emplymt { get; set; }
+        public string EmploymentContractCode { get; set; }
 
         [Column("Statistics Group Code")]
         public string StatisticsGroupCode { get; set; }
 
         [Column("Employment Date")]
-        public string EmploymentDate { get; set; }
+        public DateTime EmploymentDate { get; set; }
         
         public int Status { get; set; }
 
@@ -139,10 +192,10 @@ namespace Eventkalender.Database
         
         public string Title { get; set; }
 
-        [Column("Salespers__Purch_Code")]
+        [Column("Salespers__Purch_ Code")]
         public string SalesPersPurchCode { get; set; }
 
-        [Column("No_Series")]
+        [Column("No_ Series")]
         public string NoSeries { get; set; }
     }
 }

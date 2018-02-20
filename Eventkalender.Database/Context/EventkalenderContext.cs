@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eventkalender.Database.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -10,15 +11,15 @@ namespace Eventkalender.Database
 {
     public class EventkalenderContext : DbContext
     {
-        public EventkalenderContext() : base(DatabaseClient.GetSqlServerConnectionString("eventkalender-db.xml"))
+        public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
-            //Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Add(new ForeignKeyNamingConvention());
         }
 
         public DbSet<Nation> Nation { get; set; }

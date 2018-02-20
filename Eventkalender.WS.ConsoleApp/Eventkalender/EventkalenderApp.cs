@@ -31,7 +31,6 @@ namespace Eventkalender.WS.ConsoleApp
             }
 
             Nation n = eventClient.GetNation(id);
-
             if (n != null)
             {
                 Console.WriteLine("\nNationens namn är: {0}", n.Name);
@@ -71,7 +70,6 @@ namespace Eventkalender.WS.ConsoleApp
             }
 
             Event e = eventClient.GetEvent(id);
-
             if (e != null)
             {
                 Console.WriteLine("\nEventets namn är: {0}", e.Name);
@@ -107,7 +105,6 @@ namespace Eventkalender.WS.ConsoleApp
             }
             
             Person p = eventClient.GetPerson(id);
-
             if (p != null)
             {
                 Console.WriteLine("\nPersonens namn är: {0}, {1}", p.FirstName, p.LastName);
@@ -146,14 +143,6 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("\nVill du avsluta EventkalenderAppen? Tryck J, Återgå till menyn? Tryck M");
             string userInput = Console.ReadLine();
-
-            bool valid = Utility.ValidateAlternative(userInput, "J", "M");
-            if (!valid)
-            {
-                Console.WriteLine("Var god välj ett av alternativen.");
-                ExitQuestion();
-            }
-
             if (userInput.ToUpper().Equals("J"))
             {
                 returnBool = false;

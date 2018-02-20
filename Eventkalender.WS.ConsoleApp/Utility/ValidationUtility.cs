@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eventkalender.WS.ConsoleApp
 {
-    public class Utility
+    public class ValidationUtility
     {
         public static bool ValidateAlternative(int chosenAlternative, params int[] allAlternatives)
         {

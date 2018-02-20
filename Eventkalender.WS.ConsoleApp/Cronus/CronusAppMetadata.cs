@@ -130,14 +130,6 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J, Återgå till Metadatamenyn? Tryck M");
             string userInput = Console.ReadLine();
-
-            bool valid = Utility.ValidateAlternative(userInput, "J", "M");
-            if (!valid)
-            {
-                Console.WriteLine("Var god välj ett av alternativen.");
-                ExitQuestion();
-            }
-
             if (userInput.ToUpper().Equals("J"))
             {
                 returnBool = false;

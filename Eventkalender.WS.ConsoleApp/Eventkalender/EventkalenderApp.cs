@@ -139,11 +139,10 @@ namespace Eventkalender.WS.ConsoleApp
             Console.WriteLine("\nDu är nu tillbaka i Huvudmenyn\n");
         }
 
-        public void ExitQuestion() 
+        public void ExitQuestion()
         {
             Console.WriteLine("\nVill du avsluta EventkalenderAppen? Tryck J");
-            Console.WriteLine("Återgå till menyn? Tryck M");
-            Console.WriteLine("Skriv in ett annat, valfritt värde för att avsluta");
+            Console.WriteLine("Vill du återgå till senaste menyn? Skriv in valfritt värde");
             string userInput = Console.ReadLine();
             if (userInput.ToUpper().Equals("J"))
             {

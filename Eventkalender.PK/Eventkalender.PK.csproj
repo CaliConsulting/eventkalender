@@ -186,6 +186,9 @@
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.AddEventResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.AddFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.AddNationResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -199,6 +202,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.GetEventsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.GetFileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.GetNationResponse.datasource">
@@ -258,17 +264,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\CronusReference\CronusService.disco" />
-    <None Include="Connected Services\CronusReference\configuration91.svcinfo" />
-    <None Include="Connected Services\CronusReference\configuration.svcinfo" />
-    <None Include="Connected Services\CronusReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\EventkalenderReference\EventkalenderService.disco" />
     <None Include="Connected Services\EventkalenderReference\configuration91.svcinfo" />
     <None Include="Connected Services\EventkalenderReference\configuration.svcinfo" />
     <None Include="Connected Services\EventkalenderReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CronusReference\configuration91.svcinfo" />
+    <None Include="Connected Services\CronusReference\configuration.svcinfo" />
+    <None Include="Connected Services\CronusReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -14,7 +14,7 @@
                     TabStripPlacement="Top" Margin="0,0,0,0">
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
-                    <TabControl Height="540" Margin="0,0,0,0" SelectionChanged="TabControl_SelectionChanged">
+                    <TabControl Height="540" Margin="0,0,0,0">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
                                 <ComboBox x:Name="cmbEvents"
@@ -187,7 +187,7 @@
                                             Canvas.Left="10"/>
                             </Canvas>
                         </TabItem>
-                        <TabItem Header="Person- och nationshantering" Margin="-0.2,0,0,0">
+                        <TabItem Header="Person- och nationshantering" Margin="0,-0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Person"
@@ -257,7 +257,7 @@
                                               SelectionMode="Extended"
                                               ItemsSource="{Binding Path=ErasePersonProp}"
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
-                                              ToolTipService.InitialShowDelay="500" SelectionChanged="datagridPersonNation_SelectionChanged"/>
+                                              ToolTipService.InitialShowDelay="500"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>
@@ -271,6 +271,8 @@
                                     <ComboBox x:Name="cmbInvitePersons"
                                               Margin="0,15,0,0"
                                               IsEditable="True"
+                                              IsTextSearchEnabled="True"
+                                              SelectionChanged="cmbInvitePersons_SelectionChanged"
                                               Width="150"
                                               MaxWidth="150"
                                               ItemsSource="{Binding Path=Persons}"
@@ -303,10 +305,12 @@
                                             Canvas.Top="10">
                                     <TextBlock Text="Events" FontWeight="Bold"/>
                                     <ComboBox x:Name="cmbInviteEvent"
+                                              SelectionChanged="cmbInviteEvent_SelectionChanged"
                                               Margin="0,15,0,0"
                                               Width="150"
                                               MaxWidth="150"
                                               IsEditable="True"
+                                              IsTextSearchEnabled="True"
                                               ItemsSource="{Binding Path=Nations}"
                                               DisplayMemberPath="Name"
                                               SelectedValuePath="Id"
@@ -334,6 +338,7 @@
                                             Width="100"/>
                                 </StackPanel>
                                 <Button x:Name="btnInvToEvent"
+                                        Click="btnInvToEvent_Click"
                                         Content="Bjud in"
                                         Canvas.Bottom="40"
                                         Canvas.Left="340"
@@ -375,12 +380,17 @@
                                            FontWeight="Bold"/>
                                 <ComboBox   x:Name="cmbWebService"
                                             IsEditable="True"
-                                            MaxWidth="200">
-                                    
+                                            IsTextSearchEnabled="True"
+                                            MaxWidth="200"
+                                            SelectionChanged="cmbWebService_SelectionChanged">
+                                    <ComboBoxItem Content="Event"/>
+                                    <ComboBoxItem Content="Nation"/>
+                                    <ComboBoxItem Content="Person"/>
                                 </ComboBox>
                                 <DataGrid x:Name="dgWebService"
-                                          Width="1250"
-                                          Height="430">
+                                          Width="1240"
+                                          Height="430"
+                                          Margin="0,15,0,0">
 
                                 </DataGrid>
                             </StackPanel>

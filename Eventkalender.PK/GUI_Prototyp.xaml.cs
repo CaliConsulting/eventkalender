@@ -190,6 +190,8 @@ namespace Eventkalender.PK.GUI
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
                 
                 eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+                dtpickStartDate.Text = "";
+                dtpickEndDate.Text = "";
             }
             else
             {

@@ -147,7 +147,7 @@
                                               IsEditable="True"
                                               SelectionChanged="cmBoxSearchEvents_SelectionChanged"/>
                                     <DataGrid x:Name="datagridEvents"
-                                              SelectionMode="Extended"
+                                              SelectionMode="Single"
                                               Height="320"
                                               Width="850"
                                               Margin="0,15,0,0"
@@ -155,7 +155,8 @@
                                               AutoGenerateColumns="False"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
-                                              ItemsSource="{Binding Path=Events}">
+                                              ItemsSource="{Binding Path=Events}"
+                                              SelectedValuePath="Id">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                             <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
@@ -419,6 +420,9 @@
                                        Canvas.Left="10"
                                        Text="{Binding Path=StatusProperty}"/>
                         </Canvas>
+                    </TabItem>
+                    <TabItem Header="Cronus del 2">
+                           
                     </TabItem>
                 </TabControl>
             </TabItem>

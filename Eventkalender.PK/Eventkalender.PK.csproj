@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="EventkalenderViewModel.cs" />
     <Compile Include="GUI_Prototyp.xaml.cs">
       <DependentUpon>GUI_Prototyp.xaml</DependentUpon>
     </Compile>

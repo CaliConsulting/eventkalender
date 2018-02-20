@@ -196,11 +196,10 @@ namespace Eventkalender.PK.GUI
 
             }
         }
-                private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
+        private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
 
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

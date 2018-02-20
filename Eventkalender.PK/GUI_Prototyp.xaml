@@ -302,7 +302,7 @@
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
                                             <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
-                                            <DataGridTextColumn Header="Deltar i evenemang" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                            <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"

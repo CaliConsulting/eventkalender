@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Eventkalender.PK
 {
@@ -49,6 +51,21 @@ namespace Eventkalender.PK
         {
             DateTime dateStart = Convert.ToDateTime(date + "T" + time);
             return dateStart;
+        }
+
+        public static void AddColumns(DataGrid grid, List<List<string>> lst)
+        {
+            for (int i = 0; i < lst[0].Count; i++)
+            {
+
+
+
+                DataGridTextColumn t = new DataGridTextColumn();
+                t.Header = lst.First()[i];
+                t.Binding = new Binding("[" + i + "]");
+
+                grid.Columns.Add(t);
+            }
         }
     }
 }

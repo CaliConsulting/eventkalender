@@ -66,7 +66,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\CronusReference\CronusService.wsdl" />
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.AddEmployeeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

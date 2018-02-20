@@ -115,7 +115,9 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void ExitQuestion()
         {
-            Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J, Återgå till Datamenyn? Tryck M");
+            Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J");
+            Console.WriteLine("Återgå till Datamenyn ? Tryck M");
+            Console.WriteLine("Skriv in ett annat, valfritt värde för att avsluta");
             string userInput = Console.ReadLine();
             if (userInput.ToUpper().Equals("J"))
             {

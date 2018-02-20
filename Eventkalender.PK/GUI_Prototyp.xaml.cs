@@ -414,7 +414,7 @@ namespace Eventkalender.PK.GUI
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Nations;
             }
-            if(cmbFilterList.SelectedIndex == 1)
+            if (cmbFilterList.SelectedIndex == 1)
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Persons;
             }

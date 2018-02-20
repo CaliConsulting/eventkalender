@@ -300,9 +300,9 @@
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
-                                            <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
-                                            <DataGridTextColumn Header="Eventdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                            <DataGridTextColumn Header="First Name" Width="auto" Binding="{Binding Path=FirstName}"/>
+                                            <DataGridTextColumn Header="Last Name" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Attending Events" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
@@ -378,7 +378,7 @@
                                                  Width="1250"
                                                  Height="400"/>
                             </StackPanel>
-                        </Canvas>
+                        </Canvas>    
                     </TabItem>
                     <TabItem Header="Uppgift 2">
                         <Canvas>
@@ -408,7 +408,7 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="ERP Integration">
-                <TabControl Height="535" SelectionChanged="TabControl_SelectionChanged">
+                <TabControl Height="535">
                     <TabItem Header="Cronus">
                         <Canvas>
                             <TextBlock Text="Data" 
@@ -422,21 +422,25 @@
                                       Canvas.Left="150"
                                       Width="150"
                                       IsEditable="True"
-                                      ItemsSource="{Binding Path=DataCombobox}"    
-                                      IsTextSearchEnabled="True" SelectionChanged="cmbData_SelectionChanged" DropDownClosed="cmbData_DropDownClosed">
+                                      IsTextSearchEnabled="True">
+                                <ComboBoxItem x:Name="cmbData1"
+                                              Content="GetColomnsForEmployee"/>
+                                <ComboBoxItem x:Name="cmbData2"
+                                              Content="GetEmployee"/>
                             </ComboBox>
-
                             <ComboBox x:Name="cmbMetaData"
                                       Canvas.Top="30"
                                       Canvas.Left="350"
                                       Width="150"
                                       IsEditable="True"
+
                                       ItemsSource="{Binding Path=MetadataCombobox}"
-                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged" DropDownClosed="cmbMetaData_DropDownClosed">
+                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged">
                             </ComboBox>
 
                             <DataGrid x:Name="datagridCronus"
-                                      Canvas.Top="83"
+                                      Canvas.Left="10"
+                                      Canvas.Top="85"
                                       Width="1220"
                                       Height="390"
                                       HorizontalScrollBarVisibility="Auto"

@@ -271,6 +271,8 @@
                                     <ComboBox x:Name="cmbInvitePersons"
                                               Margin="0,15,0,0"
                                               IsEditable="True"
+                                              IsTextSearchEnabled="True"
+                                              SelectionChanged="cmbInvitePersons_SelectionChanged"
                                               Width="150"
                                               MaxWidth="150"
                                               ItemsSource="{Binding Path=Persons}"
@@ -303,10 +305,12 @@
                                             Canvas.Top="10">
                                     <TextBlock Text="Events" FontWeight="Bold"/>
                                     <ComboBox x:Name="cmbInviteEvent"
+                                              SelectionChanged="cmbInviteEvent_SelectionChanged"
                                               Margin="0,15,0,0"
                                               Width="150"
                                               MaxWidth="150"
                                               IsEditable="True"
+                                              IsTextSearchEnabled="True"
                                               ItemsSource="{Binding Path=Nations}"
                                               DisplayMemberPath="Name"
                                               SelectedValuePath="Id"
@@ -375,12 +379,17 @@
                                            FontWeight="Bold"/>
                                 <ComboBox   x:Name="cmbWebService"
                                             IsEditable="True"
-                                            MaxWidth="200">
-                                    
+                                            IsTextSearchEnabled="True"
+                                            MaxWidth="200"
+                                            SelectionChanged="cmbWebService_SelectionChanged">
+                                    <ComboBoxItem Content="Event"/>
+                                    <ComboBoxItem Content="Nation"/>
+                                    <ComboBoxItem Content="Person"/>
                                 </ComboBox>
                                 <DataGrid x:Name="dgWebService"
-                                          Width="1250"
-                                          Height="430">
+                                          Width="1240"
+                                          Height="430"
+                                          Margin="0,15,0,0">
 
                                 </DataGrid>
                             </StackPanel>

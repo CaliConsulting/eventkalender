@@ -23,8 +23,6 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
-        DateTime dateStart;
-        DateTime dateEnd;
         private EventkalenderController eventkalenderController;
         private EventkalenderViewModel eventkalenderViewModel;
         private CronusServiceSoapClient cronusClient;
@@ -34,30 +32,34 @@ namespace Eventkalender.PK.GUI
         public GUI_Prototyp()
         {
             InitializeComponent();
-            DataContext = new EventkalenderViewModel();
             eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
             eventkalenderViewModel = new EventkalenderViewModel();
             cronusClient = new CronusServiceSoapClient();
             eventkalenderWSClient = new EventkalenderServiceSoapClient();
+            DataContext = eventkalenderViewModel;
         }
 
-      /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
-        {
-            CronusReference.DataTuple[] data = inputTuple;
-            for (int i = 0; i < data.Length; i++)
-            {
-                Console.WriteLine(data[i].ToString());
-            }
-        }
+        /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
+          {
+              CronusReference.DataTuple[] data = inputTuple;
+              for (int i = 0; i < data.Length; i++)
+              {
+                  Console.WriteLine(data[i].ToString());
+              }
+          }
 
-        public void GetMetadataListOfString(List<string> metod)
-        {
-            foreach (string row in metod)
-            {
-                Console.WriteLine(row);
-            }
-        } */
-
+          public void GetMetadataListOfString(List<string> metod)
+          {
+              foreach (string row in metod)
+              {
+                  Console.WriteLine(row);
+              }
+          } */
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//                                  CRONUS Eventhandlers
+//
+//-----------------------------------------------------------------------------------------------------------------------------------
         public void GetEmployeeMetadata()
         {
             cronusClient.GetEmployeeMetadata();
@@ -97,6 +99,21 @@ namespace Eventkalender.PK.GUI
             }
             set { }
         }
+        private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datagridCronus.ItemsSource = GetMetadata;
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+        //
+        //                                  Programkonstruktion Eventhandlers
+        //
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
         private void btnEraseFromListClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
@@ -166,8 +183,8 @@ namespace Eventkalender.PK.GUI
         {
             if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
-                dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
-                dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
+                DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
 
                 int index = cmBoxNation.SelectedIndex;
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
@@ -179,11 +196,11 @@ namespace Eventkalender.PK.GUI
 
             }
         }
-
-        private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
         {
-            datagridCronus.ItemsSource = GetMetadata;
+
         }
+
 
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -223,9 +240,55 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
+        private void cmbInvitePersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int index = cmbInvitePersons.SelectedIndex;
+            if (index > -1)
+            {
+                Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
+                datagridInvitePersons.ItemsSource = new List<Database.Person>() {person };
+            }
+            else
+            {
+                datagridInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
+            }
+        }
 
+        private void cmbInviteEvent_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = cmbInviteEvent.SelectedIndex;
+            if (index > -1)
+            {
+                Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                datagridInviteEvent.ItemsSource = n.Events;
+            }
+            else
+            {
+                datagridInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
+            }
+        }
+
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//                                  Webservice eventhandlers
+//
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void cmbWebService_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbWebService.SelectedIndex == 0) //event kalla webservicen
+            {
+
+            }
+            if (cmbWebService.SelectedIndex == 1) //nation
+            {
+
+            }
+            if (cmbWebService.SelectedIndex == 2) //person
+            {
+
+            }
         }
     }
 }

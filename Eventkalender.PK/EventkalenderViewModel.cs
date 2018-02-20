@@ -205,69 +205,21 @@ namespace Eventkalender.PK.GUI
             }
         }
 
-        public List<List<string>> GetValuableInformation(CronusReference.DataTuple[] values)
+        private List<List<string>> metadata;
+        public List<List<string>> Metadata
         {
-            bool isFirst = true;
-            List<List<string>> totals = new List<List<string>>();
-            for (int i = 0; i < values.Length; i++)
+            get
             {
-                CronusReference.DataTuple t = values[i];
-
-                List<string> array2 = new List<string>();
-                List<string> columns2 = new List<string>();
-
-                //string[] array = new string[t.Count];
-                //string[] columns = new string[t.Count];
-
-                if (isFirst)
-                {
-                    totals.Add(columns2);
-                    isFirst = false;
-                }
-                for (int j = 0; j < t.Count; j++)
-                {
-                    SerializableKeyValuePairOfStringString s = t.ElementAt(j);
-                    columns2.Add(s.Key);
-                    array2.Add(s.Value);
-                }
-                totals.Add(array2);
+                return metadata;
             }
-            return totals;
-        }
-
-        public List<List<string>> DataTupleToNiceFormat(List<string> lst)
-        {
-            List<List<string>> newList = new List<List<string>>();
-
-            //DataGridTextColumn t = new DataGridTextColumn();
-            //t.Header = 0;
-            //t.Binding = new Binding("[" + 0 + "]");
-
-            //datagridCronus.Columns.Add(t);
-
-            for (int i = 0; i < lst.Count; i++)
+            set
             {
-                List<string> element = new List<string>();
-                element.Add(lst.ElementAt(i));
-                newList.Add(element);
+                if (metadata != value)
+                {
+                    metadata = value;
+                    NotifyPropertyChanged("Metadata");
+                }
             }
-
-            return newList;
-        }
-
-        public List<List<string>> DataTupleToNiceFormat(List<List<string>> lst)
-        {
-            //for (int i = 0; i < lst[0].Count; i++)
-            //{
-            //    DataGridTextColumn t = new DataGridTextColumn();
-            //    t.Header = lst.First()[i];
-            //    t.Binding = new Binding("[" + i + "]");
-
-            //    datagridCronus.Columns.Add(t);
-            //}
-            lst.RemoveAt(0);
-
-            return lst;
         }
 
         public List<string> MetadataCombobox
@@ -291,41 +243,26 @@ namespace Eventkalender.PK.GUI
             private set { }
         }
 
-        //public List<List<string>> GetMetadata
-        //{
-        //    get
-        //    {
-        //        switch (int id /*cmbMetaData.SelectedIndex*/)
-        //        {
-        //            case 0:
-        //                return DataTupleToNiceFormat(cronusClient.GetIndexes());
-        //            case 1:
-        //                return DataTupleToNiceFormat(cronusClient.GetKeys());
-        //            case 2:
-        //                return DataTupleToNiceFormat(cronusClient.GetColumnsForEmployeeTable());
-        //            case 3:
-        //                return DataTupleToNiceFormat(cronusClient.GetTableConstraints());
-        //            case 4:
-        //                return DataTupleToNiceFormat(cronusClient.GetTables());
-        //            case 5:
-        //                return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeMetadata()));
-        //            case 6:
-        //                return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeAbsenceMetadata()));
-        //            case 7:
-        //                return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeRelativeMetadata()));
-        //            case 8:
-        //                return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeQualificationMetadata()));
-        //            case 9:
-        //                return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeePortalSetupMetadata()));
-        //            case 10:
-        //                return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeStatisticsGroupMetadata()));
-        //        }
-        //        return null;
-        //    }
-        //    set { }
-        //}
+        private int dataSelectedIndex = -1;
+        public int DataSelectedIndex
+        {
+            get
+            {
+                return dataSelectedIndex;
+            }
+            set
+            {
+                if (dataSelectedIndex != value)
+                {
+                    dataSelectedIndex = value;
+                    NotifyPropertyChanged("DataSelectedItem");
 
-        private int metadataSelectedIndex;
+                    Data = Utility.GetCronusData(cronusClient, dataSelectedIndex);
+                }
+            }
+        }
+
+        private int metadataSelectedIndex = -1;
         public int MetadataSelectedIndex
         {
             get
@@ -337,49 +274,11 @@ namespace Eventkalender.PK.GUI
                 if (metadataSelectedIndex != value)
                 {
                     metadataSelectedIndex = value;
-                    NotifyPropertyChanged("MetadataSelectedItem");
+                    NotifyPropertyChanged("MetadataSelectedIndex");
 
-                    Data = DataOperation(metadataSelectedIndex);
+                    Data = Utility.GetCronusMetadata(cronusClient, metadataSelectedIndex);
                 }
             }
-        }
-
-        public List<List<string>> DataOperation(int index)
-        {
-            List<List<string>> stringValues = new List<List<string>>();
-            switch (index)
-            {
-                case 0:
-                    CronusReference.DataTuple value = cronusClient.GetIllestPerson();
-                    CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { value };
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 1:
-                    values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 2:
-                    values = cronusClient.GetEmployeeAndRelatives();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 3:
-                    values = cronusClient.GetEmployeeData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 4:
-                    values = cronusClient.GetEmployeeAbsenceData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 5:
-                    values = cronusClient.GetEmployeeRelativeData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 6:
-                    values = cronusClient.GetEmployeeQualificationData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 7:
-                    values = cronusClient.GetEmployeePortalSetupData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-                case 8:
-                    values = cronusClient.GetEmployeeStatisticsGroupData();
-                    return DataTupleToNiceFormat((GetValuableInformation(values)));
-            }
-
-            return null;
         }
 
     }

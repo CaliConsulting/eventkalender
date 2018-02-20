@@ -414,7 +414,7 @@
                             <TextBlock Text="Data" 
                                        Canvas.Left="150"
                                        Canvas.Top="15"/>
-                            <TextBlock Text="MetaData" 
+                            <TextBlock Text="Metadata" 
                                        Canvas.Left="350"
                                        Canvas.Top="15"/>
                             <ComboBox x:Name="cmbData"
@@ -422,18 +422,19 @@
                                       Canvas.Left="150"
                                       Width="150"
                                       IsEditable="True"
-                                      ItemsSource="{Binding Path=DataCombobox}"    
+                                      ItemsSource="{Binding Path=DataCombobox}"
+                                      SelectedIndex="{Binding Path=DataSelectedIndex}"
                                       IsTextSearchEnabled="True" SelectionChanged="cmbData_SelectionChanged">
                             </ComboBox>
 
-                            <ComboBox x:Name="cmbMetaData"
+                            <ComboBox x:Name="cmbMetadata"
                                       Canvas.Top="30"
                                       Canvas.Left="350"
                                       Width="150"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
-                                      SelectedItem="{Binding Path=MetadataSelectedItem}"
-                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetaData_SelectionChanged">
+                                      SelectedIndex="{Binding Path=MetadataSelectedIndex}"
+                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetadata_SelectionChanged">
                             </ComboBox>
 
                             <DataGrid x:Name="datagridCronus"
@@ -443,6 +444,7 @@
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
                                       IsReadOnly="True"
+                                      AutoGenerateColumns="False"
                                       ItemsSource="{Binding Path=Data}">
                             </DataGrid>
                             <TextBlock Canvas.Bottom="10"

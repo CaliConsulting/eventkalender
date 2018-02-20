@@ -105,6 +105,10 @@ namespace Eventkalender.PK.GUI
         {
             get
             {
+                List<List<string>> stringValues = new List<List<string>>();
+
+
+
                 switch (cmbData.SelectedIndex)
                 {
                     case 0:
@@ -113,7 +117,7 @@ namespace Eventkalender.PK.GUI
                         return DataTupleToNiceFormat((GetValuableInformation(values)));
                     case 1:
                         values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
-                        return DataTupleToNiceFormat((GetValuableInformation(values)));                      
+                        return DataTupleToNiceFormat((GetValuableInformation(values)));
                     case 2:
                         values = cronusClient.GetEmployeeAndRelatives();
                         return DataTupleToNiceFormat((GetValuableInformation(values)));
@@ -166,17 +170,34 @@ namespace Eventkalender.PK.GUI
                     SerializableKeyValuePairOfStringString s = t.ElementAt(j);
                     columns2.Add(s.Key);
                     array2.Add(s.Value);
-  
                 }
                 totals.Add(array2);
             }
-            
             return totals;
+        }
+
+        public List<List<string>> DataTupleToNiceFormat(List<string> lst)
+        {
+            List<List<string>> newList = new List<List<string>>();
+
+            DataGridTextColumn t = new DataGridTextColumn();
+            t.Header = 0;
+            t.Binding = new Binding("[" + 0 + "]");
+
+            datagridCronus.Columns.Add(t);
+
+            for (int i = 0; i < lst.Count; i++)
+            {
+                List<string> element = new List<string>();
+                element.Add(lst.ElementAt(i));
+                newList.Add(element);
+            }
+
+            return newList;
         }
 
         public List<List<string>> DataTupleToNiceFormat(List<List<string>> lst)
         {
-
             for (int i = 0; i < lst[0].Count; i++)
             {
                 DataGridTextColumn t = new DataGridTextColumn();
@@ -186,7 +207,7 @@ namespace Eventkalender.PK.GUI
                 datagridCronus.Columns.Add(t);
             }
             lst.RemoveAt(0);
-
+            
             return lst;
         }
 
@@ -208,7 +229,7 @@ namespace Eventkalender.PK.GUI
                 lst.Add("Hämta personal statisticsgroupmetadata");
                 
                 return lst;
-            } 
+            }
             private set { }
         }
         
@@ -216,49 +237,30 @@ namespace Eventkalender.PK.GUI
         {           
             get
             {
-                List<List<string>> valuesToString = new List<List<string>>();
-                
                 switch (cmbMetaData.SelectedIndex)
                 {
                     case 0:
-                        List<string> stringValues = cronusClient.GetIndexes(); 
-                        valuesToString.Add(stringValues);
-                        return DataTupleToNiceFormat(valuesToString);
+                        return DataTupleToNiceFormat(cronusClient.GetIndexes());
                     case 1:
-                        stringValues = cronusClient.GetKeys();
-                        valuesToString.Add(stringValues);
-                        return DataTupleToNiceFormat(valuesToString);
+                        return DataTupleToNiceFormat(cronusClient.GetKeys());
                     case 2:
-                        stringValues = cronusClient.GetColumnsForEmployeeTable();
-                        valuesToString.Add(stringValues);
-                        return DataTupleToNiceFormat(valuesToString);
+                        return DataTupleToNiceFormat(cronusClient.GetColumnsForEmployeeTable());
                     case 3:
-                        stringValues = cronusClient.GetTableConstraints();
-                        valuesToString.Add(stringValues);
-                        return DataTupleToNiceFormat(valuesToString);
+                        return DataTupleToNiceFormat(cronusClient.GetTableConstraints());
                     case 4:
-                        stringValues = cronusClient.GetTables();
-                        valuesToString.Add(stringValues);
-                        return DataTupleToNiceFormat(valuesToString);
+                        return DataTupleToNiceFormat(cronusClient.GetTables());
                     case 5:
-                        CronusReference.DataTuple[] dataTupleValues = cronusClient.GetEmployeeMetadata();
-                        return DataTupleToNiceFormat((GetValuableInformation(dataTupleValues)));
+                        return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeMetadata()));
                     case 6:
-                        dataTupleValues = cronusClient.GetEmployeeAbsenceMetadata();
-                        return DataTupleToNiceFormat((GetValuableInformation(dataTupleValues)));
+                        return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeAbsenceMetadata()));
                     case 7:
-                        dataTupleValues = cronusClient.GetEmployeeRelativeMetadata();
-                        return DataTupleToNiceFormat((GetValuableInformation(dataTupleValues)));
+                        return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeRelativeMetadata()));
                     case 8:
-                        dataTupleValues = cronusClient.GetEmployeeQualificationMetadata();
-                        return DataTupleToNiceFormat((GetValuableInformation(dataTupleValues)));
+                        return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeQualificationMetadata()));
                     case 9:
-                        dataTupleValues = cronusClient.GetEmployeePortalSetupMetadata();
-                        return DataTupleToNiceFormat((GetValuableInformation(dataTupleValues)));
+                        return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeePortalSetupMetadata()));
                     case 10:
-                        dataTupleValues = cronusClient.GetEmployeeStatisticsGroupMetadata();
-                        return DataTupleToNiceFormat((GetValuableInformation(dataTupleValues)));
-
+                        return DataTupleToNiceFormat(GetValuableInformation(cronusClient.GetEmployeeStatisticsGroupMetadata()));
                 }
                 return null;
             }

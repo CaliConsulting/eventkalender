@@ -14,7 +14,7 @@
                     TabStripPlacement="Top" Margin="0,0,0,0">
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
-                    <TabControl Height="540" Margin="0,0,0,0">
+                    <TabControl Height="540" Margin="0,0,0,0" SelectionChanged="TabControl_SelectionChanged">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
                                 <ComboBox x:Name="cmbEvents"
@@ -257,7 +257,7 @@
                                               SelectionMode="Extended"
                                               ItemsSource="{Binding Path=ErasePersonProp}"
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
-                                              ToolTipService.InitialShowDelay="500"/>
+                                              ToolTipService.InitialShowDelay="500" SelectionChanged="datagridPersonNation_SelectionChanged"/>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>

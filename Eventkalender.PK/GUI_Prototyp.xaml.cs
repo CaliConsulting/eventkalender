@@ -29,7 +29,7 @@ namespace Eventkalender.PK.GUI
         private EventkalenderViewModel eventkalenderViewModel;
         private CronusServiceSoapClient cronusClient;
         private EventkalenderServiceSoapClient eventkalenderWSClient;
-        
+
 
         public GUI_Prototyp()
         {
@@ -58,7 +58,7 @@ namespace Eventkalender.PK.GUI
             }
         } */
 
-        public void GetEmployeeMetadata()
+       /* public void GetEmployeeMetadata()
         {
             cronusClient.GetEmployeeMetadata();
             cronusClient.GetIndexes();
@@ -67,7 +67,7 @@ namespace Eventkalender.PK.GUI
         public void GetEmployeeAbsenceMetadata()
         {
             cronusClient.GetEmployeeAbsenceMetadata();
-        }
+        }*/
        
         public List<string> MetadataCombobox
         {
@@ -138,6 +138,9 @@ namespace Eventkalender.PK.GUI
             {
                 eventkalenderController.AddNation(txtBoxNationName.Text);
                 txtBoxNationName.Text = "";
+                
+
+              
             }
             else
             {
@@ -224,6 +227,16 @@ namespace Eventkalender.PK.GUI
         }
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void datagridPersonNation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

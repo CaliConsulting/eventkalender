@@ -30,7 +30,7 @@ namespace Eventkalender.Database
 
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader reader = command.ExecuteReader();
-                
+
                 DataTuple tuple = new DataTuple();
                 if (reader.Read())
                 {
@@ -38,7 +38,7 @@ namespace Eventkalender.Database
                     {
                         tuple.Add(reader.GetName(i), reader.GetValue(i).ToString());
                     }
-                    
+
                 }
                 return tuple;
             }
@@ -71,9 +71,9 @@ namespace Eventkalender.Database
                 command.Parameters.Add(endDateParam);
 
                 command.Prepare();
-                
+
                 SqlDataReader reader = command.ExecuteReader();
-                
+
                 List<DataTuple> tuples = new List<DataTuple>();
                 while (reader.Read())
                 {
@@ -96,7 +96,7 @@ namespace Eventkalender.Database
                 StringBuilder builder = new StringBuilder();
                 builder.Append("SELECT a.[First Name], a.[Last Name], b.[Relative Code] AS Relative, b.[First Name], b.[Last Name] FROM ");
                 builder.Append("[CRONUS Sverige AB$Employee] a JOIN [CRONUS Sverige AB$Employee Relative] b ON a.No_ = b.[Employee No_]");
-      
+
                 string query = builder.ToString();
 
                 SqlCommand command = new SqlCommand(query, connection);
@@ -184,6 +184,55 @@ namespace Eventkalender.Database
 
         }
 
+        public void AddEmployee(Employee e)
+        {
+            using (var context = new CronusContext(xmlPath))
+            {
+                context.Employee.Add(e);
+                context.SaveChanges();
+            }
+        }
 
+        public void DeleteEmployee(Employee e)
+        {
+            using (var context = new CronusContext(xmlPath))
+            {
+                context.Employee.Attach(e);
+                context.Employee.Remove(e);
+                context.SaveChanges();
+            }
+        }
+
+        public Employee GetEmployee(string no)
+        {
+            using (var context = new CronusContext(xmlPath))
+            {
+                Employee dbEmployee = context.Employee.SingleOrDefault(e => e.No.Equals(no));
+                return dbEmployee;
+            }
+        }
+
+        public List<Employee> GetEmployees()
+        {
+            using (var context = new CronusContext(xmlPath))
+            {
+                List<Employee> dbEmployees = context.Employee.ToList();
+                return dbEmployees;
+            }
+        }
+
+        public void UpdateEmployee(Employee e)
+        {
+            using (var context = new CronusContext(xmlPath))
+            {
+                Employee dbEmployee = context.Employee.Find(e.No);
+                if (dbEmployee == null)
+                {
+                    return;
+                }
+                context.Entry(dbEmployee).CurrentValues.SetValues(e);
+                context.SaveChanges();
+            }
+        }
     }
 }

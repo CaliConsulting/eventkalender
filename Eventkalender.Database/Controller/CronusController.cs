@@ -74,6 +74,31 @@ namespace Eventkalender.Database
 
         //HÄR BÖRJAR DATADAL
 
+        public void UpdateEmployee()
+        {
+            dataDAL.UpdateEmployee()
+        }
+
+        public void InsertEmployee()
+        {
+            dataDAL.InsertEmployee()
+        }
+
+        public Employee GetEmployee(int number)
+        {
+            return dataDAL.GetEmployee()
+        }
+
+        public List<Employee> GetEmployees()
+        {
+            return dataDAL.GetEmployees()
+        }
+
+        public void DeleteEmployee()
+        {
+            dataDAL.DeleteEmployee()
+        }
+
         public DataTuple GetIllestPerson()
         {
             return dataDAL.GetIllestPerson();

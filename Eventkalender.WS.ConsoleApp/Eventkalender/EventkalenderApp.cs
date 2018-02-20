@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.EventkalenderReference;
 
 namespace Eventkalender.WS.ConsoleApp
@@ -30,12 +31,12 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("Du måste sätta in ett tal.");
             }
 
-            Nation n = eventClient.GetNation(id);
+            EventkalenderReference.Nation n = eventClient.GetNation(id);
             if (n != null)
             {
                 Console.WriteLine("\nNationens namn är: {0}", n.Name);
                 Console.WriteLine("Nationen har följande events: ");
-                Event[] events = n.Events;
+                EventkalenderReference.Event[] events = n.Events;
                 for (int j = 0; j < events.Length; j++)
                 {
                     Console.WriteLine(events[j].Name);
@@ -51,7 +52,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetNations()
         {
             Console.WriteLine("Följande är alla nationer: ");
-            Nation[] nations = eventClient.GetNations();
+            EventkalenderReference.Nation[] nations = eventClient.GetNations();
             for (int j = 0; j < nations.Length; j++)
             {
                 Console.WriteLine(nations[j].Name);
@@ -69,7 +70,7 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("Du måste sätta in ett tal.");
             }
 
-            Event e = eventClient.GetEvent(id);
+            EventkalenderReference.Event e = eventClient.GetEvent(id);
             if (e != null)
             {
                 Console.WriteLine("\nEventets namn är: {0}", e.Name);
@@ -85,7 +86,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetEvents()
         {
             Console.WriteLine("Följande är alla nationer: ");
-            Event[] events = eventClient.GetEvents();
+            EventkalenderReference.Event[] events = eventClient.GetEvents();
             for (int j = 0; j < events.Length; j++)
             {
                 Console.WriteLine(events[j].Name);
@@ -103,13 +104,13 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 Console.WriteLine("Du måste sätta in ett tal.");
             }
-            
-            Person p = eventClient.GetPerson(id);
+
+            EventkalenderReference.Person p = eventClient.GetPerson(id);
             if (p != null)
             {
                 Console.WriteLine("\nPersonens namn är: {0}, {1}", p.FirstName, p.LastName);
                 Console.WriteLine("{0} ska gå på följande events:", p.FirstName);
-                Event[] events = p.Events;
+                EventkalenderReference.Event[] events = p.Events;
                 for (int j = 0; j < events.Length; j++)
                 {
                     Console.WriteLine(events[j].Name);
@@ -125,10 +126,44 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetPersons()
         {
             Console.WriteLine("Följande är alla personer: ");
-            Person[] personer = eventClient.GetPersons();
+            EventkalenderReference.Person[] personer = eventClient.GetPersons();
             for (int j = 0; j < personer.Length; j++)
             {
                 Console.WriteLine("{0} {1}", personer[j].FirstName, personer[j].LastName);
+            }
+            ExitQuestion();
+        }
+
+        public void GetFile()
+        {
+            Console.WriteLine("Ange filsökvägen: ");
+            string userInput = Console.ReadLine();
+            try
+            {
+                string content = eventClient.GetFile(userInput);
+                Console.WriteLine("Innehåll i filen {0}: {1}", userInput, content);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
+            }
+            ExitQuestion();
+        }
+
+        public void AddFile()
+        {
+            Console.WriteLine("Ange filnamn: ");
+            string fileName = Console.ReadLine();
+            Console.WriteLine("Ange innehåll: ");
+            string content = Console.ReadLine();
+            try
+            {
+                eventClient.AddFile(fileName, content);
+                Console.WriteLine("Fil tillagd!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
             }
             ExitQuestion();
         }
@@ -164,13 +199,15 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("Hämta alla Events: Tryck 4");
                 Console.WriteLine("Hämta specifik Person: Tryck 5");
                 Console.WriteLine("Hämta alla Personer: Tryck 6");
+                Console.WriteLine("Hämta en fil: Tryck 7");
+                Console.WriteLine("Lägg till en fil: Tryck 8");
                 Console.WriteLine("För att gå tillbaka: Tryck -1");
 
                 string userInput = Console.ReadLine();
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
-                if (!isNumeric || (caseSwitch < -1 || caseSwitch > 6))
+                if (!isNumeric || (caseSwitch < -1 || caseSwitch > 8))
                 {               
-                    Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 6!");
+                    Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 8!");
                     ExitQuestion();
                 }
                 switch (caseSwitch)
@@ -192,6 +229,12 @@ namespace Eventkalender.WS.ConsoleApp
                         break;
                     case 6:
                         GetPersons();
+                        break;
+                    case 7:
+                        GetFile();
+                        break;
+                    case 8:
+                        AddFile();
                         break;
                     case -1:
                         ReturnMethod();

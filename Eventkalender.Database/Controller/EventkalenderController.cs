@@ -21,6 +21,13 @@ namespace Eventkalender.Database
             dal.AddNation(n);
         }
 
+        public void DeleteNation(int id)
+        {
+            Nation n = new Nation();
+            n.Id = id;
+            dal.DeleteNation(n);
+        }
+
         public Nation GetNation(int id)
         {
             return dal.GetNation(id);
@@ -37,6 +44,13 @@ namespace Eventkalender.Database
             dal.AddEvent(e);
         }
 
+        public void DeleteEvent(int id)
+        {
+            Event e = new Event();
+            e.Id = id;
+            dal.DeleteEvent(e);
+        }
+
         public Event GetEvent(int id)
         {
             return dal.GetEvent(id);
@@ -51,6 +65,13 @@ namespace Eventkalender.Database
         {
             Person p = new Person(firstName, lastName);
             dal.AddPerson(p);
+        }
+
+        public void DeletePerson(int id)
+        {
+            Person p = new Person();
+            p.Id = id;
+            dal.DeletePerson(p);
         }
 
         public Person GetPerson(int id)

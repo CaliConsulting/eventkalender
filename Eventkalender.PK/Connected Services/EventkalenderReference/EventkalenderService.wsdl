@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ics.lu.se.cali/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ics.lu.se.cali/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cali.eventkalender/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cali.eventkalender/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ics.lu.se.cali/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cali.eventkalender/">
+      <s:element name="GetFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFileResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="GetNation">
         <s:complexType>
           <s:sequence>
@@ -153,6 +178,18 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFileSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFile" />
+  </wsdl:message>
+  <wsdl:message name="AddFileSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFileResponse" />
+  </wsdl:message>
   <wsdl:message name="GetNationSoapIn">
     <wsdl:part name="parameters" element="tns:GetNation" />
   </wsdl:message>
@@ -208,6 +245,14 @@
     <wsdl:part name="parameters" element="tns:GetPersonsResponse" />
   </wsdl:message>
   <wsdl:portType name="EventkalenderServiceSoap">
+    <wsdl:operation name="GetFile">
+      <wsdl:input message="tns:GetFileSoapIn" />
+      <wsdl:output message="tns:GetFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <wsdl:input message="tns:AddFileSoapIn" />
+      <wsdl:output message="tns:AddFileSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetNation">
       <wsdl:input message="tns:GetNationSoapIn" />
       <wsdl:output message="tns:GetNationSoapOut" />
@@ -247,8 +292,26 @@
   </wsdl:portType>
   <wsdl:binding name="EventkalenderServiceSoap" type="tns:EventkalenderServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://cali.eventkalender/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <soap:operation soapAction="http://cali.eventkalender/AddFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetNation">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetNation" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/GetNation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -257,7 +320,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetNations">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetNations" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/GetNations" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -266,7 +329,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddNation">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/AddNation" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/AddNation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -275,7 +338,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddEvent">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/AddEvent" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/AddEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -284,7 +347,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEvent">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEvent" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/GetEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -293,7 +356,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEvents">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetEvents" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/GetEvents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -302,7 +365,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddPerson">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/AddPerson" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/AddPerson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -311,7 +374,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetPerson">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetPerson" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/GetPerson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -320,7 +383,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetPersons">
-      <soap:operation soapAction="http://www.ics.lu.se.cali/GetPersons" style="document" />
+      <soap:operation soapAction="http://cali.eventkalender/GetPersons" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -331,8 +394,26 @@
   </wsdl:binding>
   <wsdl:binding name="EventkalenderServiceSoap12" type="tns:EventkalenderServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFile">
+      <soap12:operation soapAction="http://cali.eventkalender/GetFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <soap12:operation soapAction="http://cali.eventkalender/AddFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetNation">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetNation" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/GetNation" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -341,7 +422,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetNations">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetNations" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/GetNations" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -350,7 +431,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddNation">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/AddNation" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/AddNation" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -359,7 +440,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddEvent">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/AddEvent" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/AddEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -368,7 +449,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEvent">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEvent" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/GetEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -377,7 +458,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetEvents">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetEvents" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/GetEvents" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -386,7 +467,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddPerson">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/AddPerson" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/AddPerson" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -395,7 +476,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetPerson">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetPerson" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/GetPerson" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -404,7 +485,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetPersons">
-      <soap12:operation soapAction="http://www.ics.lu.se.cali/GetPersons" style="document" />
+      <soap12:operation soapAction="http://cali.eventkalender/GetPersons" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

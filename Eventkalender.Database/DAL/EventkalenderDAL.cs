@@ -44,6 +44,36 @@ namespace Eventkalender.Database
             }
         }
 
+        public void DeleteEvent(Event e)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                context.Event.Attach(e);
+                context.Event.Remove(e);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteNation(Nation n)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                context.Nation.Attach(n);
+                context.Nation.Remove(n);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeletePerson(Person p)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                context.Person.Attach(p);
+                context.Person.Remove(p);
+                context.SaveChanges();
+            }
+        }
+
         public Event GetEvent(int id)
         {
             using (var context = new EventkalenderContext(xmlPath))

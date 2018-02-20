@@ -413,7 +413,7 @@
                             <TextBlock Text="Data" 
                                        Canvas.Left="150"
                                        Canvas.Top="15"/>
-                            <TextBlock Text="MetaData" 
+                            <TextBlock Text="Metadata" 
                                        Canvas.Left="350"
                                        Canvas.Top="15"/>
                             <ComboBox x:Name="cmbData"
@@ -432,7 +432,8 @@
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
                                       IsTextSearchEnabled="True" 
-                                      SelectionChanged="cmbMetaData_SelectionChanged">
+                                      SelectedIndex="{Binding Path=MetadataSelectedIndex}"
+                                      SelectionChanged="cmbMetadata_SelectionChanged">
                             </ComboBox>
 
                             <DataGrid x:Name="datagridCronus"
@@ -443,7 +444,8 @@
                                       HorizontalScrollBarVisibility="Auto"
                                       VerticalScrollBarVisibility="Auto"
                                       IsReadOnly="True"
-                                      ItemsSource="{Binding Path=EventList}">
+                                      AutoGenerateColumns="False"
+                                      ItemsSource="{Binding Path=Data}">
                             </DataGrid>
                             <TextBlock Canvas.Bottom="10"
                                        Canvas.Left="10"

@@ -18,31 +18,41 @@ public class CronusService : WebService
         cronusController = new CronusController(databaseFilePath);
     }
 
-    ///* [WebMethod]
-    //public void Update()
-    //{
+    [WebMethod]
+    public void UpdateEmployee()
+    {
+        cronusController.UpdateEmployee();
+    }
 
-    //    return cronusController.Update();
-    //}
-    //[WebMethod]
-    //public void Insert()
-    //{
+    [WebMethod]
+    public Employee GetEmployee(int number)
+    {
+        cronusController.GetEmployee();
+    }
 
-    //    return cronusController.Insert();
-    //}
-    //[WebMethod]
-    //public void Delete()
-    //{
+    [WebMethod]
+    public List<Employee> GetEmployees()
+    {
+        cronusController.GetEmployees();
+    }
 
-    //    return cronusController.Delete();
-    //}
-    //[WebMethod]
-    //public void Select()
-    //{
+    [WebMethod]
+    public void AddEmployee()
+    {
+        ´return cronusController.InsertEmployee();
+    }
 
-    //    return cronusController.Select();
-    //}
-    //*/
+    [WebMethod]
+    public void DeleteEmployee()
+    {
+        cronusController.DeleteEmployee();
+    }
+
+    [WebMethod]
+    public void SelectEmployee()
+    {
+        return cronusController.SelectEmployee();
+    }
 
     [WebMethod]
     public List<string> GetKeys()

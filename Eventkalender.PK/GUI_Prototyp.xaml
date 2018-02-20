@@ -338,6 +338,7 @@
                                             Width="100"/>
                                 </StackPanel>
                                 <Button x:Name="btnInvToEvent"
+                                        Click="btnInvToEvent_Click"
                                         Content="Bjud in"
                                         Canvas.Bottom="40"
                                         Canvas.Left="340"

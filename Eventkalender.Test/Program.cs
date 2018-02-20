@@ -12,46 +12,18 @@ namespace Eventkalender.Test
     {
         public static void Main(string[] args)
         {
-            EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
+            //EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
+            
+            CronusController cronusController = new CronusController("Resources/cronus-db.xml");
 
-            List<Event> events = new List<Event>();
+            //cronusController.AddEmployee("FFFFF", "Philip", "Eriksson");
 
-            try
-            {
-                Nation n = null;
-                n.Name = "this is null";
-                //d.AddNation(n);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
-            }
 
-            Nation n5 = new Nation();
-            n5.Id = 3;
-            d.DeleteNation(n5);
+            Employee e = cronusController.GetEmployee("AL");
 
-            Console.ReadKey();
+            List<Employee> employees = cronusController.GetEmployees();
 
-            //Event e2 = new Event("testevent", "testsummary", DateTime.Now, DateTime.Now);
-            //e2.Nation = n2;
-            //n2.Events.Add(e2);
-
-            //d.AddNation(n2);
-
-            Nation n3 = d.GetNation(1);
-            n3.Name = "Malmö Nation" + new Random().Next(0, 1000000);
-
-            Event e3 = new Event("testevent_ny", "testsummary_ny", DateTime.Now, DateTime.Now, n3.Id);
-            //n3.AddEvent(e3);
-            d.AddEvent(e3);
-
-            d.GetEvent(1000);
-            d.GetEvents();
-
-            string res = "";
-            res = ExceptionHandler.GetErrorMessage(new FileNotFoundException("meddelande", "file.txt"));
-            Console.WriteLine(res);
+            cronusController.UpdateEmployee("FFFFF", "pHHIILLIP", "Eriksson");
 
             Console.ReadKey();
         }

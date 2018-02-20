@@ -13,13 +13,11 @@ namespace Eventkalender.WS.ConsoleApp
         private bool returnBool;
         private int caseSwitch;
 
-        private CronusServiceSoapClient cronusclient;
-        private EventkalenderApp eventApp;
+        private CronusServiceSoapClient cronusClient;
 
         public CronusAppData()
         {
-            cronusclient = new CronusServiceSoapClient();
-            eventApp = new EventkalenderApp();
+            cronusClient = new CronusServiceSoapClient();
         }
       
         public void GetDataByDataTuples(CronusReference.DataTuple[] inputTuple)
@@ -35,8 +33,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetIllestPerson()
         {
             Console.WriteLine("Anställd som har varit sjuk flest antal gånger: ");
-
-            CronusReference.DataTuple data = cronusclient.GetIllestPerson();
+            CronusReference.DataTuple data = cronusClient.GetIllestPerson();
             Console.WriteLine(data);
             ExitQuestion();
         }
@@ -55,12 +52,12 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 Console.WriteLine("Antingen så var startåret eller slutåret inte i korrekt format - Exempel *2000*");
                 ExitQuestion();
-
             }
+
             Console.WriteLine("Följande personer har varit sjuka mellan år {0} och {1}", startYear, endYear);
             try
             {
-                GetDataByDataTuples(cronusclient.GetIllPersonsByYear(startYear, endYear));
+                GetDataByDataTuples(cronusClient.GetIllPersonsByYear(startYear, endYear));
             }
             catch (Exception e)
             {
@@ -72,50 +69,49 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetEmployeeAndRelatives()
         {
             Console.WriteLine("Anställda samt deras släktingar är följande: ");
-            GetDataByDataTuples(cronusclient.GetEmployeeAndRelatives());
+            GetDataByDataTuples(cronusClient.GetEmployeeAndRelatives());
             ExitQuestion();
-
         }
 
         public void GetEmployeeData()
         {
             Console.WriteLine("Employee Data är följande: ");
-            GetDataByDataTuples(cronusclient.GetEmployeeData());
+            GetDataByDataTuples(cronusClient.GetEmployeeData());
             ExitQuestion();
         }
 
         public void GetEmployeeAbsenceData()
         {
             Console.WriteLine("Employee Absence Data är följande:");
-            GetDataByDataTuples(cronusclient.GetEmployeeAbsenceData());
+            GetDataByDataTuples(cronusClient.GetEmployeeAbsenceData());
             ExitQuestion();
         }
 
         public void GetEmployeeRelativeData()
         {
             Console.WriteLine("Employee Relative Data är följande: ");
-            GetDataByDataTuples(cronusclient.GetEmployeeRelativeData());
+            GetDataByDataTuples(cronusClient.GetEmployeeRelativeData());
             ExitQuestion();
         }
 
         public void GetEmployeeQualificationData()
         {
             Console.WriteLine("Employee Qualification Data är följande: ");
-            GetDataByDataTuples(cronusclient.GetEmployeeQualificationData());
+            GetDataByDataTuples(cronusClient.GetEmployeeQualificationData());
             ExitQuestion();
         }
 
         public void GetEmployeePortalSetupData()
         {
             Console.WriteLine("Employee Portal Setup Data är följande: ");
-            GetDataByDataTuples(cronusclient.GetEmployeePortalSetupData());
+            GetDataByDataTuples(cronusClient.GetEmployeePortalSetupData());
             ExitQuestion();
         }
 
         public void GetEmployeeStatisticsGroupData()
         {
             Console.WriteLine("Employee Statistics Group Data är följande: ");
-            GetDataByDataTuples(cronusclient.GetEmployeeStatisticsGroupData());
+            GetDataByDataTuples(cronusClient.GetEmployeeStatisticsGroupData());
             ExitQuestion();
         }
 
@@ -127,14 +123,13 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void ExitQuestion()
         {
-            Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J, Återgå till Datamenyn? Tryck M");
+            Console.WriteLine("\nVill du återgå till Cronusmenyn? Tryck J");
+            Console.WriteLine("Vill du återgå till senaste menyn? Skriv in valfritt värde");
             string userInput = Console.ReadLine();
-            userInput = userInput.Substring(0, 1);
             if (userInput.ToUpper().Equals("J"))
             {
                 returnBool = false;
             }
-
         }
 
         public void Start()
@@ -162,7 +157,6 @@ namespace Eventkalender.WS.ConsoleApp
                 {
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 9!");
                     ExitQuestion();
-
                 }
                 switch (caseSwitch)
                 {
@@ -194,7 +188,7 @@ namespace Eventkalender.WS.ConsoleApp
                         GetEmployeeStatisticsGroupData();
                         break;
                     case 0:
-                        eventApp.VeryGoodMethod();
+                        Program.VeryGoodMethod();
                         break;
                     case -1:
                         ReturnMethod();

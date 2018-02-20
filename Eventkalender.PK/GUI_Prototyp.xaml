@@ -348,7 +348,7 @@
             </TabItem>
             <TabItem Header="Webservices">
                 <TabControl Height="535">
-                    <TabItem Header="Uppgift 1" Margin="-2,0,-2,-2">
+                    <TabItem Header="Uppgift 1" Margin="0,0,0,0">
                         <Canvas>
                             <StackPanel Canvas.Left="10" Canvas.Top="10">
                                 <TextBlock  HorizontalAlignment="Center"
@@ -361,16 +361,29 @@
                                          ToolTipService.InitialShowDelay="5000"/>
                                 <ItemsPresenter  x:Name="itemPresenter"
                                                  Margin="0,15,0,0"
-                                                 Width="600"
-                                                 Height="430"/>
+                                                 Width="1250"
+                                                 Height="400"/>
                             </StackPanel>
                         </Canvas>    
                     </TabItem>
                     <TabItem Header="Uppgift 2">
                         <Canvas>
-                            <VirtualizingStackPanel>
-                                
-                            </VirtualizingStackPanel>
+                            <StackPanel Canvas.Top="20"
+                                        Canvas.Left="10">
+                                <TextBlock Text="Val"
+                                           HorizontalAlignment="Center"
+                                           FontWeight="Bold"/>
+                                <ComboBox   x:Name="cmbWebService"
+                                            IsEditable="True"
+                                            MaxWidth="200">
+                                    
+                                </ComboBox>
+                                <DataGrid x:Name="dgWebService"
+                                          Width="1250"
+                                          Height="430">
+
+                                </DataGrid>
+                            </StackPanel>
                         </Canvas>
                     </TabItem>
                 </TabControl>
@@ -448,6 +461,14 @@
                                       Canvas.Top="20"
                                       Width="850"
                                       Height="450">
+                                <!-- ItemsSource="{Binding Path= }" -->
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Width="auto"/>
+                                    <!-- Binding={Binding Path=} -->
+                                    <DataGridTextColumn Header="Kön" Width="auto"/>
+                                    <DataGridTextColumn Header="Förnamn" Width="auto"/>
+                                    <DataGridTextColumn Header="Efternamn" Width="auto"/>
+                                </DataGrid.Columns>
                             </DataGrid>
                             <Button x:Name="btnDeleteEmployee"
                                     Click="btnDeleteEmployee_Click"

@@ -63,15 +63,26 @@ namespace Eventkalender.PK.GUI
 //
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void GetEmployeeMetadata()
+      
+
+        private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-            cronusClient.GetEmployeeMetadata();
-            cronusClient.GetIndexes();
+
         }
 
-        public void GetEmployeeAbsenceMetadata()
+        private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cronusClient.GetEmployeeAbsenceMetadata();
+            this.datagridCronus.Columns.Clear();
+            this.datagridCronus.ItemsSource = null;
+            datagridCronus.ItemsSource = GetMetadata;
+        }
+
+        private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.datagridCronus.Columns.Clear();
+            this.datagridCronus.ItemsSource = null;
+            datagridCronus.ItemsSource = GetData;
+            //Selected index måste med bror
         }
 
         public List<string> DataCombobox
@@ -145,7 +156,7 @@ namespace Eventkalender.PK.GUI
         {
             bool isFirst = true;
             List<List<string>> totals = new List<List<string>>();
-            for(int i=0; i<values.Length; i++)
+            for (int i = 0; i < values.Length; i++)
             {
                 CronusReference.DataTuple t = values[i];
 
@@ -161,7 +172,7 @@ namespace Eventkalender.PK.GUI
                     isFirst = false;
                 }
                 for (int j = 0; j < t.Count; j++)
-                {        
+                {
                     SerializableKeyValuePairOfStringString s = t.ElementAt(j);
                     columns2.Add(s.Key);
                     array2.Add(s.Value);
@@ -202,7 +213,7 @@ namespace Eventkalender.PK.GUI
                 datagridCronus.Columns.Add(t);
             }
             lst.RemoveAt(0);
-            
+
             return lst;
         }
 
@@ -222,14 +233,14 @@ namespace Eventkalender.PK.GUI
                 lst.Add("Hämta personal kompetensmetadata");
                 lst.Add("Hämta personal portalsetupmetadata");
                 lst.Add("Hämta personal statisticsgroupmetadata");
-                
+
                 return lst;
             }
             private set { }
         }
-        
+
         public List<List<string>> GetMetadata
-        {           
+        {
             get
             {
                 switch (cmbMetaData.SelectedIndex)
@@ -261,27 +272,6 @@ namespace Eventkalender.PK.GUI
             }
             set { }
         }
-
-        private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cmbMetaData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            this.datagridCronus.Columns.Clear();
-            this.datagridCronus.ItemsSource = null;
-            datagridCronus.ItemsSource = GetMetadata;
-        }
-
-        private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            this.datagridCronus.Columns.Clear();
-            this.datagridCronus.ItemsSource = null;
-            datagridCronus.ItemsSource = GetData;
-        }
-
-
 
 
         //------------------------------------------------------------------------------------------------------------------------------------
@@ -413,6 +403,7 @@ namespace Eventkalender.PK.GUI
             if(cmbFilterList.SelectedIndex == 0)
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Nations;
+             
             }
             if (cmbFilterList.SelectedIndex == 1)
             {
@@ -423,9 +414,16 @@ namespace Eventkalender.PK.GUI
         private void cmbInviteEvent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = cmbInviteEvent.SelectedIndex;
-            if (index > -1)
+            if(index == -1)
+            {
+                datagridInviteEvent.ItemsSource = eventkalenderViewModel.Events;
+            }
+            else if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+
+                //datagridInviteEvent.Columns[2].val
+
                 datagridInviteEvent.ItemsSource = n.Events;
             }
             else
@@ -473,5 +471,12 @@ namespace Eventkalender.PK.GUI
         {
 
         }
+
+        private void datagridPersonNation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+  
     }
 }

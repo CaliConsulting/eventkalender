@@ -421,8 +421,41 @@
                                        Text="{Binding Path=StatusProperty}"/>
                         </Canvas>
                     </TabItem>
-                    <TabItem Header="Cronus del 2">
-                           
+                    <TabItem Header="Employee">
+                        <Canvas>
+                        <StackPanel Canvas.Left="20"
+                                    Canvas.Top="20"
+                                    Width="100">
+                            <TextBlock Text="Employee"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="Förnamn"
+                                       Margin="0,15,0,0"/>
+                            <TextBox x:Name="txtEmployeeFirstName"
+                                     Margin="0,5,0,0"/>
+                            <TextBlock Text="Efternamn"
+                                       Margin="0,5,0,0"/>
+                            <TextBox x:Name="txtEmployeeLastName"
+                                     Margin="0,5,0,0"/>
+                            <TextBlock Text="Nummer"
+                                       Margin="0,5,0,0"/>
+                            <TextBox x:Name="txtEmployeeNumber"
+                                 Margin="0,5,0,0"/>
+                            <Button x:Name="btnInsertEmployee"
+                                    Content="Lägg till"
+                                    Margin="0,15,0,0"/>
+                        </StackPanel>
+                            <DataGrid Canvas.Left="400"
+                                      Canvas.Top="20"
+                                      Width="850"
+                                      Height="450">
+                            </DataGrid>
+                            <Button x:Name="btnDeleteEmployee"
+                                    Click="btnDeleteEmployee_Click"
+                                    Content="Radera"
+                                    Canvas.Top="20"
+                                    Canvas.Left="280"
+                                    Width="100"/>
+                        </Canvas>
                     </TabItem>
                 </TabControl>
             </TabItem>

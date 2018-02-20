@@ -222,5 +222,10 @@ namespace Eventkalender.PK.GUI
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Persons;
             }
         }
+
+        private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

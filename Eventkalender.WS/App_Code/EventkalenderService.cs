@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-[WebService(Namespace = "http://www.ics.lu.se.cali/")]
+[WebService(Namespace = "http://cali.eventkalender/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 public class EventkalenderService : WebService
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.CronusReference;
 
 namespace Eventkalender.WS.ConsoleApp
@@ -19,10 +20,10 @@ namespace Eventkalender.WS.ConsoleApp
             cronusClient = new CronusServiceSoapClient();
         }
       
-        public void GetDataByDataTuples(DataTuple[] inputTuple)
+        public void GetDataByDataTuples(CronusReference.DataTuple[] inputTuple)
         {
-            DataTuple[] data = inputTuple;
-            List<DataTuple> tuples = data.ToList();
+            CronusReference.DataTuple[] data = inputTuple;
+            List<CronusReference.DataTuple> niggas = data.ToList();
             for (int i = 0; i < data.Length; i++)
             {
                 Console.WriteLine(data[i].ToString());
@@ -32,7 +33,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetIllestPerson()
         {
             Console.WriteLine("Anställd som har varit sjuk flest antal gånger: ");
-            DataTuple data = cronusClient.GetIllestPerson();
+            CronusReference.DataTuple data = cronusClient.GetIllestPerson();
             Console.WriteLine(data);
             ExitQuestion();
         }
@@ -54,7 +55,14 @@ namespace Eventkalender.WS.ConsoleApp
             }
 
             Console.WriteLine("Följande personer har varit sjuka mellan år {0} och {1}", startYear, endYear);
-            GetDataByDataTuples(cronusClient.GetIllPersonsByYear(startYear, endYear));
+            try
+            {
+                GetDataByDataTuples(cronusClient.GetIllPersonsByYear(startYear, endYear));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
+            }
             ExitQuestion();
         }
 

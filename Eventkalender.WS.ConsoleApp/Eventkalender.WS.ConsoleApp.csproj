@@ -134,7 +134,40 @@
     <None Include="Connected Services\CronusReference\Eventkalender.WS.ConsoleApp.CronusReference.GetTablesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.AddEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.AddFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.AddNationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.AddPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.Event.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetEventsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetNationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetNationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetPersonsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.Nation.datasource">
@@ -144,6 +177,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\EventkalenderService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eventkalender.Database\Eventkalender.Database.csproj">
+      <Project>{3fb7f54b-1b3e-4a38-ae08-f487a6276d29}</Project>
+      <Name>Eventkalender.Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CronusReference\" />
@@ -160,12 +199,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Eventkalender.Database\Eventkalender.Database.csproj">
-      <Project>{3fb7f54b-1b3e-4a38-ae08-f487a6276d29}</Project>
-      <Name>Eventkalender.Database</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\CronusReference\configuration91.svcinfo" />

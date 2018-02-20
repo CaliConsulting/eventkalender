@@ -54,10 +54,6 @@ namespace Eventkalender.PK.GUI
             }
             set
             {
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Events"));
-                }
             }
         }
 

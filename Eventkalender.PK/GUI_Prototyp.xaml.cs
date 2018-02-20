@@ -39,6 +39,8 @@ namespace Eventkalender.PK.GUI
             eventkalenderViewModel = new EventkalenderViewModel();
             cronusClient = new CronusServiceSoapClient();
             eventkalenderWSClient = new EventkalenderServiceSoapClient();
+
+            this.DataContext = eventkalenderViewModel;
         }
 
       /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
@@ -174,8 +176,12 @@ namespace Eventkalender.PK.GUI
 
                 int index = cmBoxNation.SelectedIndex;
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                
-                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+
+                Database.Event e1 = new Database.Event(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+
+                eventkalenderViewModel.Events.Add(e1);
+
+                //eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
             }
             else
             {

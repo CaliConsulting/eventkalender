@@ -187,7 +187,7 @@
                                             Canvas.Left="10"/>
                             </Canvas>
                         </TabItem>
-                        <TabItem Header="Person- och nationshantering" Margin="0,-0,0,0">
+                        <TabItem Header="Person- och nationshantering" Margin="-0.2,0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Person"

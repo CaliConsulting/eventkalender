@@ -55,7 +55,7 @@ namespace Eventkalender.PK
             return dateStart;
         }
 
-        public static void AddColumnsToGrid(DataGrid grid, List<List<string>> lst)
+        public static void AddColumns(DataGrid grid, List<List<string>> lst)
         {
             for (int i = 0; i < lst[0].Count; i++)
             {
@@ -65,6 +65,7 @@ namespace Eventkalender.PK
 
                 grid.Columns.Add(t);
             }
+            // Remove the column header from the resulting list
             lst.RemoveAt(0);
         }
 
@@ -110,58 +111,46 @@ namespace Eventkalender.PK
             return newList;
         }
 
-        public static List<List<string>> GetCronusMetadata(CronusServiceSoapClient cronusClient, int index, out bool hasColumns)
+        public static List<List<string>> GetCronusMetadata(CronusServiceSoapClient cronusClient, int index)
         {
             List<List<string>> result = new List<List<string>>();
             switch (index)
             {
                 case 0:
                     result = NormalizeStructure(cronusClient.GetIndexes());
-                    hasColumns = false;
                     return result;
                 case 1:
                     result = NormalizeStructure(cronusClient.GetKeys());
-                    hasColumns = false;
                     return result;
                 case 2:
                     result = NormalizeStructure(cronusClient.GetColumnsForEmployeeTable());
-                    hasColumns = false;
                     return result;
                 case 3:
                     result = NormalizeStructure(cronusClient.GetTableConstraints());
-                    hasColumns = false;
                     return result;
                 case 4:
                     result = NormalizeStructure(cronusClient.GetTables());
-                    hasColumns = false;
                     return result;
                 case 5:
                     result = ExtractData(cronusClient.GetEmployeeMetadata());
-                    hasColumns = true;
                     return result;
                 case 6:
                     result = ExtractData(cronusClient.GetEmployeeAbsenceMetadata());
-                    hasColumns = true;
                     return result;
                 case 7:
                     result = ExtractData(cronusClient.GetEmployeeRelativeMetadata());
-                    hasColumns = true;
                     return result;
                 case 8:
                     result = ExtractData(cronusClient.GetEmployeeQualificationMetadata());
-                    hasColumns = true;
                     return result;
                 case 9:
                     result = ExtractData(cronusClient.GetEmployeePortalSetupMetadata());
-                    hasColumns = true;
                     return result;
                 case 10:
                     result = ExtractData(cronusClient.GetEmployeeStatisticsGroupMetadata());
-                    hasColumns = true;
                     return result;
             }
             // Down here we are in undefined behavior land...
-            hasColumns = false;
             return null;
         }
 
@@ -171,8 +160,7 @@ namespace Eventkalender.PK
             switch (index)
             {
                 case 0:
-                    CronusReference.DataTuple value = cronusClient.GetIllestPerson();
-                    CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { value };
+                    CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { cronusClient.GetIllestPerson() };
                     return ExtractData(values);
                 case 1:
                     values = cronusClient.GetIllPersonsByYear(2004, 2005); //statiskt anrop för 2004 och 2005 som efterfrågas
@@ -201,7 +189,6 @@ namespace Eventkalender.PK
             }
             return null;
         }
-
 
     }
 }

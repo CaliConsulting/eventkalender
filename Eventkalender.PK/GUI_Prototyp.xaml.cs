@@ -39,29 +39,11 @@ namespace Eventkalender.PK.GUI
             DataContext = eventkalenderViewModel;
         }
 
-        /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
-          {
-              CronusReference.DataTuple[] data = inputTuple;
-              for (int i = 0; i < data.Length; i++)
-              {
-                  Console.WriteLine(data[i].ToString());
-              }
-          }
-
-          public void GetMetadataListOfString(List<string> metod)
-          {
-              foreach (string row in metod)
-              {
-                  Console.WriteLine(row);
-              }
-          } */
 //------------------------------------------------------------------------------------------------------------------------------------
 //
 //                                  CRONUS Eventhandlers
 //
 //-----------------------------------------------------------------------------------------------------------------------------------
-
-      
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
@@ -70,17 +52,17 @@ namespace Eventkalender.PK.GUI
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.datagridCronus.Columns.Clear();
-            this.datagridCronus.ItemsSource = null;
-            Utility.AddColumnsToGrid(datagridCronus, eventkalenderViewModel.Metadata);
+            datagridCronus.Columns.Clear();
+            datagridCronus.ItemsSource = null;
+            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Metadata);
             datagridCronus.ItemsSource = eventkalenderViewModel.Metadata;
         }
 
         private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.datagridCronus.Columns.Clear();
-            this.datagridCronus.ItemsSource = null;
-            Utility.AddColumnsToGrid(datagridCronus, eventkalenderViewModel.Data);
+            datagridCronus.Columns.Clear();
+            datagridCronus.ItemsSource = null;
+            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
             datagridCronus.ItemsSource = eventkalenderViewModel.Data;
             //Selected index måste med bror
             // Nope inte nödvändigt! Jag fixar detta mannen / Daniel

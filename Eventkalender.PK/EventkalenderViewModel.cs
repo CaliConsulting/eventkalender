@@ -251,18 +251,7 @@ namespace Eventkalender.PK.GUI
                     metadataSelectedIndex = value;
                     NotifyPropertyChanged("MetadataSelectedIndex");
 
-                    Metadata = Utility.GetCronusMetadata(cronusClient, metadataSelectedIndex, out bool hasColumns);
-                    // Not all metadata results have columns so we need to handle that by 
-                    // inserting our own into the resulting list
-                    if (!hasColumns)
-                    {
-                        List<string> columns = new List<string>();
-                        for (int i = 0; i < Metadata[0].Count; i++)
-                        {
-                            columns.Add(i.ToString());
-                        }
-                        Metadata.Insert(0, columns);
-                    }
+                    Metadata = Utility.GetCronusMetadata(cronusClient, metadataSelectedIndex);
                 }
             }
         }

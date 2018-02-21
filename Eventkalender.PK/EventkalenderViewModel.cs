@@ -18,6 +18,7 @@ namespace Eventkalender.PK.GUI
 
         private EventkalenderController eventkalenderController;
         private List<string> timesList;
+        private ExceptionHandler exception;
 
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
@@ -116,8 +117,7 @@ namespace Eventkalender.PK.GUI
         }
         public List<string> TimesList
         {
-            set
-            { }
+            set { }
             get
             {
                 if (timesList == null)

@@ -201,7 +201,7 @@ namespace Eventkalender.PK.GUI
             if(cmbFilterList.SelectedIndex == 0)
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Nations;
-             
+                             
             }
             if (cmbFilterList.SelectedIndex == 1)
             {
@@ -277,23 +277,6 @@ namespace Eventkalender.PK.GUI
                 dgWebService.ItemsSource = null;
                 dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void datagridPersonNation_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private void datagridInvitePersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-    
+        }   
     }
 }

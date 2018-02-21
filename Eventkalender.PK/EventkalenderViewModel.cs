@@ -88,7 +88,7 @@ namespace Eventkalender.PK.GUI
         {
             get
             {
-                if (persons != null)
+                if (persons == null)
                 {
                     persons = new ObservableCollection<Database.Person>(eventkalenderController.GetPersons());
                 }

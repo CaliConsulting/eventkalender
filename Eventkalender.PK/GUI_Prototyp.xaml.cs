@@ -105,8 +105,6 @@ namespace Eventkalender.PK.GUI
 
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.DeteleEvent(ev.Id);
-//                eventkalenderController.DeleteEvent(ev.Id);
-                datagridEvents.Items.RemoveAt(index);
             }
         }
 

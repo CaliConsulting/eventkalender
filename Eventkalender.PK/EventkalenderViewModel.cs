@@ -36,24 +36,10 @@ namespace Eventkalender.PK.GUI
             eventkalenderWSClient = new EventkalenderServiceSoapClient();
         }
 
-
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-       /* protected void OnPropertyChanged(ObservableCollection<object> lst)
-        {
-            
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }*/
 
 
         public ObservableCollection<Database.Event> Events
@@ -62,16 +48,17 @@ namespace Eventkalender.PK.GUI
             {
                 if (events == null)
                 {
-                    
-                    return events = new ObservableCollection<Database.Event>(eventkalenderController.GetEvents());
+                    events = new ObservableCollection<Database.Event>(eventkalenderController.GetEvents());
                 }
                 return events;
             }
             set
             {
-                if (PropertyChanged != null)
+                if (events != value)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Events"));
+                    events = value;
+
+                    NotifyPropertyChanged("Events");
                 }
             }
         }
@@ -82,16 +69,17 @@ namespace Eventkalender.PK.GUI
             {
                 if (nations == null)
                 {
-
-                    return nations = new ObservableCollection<Database.Nation>(eventkalenderController.GetNations());
+                    nations = new ObservableCollection<Database.Nation>(eventkalenderController.GetNations());
                 }
                 return nations;
             }
             set
             {
-                if (PropertyChanged != null)
+                if (nations != value)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Nations"));
+                    nations = value;
+
+                    NotifyPropertyChanged("Nations");
                 }
             }
         }
@@ -100,51 +88,54 @@ namespace Eventkalender.PK.GUI
         {
             get
             {
-                if (persons == null)
+                if (persons != null)
                 {
-                    return persons = new ObservableCollection<Database.Person>(eventkalenderController.GetPersons());
+                    persons = new ObservableCollection<Database.Person>(eventkalenderController.GetPersons());
                 }
                 return persons;
             }
             set
             {
-                if (PropertyChanged != null)
+                if (persons != value)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Persons"));
+                    persons = value;
+
+                    NotifyPropertyChanged("Persons");
                 }
             }
         }
         public List<string> TimesList
         {
-            set
-            { }
             get
             {
                 if (timesList == null)
                 {
-                    return timesList = Utility.GenerateList();
+                    timesList = Utility.GenerateList();
                 }
                 return timesList;
             }
+            private set { }
         }
 
         public void AddNation(string name)
         {
-            Database.Nation n = new Database.Nation(name);
+            Database.Nation temp = new Database.Nation(name);
 
-            Nations.Add(n);
-            eventkalenderDAL.AddNation(n);
-            NotifyPropertyChanged("Nations");
+            Nations.Add(temp);
+            eventkalenderDAL.AddNation(temp);
+
+            //NotifyPropertyChanged("Nations");
         }
 
         public void DeleteNation(int id)
         {
-            Database.Nation n = new Database.Nation("");
-            n.Id = id;
+            Database.Nation temp = new Database.Nation();
+            temp.Id = id;
 
-            Nations.Remove(n);
-            eventkalenderDAL.DeleteNation(n);
-            NotifyPropertyChanged("Nations");
+            Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
+            eventkalenderDAL.DeleteNation(temp);
+
+            //NotifyPropertyChanged("Nations");
         }
         
         public void AddPerson(string name, string lastname)
@@ -153,17 +144,19 @@ namespace Eventkalender.PK.GUI
 
             Persons.Add(p);
             eventkalenderDAL.AddPerson(p);
-            NotifyPropertyChanged("Persons");
+
+            //NotifyPropertyChanged("Persons");
         }
 
         public void DeletePerson(int id)
         {
-            Database.Person p = new Database.Person("","");
-            p.Id = id;
+            Database.Person temp = new Database.Person();
+            temp.Id = id;
 
-            Persons.Remove(p);
-            eventkalenderDAL.DeletePerson(p);
-            NotifyPropertyChanged("Persons");
+            Persons.Remove(Persons.FirstOrDefault(p => p.Id == temp.Id));
+            eventkalenderDAL.DeletePerson(temp);
+
+            //NotifyPropertyChanged("Persons");
         }
 
         public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
@@ -172,16 +165,19 @@ namespace Eventkalender.PK.GUI
 
             Events.Add(e);
             eventkalenderDAL.AddEvent(e);
-            NotifyPropertyChanged("Events");
+
+            //NotifyPropertyChanged("Events");
         }
+
         public void DeleteEvent(int id)
         {
-            Database.Event e = new Database.Event();
-            e.Id = id;
+            Database.Event temp = new Database.Event();
+            temp.Id = id;
 
-            Events.Remove(e);
-            eventkalenderDAL.DeleteEvent(e);
-            NotifyPropertyChanged("Events");
+            Events.Remove(Events.FirstOrDefault(e => e.Id == temp.Id));
+            eventkalenderDAL.DeleteEvent(temp);
+
+            //NotifyPropertyChanged("Events");
         }
 
         public EventkalenderReference.Event [] GetEvents()

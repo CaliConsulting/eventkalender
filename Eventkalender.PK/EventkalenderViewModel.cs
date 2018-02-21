@@ -174,7 +174,7 @@ namespace Eventkalender.PK.GUI
             eventkalenderDAL.AddEvent(e);
             NotifyPropertyChanged("Events");
         }
-        public void DeteleEvent(int id)
+        public void DeleteEvent(int id)
         {
             Database.Event e = new Database.Event();
             e.Id = id;
@@ -182,6 +182,21 @@ namespace Eventkalender.PK.GUI
             Events.Remove(e);
             eventkalenderDAL.DeleteEvent(e);
             NotifyPropertyChanged("Events");
+        }
+
+        public EventkalenderReference.Event [] GetEvents()
+        {
+            return eventkalenderWSClient.GetEvents();
+        }
+
+        public EventkalenderReference.Nation[] GetNations()
+        {
+            return eventkalenderWSClient.GetNations();
+        }
+
+        public EventkalenderReference.Person[] GetPersons()
+        {
+            return eventkalenderWSClient.GetPersons();
         }
 
         private List<List<string>> data;
@@ -294,6 +309,41 @@ namespace Eventkalender.PK.GUI
                 return lst;
             }
             private set { }
+        }
+
+        public List<string> WSCombobox
+        {
+            get
+            {
+                List<string> lst = new List<string>();
+                lst.Add("Hämta Events");
+                lst.Add("Hämta Nationer");
+                lst.Add("Hämta Personer");
+              
+                return lst;
+            }
+            private set { }
+        }
+
+        private int wSSelectedIndex = -1;
+
+
+        public int WSSelectedIndex
+        {
+            get
+            {
+                return wSSelectedIndex;
+            }
+            set
+            {
+                if (wSSelectedIndex != value)
+                {
+                    wSSelectedIndex = value;
+                    NotifyPropertyChanged("WSSelectedItem");
+
+                   // Data = Utility.(eventkalenderWSClient, wSSelectedIndex);
+                }
+            }
         }
 
     }

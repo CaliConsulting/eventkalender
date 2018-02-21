@@ -64,8 +64,7 @@ namespace Eventkalender.PK.GUI
             datagridCronus.ItemsSource = null;
             Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
             datagridCronus.ItemsSource = eventkalenderViewModel.Data;
-            //Selected index måste med bror
-            // Nope inte nödvändigt! Jag fixar detta mannen / Daniel
+           
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------
@@ -104,7 +103,7 @@ namespace Eventkalender.PK.GUI
                 int index = datagridEvents.SelectedIndex;
 
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
-                eventkalenderViewModel.DeteleEvent(ev.Id);
+                eventkalenderViewModel.DeleteEvent(ev.Id);
 //                eventkalenderController.DeleteEvent(ev.Id);
                 datagridEvents.Items.RemoveAt(index);
             }
@@ -253,14 +252,22 @@ namespace Eventkalender.PK.GUI
             if (cmbWebService.SelectedIndex == 0) //event kalla webservicen
             {
 
+                dgWebService.Columns.Clear();
+                dgWebService.ItemsSource = null;
+              //  Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
+                dgWebService.ItemsSource = eventkalenderViewModel.GetEvents();
             }
             if (cmbWebService.SelectedIndex == 1) //nation
             {
-
+                dgWebService.Columns.Clear();
+                dgWebService.ItemsSource = null;
+                dgWebService.ItemsSource = eventkalenderViewModel.GetNations();
             }
             if (cmbWebService.SelectedIndex == 2) //person
             {
-
+                dgWebService.Columns.Clear();
+                dgWebService.ItemsSource = null;
+                dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
         }
 
@@ -278,5 +285,7 @@ namespace Eventkalender.PK.GUI
         {
 
         }
+
+    
     }
 }

@@ -392,17 +392,17 @@
                         <Canvas>
                             <StackPanel Canvas.Top="20"
                                         Canvas.Left="10">
-                                <TextBlock Text="Val"
+                                <TextBlock Text="Visa listor"
                                            HorizontalAlignment="Center"
                                            FontWeight="Bold"/>
                                 <ComboBox   x:Name="cmbWebService"
                                             IsEditable="True"
                                             IsTextSearchEnabled="True"
                                             MaxWidth="200"
+                                            ItemsSource="{Binding Path=WSCombobox}"
+                                            SelectedIndex="{Binding Path=WSSelectedIndex}"
                                             SelectionChanged="cmbWebService_SelectionChanged">
-                                    <ComboBoxItem Content="Event"/>
-                                    <ComboBoxItem Content="Nation"/>
-                                    <ComboBoxItem Content="Person"/>
+                                   
                                 </ComboBox>
                                 <DataGrid x:Name="dgWebService"
                                           Width="1240"

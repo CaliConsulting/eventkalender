@@ -186,6 +186,10 @@ namespace Eventkalender.PK.GUI
         private void cmbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = cmbEvents.SelectedIndex;
+            if(index == -1)
+            {
+                datagridFindEvents.ItemsSource = eventkalenderViewModel.Events;
+            }
             if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
@@ -254,8 +258,14 @@ namespace Eventkalender.PK.GUI
 
                 dgWebService.Columns.Clear();
                 dgWebService.ItemsSource = null;
-              //  Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
-                dgWebService.ItemsSource = eventkalenderViewModel.GetEvents();
+                List<string> output = new List<string>();
+                EventkalenderReference.Event[] turn = eventkalenderViewModel.GetEvents();
+                for (int i = 0; i>5; i++)
+                {
+                    
+                    
+                }
+                dgWebService.ItemsSource = eventkalenderViewModel.GetEvents(); 
             }
             if (cmbWebService.SelectedIndex == 1) //nation
             {

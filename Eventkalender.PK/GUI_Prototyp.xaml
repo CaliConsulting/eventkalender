@@ -65,7 +65,7 @@
                                 <StackPanel Canvas.Left="10" Canvas.Top="10"  >
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
-                                    <TextBlock Text="Eventnamn"/>
+                                    <TextBlock Text="Eventnamn*"/>
                                     <TextBox x:Name="txtBoxEventName"
                                              Margin="0,0,0,0"
                                              AcceptsReturn="True"
@@ -73,7 +73,7 @@
                                              Width="150"
                                              HorizontalAlignment="Left"
                                              TabIndex="1"/>
-                                    <TextBlock Text="Nation"/>
+                                    <TextBlock Text="Nation*"/>
                                     <ComboBox x:Name="cmBoxNation"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Left"
@@ -85,7 +85,7 @@
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"
                                               TabIndex="2"/>
-                                    <TextBlock Text="Start av event:"/>
+                                    <TextBlock Text="Start av event:*"/>
                                     <DatePicker x:Name="dtpickStartDate"
                                               MaxWidth="150"
                                               Width="150"
@@ -94,7 +94,7 @@
                                               ToolTipService.InitialShowDelay="5000"
                                                 TabIndex="3"/>
 
-                                    <TextBlock Text="Eventets slut:"/>
+                                    <TextBlock Text="Eventets slut:*"/>
                                     <DatePicker x:Name="dtpickEndDate"
                                               Width="150"
                                               MaxWidth="150"
@@ -103,7 +103,7 @@
                                             ToolTipService.InitialShowDelay="5000"
                                                 TabIndex="5"/>
 
-                                    <TextBlock Text="Beskrivning:"/>
+                                    <TextBlock Text="Beskrivning:*"/>
                                     <TextBox x:Name="txtBoxSummary"
                                              Height="200" 
                                              Width="350"
@@ -118,7 +118,7 @@
                                             ToolTipService.InitialShowDelay="5000"
                                             TabIndex="8"/>
                                 </StackPanel>
-                                <TextBlock Text="Tid:"
+                                <TextBlock Text="Tid:*"
                                            Canvas.Top="100"
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmbStartTime"
@@ -130,7 +130,7 @@
                                           ItemsSource="{Binding Path=TimesList}"
                                           TabIndex="4">
                                 </ComboBox>
-                                <TextBlock Text="Tid:"
+                                <TextBlock Text="Tid:*"
                                            Canvas.Top="140"
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmbEndTime"
@@ -201,9 +201,9 @@
                                 <StackPanel Canvas.Left="10" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Person"
                                                FontWeight="Bold"/>
-                                    <TextBlock Text="Förnamn"/>
+                                    <TextBlock Text="Förnamn*"/>
                                     <TextBox x:Name="txtBoxFirstName"/>
-                                    <TextBlock Text="Efternamn"/>
+                                    <TextBlock Text="Efternamn*"/>
                                     <TextBox x:Name="txtBoxLastName"/>
                                     <Button x:Name="btnRegPers"
                                             Click="btnRegPers_Click"
@@ -216,7 +216,7 @@
                                             Canvas.Top="10">
                                     <TextBlock Text="Lägg till Nation"
                                                FontWeight="Bold"/>
-                                    <TextBlock Text="Namn"/>
+                                    <TextBlock Text="Namn*"/>
                                     <TextBox x:Name="txtBoxNationName"
                                              MaxWidth="150"
                                              Width="150"

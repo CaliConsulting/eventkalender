@@ -262,11 +262,19 @@
                                               Canvas.Left="330"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
+                                              AutoGenerateColumns="False"
                                               IsReadOnly="True"
                                               SelectionMode="Extended"
                                               ItemsSource="{Binding Path=ErasePersonProp}"
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
-                                              ToolTipService.InitialShowDelay="500" SelectionChanged="datagridPersonNation_SelectionChanged"/>
+                                              ToolTipService.InitialShowDelay="500" 
+                                              SelectionChanged="datagridPersonNation_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Id" Width="Auto"/>
+                                        <DataGridTextColumn Header="Namn" Width="Auto"/>
+                                        <DataGridTextColumn Header="Evenemangsdeltagande" Width="Auto"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>
@@ -297,12 +305,12 @@
                                              VerticalScrollBarVisibility="Auto"
                                              SelectionMode="Extended"
                                              ItemsSource="{Binding Path=Persons}"
-                                             AutoGenerateColumns="False">
+                                             AutoGenerateColumns="False" SelectionChanged="datagridInvitePersons_SelectionChanged">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
                                             <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
-                                            <DataGridTextColumn Header="Eventdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                            <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
@@ -378,7 +386,7 @@
                                                  Width="1250"
                                                  Height="400"/>
                             </StackPanel>
-                        </Canvas>
+                        </Canvas>    
                     </TabItem>
                     <TabItem Header="Uppgift 2">
                         <Canvas>
@@ -400,7 +408,6 @@
                                           Width="1240"
                                           Height="430"
                                           Margin="0,15,0,0">
-
                                 </DataGrid>
                             </StackPanel>
                         </Canvas>
@@ -408,7 +415,7 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="ERP Integration">
-                <TabControl Height="535" SelectionChanged="TabControl_SelectionChanged">
+                <TabControl Height="535">
                     <TabItem Header="Cronus">
                         <Canvas>
                             <TextBlock Text="Data" 
@@ -424,21 +431,23 @@
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=DataCombobox}"
                                       SelectedIndex="{Binding Path=DataSelectedIndex}"
-                                      IsTextSearchEnabled="True" SelectionChanged="cmbData_SelectionChanged">
+                                      IsTextSearchEnabled="True" 
+                                      SelectionChanged="cmbData_SelectionChanged">
                             </ComboBox>
-
-                            <ComboBox x:Name="cmbMetadata"
+                            <ComboBox x:Name="cmbMetaData"
                                       Canvas.Top="30"
                                       Canvas.Left="350"
                                       Width="150"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
+                                      IsTextSearchEnabled="True" 
                                       SelectedIndex="{Binding Path=MetadataSelectedIndex}"
-                                      IsTextSearchEnabled="True" SelectionChanged="cmbMetadata_SelectionChanged">
+                                      SelectionChanged="cmbMetadata_SelectionChanged">
                             </ComboBox>
 
                             <DataGrid x:Name="datagridCronus"
-                                      Canvas.Top="83"
+                                      Canvas.Left="10"
+                                      Canvas.Top="85"
                                       Width="1220"
                                       Height="390"
                                       HorizontalScrollBarVisibility="Auto"

@@ -24,7 +24,7 @@ namespace Eventkalender.PK.GUI
     /// </summary>
     public partial class GUI_Prototyp : Window
     {
-        private EventkalenderController eventkalenderController;
+ //       private EventkalenderController eventkalenderController;
         private EventkalenderViewModel eventkalenderViewModel;
         private CronusServiceSoapClient cronusClient;
         private EventkalenderServiceSoapClient eventkalenderWSClient;
@@ -32,36 +32,18 @@ namespace Eventkalender.PK.GUI
         public GUI_Prototyp()
         {
             InitializeComponent();
-            eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
+ //           eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
             eventkalenderViewModel = new EventkalenderViewModel();
             cronusClient = new CronusServiceSoapClient();
             eventkalenderWSClient = new EventkalenderServiceSoapClient();
             DataContext = eventkalenderViewModel;
         }
 
-        /*  public void GetMetadataByDataTuples(CronusReference.DataTuple[] inputTuple)
-          {
-              CronusReference.DataTuple[] data = inputTuple;
-              for (int i = 0; i < data.Length; i++)
-              {
-                  Console.WriteLine(data[i].ToString());
-              }
-          }
-
-          public void GetMetadataListOfString(List<string> metod)
-          {
-              foreach (string row in metod)
-              {
-                  Console.WriteLine(row);
-              }
-          } */
 //------------------------------------------------------------------------------------------------------------------------------------
 //
 //                                  CRONUS Eventhandlers
 //
 //-----------------------------------------------------------------------------------------------------------------------------------
-
-      
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
@@ -70,17 +52,17 @@ namespace Eventkalender.PK.GUI
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.datagridCronus.Columns.Clear();
-            this.datagridCronus.ItemsSource = null;
-            Utility.AddColumnsToGrid(datagridCronus, eventkalenderViewModel.Metadata);
+            datagridCronus.Columns.Clear();
+            datagridCronus.ItemsSource = null;
+            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Metadata);
             datagridCronus.ItemsSource = eventkalenderViewModel.Metadata;
         }
 
         private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.datagridCronus.Columns.Clear();
-            this.datagridCronus.ItemsSource = null;
-            Utility.AddColumnsToGrid(datagridCronus, eventkalenderViewModel.Data);
+            datagridCronus.Columns.Clear();
+            datagridCronus.ItemsSource = null;
+            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
             datagridCronus.ItemsSource = eventkalenderViewModel.Data;
             //Selected index måste med bror
             // Nope inte nödvändigt! Jag fixar detta mannen / Daniel
@@ -101,14 +83,14 @@ namespace Eventkalender.PK.GUI
                 {
                     int index = datagridPersonNation.SelectedIndex;
                     Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
-                    eventkalenderController.DeleteNation(nation.Id);
+                    eventkalenderViewModel.DeleteNation(nation.Id);
                     datagridPersonNation.Items.RemoveAt(index);
                 }
                 if (cmbFilterList.SelectedIndex == 1)
                 {
                     int index = datagridPersonNation.SelectedIndex;
                     Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
-                    eventkalenderController.DeletePerson(person.Id);
+                    eventkalenderViewModel.DeletePerson(person.Id);
                     datagridPersonNation.Items.RemoveAt(index);
                 }
             }
@@ -122,7 +104,8 @@ namespace Eventkalender.PK.GUI
                 int index = datagridEvents.SelectedIndex;
 
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
-                eventkalenderController.DeleteEvent(ev.Id);
+                eventkalenderViewModel.DeteleEvent(ev.Id);
+//                eventkalenderController.DeleteEvent(ev.Id);
                 datagridEvents.Items.RemoveAt(index);
             }
         }
@@ -131,7 +114,8 @@ namespace Eventkalender.PK.GUI
         {
             if (txtBoxNationName.Text != "")
             {
-                eventkalenderController.AddNation(txtBoxNationName.Text);
+                eventkalenderViewModel.AddNation(txtBoxNationName.Text);
+//                eventkalenderController.AddNation(txtBoxNationName.Text);
                 txtBoxNationName.Text = "";
             }
             else
@@ -168,8 +152,9 @@ namespace Eventkalender.PK.GUI
 
                 int index = cmBoxNation.SelectedIndex;
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                
-                eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+
+                eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+               // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
                 dtpickStartDate.Text = "";
                 dtpickEndDate.Text = "";
             }
@@ -217,7 +202,7 @@ namespace Eventkalender.PK.GUI
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Nations;
              
             }
-            if(cmbFilterList.SelectedIndex == 1)
+            if (cmbFilterList.SelectedIndex == 1)
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Persons;
             }
@@ -289,6 +274,9 @@ namespace Eventkalender.PK.GUI
             
         }
 
-  
+        private void datagridInvitePersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

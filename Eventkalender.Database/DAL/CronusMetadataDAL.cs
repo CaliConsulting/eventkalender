@@ -27,6 +27,10 @@ namespace Eventkalender.Database
                 SqlDataReader reader = command.ExecuteReader();
 
                 List<string> keys = new List<string>();
+
+                // Add column value
+                keys.Add("1");
+
                 while (reader.Read())
                 {
                     keys.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
@@ -46,6 +50,10 @@ namespace Eventkalender.Database
                 SqlDataReader reader = command.ExecuteReader();
 
                 List<string> indexes = new List<string>();
+
+                // Add column value
+                indexes.Add("1");
+
                 while (reader.Read())
                 {
                     indexes.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
@@ -65,6 +73,10 @@ namespace Eventkalender.Database
                 SqlDataReader reader = command.ExecuteReader();
 
                 List<string> constraints = new List<string>();
+
+                // Add column value
+                constraints.Add("1");
+
                 while (reader.Read())
                 {
                     constraints.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
@@ -88,6 +100,10 @@ namespace Eventkalender.Database
                 SqlDataReader reader = command.ExecuteReader();
 
                 List<string> tables = new List<string>();
+
+                // Add column value
+                tables.Add("1");
+
                 while (reader.Read())
                 {
                     tables.Add(reader.IsDBNull(0) ? null : reader.GetString(0));
@@ -115,6 +131,10 @@ namespace Eventkalender.Database
                 SqlDataReader reader = command.ExecuteReader();
 
                 List<string> columns = new List<string>();
+
+                // Add column value
+                columns.Add("1");
+
                 while (reader.Read())
                 {
                     columns.Add(reader.IsDBNull(0) ? null : reader.GetString(0));

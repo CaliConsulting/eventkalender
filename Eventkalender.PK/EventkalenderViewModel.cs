@@ -69,6 +69,10 @@ namespace Eventkalender.PK.GUI
             }
             set
             {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Events"));
+                }
             }
         }
 
@@ -130,6 +134,7 @@ namespace Eventkalender.PK.GUI
 
             Nations.Add(n);
             eventkalenderDAL.AddNation(n);
+            NotifyPropertyChanged("Nations");
         }
 
         public void DeleteNation(int id)
@@ -139,6 +144,7 @@ namespace Eventkalender.PK.GUI
 
             Nations.Remove(n);
             eventkalenderDAL.DeleteNation(n);
+            NotifyPropertyChanged("Nations");
         }
         
         public void AddPerson(string name, string lastname)
@@ -147,6 +153,7 @@ namespace Eventkalender.PK.GUI
 
             Persons.Add(p);
             eventkalenderDAL.AddPerson(p);
+            NotifyPropertyChanged("Persons");
         }
 
         public void DeletePerson(int id)
@@ -156,6 +163,7 @@ namespace Eventkalender.PK.GUI
 
             Persons.Remove(p);
             eventkalenderDAL.DeletePerson(p);
+            NotifyPropertyChanged("Persons");
         }
 
         public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
@@ -164,6 +172,16 @@ namespace Eventkalender.PK.GUI
 
             Events.Add(e);
             eventkalenderDAL.AddEvent(e);
+            NotifyPropertyChanged("Events");
+        }
+        public void DeteleEvent(int id)
+        {
+            Database.Event e = new Database.Event();
+            e.Id = id;
+
+            Events.Remove(e);
+            eventkalenderDAL.DeleteEvent(e);
+            NotifyPropertyChanged("Events");
         }
 
         private List<List<string>> data;

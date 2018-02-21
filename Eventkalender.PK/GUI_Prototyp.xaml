@@ -262,11 +262,19 @@
                                               Canvas.Left="330"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
+                                              AutoGenerateColumns="False"
                                               IsReadOnly="True"
                                               SelectionMode="Extended"
                                               ItemsSource="{Binding Path=ErasePersonProp}"
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
-                                              ToolTipService.InitialShowDelay="500" SelectionChanged="datagridPersonNation_SelectionChanged"/>
+                                              ToolTipService.InitialShowDelay="500" 
+                                              SelectionChanged="datagridPersonNation_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Id" Width="Auto"/>
+                                        <DataGridTextColumn Header="Namn" Width="Auto"/>
+                                        <DataGridTextColumn Header="Evenemangsdeltagande" Width="Auto"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                                 <TextBlock  Text="{Binding Path=StatusProperty}"
                                             Canvas.Bottom="10"
                                             Canvas.Left="10"/>
@@ -297,7 +305,7 @@
                                              VerticalScrollBarVisibility="Auto"
                                              SelectionMode="Extended"
                                              ItemsSource="{Binding Path=Persons}"
-                                             AutoGenerateColumns="False">
+                                             AutoGenerateColumns="False" SelectionChanged="datagridInvitePersons_SelectionChanged">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>

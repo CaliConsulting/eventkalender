@@ -31,6 +31,14 @@ public class EventkalenderService : WebService
     }
 
     [WebMethod]
+    public List<string> GetFiles()
+    {
+        string filePath = string.Format("{0}/Files/", PathUtility.GetPhysicalPath("~/App_Data"));
+        string[] files = Directory.GetFiles(filePath, "*.*", SearchOption.AllDirectories);
+        return files.Select(s => s.Substring(filePath.Length)).ToList();
+    }
+
+    [WebMethod]
     public void AddFile(string path, string content)
     {
         string filePath = string.Format("{0}/Files/{1}", PathUtility.GetPhysicalPath("~/App_Data"), path);

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.CronusReference;
+using Eventkalender.WS.ConsoleApp.Utility;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -20,21 +21,16 @@ namespace Eventkalender.WS.ConsoleApp
             cronusClient = new CronusServiceSoapClient();
         }
       
-        public void GetDataByDataTuples(CronusReference.DataTuple[] inputTuple)
+        public void GetOutput(CronusReference.DataTuple[] inputTuple)
         {
-            CronusReference.DataTuple[] data = inputTuple;
-            List<CronusReference.DataTuple> niggas = data.ToList();
-            for (int i = 0; i < data.Length; i++)
-            {
-                Console.WriteLine(data[i].ToString());
-            }
+            Console.WriteLine(ConversionUtility.ToString(inputTuple));
         }
 
         public void GetIllestPerson()
         {
             Console.WriteLine("Anställd som har varit sjuk flest antal gånger: ");
             CronusReference.DataTuple data = cronusClient.GetIllestPerson();
-            Console.WriteLine(data);
+            Console.WriteLine(ConversionUtility.ToString(data));
             ExitQuestion();
         }
 
@@ -57,7 +53,7 @@ namespace Eventkalender.WS.ConsoleApp
             Console.WriteLine("Följande personer har varit sjuka mellan år {0} och {1}", startYear, endYear);
             try
             {
-                GetDataByDataTuples(cronusClient.GetIllPersonsByYear(startYear, endYear));
+                GetOutput(cronusClient.GetIllPersonsByYear(startYear, endYear));
             }
             catch (Exception e)
             {
@@ -69,49 +65,49 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetEmployeeAndRelatives()
         {
             Console.WriteLine("Anställda samt deras släktingar är följande: ");
-            GetDataByDataTuples(cronusClient.GetEmployeeAndRelatives());
+            GetOutput(cronusClient.GetEmployeeAndRelatives());
             ExitQuestion();
         }
 
         public void GetEmployeeData()
         {
             Console.WriteLine("Employee Data är följande: ");
-            GetDataByDataTuples(cronusClient.GetEmployeeData());
+            GetOutput(cronusClient.GetEmployeeData());
             ExitQuestion();
         }
 
         public void GetEmployeeAbsenceData()
         {
             Console.WriteLine("Employee Absence Data är följande:");
-            GetDataByDataTuples(cronusClient.GetEmployeeAbsenceData());
+            GetOutput(cronusClient.GetEmployeeAbsenceData());
             ExitQuestion();
         }
 
         public void GetEmployeeRelativeData()
         {
             Console.WriteLine("Employee Relative Data är följande: ");
-            GetDataByDataTuples(cronusClient.GetEmployeeRelativeData());
+            GetOutput(cronusClient.GetEmployeeRelativeData());
             ExitQuestion();
         }
 
         public void GetEmployeeQualificationData()
         {
             Console.WriteLine("Employee Qualification Data är följande: ");
-            GetDataByDataTuples(cronusClient.GetEmployeeQualificationData());
+            GetOutput(cronusClient.GetEmployeeQualificationData());
             ExitQuestion();
         }
 
         public void GetEmployeePortalSetupData()
         {
             Console.WriteLine("Employee Portal Setup Data är följande: ");
-            GetDataByDataTuples(cronusClient.GetEmployeePortalSetupData());
+            GetOutput(cronusClient.GetEmployeePortalSetupData());
             ExitQuestion();
         }
 
         public void GetEmployeeStatisticsGroupData()
         {
             Console.WriteLine("Employee Statistics Group Data är följande: ");
-            GetDataByDataTuples(cronusClient.GetEmployeeStatisticsGroupData());
+            GetOutput(cronusClient.GetEmployeeStatisticsGroupData());
             ExitQuestion();
         }
 

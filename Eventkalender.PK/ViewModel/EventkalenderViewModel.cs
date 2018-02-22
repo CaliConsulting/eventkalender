@@ -14,30 +14,27 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows;
 
-namespace Eventkalender.PK.GUI
+namespace Eventkalender.PK
 {
     public class EventkalenderViewModel : INotifyPropertyChanged
     {
-
-        private EventkalenderController eventkalenderController;
         private List<string> timesList;
-        private ExceptionHandler exception;
 
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
         private ObservableCollection<Database.Person> persons;
 
-        private EventkalenderDAL eventkalenderDAL;
         private CronusServiceSoapClient cronusClient;
+        private EventkalenderServiceSoapClient eventkalenderClient;
+        private EventkalenderDAL eventkalenderDAL;
+
         public event PropertyChangedEventHandler PropertyChanged;
-        private EventkalenderServiceSoapClient eventkalenderWSClient;
 
         public EventkalenderViewModel()
         {
             cronusClient = new CronusServiceSoapClient();
-            eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
+            eventkalenderClient = new EventkalenderServiceSoapClient();
             eventkalenderDAL = new EventkalenderDAL("Resources/eventkalender-db.xml");
-            eventkalenderWSClient = new EventkalenderServiceSoapClient();
         }
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
@@ -45,14 +42,13 @@ namespace Eventkalender.PK.GUI
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
         public ObservableCollection<Database.Event> Events
         {
             get
             {
                 if (events == null)
                 {
-                    events = new ObservableCollection<Database.Event>(eventkalenderController.GetEvents());
+                    events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
                 }
                 return events;
             }
@@ -73,7 +69,7 @@ namespace Eventkalender.PK.GUI
             {
                 if (nations == null)
                 {
-                    nations = new ObservableCollection<Database.Nation>(eventkalenderController.GetNations());
+                    nations = new ObservableCollection<Database.Nation>(eventkalenderDAL.GetNations());
                 }
                 return nations;
             }
@@ -94,7 +90,7 @@ namespace Eventkalender.PK.GUI
             {
                 if (persons == null)
                 {
-                    persons = new ObservableCollection<Database.Person>(eventkalenderController.GetPersons());
+                    persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
                 }
                 return persons;
             }
@@ -108,6 +104,7 @@ namespace Eventkalender.PK.GUI
                 }
             }
         }
+
         public List<string> TimesList
         {
             get
@@ -340,17 +337,17 @@ namespace Eventkalender.PK.GUI
 
         public EventkalenderReference.Event[] GetEvents()
         {
-            return eventkalenderWSClient.GetEvents();
+            return eventkalenderClient.GetEvents();
         }
 
         public EventkalenderReference.Nation[] GetNations()
         {
-            return eventkalenderWSClient.GetNations();
+            return eventkalenderClient.GetNations();
         }
 
         public EventkalenderReference.Person[] GetPersons()
         {
-            return eventkalenderWSClient.GetPersons();
+            return eventkalenderClient.GetPersons();
         }
 
         public void EventGridWrapAutoSize(DataGrid dgWebService)

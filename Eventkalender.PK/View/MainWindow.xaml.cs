@@ -17,33 +17,37 @@ using Eventkalender.PK.CronusReference;
 using Eventkalender.PK.EventkalenderReference;
 using System.Data;
 
-namespace Eventkalender.PK.GUI
+namespace Eventkalender.PK
 {
     /// <summary>
-    /// Interaction logic for GUI_Prototyp.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class GUI_Prototyp : Window
+    public partial class MainWindow : Window
     {
  //       private EventkalenderController eventkalenderController;
         private EventkalenderViewModel eventkalenderViewModel;
+
+        // Dessa två ska inte finnas kvar i vyn om det går att lösa 
+        // användandet av dem på ett snyggt sätt i ViewModel
         private CronusServiceSoapClient cronusClient;
         private EventkalenderServiceSoapClient eventkalenderWSClient;
         
-        public GUI_Prototyp()
+        public MainWindow()
         {
             InitializeComponent();
- //           eventkalenderController = new EventkalenderController("Resources/eventkalender-db.xml");
+
             eventkalenderViewModel = new EventkalenderViewModel();
             cronusClient = new CronusServiceSoapClient();
             eventkalenderWSClient = new EventkalenderServiceSoapClient();
+
             DataContext = eventkalenderViewModel;
         }
 
-//------------------------------------------------------------------------------------------------------------------------------------
-//
-//                                  CRONUS Eventhandlers
-//
-//-----------------------------------------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //
+        //                                  CRONUS Eventhandlers
+        //
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
@@ -78,12 +82,14 @@ namespace Eventkalender.PK.GUI
                     Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
                     eventkalenderViewModel.DeletePerson(person.Id);
         }
+
         private void btnEraseFromNation_Click(object sender, RoutedEventArgs e)
         {
                 int index = datagridNation.SelectedIndex;
                 Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
                 eventkalenderViewModel.DeleteNation(nation.Id);
         }
+
         private void btnDeleteEventClick(object sender, RoutedEventArgs e)
         {
                 int index = datagridEvents.SelectedIndex;
@@ -126,14 +132,12 @@ namespace Eventkalender.PK.GUI
 
         private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
-
-            if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
+            if (Utility.IsNotEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
               //  Database.Event eventet = new Database.Event();
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
-                int index;     
-                index = cmBoxNation.SelectedIndex;
+                int index = cmBoxNation.SelectedIndex;
                 if (index >= 0)
                 {
                     Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
@@ -155,10 +159,9 @@ namespace Eventkalender.PK.GUI
                     dtpickStartDate.Text = "";
                     dtpickEndDate.Text = "";
                 }
-
-              
             }
         }
+
         private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
         {
             int index = datagridInviteEvent.SelectedIndex;
@@ -170,7 +173,7 @@ namespace Eventkalender.PK.GUI
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = cmBoxSearchEvents.SelectedIndex;
-            if(index > -1)
+            if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
                 datagridEvents.ItemsSource = n.Events;
@@ -184,7 +187,7 @@ namespace Eventkalender.PK.GUI
         private void cmbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = cmbEvents.SelectedIndex;
-            if(index == -1)
+            if (index == -1)
             {
                 datagridFindEvents.ItemsSource = eventkalenderViewModel.Events;
             }
@@ -199,7 +202,7 @@ namespace Eventkalender.PK.GUI
         private void cmbInviteEvent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = cmbInviteEvent.SelectedIndex;
-            if(index == -1)
+            if (index == -1)
             {
                 datagridInviteEvent.ItemsSource = eventkalenderViewModel.Events;
             }
@@ -230,11 +233,12 @@ namespace Eventkalender.PK.GUI
                 datagridInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
             }
         }
-//------------------------------------------------------------------------------------------------------------------------------------
-//
-//                                  Webservice eventhandlers
-//
-//-----------------------------------------------------------------------------------------------------------------------------------
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //
+        //                                  Webservice eventhandlers
+        //
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
         private void cmbWebService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -11,7 +11,7 @@ namespace Eventkalender.PK
 {
     public static class Utility
     {
-        public static bool CheckIfEmpty(params string[] values)
+        public static bool IsNotEmpty(params string[] values)
         {
             for (int i = 0; i < values.Length; i++)
             {

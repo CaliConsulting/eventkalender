@@ -140,18 +140,36 @@ namespace Eventkalender.PK.GUI
 
         private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
+
             if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
+              //  Database.Event eventet = new Database.Event();
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
+                int index;     
+                index = cmBoxNation.SelectedIndex;
+                if (index >= 0)
+                {
+                    Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                  /*  eventet.Name = txtBoxEventName.Text;
+                    eventet.Summary = txtBoxSummary.Text;
+                    eventet.StartTime = dateStart;
+                    eventet.EndTime = dateEnd;
 
-                int index = cmBoxNation.SelectedIndex;
-                Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                    n.Events.Add(eventet);*/
+                    eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
 
-                eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
-               // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
-                dtpickStartDate.Text = "";
-                dtpickEndDate.Text = "";
+                    // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+                    dtpickStartDate.Text = "";
+                    dtpickEndDate.Text = "";
+                }
+                else
+                {
+                    dtpickStartDate.Text = "";
+                    dtpickEndDate.Text = "";
+                }
+
+              
             }
             else
             {

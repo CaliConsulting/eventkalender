@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eventkalender.WS.ConsoleApp.CronusReference;
+using Eventkalender.WS.ConsoleApp.Utility;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -19,17 +20,14 @@ namespace Eventkalender.WS.ConsoleApp
             cronusClient = new CronusServiceSoapClient();
         }
 
-        public void GetMetadataListOfString(List<string> metod)
+        public void GetOutput(List<string> lst)
         {
-            List<string> outputList = metod;
-
-            /* int limit = Math.Min(metod.Count, 65000);
-            for (int i = 0; i < limit; i++)
+            if (lst?.Count > 0)
             {
-                Console.WriteLine(metod.ElementAt(i));
-            } */
-
-            foreach (string row in outputList)
+                // Remove column header
+                lst.RemoveAt(0);
+            }
+            foreach (string row in lst)
             {
                 Console.WriteLine(row);
             }
@@ -38,85 +36,81 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetColumnsForEmployeeTable()
         {
             Console.WriteLine("Följande är kolumner i Personaltabellen");
-            GetMetadataListOfString(cronusClient.GetColumnsForEmployeeTable());
+            GetOutput(cronusClient.GetColumnsForEmployeeTable());
             ExitQuestion();
         }
 
         public void GetKeys()
         {
             Console.WriteLine("Följande är alla nycklar: ");
-            GetMetadataListOfString(cronusClient.GetKeys());
+            GetOutput(cronusClient.GetKeys());
             ExitQuestion();
         }
         
         public void GetIndexes()
         {
             Console.WriteLine("Följande är alla indexes: ");
-            GetMetadataListOfString(cronusClient.GetIndexes());
+            GetOutput(cronusClient.GetIndexes());
             ExitQuestion();
         }
 
         public void GetTableConstraints()
         {
             Console.WriteLine("Följande är alla constraints: ");
-            GetMetadataListOfString(cronusClient.GetTableConstraints());
+            GetOutput(cronusClient.GetTableConstraints());
             ExitQuestion();
         }
 
         public void GetTables()
         {
             Console.WriteLine("Följande är alla tables: ");
-            GetMetadataListOfString(cronusClient.GetTables());
+            GetOutput(cronusClient.GetTables());
             ExitQuestion();
         }
         
-        public void GetMetadataByDataTuples(DataTuple[] inputTuple)
+        public void GetOutput(DataTuple[] inputTuple)
         {
-            DataTuple[] data = inputTuple;
-            for (int i = 0; i < data.Length; i++)
-            {
-                Console.WriteLine(data[i].ToString());
-            }
+            Console.WriteLine(ConversionUtility.ToString(inputTuple));
         }
 
         public void GetEmployeeMetadata()
         {
             Console.WriteLine("Employee Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeMetadata());
+            GetOutput(cronusClient.GetEmployeeMetadata());
             ExitQuestion();
         }
         public void GetEmployeeAbsenceMetadata()
         {
             Console.WriteLine("Employee Absence Metadata är följande:");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeAbsenceMetadata());
+            GetOutput(cronusClient.GetEmployeeAbsenceMetadata());
             ExitQuestion();
         }
 
         public void GetEmployeeRelativeMetadata()
         {
             Console.WriteLine("Employee Relative Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeRelativeMetadata());
+            GetOutput(cronusClient.GetEmployeeRelativeMetadata());
             ExitQuestion();
         }
         
         public void GetEmployeeQualificationMetadata()
         {
             Console.WriteLine("Employee Qualification Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeQualificationMetadata());
+            GetOutput(cronusClient.GetEmployeeQualificationMetadata());
             ExitQuestion();
         }
         
         public void GetEmployeePortalSetupMetadata()
         {
             Console.WriteLine("Employee Portal Setup Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeePortalSetupMetadata());
+            GetOutput(cronusClient.GetEmployeePortalSetupMetadata());
             ExitQuestion();
         }
 
         public void GetEmployeeStatisticsGroupMetadata()
         {
             Console.WriteLine("Employee Statistics Group Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeStatisticsGroupMetadata());
+            GetOutput(cronusClient.GetEmployeeStatisticsGroupMetadata());
             ExitQuestion();
         }
 

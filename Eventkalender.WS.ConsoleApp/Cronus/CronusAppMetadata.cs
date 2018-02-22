@@ -35,7 +35,7 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void GetColumnsForEmployeeTable()
         {
-            Console.WriteLine("Följande är kolumner i Personaltabellen");
+            Console.WriteLine("Följande är kolumner i personaltabellen: ");
             GetOutput(cronusClient.GetColumnsForEmployeeTable());
             ExitQuestion();
         }
@@ -63,7 +63,7 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void GetTables()
         {
-            Console.WriteLine("Följande är alla tables: ");
+            Console.WriteLine("Följande är alla tabeller: ");
             GetOutput(cronusClient.GetTables());
             ExitQuestion();
         }

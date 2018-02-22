@@ -64,7 +64,6 @@ namespace Eventkalender.PK.GUI
             datagridCronus.ItemsSource = null;
             Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
             datagridCronus.ItemsSource = eventkalenderViewModel.Data;
-           
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------
@@ -83,14 +82,14 @@ namespace Eventkalender.PK.GUI
                     int index = datagridPersonNation.SelectedIndex;
                     Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
                     eventkalenderViewModel.DeleteNation(nation.Id);
-                    datagridPersonNation.Items.RemoveAt(index);
+                    //datagridPersonNation.Items.RemoveAt(index);
                 }
                 if (cmbFilterList.SelectedIndex == 1)
                 {
                     int index = datagridPersonNation.SelectedIndex;
                     Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
                     eventkalenderViewModel.DeletePerson(person.Id);
-                    datagridPersonNation.Items.RemoveAt(index);
+                    //datagridPersonNation.Items.RemoveAt(index);
                 }
             }
         }
@@ -101,7 +100,6 @@ namespace Eventkalender.PK.GUI
             if (raderaResultat == MessageBoxResult.Yes)
             {
                 int index = datagridEvents.SelectedIndex;
-
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.DeleteEvent(ev.Id);
             }
@@ -177,8 +175,6 @@ namespace Eventkalender.PK.GUI
             {
                 datagridEvents.ItemsSource = eventkalenderViewModel.Events;
             }
-
-
         }
 
         private void cmbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -188,7 +184,7 @@ namespace Eventkalender.PK.GUI
             {
                 datagridFindEvents.ItemsSource = eventkalenderViewModel.Events;
             }
-            if (index > -1)
+            else if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
                 datagridFindEvents.ItemsSource = n.Events;
@@ -201,9 +197,8 @@ namespace Eventkalender.PK.GUI
             if(cmbFilterList.SelectedIndex == 0)
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Nations;
-                             
             }
-            if (cmbFilterList.SelectedIndex == 1)
+            else if (cmbFilterList.SelectedIndex == 1)
             {
                 datagridPersonNation.ItemsSource = eventkalenderViewModel.Persons;
             }

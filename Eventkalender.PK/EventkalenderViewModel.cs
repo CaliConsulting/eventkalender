@@ -342,6 +342,14 @@ namespace Eventkalender.PK.GUI
                 }
             }
         }
+        public void InviteToEvent(IList list, Database.Event ev)
+        {
+            foreach (Database.Person p in list)
+            {
+                p.Events.Add(ev);
+            }
+
+        }
 
     }
 }

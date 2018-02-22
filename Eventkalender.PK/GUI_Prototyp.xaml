@@ -13,7 +13,7 @@
                     TabStripPlacement="Top" Margin="0,0,0,0">
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
-                    <TabControl Height="540" Margin="0,0,0,0" Background="Plum">
+                    <TabControl Height="540" Margin="0,0,0,0" Background="LightGray">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
                                 <ComboBox x:Name="cmbEvents"
@@ -190,24 +190,59 @@
                         </TabItem>
                         <TabItem Header="Person- och nationshantering" Margin="0,-0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
-                                <StackPanel Canvas.Left="10" Canvas.Top="10">
+                                <StackPanel Canvas.Left="20" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Person"
                                                FontWeight="Bold"/>
                                     <TextBlock Text="Förnamn*"/>
                                     <TextBox x:Name="txtBoxFirstName"
+                                             Margin="0,0,0,0"
+                                             Width="150"
+                                             HorizontalAlignment="Left"
                                              TabIndex="1"/>
                                     <TextBlock Text="Efternamn*"/>
                                     <TextBox x:Name="txtBoxLastName"
+                                             Margin="0,0,0,0"
+                                             Width="150"
+                                             HorizontalAlignment="Left"
                                              TabIndex="2"/>
                                     <Button x:Name="btnRegPers"
                                             Click="btnRegPers_Click"
+                                            MaxWidth="100"
+                                            HorizontalAlignment="Left"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             ToolTip="Registerar en person med de ifyllda namnen"
                                             ToolTipService.InitialShowDelay="500"
                                             TabIndex="3"/>
+                                    <DataGrid x:Name="datagridPerson"
+                                              Height="290"
+                                              Width="400"
+                                              Margin="0,15,0,0"
+                                              HorizontalScrollBarVisibility="Auto"
+                                              VerticalScrollBarVisibility="Auto"
+                                              AutoGenerateColumns="False"
+                                              IsReadOnly="True"
+                                              SelectionMode="Extended"
+                                              ItemsSource="{Binding Path=Persons}"
+                                              ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
+                                              ToolTipService.InitialShowDelay="500" >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
+                                            <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
+                                            <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <Button x:Name="btnEraseFromList"
+                                            Content="Radera"
+                                            Margin="0,15,0,0"
+                                            Width="100"
+                                            MaxWidth="150"
+                                            ToolTip="Raderar valda raderna från listan och databasen"
+                                            ToolTipService.InitialShowDelay="500"
+                                            Click="btnEraseFromPerson"/>
                                 </StackPanel>
-                                <StackPanel Canvas.Left="150" 
+                                <StackPanel Canvas.Left="600" 
                                             Canvas.Top="10">
                                     <TextBlock Text="Lägg till Nation"
                                                FontWeight="Bold"/>
@@ -226,35 +261,10 @@
                                             ToolTip="Registerar en Nation med det ifyllda namnet"
                                             ToolTipService.InitialShowDelay="500"
                                             TabIndex="5"/>
-                                </StackPanel>
-                                <TextBlock Text="Val av lista:"
-                                           Canvas.Top="25"
-                                           Canvas.Left="330"/>
-                                <ComboBox x:Name="cmbFilterList"
-                                          SelectionChanged="cmbFilterList_SelectionChanged"
-                                          Canvas.Left="330"
-                                          Canvas.Top="40"
-                                          Width="100"
-                                          MaxWidth="100"
-                                          HorizontalAlignment="Left"
-                                          ToolTip="Hämtar och sorterar listan efter den valda parametern"
-                                          ToolTipService.InitialShowDelay="500">
-                                    <ComboBoxItem Content="Nationer"/>
-                                    <ComboBoxItem Content="Personer"/>
-                                </ComboBox>
-                                <Button x:Name="btnEraseFromList"
-                                            Content="Radera"
-                                            Width="100"
-                                            MaxWidth="150"
-                                            Canvas.Left="330"
-                                            Canvas.Top="375"
-                                            ToolTip="Raderar valda raderna från listan och databasen"
-                                            ToolTipService.InitialShowDelay="500"
-                                            Click="btnEraseFromListClick"/>
-                                <DataGrid x:Name="datagridPersonNation"
+                                    <DataGrid x:Name="datagridNation"
                                               Height="290"
-                                              Width="500"
-                                              Margin="0,0,0,0"
+                                              Width="400"
+                                              Margin="0,50,0,0"
                                               Canvas.Top="70"
                                               Canvas.Left="330"
                                               HorizontalScrollBarVisibility="Auto"
@@ -262,10 +272,25 @@
                                               AutoGenerateColumns="False"
                                               IsReadOnly="True"
                                               SelectionMode="Extended"
-                                              ItemsSource="{Binding Path=ErasePersonProp}"
+                                              ItemsSource="{Binding Path=Nations}"
                                               ToolTip="Visar en lista över tillagda personer eller nationer från databasen."
-                                              ToolTipService.InitialShowDelay="500" >
-                                </DataGrid>
+                                              ToolTipService.InitialShowDelay="500">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
+                                            <DataGridTextColumn Header="Namn" Width="auto" Binding="{Binding Path=Name}"/>
+                                            <DataGridTextColumn Header="Evenemang arrangerade" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <Button x:Name="btnEraseFromNation"
+                                            Content="Radera"
+                                            Margin="0,15,0,0"
+                                            Width="100"
+                                            MaxWidth="150"
+                                            ToolTip="Raderar valda raderna från listan och databasen"
+                                            ToolTipService.InitialShowDelay="500"
+                                            Click="btnEraseFromNation_Click"/>
+                                </StackPanel>
+                                
                             </Canvas>
                         </TabItem>
                         <TabItem Header="Inbjudningar" Margin="0,0,0,0">

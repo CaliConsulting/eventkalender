@@ -31,5 +31,25 @@ namespace Eventkalender.Database
         public string Name { get; set; }
         
         public virtual List<Event> Events { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            Nation n = obj as Nation;
+            if (n == null)
+            {
+                return false;
+            }
+            return Id == n.Id && string.Equals(Name, n.Name);
+        }
+
+        public override int GetHashCode()
+        {
+            int prime = 31;
+            int hash = 7;
+            hash = prime * hash + Id;
+            hash = prime * hash + (Name == null ? 0 : Name.GetHashCode());
+            hash = prime * hash + base.GetHashCode();
+            return hash;
+        }
     }
 }

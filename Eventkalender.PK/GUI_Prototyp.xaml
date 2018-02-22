@@ -392,7 +392,8 @@
                                 <DataGrid x:Name="dgWebService"
                                           Width="1240"
                                           Height="430"
-                                          Margin="0,15,0,0">
+                                          Margin="0,15,0,0"
+                                          AutoGenerateColumns="False">
                                 </DataGrid>
                             </StackPanel>
                         </Canvas>

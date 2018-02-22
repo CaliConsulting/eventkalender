@@ -248,30 +248,20 @@ namespace Eventkalender.PK.GUI
         {
             if (cmbWebService.SelectedIndex == 0) //event kalla webservicen
             {
-
-                dgWebService.Columns.Clear();
-                dgWebService.ItemsSource = null;
-                List<string> output = new List<string>();
-                EventkalenderReference.Event[] turn = eventkalenderViewModel.GetEvents();
-                for (int i = 0; i>5; i++)
-                {
-                    
-                    
-                }
+                eventkalenderViewModel.EventGridWrapAutoSize(dgWebService);
                 dgWebService.ItemsSource = eventkalenderViewModel.GetEvents(); 
             }
             if (cmbWebService.SelectedIndex == 1) //nation
             {
-                dgWebService.Columns.Clear();
-                dgWebService.ItemsSource = null;
+                eventkalenderViewModel.NationGridWrapAutoSize(dgWebService);
                 dgWebService.ItemsSource = eventkalenderViewModel.GetNations();
             }
             if (cmbWebService.SelectedIndex == 2) //person
             {
-                dgWebService.Columns.Clear();
-                dgWebService.ItemsSource = null;
+                eventkalenderViewModel.PersonGridWrapAutoSize(dgWebService);
                 dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
-        }   
+        }
+
     }
 }

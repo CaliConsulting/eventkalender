@@ -23,6 +23,8 @@ namespace Eventkalender.Database
             {
                 context.Event.Add(e);
                 context.SaveChanges();
+                context.Entry(e).Reference(temp => temp.Nation).Load();
+                context.Entry(e).Collection(temp => temp.Persons).Load();
             }
         }
 
@@ -32,6 +34,7 @@ namespace Eventkalender.Database
             {
                 context.Nation.Add(n);
                 context.SaveChanges();
+                context.Entry(n).Reference(temp => temp.Events).Load();
             }
         }
 
@@ -41,6 +44,7 @@ namespace Eventkalender.Database
             {
                 context.Person.Add(p);
                 context.SaveChanges();
+                context.Entry(p).Collection(temp => temp.Events).Load();
             }
         }
 

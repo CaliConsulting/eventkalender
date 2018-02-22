@@ -448,5 +448,10 @@ namespace Eventkalender.PK
             dataGrid.ItemsSource = null;
         }
 
+        public string GetFile(string path)
+        {
+            return eventkalenderClient.GetFile(path);
+        }
+
     }
 }

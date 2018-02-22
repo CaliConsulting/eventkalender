@@ -290,7 +290,7 @@
                                             ToolTipService.InitialShowDelay="500"
                                             Click="btnEraseFromNation_Click"/>
                                 </StackPanel>
-                                
+
                             </Canvas>
                         </TabItem>
                         <TabItem Header="Inbjudningar" Margin="0,0,0,0">
@@ -390,13 +390,17 @@
                                          MaxWidth="100"
                                          Margin="0,15,0,0"
                                          ToolTip="Sök efter hello.txt"
-                                         ToolTipService.InitialShowDelay="5000"/>
+                                         ToolTipService.InitialShowDelay="5000" RenderTransformOrigin="0.508,-0.775"/>
+                                <Button x:Name="btnChoiceOfFile"
+                                        Click="btnChoiceOfFile_Click"
+                                        Content="Hämta Innehåll"
+                                        Width="95" RenderTransformOrigin="1.315,1.611"/>
                                 <ItemsPresenter  x:Name="itemPresenter"
                                                  Margin="0,15,0,0"
                                                  Width="1250"
                                                  Height="400"/>
                             </StackPanel>
-                        </Canvas>    
+                        </Canvas>
                     </TabItem>
                     <TabItem Header="Uppgift 2">
                         <Canvas>
@@ -412,7 +416,7 @@
                                             ItemsSource="{Binding Path=WSCombobox}"
                                             SelectedIndex="{Binding Path=WSSelectedIndex}"
                                             SelectionChanged="cmbWebService_SelectionChanged">
-                                   
+
                                 </ComboBox>
                                 <DataGrid x:Name="dgWebService"
                                           Width="1240"
@@ -471,27 +475,27 @@
                     </TabItem>
                     <TabItem Header="Employee">
                         <Canvas>
-                        <StackPanel Canvas.Left="20"
+                            <StackPanel Canvas.Left="20"
                                     Canvas.Top="20"
                                     Width="100">
-                            <TextBlock Text="Employee"
+                                <TextBlock Text="Employee"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="Förnamn"
+                                <TextBlock Text="Förnamn"
                                        Margin="0,15,0,0"/>
-                            <TextBox x:Name="txtEmployeeFirstName"
+                                <TextBox x:Name="txtEmployeeFirstName"
                                      Margin="0,5,0,0"/>
-                            <TextBlock Text="Efternamn"
+                                <TextBlock Text="Efternamn"
                                        Margin="0,5,0,0"/>
-                            <TextBox x:Name="txtEmployeeLastName"
+                                <TextBox x:Name="txtEmployeeLastName"
                                      Margin="0,5,0,0"/>
-                            <TextBlock Text="Nummer"
+                                <TextBlock Text="Nummer"
                                        Margin="0,5,0,0"/>
-                            <TextBox x:Name="txtEmployeeNumber"
+                                <TextBox x:Name="txtEmployeeNumber"
                                  Margin="0,5,0,0"/>
-                            <Button x:Name="btnInsertEmployee"
+                                <Button x:Name="btnInsertEmployee"
                                     Content="Lägg till"
                                     Margin="0,15,0,0"/>
-                        </StackPanel>
+                            </StackPanel>
                             <DataGrid Canvas.Left="400"
                                       Canvas.Top="20"
                                       Width="850"

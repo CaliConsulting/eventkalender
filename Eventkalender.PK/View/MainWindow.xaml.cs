@@ -258,5 +258,12 @@ namespace Eventkalender.PK
                 dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
         }
+        
+        private void btnChoiceOfFile_Click(object sender, RoutedEventArgs e)
+        {
+            string path = txtboxSearchFile.Text;
+           // txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+        }
+
     }
 }

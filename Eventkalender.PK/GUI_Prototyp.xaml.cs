@@ -165,6 +165,7 @@ namespace Eventkalender.PK.GUI
                 }
                 else
                 {
+                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker! ";
                     dtpickStartDate.Text = "";
                     dtpickEndDate.Text = "";
                 }

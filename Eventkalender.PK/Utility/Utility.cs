@@ -149,6 +149,9 @@ namespace Eventkalender.PK
                 case 10:
                     result = ExtractData(cronusClient.GetEmployeeStatisticsGroupMetadata());
                     return result;
+                case -1:
+                    result = NormalizeStructure(cronusClient.GetIndexes());
+                    return result;
             }
             // Down here we are in undefined behavior land...
             return null;
@@ -159,6 +162,7 @@ namespace Eventkalender.PK
             List<List<string>> stringValues = new List<List<string>>();
             switch (index)
             {
+               
                 case 0:
                     CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { cronusClient.GetIllestPerson() };
                     return ExtractData(values);
@@ -185,6 +189,9 @@ namespace Eventkalender.PK
                     return ExtractData(values);
                 case 8:
                     values = cronusClient.GetEmployeeStatisticsGroupData();
+                    return ExtractData(values);
+                case -1:
+                    values = new CronusReference.DataTuple[] { cronusClient.GetIllestPerson() };
                     return ExtractData(values);
             }
             return null;

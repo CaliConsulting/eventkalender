@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eventkalender.WS.ConsoleApp.CronusReference;
+using Eventkalender.WS.ConsoleApp.Utility;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -67,53 +68,49 @@ namespace Eventkalender.WS.ConsoleApp
             ExitQuestion();
         }
         
-        public void GetMetadataByDataTuples(DataTuple[] inputTuple)
+        public void GetOutput(DataTuple[] inputTuple)
         {
-            DataTuple[] data = inputTuple;
-            for (int i = 0; i < data.Length; i++)
-            {
-                Console.WriteLine(data[i].ToString());
-            }
+            Console.WriteLine(ConversionUtility.ToString(inputTuple));
         }
 
         public void GetEmployeeMetadata()
         {
             Console.WriteLine("Employee Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeMetadata());
+            GetOutput(cronusClient.GetEmployeeMetadata());
             ExitQuestion();
         }
         public void GetEmployeeAbsenceMetadata()
         {
             Console.WriteLine("Employee Absence Metadata är följande:");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeAbsenceMetadata());
+            GetOutput(cronusClient.GetEmployeeAbsenceMetadata());
             ExitQuestion();
         }
 
         public void GetEmployeeRelativeMetadata()
         {
             Console.WriteLine("Employee Relative Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeRelativeMetadata());
+            GetOutput(cronusClient.GetEmployeeRelativeMetadata());
             ExitQuestion();
         }
         
         public void GetEmployeeQualificationMetadata()
         {
             Console.WriteLine("Employee Qualification Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeQualificationMetadata());
+            GetOutput(cronusClient.GetEmployeeQualificationMetadata());
             ExitQuestion();
         }
         
         public void GetEmployeePortalSetupMetadata()
         {
             Console.WriteLine("Employee Portal Setup Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeePortalSetupMetadata());
+            GetOutput(cronusClient.GetEmployeePortalSetupMetadata());
             ExitQuestion();
         }
 
         public void GetEmployeeStatisticsGroupMetadata()
         {
             Console.WriteLine("Employee Statistics Group Metadata är följande: ");
-            GetMetadataByDataTuples(cronusClient.GetEmployeeStatisticsGroupMetadata());
+            GetOutput(cronusClient.GetEmployeeStatisticsGroupMetadata());
             ExitQuestion();
         }
 

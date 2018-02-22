@@ -10,6 +10,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Eventkalender.PK.CronusReference;
 using Eventkalender.PK.EventkalenderReference;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows;
 
 namespace Eventkalender.PK.GUI
 {
@@ -181,21 +184,6 @@ namespace Eventkalender.PK.GUI
             //NotifyPropertyChanged("Events");
         }
 
-        public EventkalenderReference.Event [] GetEvents()
-        {
-            return eventkalenderWSClient.GetEvents();
-        }
-
-        public EventkalenderReference.Nation[] GetNations()
-        {
-            return eventkalenderWSClient.GetNations();
-        }
-
-        public EventkalenderReference.Person[] GetPersons()
-        {
-            return eventkalenderWSClient.GetPersons();
-        }
-
         private List<List<string>> data;
         public List<List<string>> Data
         {
@@ -324,7 +312,6 @@ namespace Eventkalender.PK.GUI
 
         private int wSSelectedIndex = -1;
 
-
         public int WSSelectedIndex
         {
             get
@@ -341,6 +328,127 @@ namespace Eventkalender.PK.GUI
                    // Data = Utility.(eventkalenderWSClient, wSSelectedIndex);
                 }
             }
+        }
+        public void InviteToEvent(IList list, Database.Event ev)
+        {
+            foreach (Database.Person p in list)
+            {
+                p.Events.Add(ev);
+            }
+
+        }
+
+        public EventkalenderReference.Event[] GetEvents()
+        {
+            return eventkalenderWSClient.GetEvents();
+        }
+
+        public EventkalenderReference.Nation[] GetNations()
+        {
+            return eventkalenderWSClient.GetNations();
+        }
+
+        public EventkalenderReference.Person[] GetPersons()
+        {
+            return eventkalenderWSClient.GetPersons();
+        }
+
+        public void EventGridWrapAutoSize(DataGrid dgWebService)
+        {
+            ClearColumns(dgWebService);
+            var col = new DataGridTextColumn();
+            col.Header = "Id";
+            col.Binding = new Binding("Id");
+            var col1 = new DataGridTextColumn();
+            col1.Header = "Namn";
+            col1.Binding = new Binding("Name");
+            var col2 = new DataGridTextColumn();
+            col2.Header = "Evenemangsvärd";
+            col2.Binding = new Binding("Nation.Name");
+            var col3 = new DataGridTextColumn();
+            col3.Header = "Starttid";
+            col3.Binding = new Binding("StartTime");
+            var col4 = new DataGridTextColumn();
+            col4.Header = "Sluttid";
+            col4.Binding = new Binding("EndTime");
+            var col5 = new DataGridTextColumn();
+            col5.Header = "Beskrivning";
+            col5.Binding = new Binding("Summary");
+
+            dgWebService.Columns.Add(col);
+            dgWebService.Columns.Add(col1);
+            dgWebService.Columns.Add(col2);
+            dgWebService.Columns.Add(col3);
+            dgWebService.Columns.Add(col4);
+            dgWebService.Columns.Add(col5);
+
+            for (int i = 5; i < dgWebService.Columns.Count; i++)
+            {
+                dgWebService.Columns[i].Width = 0;
+                dgWebService.UpdateLayout();
+                dgWebService.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
+            }      
+                WrapColumn(col5);              
+        }
+
+        public void NationGridWrapAutoSize(DataGrid dgWebService)
+        {
+            ClearColumns(dgWebService);
+            var col = new DataGridTextColumn();
+            col.Header = "Id";
+            col.Binding = new Binding("Id");
+            var col1 = new DataGridTextColumn();
+            col1.Header = "Namn";
+            col1.Binding = new Binding("Name");
+
+            dgWebService.Columns.Add(col);
+            dgWebService.Columns.Add(col1);
+
+            for (int i = 0; i < dgWebService.Columns.Count; i++)
+            {
+                dgWebService.Columns[i].Width = 0;
+                dgWebService.UpdateLayout();
+                dgWebService.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
+            }
+        }
+
+        public void PersonGridWrapAutoSize(DataGrid dgWebService)
+        {
+            ClearColumns(dgWebService);
+            var col = new DataGridTextColumn();
+            col.Header = "Id";
+            col.Binding = new Binding("Id");
+            var col1 = new DataGridTextColumn();
+            col1.Header = "Förnamn";
+            col1.Binding = new Binding("FirstName");
+            var col2 = new DataGridTextColumn();
+            col2.Header = "Efternamn";
+            col2.Binding = new Binding("LastName");
+
+            dgWebService.Columns.Add(col);
+            dgWebService.Columns.Add(col1);
+            dgWebService.Columns.Add(col2);
+
+            for (int i = 0; i < dgWebService.Columns.Count; i++)
+            {
+                dgWebService.Columns[i].Width = 0;
+                dgWebService.UpdateLayout();
+                dgWebService.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
+            }
+        }
+
+        private static void WrapColumn(DataGridTextColumn col) //DataGridTextColumn col
+        {
+             var style = new Style(typeof(TextBlock));
+             style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
+             style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
+             col.ElementStyle = style;    
+        }
+
+        private static void ClearColumns(DataGrid dataGrid)
+        {
+            dataGrid.Columns.Clear();
+            dataGrid.ItemsSource = null;
         }
 
     }

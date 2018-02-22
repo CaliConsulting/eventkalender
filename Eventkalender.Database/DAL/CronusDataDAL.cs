@@ -18,30 +18,14 @@ namespace Eventkalender.Database
 
         public DataTuple GetIllestPerson()
         {
-            using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
-            {
-                connection.Open();
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SELECT TOP 1 [First Name], COUNT(*) AS Sjukdagar FROM [CRONUS Sverige AB$Employee] a ");
+            builder.Append("JOIN [CRONUS Sverige AB$Employee Absence] b ON a.No_ = b.[Employee No_] ");
+            builder.Append("WHERE b.[Cause of Absence Code] = 'SJUK' GROUP BY[First Name] ORDER BY Sjukdagar DESC;");
 
-                StringBuilder builder = new StringBuilder();
-                builder.Append("SELECT TOP 1 [First Name], COUNT(*) AS Sjukdagar FROM [CRONUS Sverige AB$Employee] a ");
-                builder.Append("JOIN [CRONUS Sverige AB$Employee Absence] b ON a.No_ = b.[Employee No_] ");
-                builder.Append("WHERE b.[Cause of Absence Code] = 'SJUK' GROUP BY[First Name] ORDER BY Sjukdagar DESC;");
-                string query = builder.ToString();
+            string query = builder.ToString();
 
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                DataTuple tuple = new DataTuple();
-                if (reader.Read())
-                {
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        tuple.Add(reader.GetName(i), reader.GetValue(i).ToString());
-                    }
-
-                }
-                return tuple;
-            }
+            return GetData(query).First();
         }
 
         public List<DataTuple> GetIllPersonsByYear(int startYear, int endYear)
@@ -89,32 +73,50 @@ namespace Eventkalender.Database
         }
         public List<DataTuple> GetEmployeeAndRelatives()
         {
-            using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
-            {
-                connection.Open();
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SELECT a.[First Name], a.[Last Name], b.[Relative Code] AS Relative, b.[First Name], b.[Last Name] FROM ");
+            builder.Append("[CRONUS Sverige AB$Employee] a JOIN [CRONUS Sverige AB$Employee Relative] b ON a.No_ = b.[Employee No_]");
 
-                StringBuilder builder = new StringBuilder();
-                builder.Append("SELECT a.[First Name], a.[Last Name], b.[Relative Code] AS Relative, b.[First Name], b.[Last Name] FROM ");
-                builder.Append("[CRONUS Sverige AB$Employee] a JOIN [CRONUS Sverige AB$Employee Relative] b ON a.No_ = b.[Employee No_]");
+            string query = builder.ToString();
 
-                string query = builder.ToString();
+            return GetData(query);
+        }
 
-                SqlCommand command = new SqlCommand(query, connection);
+        // Ta tre/fyra st attribut istället för allt (*)
+        public List<DataTuple> GetEmployeeData()
+        {
+            string inputQuery = "SELECT No_, [First Name], [Last Name] FROM [CRONUS Sverige AB$Employee]";
+            return GetData(inputQuery);
+        }
 
-                SqlDataReader reader = command.ExecuteReader();
+        public List<DataTuple> GetEmployeeAbsenceData()
+        {
+            string inputQuery = "SELECT [Entry No_], [Employee No_], [Cause of Absence Code] FROM [CRONUS Sverige AB$Employee Absence]";
+            return GetData(inputQuery);
+        }
 
-                List<DataTuple> tuples = new List<DataTuple>();
-                while (reader.Read())
-                {
-                    DataTuple person = new DataTuple();
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        person.Add(reader.GetName(i), reader.GetValue(i).ToString());
-                    }
-                    tuples.Add(person);
-                }
-                return tuples;
-            }
+        public List<DataTuple> GetEmployeeRelativeData()
+        {
+            string inputQuery = "SELECT [Employee No_], [Relative Code], [First Name] FROM [CRONUS Sverige AB$Employee Relative]";
+            return GetData(inputQuery);
+        }
+
+        public List<DataTuple> GetEmployeePortalSetupData()
+        {
+            string inputQuery = "SELECT [Primary Key], [Temp_ Key Index], [Temp_ Option Caption] FROM [CRONUS Sverige AB$Employee Portal Setup]";
+            return GetData(inputQuery);
+        }
+
+        public List<DataTuple> GetEmployeeQualificationData()
+        {
+            string inputQuery = "SELECT [Employee No_], [Qualification Code], Description FROM [CRONUS Sverige AB$Employee Qualification]";
+            return GetData(inputQuery);
+        }
+
+        public List<DataTuple> GetEmployeeStatisticsGroupData()
+        {
+            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Statistics Group]";
+            return GetData(inputQuery);
         }
 
         public List<DataTuple> GetData(string inputQuery)
@@ -140,48 +142,6 @@ namespace Eventkalender.Database
                 }
                 return tuples;
             }
-        }
-        // Ta tre/fyra st attribut istället för allt (*)
-        public List<DataTuple> GetEmployeeData()
-        {
-            string inputQuery = "SELECT No_, [First Name], [Last Name] FROM [CRONUS Sverige AB$Employee]";
-            return GetData(inputQuery);
-
-        }
-
-        public List<DataTuple> GetEmployeeAbsenceData()
-        {
-            string inputQuery = "SELECT [Entry No_], [Employee No_], [Cause of Absence Code] FROM [CRONUS Sverige AB$Employee Absence]";
-            return GetData(inputQuery);
-
-        }
-
-        public List<DataTuple> GetEmployeeRelativeData()
-        {
-            string inputQuery = "SELECT [Employee No_], [Relative Code], [First Name] FROM [CRONUS Sverige AB$Employee Relative]";
-            return GetData(inputQuery);
-
-        }
-
-        public List<DataTuple> GetEmployeePortalSetupData()
-        {
-            string inputQuery = "SELECT [Primary Key], [Temp_ Key Index], [Temp_ Option Caption] FROM [CRONUS Sverige AB$Employee Portal Setup]";
-            return GetData(inputQuery);
-
-        }
-
-        public List<DataTuple> GetEmployeeQualificationData()
-        {
-            string inputQuery = "SELECT [Employee No_], [Qualification Code], Description FROM [CRONUS Sverige AB$Employee Qualification]";
-            return GetData(inputQuery);
-
-        }
-
-        public List<DataTuple> GetEmployeeStatisticsGroupData()
-        {
-            string inputQuery = "SELECT * FROM [CRONUS Sverige AB$Employee Statistics Group]";
-            return GetData(inputQuery);
-
         }
 
         public void AddEmployee(Employee e)

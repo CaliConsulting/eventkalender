@@ -72,37 +72,23 @@ namespace Eventkalender.PK.GUI
         //
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        private void btnEraseFromListClick(object sender, RoutedEventArgs e)
+        private void btnEraseFromPerson(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
-            if (raderaResultat == MessageBoxResult.Yes)
-            {
-                if (cmbFilterList.SelectedIndex == 0)
-                {
-                    int index = datagridPersonNation.SelectedIndex;
-                    Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
-                    eventkalenderViewModel.DeleteNation(nation.Id);
-                    //datagridPersonNation.Items.RemoveAt(index);
-                }
-                if (cmbFilterList.SelectedIndex == 1)
-                {
-                    int index = datagridPersonNation.SelectedIndex;
+                    int index = datagridPerson.SelectedIndex;
                     Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
                     eventkalenderViewModel.DeletePerson(person.Id);
-                    //datagridPersonNation.Items.RemoveAt(index);
-                }
-            }
         }
-
+        private void btnEraseFromNation_Click(object sender, RoutedEventArgs e)
+        {
+                int index = datagridNation.SelectedIndex;
+                Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
+                eventkalenderViewModel.DeleteNation(nation.Id);
+        }
         private void btnDeleteEventClick(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult raderaResultat = MessageBox.Show("Vill ni verkligen ta bort innehållet?", "Radera", MessageBoxButton.YesNo);
-            if (raderaResultat == MessageBoxResult.Yes)
-            {
                 int index = datagridEvents.SelectedIndex;
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.DeleteEvent(ev.Id);
-            }
         }
 
         private void btnRegNationNameClick(object sender, RoutedEventArgs e)
@@ -140,27 +126,45 @@ namespace Eventkalender.PK.GUI
 
         private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
+
             if(Utility.CheckIfEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
+              //  Database.Event eventet = new Database.Event();
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
+                int index;     
+                index = cmBoxNation.SelectedIndex;
+                if (index >= 0)
+                {
+                    Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                  /*  eventet.Name = txtBoxEventName.Text;
+                    eventet.Summary = txtBoxSummary.Text;
+                    eventet.StartTime = dateStart;
+                    eventet.EndTime = dateEnd;
 
-                int index = cmBoxNation.SelectedIndex;
-                Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                    n.Events.Add(eventet);*/
+                    eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
 
-                eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
-               // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
-                dtpickStartDate.Text = "";
-                dtpickEndDate.Text = "";
-            }
-            else
-            {
+                    // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+                    dtpickStartDate.Text = "";
+                    dtpickEndDate.Text = "";
+                }
+                else
+                {
+                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker! ";
+                    dtpickStartDate.Text = "";
+                    dtpickEndDate.Text = "";
+                }
 
+              
             }
         }
         private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
         {
+            int index = datagridInviteEvent.SelectedIndex;
+            Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
 
+            eventkalenderViewModel.InviteToEvent(datagridInvitePersons.SelectedItems, ev);
         }
 
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -190,18 +194,6 @@ namespace Eventkalender.PK.GUI
                 datagridFindEvents.ItemsSource = n.Events;
             }
             
-        }
-
-        private void cmbFilterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(cmbFilterList.SelectedIndex == 0)
-            {
-                datagridPersonNation.ItemsSource = eventkalenderViewModel.Nations;
-            }
-            else if (cmbFilterList.SelectedIndex == 1)
-            {
-                datagridPersonNation.ItemsSource = eventkalenderViewModel.Persons;
-            }
         }
 
         private void cmbInviteEvent_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -248,30 +240,19 @@ namespace Eventkalender.PK.GUI
         {
             if (cmbWebService.SelectedIndex == 0) //event kalla webservicen
             {
-
-                dgWebService.Columns.Clear();
-                dgWebService.ItemsSource = null;
-                List<string> output = new List<string>();
-                EventkalenderReference.Event[] turn = eventkalenderViewModel.GetEvents();
-                for (int i = 0; i>5; i++)
-                {
-                    
-                    
-                }
+                eventkalenderViewModel.EventGridWrapAutoSize(dgWebService);
                 dgWebService.ItemsSource = eventkalenderViewModel.GetEvents(); 
             }
             if (cmbWebService.SelectedIndex == 1) //nation
             {
-                dgWebService.Columns.Clear();
-                dgWebService.ItemsSource = null;
+                eventkalenderViewModel.NationGridWrapAutoSize(dgWebService);
                 dgWebService.ItemsSource = eventkalenderViewModel.GetNations();
             }
             if (cmbWebService.SelectedIndex == 2) //person
             {
-                dgWebService.Columns.Clear();
-                dgWebService.ItemsSource = null;
+                eventkalenderViewModel.PersonGridWrapAutoSize(dgWebService);
                 dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
-        }   
+        }
     }
 }

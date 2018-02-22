@@ -36,7 +36,7 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void GetIllPersonsByYear()
         {
-            Console.WriteLine("Skriv in Årsintervallen, skriv först in startåret:");
+            Console.WriteLine("Skriv in årsintervallen, skriv först in startåret:");
             string userInput = Console.ReadLine();            
             bool isNumericStartYear = int.TryParse(userInput, out int startYear);
 

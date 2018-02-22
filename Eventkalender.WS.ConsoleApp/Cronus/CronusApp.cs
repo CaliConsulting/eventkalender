@@ -37,7 +37,7 @@ namespace Eventkalender.WS.ConsoleApp
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
                 if (!isNumeric || (caseSwitch < -1 || caseSwitch > 2))
                 {
-                    Console.WriteLine("Välj mellan 1,2 eller -1\n");
+                    Console.WriteLine("Välj mellan 1, 2 eller -1\n");
                     caseSwitch = 1337;
                 }
                 switch (caseSwitch)

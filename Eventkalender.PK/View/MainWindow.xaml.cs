@@ -271,8 +271,8 @@ namespace Eventkalender.PK
 
         public void WriteOutput(string message)
         {
-            txtboxConsole.Text = null;
-            txtboxConsole.Text = message;
+            //txtBoxOutput.Text = null;
+            txtBoxOutput.Text = message;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -305,23 +305,28 @@ namespace Eventkalender.PK
             if(txtboxSearchFile.Text != "")
             {
                 string path = txtboxSearchFile.Text;
-                txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+                if (eventkalenderViewModel.GetFile(path) == "")
+                {
+                    string error = path + " fanns ej i systemet. Skrev du rätt filnamn?";
+                    WriteOutput(error);
+                }
+                else
+                {
+                    string succes = "Filen hämtad";
+                    txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+                    WriteOutput(succes);
+                }
             }
             else
             {
-                string s = "Var god och fyll i ett värde i textboxen för att söka efter en fil";
-                txtboxConsole.Text = s;
+                string s = "Fyll i textboxen för att söka efter en fil";
+                WriteOutput(s);
             }
         }
 
         private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
         {
             datagridInvitePersons.SelectAllCells();
-        }
-
-        private void btnMarkAllEvents_Click(object sender, RoutedEventArgs e)
-        {
-            datagridInviteEvent.SelectAllCells();
         }
     }
 }

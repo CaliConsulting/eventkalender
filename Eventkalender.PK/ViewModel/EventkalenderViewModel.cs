@@ -331,8 +331,10 @@ namespace Eventkalender.PK
             foreach (Database.Person p in list)
             {
                 p.Events.Add(ev);
-            }
+                eventkalenderDAL.AddPerson(p);
 
+                ev.Persons.Add(p);
+            }
         }
 
         public EventkalenderReference.Event[] GetEvents()

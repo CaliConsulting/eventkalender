@@ -214,6 +214,11 @@ namespace Eventkalender.PK
             cronusClient.DeleteEmployee(temp.No);
         }
 
+        public void UpdateEmployee(string no, string firstName, string lastName)
+        {
+
+        }
+
         private List<List<string>> data;
         public List<List<string>> Data
         {

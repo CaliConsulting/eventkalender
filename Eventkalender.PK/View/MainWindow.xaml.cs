@@ -60,6 +60,23 @@ namespace Eventkalender.PK
             }
         }
 
+        private void btnUpdateEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            int index = dgEmployee.SelectedIndex;
+            if (index >= 0)
+            {
+                CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
+                string no = txtEmployeeNumber.Text;
+                string firstName = txtEmployeeFirstName.Text;
+                string lastName = txtEmployeeLastName.Text;
+                eventkalenderViewModel.UpdateEmployee(no, firstName, lastName);
+            }
+        }
+
+        private void btnInsertEmployee_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             datagridCronus.Columns.Clear();

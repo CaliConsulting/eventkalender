@@ -477,7 +477,7 @@
                             </DataGrid>
                         </Canvas>
                     </TabItem>
-                    <TabItem Header="Employee">
+                    <TabItem Header="Employee" Height="22" Margin="-1.6,-2,-2.4,0" VerticalAlignment="Bottom">
                         <Canvas>
                             <StackPanel Canvas.Left="20"
                                     Canvas.Top="20"
@@ -496,12 +496,14 @@
                                        Margin="0,5,0,0"/>
                                 <TextBox x:Name="txtEmployeeNumber"
                                  Margin="0,5,0,0"/>
-                                <Button x:Name="btnInsertEmployee"
+                                <Button x:Name="btnAddEmployee"
                                     Content="Lägg till"
-                                    Margin="0,15,0,0"/>
+                                    Margin="0,15,0,0"
+                                    Click="btnAddEmployee_Click"   />
                                 <Button x:Name="btnUpdateEmployee"
                                         Content="Uppdatera"
-                                        Margin="0,15,0,0"/>
+                                        Margin="0,15,0,0"
+                                        Click="btnUpdateEmployee_Click" />
                             </StackPanel>
                             <DataGrid x:Name="dgEmployee"
                                       Canvas.Left="400"

@@ -78,16 +78,22 @@ namespace Eventkalender.PK
 
         private void btnEraseFromPerson(object sender, RoutedEventArgs e)
         {
-                    int index = datagridPerson.SelectedIndex;
-                    Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
-                    eventkalenderViewModel.DeletePerson(person.Id);
+            int index = datagridPerson.SelectedIndex;
+            if (index > -1)
+            {
+                Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
+                eventkalenderViewModel.DeletePerson(person.Id);
+            }
         }
 
         private void btnEraseFromNation_Click(object sender, RoutedEventArgs e)
         {
-                int index = datagridNation.SelectedIndex;
+            int index = datagridNation.SelectedIndex;
+            if (index > -1)
+            {
                 Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
                 eventkalenderViewModel.DeleteNation(nation.Id);
+            }
         }
 
         private void btnDeleteEventClick(object sender, RoutedEventArgs e)

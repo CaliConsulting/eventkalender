@@ -499,6 +499,9 @@
                                 <Button x:Name="btnInsertEmployee"
                                     Content="Lägg till"
                                     Margin="0,15,0,0"/>
+                                <Button x:Name="btnUpdateEmployee"
+                                        Content="Uppdatera"
+                                        Margin="0,15,0,0"/>
                             </StackPanel>
                             <DataGrid x:Name="dgEmployee"
                                       Canvas.Left="400"
@@ -506,7 +509,7 @@
                                       Width="850"
                                       Height="480"
                                       AutoGenerateColumns="False"                                      
-                                ItemsSource="{Binding Path= Employees}" >
+                                      ItemsSource="{Binding Path= Employees}" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="ID" Width="*" Binding="{Binding Path= No}"/>
                                     <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>

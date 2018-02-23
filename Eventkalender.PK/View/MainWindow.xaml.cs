@@ -158,7 +158,6 @@ namespace Eventkalender.PK
                     n.Events.Add(eventet);*/
                     eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
 
-                    // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
                     dtpickStartDate.Text = "";
                     dtpickEndDate.Text = "";
                     cmbStartTime.SelectedIndex = -1;

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1280">
     <StackPanel Margin="0,0,0,0">
-        <TabControl Height="570"
+        <TabControl Height="570" Background="LightGray"
                     TabStripPlacement="Top" Margin="0,0,0,0">
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
@@ -379,7 +379,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Webservices">
-                <TabControl Height="535">
+                <TabControl Height="535" Background="LightGray">
                     <TabItem Header="Uppgift 1" Margin="0,0,0,0">
                         <Canvas>
                             <StackPanel Canvas.Left="10" Canvas.Top="10">
@@ -390,7 +390,9 @@
                                          MaxWidth="100"
                                          Margin="0,15,0,0"
                                          ToolTip="Sök efter hello.txt"
-                                         ToolTipService.InitialShowDelay="5000" RenderTransformOrigin="0.508,-0.775"/>
+                                         ToolTipService.InitialShowDelay="50"
+                                         ToolTipService.ShowDuration="5000"
+                                         RenderTransformOrigin="0.508,-0.775"/>
                                 <Button x:Name="btnChoiceOfFile"
                                         Click="btnChoiceOfFile_Click"
                                         Content="Hämta Innehåll"
@@ -431,7 +433,7 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="ERP Integration">
-                <TabControl Height="535">
+                <TabControl Height="535" Background="LightGray">
                     <TabItem Header="Cronus">
                         <Canvas>
                             <TextBlock Text="Data" 

@@ -57,16 +57,19 @@ namespace Eventkalender.PK
 
         public static void AddColumns(DataGrid grid, List<List<string>> lst)
         {
-            for (int i = 0; i < lst[0].Count; i++)
+            if (lst != null)
             {
-                DataGridTextColumn t = new DataGridTextColumn();
-                t.Header = lst.First()[i];
-                t.Binding = new Binding("[" + i + "]");
+                for (int i = 0; i < lst[0].Count; i++)
+                {
+                    DataGridTextColumn t = new DataGridTextColumn();
+                    t.Header = lst.First()[i];
+                    t.Binding = new Binding("[" + i + "]");
 
-                grid.Columns.Add(t);
+                    grid.Columns.Add(t);
+                }
+                // Remove the column header from the resulting list
+                lst.RemoveAt(0);
             }
-            // Remove the column header from the resulting list
-            lst.RemoveAt(0);
         }
 
         private static List<List<string>> ExtractData(CronusReference.DataTuple[] values)
@@ -149,9 +152,6 @@ namespace Eventkalender.PK
                 case 10:
                     result = ExtractData(cronusClient.GetEmployeeStatisticsGroupMetadata());
                     return result;
-                case -1:
-                    result = NormalizeStructure(cronusClient.GetIndexes());
-                    return result;
             }
             // Down here we are in undefined behavior land...
             return null;
@@ -189,9 +189,6 @@ namespace Eventkalender.PK
                     return ExtractData(values);
                 case 8:
                     values = cronusClient.GetEmployeeStatisticsGroupData();
-                    return ExtractData(values);
-                case -1:
-                    values = new CronusReference.DataTuple[] { cronusClient.GetIllestPerson() };
                     return ExtractData(values);
             }
             return null;

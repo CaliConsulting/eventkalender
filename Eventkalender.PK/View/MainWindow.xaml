@@ -37,7 +37,7 @@
                                           AutoGenerateColumns="False"
                                           HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto"
-                                          ItemsSource="{Binding Path=Events}">
+                                          ItemsSource="{Binding Path=Events}" >
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                         <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
@@ -426,6 +426,7 @@
                                           Width="1240"
                                           Height="430"
                                           Margin="0,15,0,0"
+                                          IsReadOnly="True"
                                           AutoGenerateColumns="False">
                                 </DataGrid>
                             </StackPanel>
@@ -492,7 +493,7 @@
                                        Margin="0,5,0,0"/>
                                 <TextBox x:Name="txtEmployeeLastName"
                                      Margin="0,5,0,0"/>
-                                <TextBlock Text="Nummer"
+                                <TextBlock Text="Id"
                                        Margin="0,5,0,0"/>
                                 <TextBox x:Name="txtEmployeeNumber"
                                  Margin="0,5,0,0"/>
@@ -510,10 +511,11 @@
                                       Canvas.Top="20"
                                       Width="850"
                                       Height="480"
+                                      IsReadOnly="True"
                                       AutoGenerateColumns="False"                                      
-                                      ItemsSource="{Binding Path= Employees}" >
+                                      ItemsSource="{Binding Path= Employees}" SelectionChanged="dgEmployee_SelectionChanged" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding Path= No}"/>
+                                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}"/>
                                     <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>
                                     <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path= FirstName}"/>
                                     <DataGridTextColumn Header="Efternamn" Width="*" Binding="{Binding Path= LastName}"/>

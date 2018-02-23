@@ -216,7 +216,12 @@ namespace Eventkalender.PK
 
         public void UpdateEmployee(string no, string firstName, string lastName)
         {
-
+            CronusReference.Employee emp = new CronusReference.Employee();
+            emp.No = no;
+            emp.FirstName = firstName;
+            emp.LastName = lastName;
+           
+            cronusClient.UpdateEmployee(no, firstName, lastName);
         }
         public void AddEmployee(string no, string firstName, string lastName)
         {

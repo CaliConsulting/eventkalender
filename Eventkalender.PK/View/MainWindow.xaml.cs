@@ -93,8 +93,8 @@ namespace Eventkalender.PK
             int index = datagridNation.SelectedIndex;
             if (index > -1)
             {
-                Database.Nation nation = eventkalenderViewModel.Nations.ElementAt(index);
-                eventkalenderViewModel.DeleteNation(nation.Id);
+                Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                eventkalenderViewModel.DeleteNation(index);
             }
         }
 
@@ -271,8 +271,7 @@ namespace Eventkalender.PK
 
         public void WriteOutput(string message)
         {
-            //txtBoxOutput.Text = null;
-            txtBoxOutput.Text = message;
+            txtboxConsole.Text = message;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -305,16 +304,15 @@ namespace Eventkalender.PK
             if(txtboxSearchFile.Text != "")
             {
                 string path = txtboxSearchFile.Text;
-                if (eventkalenderViewModel.GetFile(path) == "")
+                if(eventkalenderViewModel.GetFiles().Contains(path))
                 {
-                    string error = path + " fanns ej i systemet. Skrev du rätt filnamn?";
-                    WriteOutput(error);
+                    txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+                    
                 }
                 else
                 {
-                    string succes = "Filen hämtad";
-                    txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
-                    WriteOutput(succes);
+                    string error = path + " fanns ej i systemet. Skrev du rätt filnamn?";
+                    WriteOutput(error);
                 }
             }
             else

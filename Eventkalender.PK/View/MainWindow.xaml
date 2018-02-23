@@ -318,8 +318,10 @@
                                              VerticalScrollBarVisibility="Auto"
                                              SelectionMode="Extended"
                                              ItemsSource="{Binding Path=Persons}"
-                                             AutoGenerateColumns="False">
+                                             AutoGenerateColumns="False"
+                                             >
                                         <DataGrid.Columns>
+                                            
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
                                             <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>

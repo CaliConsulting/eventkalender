@@ -130,12 +130,13 @@ namespace Eventkalender.PK
 
         public void DeleteNation(int id)
         {
+            
             Database.Nation temp = new Database.Nation();
             temp.Id = id;
 
             Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
             eventkalenderDAL.DeleteNation(temp);
-
+            
             //NotifyPropertyChanged("Nations");
         }
         
@@ -333,7 +334,6 @@ namespace Eventkalender.PK
                 p.Events.Add(ev);
                 eventkalenderDAL.AddPerson(p);
 
-                ev.Persons.Add(p);
             }
         }
 
@@ -453,6 +453,10 @@ namespace Eventkalender.PK
         public string GetFile(string path)
         {
             return eventkalenderClient.GetFile(path);
+        }
+        public List<string> GetFiles()
+        {
+            return eventkalenderClient.GetFiles();
         }
 
     }

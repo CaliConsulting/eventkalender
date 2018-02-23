@@ -15,6 +15,13 @@ namespace Eventkalender.PK.EventkalenderReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://cali.eventkalender/", ItemName="string")]
+    [System.SerializableAttribute()]
+    public class ArrayOfString : System.Collections.Generic.List<string> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Nation", Namespace="http://cali.eventkalender/")]
     [System.SerializableAttribute()]
     public partial class Nation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -345,6 +352,13 @@ namespace Eventkalender.PK.EventkalenderReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetFile", ReplyAction="*")]
         System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFileResponse> GetFileAsync(Eventkalender.PK.EventkalenderReference.GetFileRequest request);
         
+        // CODEGEN: Generating message contract since element name GetFilesResult from namespace http://cali.eventkalender/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetFiles", ReplyAction="*")]
+        Eventkalender.PK.EventkalenderReference.GetFilesResponse GetFiles(Eventkalender.PK.EventkalenderReference.GetFilesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/GetFiles", ReplyAction="*")]
+        System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFilesResponse> GetFilesAsync(Eventkalender.PK.EventkalenderReference.GetFilesRequest request);
+        
         // CODEGEN: Generating message contract since element name path from namespace http://cali.eventkalender/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://cali.eventkalender/AddFile", ReplyAction="*")]
         Eventkalender.PK.EventkalenderReference.AddFileResponse AddFile(Eventkalender.PK.EventkalenderReference.AddFileRequest request);
@@ -481,6 +495,67 @@ namespace Eventkalender.PK.EventkalenderReference {
         
         public GetFileResponseBody(string GetFileResult) {
             this.GetFileResult = GetFileResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFilesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFiles", Namespace="http://cali.eventkalender/", Order=0)]
+        public Eventkalender.PK.EventkalenderReference.GetFilesRequestBody Body;
+        
+        public GetFilesRequest() {
+        }
+        
+        public GetFilesRequest(Eventkalender.PK.EventkalenderReference.GetFilesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetFilesRequestBody {
+        
+        public GetFilesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFilesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFilesResponse", Namespace="http://cali.eventkalender/", Order=0)]
+        public Eventkalender.PK.EventkalenderReference.GetFilesResponseBody Body;
+        
+        public GetFilesResponse() {
+        }
+        
+        public GetFilesResponse(Eventkalender.PK.EventkalenderReference.GetFilesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://cali.eventkalender/")]
+    public partial class GetFilesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Eventkalender.PK.EventkalenderReference.ArrayOfString GetFilesResult;
+        
+        public GetFilesResponseBody() {
+        }
+        
+        public GetFilesResponseBody(Eventkalender.PK.EventkalenderReference.ArrayOfString GetFilesResult) {
+            this.GetFilesResult = GetFilesResult;
         }
     }
     
@@ -1189,6 +1264,29 @@ namespace Eventkalender.PK.EventkalenderReference {
             inValue.Body = new Eventkalender.PK.EventkalenderReference.GetFileRequestBody();
             inValue.Body.path = path;
             return ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).GetFileAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Eventkalender.PK.EventkalenderReference.GetFilesResponse Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap.GetFiles(Eventkalender.PK.EventkalenderReference.GetFilesRequest request) {
+            return base.Channel.GetFiles(request);
+        }
+        
+        public Eventkalender.PK.EventkalenderReference.ArrayOfString GetFiles() {
+            Eventkalender.PK.EventkalenderReference.GetFilesRequest inValue = new Eventkalender.PK.EventkalenderReference.GetFilesRequest();
+            inValue.Body = new Eventkalender.PK.EventkalenderReference.GetFilesRequestBody();
+            Eventkalender.PK.EventkalenderReference.GetFilesResponse retVal = ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).GetFiles(inValue);
+            return retVal.Body.GetFilesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFilesResponse> Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap.GetFilesAsync(Eventkalender.PK.EventkalenderReference.GetFilesRequest request) {
+            return base.Channel.GetFilesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Eventkalender.PK.EventkalenderReference.GetFilesResponse> GetFilesAsync() {
+            Eventkalender.PK.EventkalenderReference.GetFilesRequest inValue = new Eventkalender.PK.EventkalenderReference.GetFilesRequest();
+            inValue.Body = new Eventkalender.PK.EventkalenderReference.GetFilesRequestBody();
+            return ((Eventkalender.PK.EventkalenderReference.EventkalenderServiceSoap)(this)).GetFilesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

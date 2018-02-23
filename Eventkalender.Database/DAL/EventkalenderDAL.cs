@@ -34,7 +34,7 @@ namespace Eventkalender.Database
             {
                 context.Nation.Add(n);
                 context.SaveChanges();
-                context.Entry(n).Reference(temp => temp.Events).Load();
+                context.Entry(n).Collection(temp => temp.Events).Load();
             }
         }
 

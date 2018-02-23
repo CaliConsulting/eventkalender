@@ -73,8 +73,12 @@ namespace Eventkalender.PK
             }
         }
 
-        private void btnInsertEmployee_Click(object sender, RoutedEventArgs e)
+        private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
+            string no = txtEmployeeNumber.Text;
+            string firstName = txtEmployeeFirstName.Text;
+            string lastName = txtEmployeeLastName.Text;
+            eventkalenderViewModel.AddEmployee(no, firstName, lastName);
         }
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)

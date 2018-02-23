@@ -218,6 +218,10 @@ namespace Eventkalender.PK
         {
 
         }
+        public void AddEmployee(string no, string firstName, string lastName)
+        {
+            cronusClient.AddEmployee(no, firstName, lastName);
+        }
 
         private List<List<string>> data;
         public List<List<string>> Data

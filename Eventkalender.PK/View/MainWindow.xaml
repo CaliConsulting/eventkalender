@@ -363,11 +363,6 @@
                                             <DataGridTextColumn Header="Start av evenemanget" Width="*" Binding="{Binding Path=StartTime}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnMarkAllEvents"
-                                            Click="btnMarkAllEvents_Click"
-                                            Content="Markera alla"
-                                            Margin="0,15,0,0"
-                                            Width="100"/>
                                 </StackPanel>
                                 <Button x:Name="btnInvToEvent"
                                         Click="btnInvToEvent_Click"
@@ -533,6 +528,6 @@
                  Text="{Binding Path=StatusProperty}"
                  TextWrapping="NoWrap"
                  VerticalScrollBarVisibility="Auto" 
-                />
+                 />
     </StackPanel>
 </Window>

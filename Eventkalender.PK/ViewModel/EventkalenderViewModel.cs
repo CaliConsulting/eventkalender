@@ -331,9 +331,9 @@ namespace Eventkalender.PK
             foreach (Database.Person p in list)
             {
                 p.Events.Add(ev);
-                eventkalenderDAL.AddPerson(p);
+                eventkalenderDAL.UpdatePerson(p);
 
-                ev.Persons.Add(p);
+                //ev.Persons.Add(p);
             }
         }
 

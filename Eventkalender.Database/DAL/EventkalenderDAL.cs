@@ -232,6 +232,60 @@ namespace Eventkalender.Database
             }
         }
 
+        public void UpdatePerson(Person p)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                Person dbPerson = context.Person.Find(p.Id);
+                if (dbPerson == null)
+                {
+                    return;
+                }
+                
+                context.Entry(dbPerson).CurrentValues.SetValues(p);
+
+                //// Delete children
+                //foreach (var e in dbPerson.Events)
+                //{
+                //    if (!dbPerson.Events.Any(c => c.Id == e.Id))
+                //        context.Event.Remove(e);
+                //}
+
+                //// Update and Insert children
+                //foreach (var childModel in p.Events)
+                //{
+                //    var existingChild = dbPerson.Events.Where(c => c.Id == childModel.Id).SingleOrDefault();
+
+                //    if (existingChild != null)
+                //        // Update child
+                //        context.Entry(existingChild).CurrentValues.SetValues(childModel);
+                //    else
+                //    {
+                //        // Insert child
+                //        var newChild = new Event
+                //        {
+                //            Id = childModel.Id,
+                //            Name = childModel.Name,
+                //            Summary = childModel.Summary,
+                //            StartTime = childModel.StartTime,
+                //            EndTime = childModel.EndTime,
+                //            NationId = childModel.NationId,
+                //            Nation = childModel.Nation,
+                //            Persons = childModel.Persons,
+
+                //            //...
+                //        };
+                //        dbPerson.Events.Add(newChild);
+                //    }
+                //}
+
+                //context.Entry(dbPerson.Events).State = EntityState.Modified;
+                //context.Entry(dbPerson.Events).CurrentValues.SetValues(p.Events);
+
+                context.SaveChanges();
+            }
+        }
+
         //public void AddNations(List<Nation> nations)
         //{
         //    context.Nations.Add()

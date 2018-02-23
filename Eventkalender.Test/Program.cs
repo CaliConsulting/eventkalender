@@ -16,7 +16,7 @@ namespace Eventkalender.Test
             
             CronusController cronusController = new CronusController("Resources/cronus-db.xml");
 
-            //cronusController.AddEmployee("FFFFF", "Philip", "Eriksson");
+            cronusController.AddEmployee("FFF", "Philip", "Eriksson");
 
             /*
             Employee e = cronusController.GetEmployee("AL");
@@ -24,7 +24,7 @@ namespace Eventkalender.Test
             List<Employee> employees = cronusController.GetEmployees();
 
             cronusController.UpdateEmployee("FFFFF", "pHHIILLIP", "Eriksson");*/
-            cronusController.DeleteEmployee("KINGSIZE");
+            cronusController.DeleteEmployee("FFF");
             Console.ReadKey();
         }
     }

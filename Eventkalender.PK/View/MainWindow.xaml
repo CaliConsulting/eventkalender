@@ -394,7 +394,8 @@
                                 <Button x:Name="btnChoiceOfFile"
                                         Click="btnChoiceOfFile_Click"
                                         Content="Hämta Innehåll"
-                                        Width="95" RenderTransformOrigin="1.315,1.611"/>
+                                        Margin="0,10,0,0"
+                                        Width="95"/>
                                 <ItemsPresenter  x:Name="itemPresenter"
                                                  Margin="0,15,0,0"
                                                  Width="1250"

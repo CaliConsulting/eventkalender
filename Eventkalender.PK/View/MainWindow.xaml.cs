@@ -118,7 +118,7 @@ namespace Eventkalender.PK
             }
             else
             {
-                MessageBox.Show("Inget värde ifyllt");
+                WriteOutput("Inget värde ifyllt");
             }
         }
 
@@ -133,11 +133,11 @@ namespace Eventkalender.PK
             }
             else if (txtBoxLastName.Text == "")
             {
-                MessageBox.Show("Glöm inte ange efternamnet");
+                WriteOutput("Glöm inte ange efternamnet");
             }
             else if (txtBoxFirstName.Text == "")
             {
-                MessageBox.Show("Glöm inte ange förnamnet");
+                WriteOutput("Glöm inte ange förnamnet");
             }
         }
 
@@ -304,7 +304,6 @@ namespace Eventkalender.PK
         {
             if(txtboxSearchFile.Text != "")
             {
-
                 string path = txtboxSearchFile.Text;
                 txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
             }

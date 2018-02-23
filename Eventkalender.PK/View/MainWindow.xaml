@@ -139,7 +139,7 @@
                                 </ComboBox>
                                 <StackPanel Canvas.Left="400" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
-                                    <TextBlock Text="Filtrera"/>
+                                    <TextBlock Text="Filtrera efter Nation"/>
                                     <ComboBox x:Name="cmBoxSearchEvents"
                                               ItemsSource="{Binding Path=Nations, NotifyOnSourceUpdated=True}"
                                               DisplayMemberPath="Name"

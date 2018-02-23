@@ -98,9 +98,12 @@ namespace Eventkalender.PK
 
         private void btnDeleteEventClick(object sender, RoutedEventArgs e)
         {
-                int index = datagridEvents.SelectedIndex;
+            int index = datagridEvents.SelectedIndex;
+            if(index > -1)
+            {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.DeleteEvent(ev.Id);
+            }          
         }
 
         private void btnRegNationNameClick(object sender, RoutedEventArgs e)
@@ -158,12 +161,17 @@ namespace Eventkalender.PK
                     // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
                     dtpickStartDate.Text = "";
                     dtpickEndDate.Text = "";
+                    cmbStartTime.SelectedIndex = -1;
+                    cmbEndTime.SelectedIndex = -1;
+                    txtBoxEventName.Text = "";
+                    txtBoxSummary.Text = "";
+
+
                 }
                 else
                 {
-                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker! ";
-                    dtpickStartDate.Text = "";
-                    dtpickEndDate.Text = "";
+                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker! eller date eller w/e ";
+
                 }
             }
         }
@@ -270,6 +278,7 @@ namespace Eventkalender.PK
             string path = txtboxSearchFile.Text;
            // txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
         }
+
 
     }
 }

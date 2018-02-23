@@ -76,6 +76,8 @@ namespace Eventkalender.PK
         //
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        
+
         private void btnEraseFromPerson(object sender, RoutedEventArgs e)
         {
             int index = datagridPerson.SelectedIndex;
@@ -164,14 +166,27 @@ namespace Eventkalender.PK
                     cmbEndTime.SelectedIndex = -1;
                     txtBoxEventName.Text = "";
                     txtBoxSummary.Text = "";
-
-
-                }
-                else
-                {
-                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker! eller date eller w/e ";
-
-                }
+                }                              
+            }
+            else if (txtBoxEventName.Text == "")
+            {
+                WriteOutput("Ange ett namn till evenemanget.");
+            }
+            else if (dtpickEndDate.Text == "" || dtpickStartDate.Text == "")
+            {
+                WriteOutput("Ange start- och slutdatum.");
+            }
+            else if (cmbStartTime.SelectedIndex == -1 || cmbEndTime.SelectedIndex == -1)
+            {
+                WriteOutput("Ange start- och sluttid.");
+            }
+            else if (txtBoxSummary.Text == "")
+            {
+                WriteOutput("Ange en beskrivning till evenemanget.");
+            }
+            else if (eventkalenderViewModel.Nations.Select(temp => temp.Name.Equals(cmBoxNation.SelectedItem.ToString())).Count() <= 0 || cmBoxNation.SelectedIndex == -1)
+            {
+                WriteOutput("Du måste välja en befintlig nation.");
             }
         }
 
@@ -245,6 +260,12 @@ namespace Eventkalender.PK
             {
                 datagridInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
             }
+        }
+
+        public void WriteOutput(string message)
+        {
+            txtBoxOutput.Text = null;
+            txtBoxOutput.Text = message;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

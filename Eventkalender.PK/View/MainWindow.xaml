@@ -144,9 +144,9 @@
                                               ItemsSource="{Binding Path=Nations, NotifyOnSourceUpdated=True}"
                                               DisplayMemberPath="Name"
                                               SelectedValuePath="Id"
-                                             Width="150"
-                                             MaxWidth="150"
-                                             HorizontalAlignment="Left"
+                                              Width="150"
+                                              MaxWidth="150"
+                                              HorizontalAlignment="Left"
                                               IsEditable="True"
                                               SelectionChanged="cmBoxSearchEvents_SelectionChanged"
                                               TabIndex="9"/>
@@ -328,6 +328,7 @@
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllPerson"
                                             Content="Markera alla"
+                                            Click="btnMarkAllPerson_Click"
                                             Margin="0,15,0,0"
                                             Width="100"/>
                                 </StackPanel>
@@ -363,6 +364,7 @@
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnMarkAllEvents"
+                                            Click="btnMarkAllEvents_Click"
                                             Content="Markera alla"
                                             Margin="0,15,0,0"
                                             Width="100"/>
@@ -382,7 +384,7 @@
                 <TabControl Height="535" Background="LightGray">
                     <TabItem Header="Uppgift 1" Margin="0,0,0,0">
                         <Canvas>
-                            <StackPanel Canvas.Left="10" Canvas.Top="10">
+                            <StackPanel Canvas.Left="20" Canvas.Top="20">
                                 <TextBlock  HorizontalAlignment="Center"
                                             Text="Hämta fil" FontWeight="Bold"/>
                                 <TextBox x:Name="txtboxSearchFile"
@@ -398,10 +400,12 @@
                                         Content="Hämta Innehåll"
                                         Margin="0,10,0,0"
                                         Width="95"/>
-                                <ItemsPresenter  x:Name="itemPresenter"
-                                                 Margin="0,15,0,0"
-                                                 Width="1250"
-                                                 Height="400"/>
+                                <TextBox x:Name="txtboxOutput"
+                                         Margin="0,10,0,0"
+                                         IsReadOnly="True"
+                                         Width="1220"
+                                         Height="390"/>
+
                             </StackPanel>
                         </Canvas>
                     </TabItem>
@@ -523,13 +527,12 @@
                 </TabControl>
             </TabItem>
         </TabControl>
-        <TextBox 
-            x:Name="txtBoxOutput"
-            Height="100"
-            IsReadOnly="True"
-            Text="{Binding Path=StatusProperty}"
-            TextWrapping="NoWrap"
-            VerticalScrollBarVisibility="Auto" 
+        <TextBox x:Name="txtboxConsole"
+                 Height="100"
+                 IsReadOnly="True"
+                 Text="{Binding Path=StatusProperty}"
+                 TextWrapping="NoWrap"
+                 VerticalScrollBarVisibility="Auto" 
                 />
     </StackPanel>
 </Window>

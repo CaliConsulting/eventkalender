@@ -498,17 +498,19 @@
                                     Content="Lägg till"
                                     Margin="0,15,0,0"/>
                             </StackPanel>
-                            <DataGrid Canvas.Left="400"
+                            <DataGrid 
+                                      x:Name="dgEmployee"
+                                      Canvas.Left="400"
                                       Canvas.Top="20"
                                       Width="850"
-                                      Height="480">
-                                <!-- ItemsSource="{Binding Path= }" -->
+                                      Height="480"
+                                      AutoGenerateColumns="False"                                      
+                                ItemsSource="{Binding Path= Employees}" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID" Width="auto"/>
-                                    <!-- Binding={Binding Path=} -->
-                                    <DataGridTextColumn Header="Kön" Width="auto"/>
-                                    <DataGridTextColumn Header="Förnamn" Width="auto"/>
-                                    <DataGridTextColumn Header="Efternamn" Width="auto"/>
+                                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding Path= No}"/>
+                                    <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>
+                                    <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path= FirstName}"/>
+                                    <DataGridTextColumn Header="Efternamn" Width="*" Binding="{Binding Path= LastName}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button x:Name="btnDeleteEmployee"

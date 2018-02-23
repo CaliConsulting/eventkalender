@@ -23,6 +23,7 @@ namespace Eventkalender.PK
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
         private ObservableCollection<Database.Person> persons;
+        private List<CronusReference.Employee> employees;
 
         private CronusServiceSoapClient cronusClient;
         private EventkalenderServiceSoapClient eventkalenderClient;
@@ -105,6 +106,28 @@ namespace Eventkalender.PK
             }
         }
 
+        public List<CronusReference.Employee> Employees
+        {
+            get
+            {
+                if (employees == null)
+                {
+                    employees = new List<CronusReference.Employee>(cronusClient.GetEmployees());
+                }
+                return employees;
+
+            }
+            set
+            {
+                if (employees != value)
+                {
+                    employees = value;
+
+                    NotifyPropertyChanged("Employees");
+                }
+            }
+        }
+
         public List<string> TimesList
         {
             get
@@ -179,6 +202,15 @@ namespace Eventkalender.PK
             eventkalenderDAL.DeleteEvent(temp);
 
             //NotifyPropertyChanged("Events");
+        }
+
+        public void DeleteEmployee(string no)
+        {
+            CronusReference.Employee temp = new CronusReference.Employee();
+            temp.No = no;
+
+            Employees.Remove(Employees.FirstOrDefault(e => e.No == temp.No));
+            cronusClient.DeleteEmployee(temp.No);
         }
 
         private List<List<string>> data;

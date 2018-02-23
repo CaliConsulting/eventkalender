@@ -18,13 +18,13 @@ namespace Eventkalender.Test
 
             //cronusController.AddEmployee("FFFFF", "Philip", "Eriksson");
 
-
+            /*
             Employee e = cronusController.GetEmployee("AL");
 
             List<Employee> employees = cronusController.GetEmployees();
 
-            cronusController.UpdateEmployee("FFFFF", "pHHIILLIP", "Eriksson");
-
+            cronusController.UpdateEmployee("FFFFF", "pHHIILLIP", "Eriksson");*/
+            cronusController.DeleteEmployee("KINGSIZE");
             Console.ReadKey();
         }
     }

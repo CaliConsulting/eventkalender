@@ -51,7 +51,13 @@ namespace Eventkalender.PK
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-
+            int index = dgEmployee.SelectedIndex;
+            if (index >= 0)
+            {
+            CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
+            string no = emp.No;
+            eventkalenderViewModel.DeleteEmployee(no);
+            }
         }
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -272,7 +278,7 @@ namespace Eventkalender.PK
         public void WriteOutput(string message)
         {
             //txtBoxOutput.Text = null;
-            txtBoxOutput.Text = message;
+            txtboxConsole.Text = message;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -328,5 +334,6 @@ namespace Eventkalender.PK
         {
             datagridInvitePersons.SelectAllCells();
         }
+
     }
 }

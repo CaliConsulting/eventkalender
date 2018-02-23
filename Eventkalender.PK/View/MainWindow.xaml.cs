@@ -143,34 +143,15 @@ namespace Eventkalender.PK
 
         private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
-            if (Utility.IsNotEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
-            {
-              //  Database.Event eventet = new Database.Event();
-                DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
-                DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
-                int index = cmBoxNation.SelectedIndex;
-                if (index >= 0)
-                {
-                    Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                  /*  eventet.Name = txtBoxEventName.Text;
-                    eventet.Summary = txtBoxSummary.Text;
-                    eventet.StartTime = dateStart;
-                    eventet.EndTime = dateEnd;
-
-                    n.Events.Add(eventet);*/
-                    eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
-
-                    dtpickStartDate.Text = "";
-                    dtpickEndDate.Text = "";
-                    cmbStartTime.SelectedIndex = -1;
-                    cmbEndTime.SelectedIndex = -1;
-                    txtBoxEventName.Text = "";
-                    txtBoxSummary.Text = "";
-                }                              
-            }
-            else if (txtBoxEventName.Text == "")
+            int index = cmBoxNation.SelectedIndex;
+            
+            if (txtBoxEventName.Text == "")
             {
                 WriteOutput("Ange ett namn till evenemanget.");
+            }
+            else if (eventkalenderViewModel.Nations.Select(temp => temp.Name.Equals(Convert.ToString(cmBoxNation.SelectedItem))).Count() <= 0 || cmBoxNation.SelectedIndex == -1)
+            {
+                WriteOutput("Du måste välja en befintlig nation.");
             }
             else if (dtpickEndDate.Text == "" || dtpickStartDate.Text == "")
             {
@@ -184,9 +165,35 @@ namespace Eventkalender.PK
             {
                 WriteOutput("Ange en beskrivning till evenemanget.");
             }
-            else if (eventkalenderViewModel.Nations.Select(temp => temp.Name.Equals(cmBoxNation.SelectedItem.ToString())).Count() <= 0 || cmBoxNation.SelectedIndex == -1)
+            if (Utility.IsNotEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
-                WriteOutput("Du måste välja en befintlig nation.");
+                //  Database.Event eventet = new Database.Event();
+                DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
+                DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
+
+                if (dateEnd.CompareTo(dateStart) < 0)
+                {
+                    WriteOutput("Ditt evenemang kan inte sluta före det börjar.");
+                }
+                else
+                {
+                    Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
+                    /*  eventet.Name = txtBoxEventName.Text;
+                    eventet.Summary = txtBoxSummary.Text;
+                    eventet.StartTime = dateStart;
+                    eventet.EndTime = dateEnd;
+
+                    n.Events.Add(eventet);*/
+                    eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+
+                    dtpickStartDate.Text = "";
+                    dtpickEndDate.Text = "";
+                    cmbStartTime.SelectedIndex = -1;
+                    cmbEndTime.SelectedIndex = -1;
+                    txtBoxEventName.Text = "";
+                    txtBoxSummary.Text = "";
+                }
+
             }
         }
 

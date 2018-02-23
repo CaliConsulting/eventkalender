@@ -52,8 +52,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Event.Attach(e);
-                context.Event.Remove(e);
+                Event dbEvent = context.Event.Find(e.Id);
+                if (dbEvent == null)
+                {
+                    return;
+                }
+                context.Event.Remove(dbEvent);
                 context.SaveChanges();
             }
         }
@@ -62,8 +66,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Nation.Attach(n);
-                context.Nation.Remove(n);
+                Nation dbNation = context.Nation.Find(n.Id);
+                if (dbNation == null)
+                {
+                    return;
+                }
+                context.Nation.Remove(dbNation);
                 context.SaveChanges();
             }
         }
@@ -72,8 +80,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Person.Attach(p);
-                context.Person.Remove(p);
+                Person dbPerson = context.Person.Find(p.Id);
+                if (dbPerson == null)
+                {
+                    return;
+                }
+                context.Person.Remove(dbPerson);
                 context.SaveChanges();
             }
         }

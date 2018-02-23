@@ -23,7 +23,7 @@ namespace Eventkalender.PK
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
         private ObservableCollection<Database.Person> persons;
-        private List<CronusReference.Employee> employees;
+        private ObservableCollection<CronusReference.Employee> employees;
 
         private CronusServiceSoapClient cronusClient;
         private EventkalenderServiceSoapClient eventkalenderClient;
@@ -106,13 +106,13 @@ namespace Eventkalender.PK
             }
         }
 
-        public List<CronusReference.Employee> Employees
+        public ObservableCollection<CronusReference.Employee> Employees
         {
             get
             {
                 if (employees == null)
                 {
-                    employees = new List<CronusReference.Employee>(cronusClient.GetEmployees());
+                    employees = new ObservableCollection<CronusReference.Employee>(cronusClient.GetEmployees());
                 }
                 return employees;
 
@@ -220,7 +220,13 @@ namespace Eventkalender.PK
         }
         public void AddEmployee(string no, string firstName, string lastName)
         {
+            CronusReference.Employee emp = new CronusReference.Employee();
+            emp.No = no; // efterblivet intelisense som inte låter mig skapa employee med 3 inparameterar för "Konstruktorn finns inte bullshit"
+            emp.FirstName = firstName;
+            emp.LastName = lastName;
+            Employees.Add(emp);
             cronusClient.AddEmployee(no, firstName, lastName);
+
         }
 
         private List<List<string>> data;

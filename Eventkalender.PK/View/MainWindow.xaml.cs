@@ -73,12 +73,38 @@ namespace Eventkalender.PK
             }
         }
 
+       
+
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            string no = txtEmployeeNumber.Text;
-            string firstName = txtEmployeeFirstName.Text;
-            string lastName = txtEmployeeLastName.Text;
-            eventkalenderViewModel.AddEmployee(no, firstName, lastName);
+            bool exists = true;
+            if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
+            {
+                foreach(CronusReference.Employee emp in eventkalenderViewModel.Employees)
+                {
+                    if (txtEmployeeNumber.Text.Equals(emp.No))
+                    {
+                        exists = false;
+                    }
+                }
+                if (exists)
+                {
+                    string no = txtEmployeeNumber.Text;
+                    string firstName = txtEmployeeFirstName.Text;
+                    string lastName = txtEmployeeLastName.Text;
+                    eventkalenderViewModel.AddEmployee(no, firstName, lastName);
+                }
+                else
+                {
+                    WriteOutput("Det finns redan en person med detta ID");
+                }              
+            }
+            else
+            {
+                WriteOutput("Du måste fylla i fälten");
+            }
+            
+           
         }
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)

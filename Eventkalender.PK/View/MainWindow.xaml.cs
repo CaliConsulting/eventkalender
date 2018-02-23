@@ -149,15 +149,17 @@ namespace Eventkalender.PK
                     n.Events.Add(eventet);*/
                     eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
 
-                    // eventkalenderController.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
                     dtpickStartDate.Text = "";
                     dtpickEndDate.Text = "";
+                    cmbStartTime.Text = "";
+                    cmbEndTime.Text = "";
+                    txtBoxEventName.Text = "";
+                    cmBoxNation.Text = "";
+                    txtBoxSummary.Text = "";
                 }
                 else
                 {
-                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker! ";
-                    dtpickStartDate.Text = "";
-                    dtpickEndDate.Text = "";
+                    string felhantering = "Fixa detta, skicka svar någonstans typ: Du måste välja en nation toker!";
                 }
             }
         }

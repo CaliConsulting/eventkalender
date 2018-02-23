@@ -271,8 +271,8 @@ namespace Eventkalender.PK
 
         public void WriteOutput(string message)
         {
-            txtboxConsole.Text = null;
-            txtboxConsole.Text = message;
+            //txtBoxOutput.Text = null;
+            txtBoxOutput.Text = message;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

@@ -274,10 +274,27 @@ namespace Eventkalender.PK
         
         private void btnChoiceOfFile_Click(object sender, RoutedEventArgs e)
         {
-            string path = txtboxSearchFile.Text;
-           // txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+            if(txtboxSearchFile.Text != "")
+            {
+
+                string path = txtboxSearchFile.Text;
+                txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+            }
+            else
+            {
+                string s = "Var god och fyll i ett värde i textboxen för att söka efter en fil";
+                txtboxConsole.Text = s;
+            }
         }
 
+        private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
+        {
+            datagridInvitePersons.SelectAllCells();
+        }
 
+        private void btnMarkAllEvents_Click(object sender, RoutedEventArgs e)
+        {
+            datagridInviteEvent.SelectAllCells();
+        }
     }
 }

@@ -214,15 +214,17 @@ namespace Eventkalender.PK
             cronusClient.DeleteEmployee(temp.No);
         }
 
-        public void UpdateEmployee(string no, string firstName, string lastName)
+        public void UpdateEmployee(string no, string firstName, string lastName, int index)
         {
             CronusReference.Employee emp = new CronusReference.Employee();
             emp.No = no;
             emp.FirstName = firstName;
             emp.LastName = lastName;
-           
+            Employees.ElementAt(index).FirstName = emp.FirstName;
+            Employees.ElementAt(index).LastName = emp.LastName;
             cronusClient.UpdateEmployee(no, firstName, lastName);
         }
+
         public void AddEmployee(string no, string firstName, string lastName)
         {
             CronusReference.Employee emp = new CronusReference.Employee();

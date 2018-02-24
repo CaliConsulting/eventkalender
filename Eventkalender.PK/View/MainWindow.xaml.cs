@@ -81,7 +81,7 @@ namespace Eventkalender.PK
                         string no = txtEmployeeNumber.Text;
                         string firstName = txtEmployeeFirstName.Text;
                         string lastName = txtEmployeeLastName.Text;
-                        eventkalenderViewModel.UpdateEmployee(no, firstName, lastName);
+                        eventkalenderViewModel.UpdateEmployee(no, firstName, lastName, index);
                     }
                     else
                     {

@@ -220,6 +220,7 @@ namespace Eventkalender.PK
             emp.No = no;
             emp.FirstName = firstName;
             emp.LastName = lastName;
+            index = Employees.IndexOf(Employees.Where(e => e.No == no).FirstOrDefault());
             Employees.ElementAt(index).FirstName = emp.FirstName;
             Employees.ElementAt(index).LastName = emp.LastName;
             cronusClient.UpdateEmployee(no, firstName, lastName);

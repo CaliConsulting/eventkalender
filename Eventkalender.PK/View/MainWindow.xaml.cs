@@ -68,16 +68,16 @@ namespace Eventkalender.PK
           //  {
                 if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
                 {
+                    
                     foreach (CronusReference.Employee emp in eventkalenderViewModel.Employees)
                     {
                         if (txtEmployeeNumber.Text.Equals(emp.No))
                         {
-                            exists = true;
+                             exists = true;                     
                         }
                     }
                     if (exists)
-                    {
-                        CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
+                    {                                              
                         string no = txtEmployeeNumber.Text;
                         string firstName = txtEmployeeFirstName.Text;
                         string lastName = txtEmployeeLastName.Text;

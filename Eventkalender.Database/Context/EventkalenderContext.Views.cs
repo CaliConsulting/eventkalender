@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(Eventkalender.Database.EventkalenderContext),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets6cdb3589969275828148c9b4d67aaa0e279d7cedfa9c9f91dcdd599025822357))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets43a3067986d50161d0e784fc7c50905b3227c8b93e870059e18b1cd988aef7c1))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework 6 Power Tools", "0.9.2.0")]
-    internal sealed class ViewsForBaseEntitySets6cdb3589969275828148c9b4d67aaa0e279d7cedfa9c9f91dcdd599025822357 : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySets43a3067986d50161d0e784fc7c50905b3227c8b93e870059e18b1cd988aef7c1 : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "6cdb3589969275828148c9b4d67aaa0e279d7cedfa9c9f91dcdd599025822357"; }
+            get { return "43a3067986d50161d0e784fc7c50905b3227c8b93e870059e18b1cd988aef7c1"; }
         }
 
         /// <summary>
@@ -85,6 +85,16 @@ namespace Edm_EntityMappingGeneratedViews
             if (extentName == "EventkalenderContext.Person_Events")
             {
                 return GetView7();
+            }
+
+            if (extentName == "CodeFirstDatabase.PreCompiledView")
+            {
+                return GetView8();
+            }
+
+            if (extentName == "EventkalenderContext.PreCompiledViews")
+            {
+                return GetView9();
             }
 
             return null;
@@ -252,6 +262,40 @@ namespace Edm_EntityMappingGeneratedViews
             ) AS T1
         ) AS T2
     ) AS T3");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.PreCompiledView.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView8()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing PreCompiledView
+        [CodeFirstDatabaseSchema.PreCompiledView](T1.PreCompiledView_PreCompiledViewId)
+    FROM (
+        SELECT 
+            T.PreCompiledViewId AS PreCompiledView_PreCompiledViewId, 
+            True AS _from0
+        FROM EventkalenderContext.PreCompiledViews AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for EventkalenderContext.PreCompiledViews.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView9()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing PreCompiledViews
+        [Eventkalender.Database.PreCompiledView](T1.PreCompiledView_PreCompiledViewId)
+    FROM (
+        SELECT 
+            T.PreCompiledViewId AS PreCompiledView_PreCompiledViewId, 
+            True AS _from0
+        FROM CodeFirstDatabase.PreCompiledView AS T
+    ) AS T1");
         }
     }
 }

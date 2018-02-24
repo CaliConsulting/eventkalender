@@ -14,11 +14,13 @@ namespace Eventkalender.Database
         public EventkalenderContext()
         {
             Configuration.ProxyCreationEnabled = false;
+            //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
         }
 
         public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
+            //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

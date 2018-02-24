@@ -63,22 +63,79 @@ namespace Eventkalender.PK
         private void btnUpdateEmployee_Click(object sender, RoutedEventArgs e)
         {
             int index = dgEmployee.SelectedIndex;
-            if (index >= 0)
-            {
-                CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
-                string no = txtEmployeeNumber.Text;
-                string firstName = txtEmployeeFirstName.Text;
-                string lastName = txtEmployeeLastName.Text;
-                eventkalenderViewModel.UpdateEmployee(no, firstName, lastName);
-            }
+            bool exists = false;
+           // if (index >= 0)
+          //  {
+                if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
+                {
+                    
+                    foreach (CronusReference.Employee emp in eventkalenderViewModel.Employees)
+                    {
+                        if (txtEmployeeNumber.Text.Equals(emp.No))
+                        {
+                             exists = true;                     
+                        }
+                    }
+                    if (exists)
+                    {                                              
+                        string no = txtEmployeeNumber.Text;
+                        string firstName = txtEmployeeFirstName.Text;
+                        string lastName = txtEmployeeLastName.Text;
+                        eventkalenderViewModel.UpdateEmployee(no, firstName, lastName, index);
+                    }
+                    else
+                    {
+                        WriteOutput("Det finns ingen person med detta ID");
+                    }
+                }
+                else
+                {
+                    WriteOutput("Du måste fylla i alla fält");
+                }
+           // }
         }
+
+       
 
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            string no = txtEmployeeNumber.Text;
-            string firstName = txtEmployeeFirstName.Text;
-            string lastName = txtEmployeeLastName.Text;
-            eventkalenderViewModel.AddEmployee(no, firstName, lastName);
+            bool exists = true;
+            if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
+            {
+                foreach(CronusReference.Employee emp in eventkalenderViewModel.Employees)
+                {
+                    if (txtEmployeeNumber.Text.Equals(emp.No))
+                    {
+                        exists = false;
+                    }
+                }
+                if (exists)
+                {
+                    string no = txtEmployeeNumber.Text;
+                    string firstName = txtEmployeeFirstName.Text;
+                    string lastName = txtEmployeeLastName.Text;
+                    eventkalenderViewModel.AddEmployee(no, firstName, lastName);
+                }
+                else
+                {
+                    WriteOutput("Det finns redan en person med detta ID");
+                }              
+            }
+            else
+            {
+                WriteOutput("Du måste fylla i alla fält");
+            }
+                      
+        }
+
+        private void dgEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = dgEmployee.SelectedIndex;
+            CronusReference.Employee temp = new CronusReference.Employee();
+            temp = eventkalenderViewModel.Employees.ElementAt(index);
+            txtEmployeeFirstName.Text = temp.FirstName;
+            txtEmployeeLastName.Text = temp.LastName;
+            txtEmployeeNumber.Text = temp.No;
         }
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -65,6 +65,8 @@ namespace Eventkalender.Database
         {
             using (SqlConnection connection = DatabaseClient.GetConnection(xmlPath))
             {
+                connection.Open();
+
                 SqlCommand command = new SqlCommand(inputQuery, connection);
                 SqlDataReader reader = command.ExecuteReader();
 

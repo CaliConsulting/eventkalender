@@ -63,55 +63,36 @@ namespace Eventkalender.PK
         private void btnUpdateEmployee_Click(object sender, RoutedEventArgs e)
         {
             int index = dgEmployee.SelectedIndex;
-            bool exists = false;
-           // if (index >= 0)
-          //  {
-                if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
+            //bool exists = false;
+            if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
+            {
+                string no = txtEmployeeNumber.Text;
+                if (eventkalenderViewModel.Employees.Any(temp => temp.No == no))
                 {
-                    
-                    foreach (CronusReference.Employee emp in eventkalenderViewModel.Employees)
-                    {
-                        if (txtEmployeeNumber.Text.Equals(emp.No))
-                        {
-                             exists = true;                     
-                        }
-                    }
-                    if (exists)
-                    {                                              
-                        string no = txtEmployeeNumber.Text;
-                        string firstName = txtEmployeeFirstName.Text;
-                        string lastName = txtEmployeeLastName.Text;
-                        eventkalenderViewModel.UpdateEmployee(no, firstName, lastName, index);
-                    }
-                    else
-                    {
-                        WriteOutput("Det finns ingen person med detta ID");
-                    }
+                    //string no = txtEmployeeNumber.Text;
+                    string firstName = txtEmployeeFirstName.Text;
+                    string lastName = txtEmployeeLastName.Text;
+                    eventkalenderViewModel.UpdateEmployee(no, firstName, lastName, index);
                 }
                 else
                 {
-                    WriteOutput("Du måste fylla i alla fält");
+                    WriteOutput("Det finns ingen person med detta ID");
                 }
-           // }
+            }
+            else
+            {
+                WriteOutput("Du måste fylla i alla fält");
+            }
         }
-
-       
 
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            bool exists = true;
+            //bool exists = true;
             if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
             {
-                foreach(CronusReference.Employee emp in eventkalenderViewModel.Employees)
+                string no = txtEmployeeNumber.Text;
+                if (!eventkalenderViewModel.Employees.Any(temp => temp.No == no))
                 {
-                    if (txtEmployeeNumber.Text.Equals(emp.No))
-                    {
-                        exists = false;
-                    }
-                }
-                if (exists)
-                {
-                    string no = txtEmployeeNumber.Text;
                     string firstName = txtEmployeeFirstName.Text;
                     string lastName = txtEmployeeLastName.Text;
                     eventkalenderViewModel.AddEmployee(no, firstName, lastName);
@@ -125,7 +106,6 @@ namespace Eventkalender.PK
             {
                 WriteOutput("Du måste fylla i alla fält");
             }
-                      
         }
 
         private void dgEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)

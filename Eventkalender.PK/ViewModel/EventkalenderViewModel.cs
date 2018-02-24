@@ -242,7 +242,6 @@ namespace Eventkalender.PK
             emp.LastName = lastName;
             Employees.Add(emp);
             cronusClient.AddEmployee(no, firstName, lastName);
-
         }
 
         private List<List<string>> data;

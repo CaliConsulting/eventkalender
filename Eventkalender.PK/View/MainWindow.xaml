@@ -377,7 +377,12 @@
                     </TabControl>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Webservices">
+            <TabItem>
+                <TabItem.Header>
+                    <Label Content="Webservices" 
+                            MouseLeftButtonDown="Webservices_MouseLeftButtonDown" 
+                            HorizontalAlignment="Stretch"/>
+                </TabItem.Header>
                 <TabControl Height="535" Background="LightGray">
                     <TabItem Header="Uppgift 1" Margin="0,0,0,0">
                         <Canvas>

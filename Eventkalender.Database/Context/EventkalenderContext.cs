@@ -11,11 +11,11 @@ namespace Eventkalender.Database
 {
     public class EventkalenderContext : DbContext
     {
-        public EventkalenderContext()
-        {
-            Configuration.ProxyCreationEnabled = false;
-            //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
-        }
+        //public EventkalenderContext()
+        //{
+        //    Configuration.ProxyCreationEnabled = false;
+        //    //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
+        //}
 
         public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {

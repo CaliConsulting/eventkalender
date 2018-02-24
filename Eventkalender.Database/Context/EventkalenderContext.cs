@@ -11,6 +11,11 @@ namespace Eventkalender.Database
 {
     public class EventkalenderContext : DbContext
     {
+        public EventkalenderContext()
+        {
+            Configuration.ProxyCreationEnabled = false;
+        }
+
         public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
@@ -21,6 +26,9 @@ namespace Eventkalender.Database
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Add(new ForeignKeyNamingConvention());
         }
+
+        // HACK: Enable pre-compiled views
+        internal DbSet<PreCompiledView> PreCompiledViews { get; set; }
 
         public DbSet<Nation> Nation { get; set; }
 

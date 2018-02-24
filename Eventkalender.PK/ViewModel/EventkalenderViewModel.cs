@@ -214,6 +214,12 @@ namespace Eventkalender.PK
             cronusClient.DeleteEmployee(temp.No);
         }
 
+        public List<CronusReference.Employee> GetEmployees()
+        {
+            // Endast testkod för att värma upp Entity Framework
+            return cronusClient.GetEmployees().ToList();
+        }
+
         public void UpdateEmployee(string no, string firstName, string lastName)
         {
 

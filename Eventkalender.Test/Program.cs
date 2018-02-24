@@ -12,11 +12,15 @@ namespace Eventkalender.Test
     {
         public static void Main(string[] args)
         {
-            //EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
-            
-            CronusController cronusController = new CronusController("Resources/cronus-db.xml");
+            EventkalenderDAL d = new EventkalenderDAL("Resources/eventkalender-db.xml");
 
-            cronusController.AddEmployee("FFF", "Philip", "Eriksson");
+            d.GetEvent(1);
+
+
+            
+            //CronusController cronusController = new CronusController("Resources/cronus-db.xml");
+
+            //cronusController.AddEmployee("FFF", "Philip", "Eriksson");
 
             /*
             Employee e = cronusController.GetEmployee("AL");
@@ -24,7 +28,7 @@ namespace Eventkalender.Test
             List<Employee> employees = cronusController.GetEmployees();
 
             cronusController.UpdateEmployee("FFFFF", "pHHIILLIP", "Eriksson");*/
-            cronusController.DeleteEmployee("FFF");
+            //cronusController.DeleteEmployee("FFF");
             Console.ReadKey();
         }
     }

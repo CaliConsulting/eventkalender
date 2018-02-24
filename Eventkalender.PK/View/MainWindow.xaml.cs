@@ -354,5 +354,10 @@ namespace Eventkalender.PK
             datagridInvitePersons.SelectAllCells();
         }
 
+        private void Webservices_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Warm up Entity Framework on WS
+            eventkalenderViewModel.GetEmployees();
+        }
     }
 }

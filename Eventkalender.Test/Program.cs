@@ -16,16 +16,15 @@ namespace Eventkalender.Test
             
             //CronusController cronusController = new CronusController("Resources/cronus-db.xml");
 
-            //Person p = d.GetPerson(2);
+            Person p = d.GetPerson(2);
 
-            //Event e = d.GetEvent(3);
-            //Event e1 = d.GetEvent(1);
+            Event e = d.GetEvent(3);
+            Event e1 = d.GetEvent(1);
 
-            ////e.Persons.Add(p);
+            p.Events.Add(e);
+            //e.Persons.Add(p);
 
-            //p.Events.Remove(e);
-
-            //d.UpdatePerson(p);
+            d.UpdatePerson(p);
 
 
             //Employee e = cronusController.GetEmployee("AL");

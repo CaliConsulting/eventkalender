@@ -10,16 +10,9 @@ namespace Eventkalender.Database
 {
     public class CronusContext : DbContext
     {
-        //public CronusContext()
-        //{
-        //    Configuration.ProxyCreationEnabled = false;
-        //    //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
-        //}
-
         public CronusContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
-            //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

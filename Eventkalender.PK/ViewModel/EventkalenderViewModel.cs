@@ -393,8 +393,11 @@ namespace Eventkalender.PK
         {
             foreach (Database.Person p in list)
             {
-                p.Events.Add(ev);
-                eventkalenderDAL.UpdatePerson(p);
+                if (!p.Events.Contains(ev))
+                {
+                    p.Events.Add(ev);
+                    eventkalenderDAL.UpdatePerson(p);
+                }
             }
         }
 

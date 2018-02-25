@@ -11,12 +11,6 @@ namespace Eventkalender.Database
 {
     public class EventkalenderContext : DbContext
     {
-        //public EventkalenderContext()
-        //{
-        //    Configuration.ProxyCreationEnabled = false;
-        //    //Database.ExecuteSqlCommand("DROP TABLE [PreCompiledViews]");
-        //}
-
         public EventkalenderContext(string xmlPath) : base(DatabaseClient.GetSqlServerConnectionString(xmlPath))
         {
             Configuration.ProxyCreationEnabled = false;
@@ -27,10 +21,6 @@ namespace Eventkalender.Database
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Add(new ForeignKeyNamingConvention());
-
-            //modelBuilder.Entity<Person>().ToTable("Person");
-            //modelBuilder.Entity<Event>().ToTable("Event");
-            //modelBuilder.Entity<Nation>().ToTable("Nation");
         }
 
         // HACK: Enable pre-compiled views

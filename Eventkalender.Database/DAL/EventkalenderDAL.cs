@@ -52,8 +52,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Event.Attach(e);
-                context.Event.Remove(e);
+                Event dbEvent = context.Event.Find(e.Id);
+                if (dbEvent == null)
+                {
+                    return;
+                }
+                context.Event.Remove(dbEvent);
                 context.SaveChanges();
             }
         }
@@ -62,8 +66,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Nation.Attach(n);
-                context.Nation.Remove(n);
+                Nation dbNation = context.Nation.Find(n.Id);
+                if (dbNation == null)
+                {
+                    return;
+                }
+                context.Nation.Remove(dbNation);
                 context.SaveChanges();
             }
         }
@@ -72,8 +80,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Person.Attach(p);
-                context.Person.Remove(p);
+                Person dbPerson = context.Person.Find(p.Id);
+                if (dbPerson == null)
+                {
+                    return;
+                }
+                context.Person.Remove(dbPerson);
                 context.SaveChanges();
             }
         }
@@ -236,15 +248,10 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                Person dbPerson = GetPerson(p.Id);
+                Person dbPerson = context.Person.Include(temp => temp.Events).SingleOrDefault(temp => temp.Id == p.Id);
                 if (dbPerson == null)
                 {
                     return;
-                }
-
-                if (context.Entry(dbPerson).State == EntityState.Detached)
-                {
-                    //context.Person.Attach(dbPerson);
                 }
 
                 List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
@@ -260,38 +267,6 @@ namespace Eventkalender.Database
                     }
                     dbPerson.Events.Add(e);
                 }
-                
-                //var deletedEvents = dbPerson.Events.Except(dbP.Events, cours => cours.Id).ToList();
-
-                //Event dbEvent = context.Event.Find(2);
-                //if (dbEvent == null)
-                //{
-                //    return;
-                //}
-
-                //dbPerson.Events.Add(dbEvent);
-
-
-                ////get current entry from db (db is context)
-                //var item = context.Entry(p);
-
-                ////change item state to modified
-                //item.State = System.Data.Entity.EntityState.Modified;
-
-                ////load existing items for ManyToMany collection
-                ////item.Collection(i => i.Students).Load();
-
-                //List<int> ids = p.Events.Select(temp => temp.Id).ToList();
-
-                ////clear Student items
-                //p.Events.Clear();
-
-                ////add Toner items
-                //foreach (int studentId in ids)
-                //{
-                //    var student = context.Event.Find(studentId);
-                //    item.Entity.Events.Add(student);
-                //}
                 context.SaveChanges();
             }
         }

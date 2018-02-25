@@ -213,6 +213,9 @@
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.AddPersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -223,6 +226,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.GetFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.GetFilesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.PK.EventkalenderReference.GetNationResponse.datasource">

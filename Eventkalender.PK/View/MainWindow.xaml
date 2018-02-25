@@ -37,7 +37,7 @@
                                           AutoGenerateColumns="False"
                                           HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto"
-                                          ItemsSource="{Binding Path=Events}">
+                                          ItemsSource="{Binding Path=Events}" >
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                         <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
@@ -318,8 +318,10 @@
                                              VerticalScrollBarVisibility="Auto"
                                              SelectionMode="Extended"
                                              ItemsSource="{Binding Path=Persons}"
-                                             AutoGenerateColumns="False">
+                                             AutoGenerateColumns="False"
+                                             >
                                         <DataGrid.Columns>
+                                            
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
                                             <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
@@ -375,7 +377,12 @@
                     </TabControl>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Webservices">
+            <TabItem>
+                <TabItem.Header>
+                    <Label Content="Webservices" 
+                            MouseLeftButtonDown="Webservices_MouseLeftButtonDown" 
+                            HorizontalAlignment="Stretch"/>
+                </TabItem.Header>
                 <TabControl Height="535" Background="LightGray">
                     <TabItem Header="Uppgift 1" Margin="0,0,0,0">
                         <Canvas>
@@ -424,6 +431,7 @@
                                           Width="1240"
                                           Height="430"
                                           Margin="0,15,0,0"
+                                          IsReadOnly="True"
                                           AutoGenerateColumns="False">
                                 </DataGrid>
                             </StackPanel>
@@ -475,7 +483,7 @@
                             </DataGrid>
                         </Canvas>
                     </TabItem>
-                    <TabItem Header="Employee">
+                    <TabItem Header="Employee" Height="22" Margin="-1.6,-2,-2.4,0" VerticalAlignment="Bottom">
                         <Canvas>
                             <StackPanel Canvas.Left="20"
                                     Canvas.Top="20"
@@ -490,25 +498,32 @@
                                        Margin="0,5,0,0"/>
                                 <TextBox x:Name="txtEmployeeLastName"
                                      Margin="0,5,0,0"/>
-                                <TextBlock Text="Nummer"
+                                <TextBlock Text="Id"
                                        Margin="0,5,0,0"/>
                                 <TextBox x:Name="txtEmployeeNumber"
                                  Margin="0,5,0,0"/>
-                                <Button x:Name="btnInsertEmployee"
+                                <Button x:Name="btnAddEmployee"
                                     Content="Lägg till"
-                                    Margin="0,15,0,0"/>
+                                    Margin="0,15,0,0"
+                                    Click="btnAddEmployee_Click"   />
+                                <Button x:Name="btnUpdateEmployee"
+                                        Content="Uppdatera"
+                                        Margin="0,15,0,0"
+                                        Click="btnUpdateEmployee_Click" />
                             </StackPanel>
-                            <DataGrid Canvas.Left="400"
+                            <DataGrid x:Name="dgEmployee"
+                                      Canvas.Left="400"
                                       Canvas.Top="20"
                                       Width="850"
-                                      Height="480">
-                                <!-- ItemsSource="{Binding Path= }" -->
+                                      Height="480"
+                                      IsReadOnly="True"
+                                      AutoGenerateColumns="False"                                      
+                                      ItemsSource="{Binding Path= Employees}" SelectionChanged="dgEmployee_SelectionChanged" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID" Width="auto"/>
-                                    <!-- Binding={Binding Path=} -->
-                                    <DataGridTextColumn Header="Kön" Width="auto"/>
-                                    <DataGridTextColumn Header="Förnamn" Width="auto"/>
-                                    <DataGridTextColumn Header="Efternamn" Width="auto"/>
+                                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}"/>
+                                    <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>
+                                    <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path= FirstName}"/>
+                                    <DataGridTextColumn Header="Efternamn" Width="*" Binding="{Binding Path= LastName}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button x:Name="btnDeleteEmployee"

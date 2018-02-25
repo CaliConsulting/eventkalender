@@ -16,6 +16,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetFiles">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="AddFile">
         <s:complexType>
           <s:sequence>
@@ -184,6 +199,12 @@
   <wsdl:message name="GetFileSoapOut">
     <wsdl:part name="parameters" element="tns:GetFileResponse" />
   </wsdl:message>
+  <wsdl:message name="GetFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilesResponse" />
+  </wsdl:message>
   <wsdl:message name="AddFileSoapIn">
     <wsdl:part name="parameters" element="tns:AddFile" />
   </wsdl:message>
@@ -249,6 +270,10 @@
       <wsdl:input message="tns:GetFileSoapIn" />
       <wsdl:output message="tns:GetFileSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <wsdl:input message="tns:GetFilesSoapIn" />
+      <wsdl:output message="tns:GetFilesSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="AddFile">
       <wsdl:input message="tns:AddFileSoapIn" />
       <wsdl:output message="tns:AddFileSoapOut" />
@@ -294,6 +319,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetFile">
       <soap:operation soapAction="http://cali.eventkalender/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap:operation soapAction="http://cali.eventkalender/GetFiles" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -396,6 +430,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetFile">
       <soap12:operation soapAction="http://cali.eventkalender/GetFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap12:operation soapAction="http://cali.eventkalender/GetFiles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

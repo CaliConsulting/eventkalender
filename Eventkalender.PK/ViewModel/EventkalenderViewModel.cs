@@ -23,6 +23,7 @@ namespace Eventkalender.PK
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
         private ObservableCollection<Database.Person> persons;
+        private ObservableCollection<CronusReference.Employee> employees;
 
         private CronusServiceSoapClient cronusClient;
         private EventkalenderServiceSoapClient eventkalenderClient;
@@ -105,6 +106,28 @@ namespace Eventkalender.PK
             }
         }
 
+        public ObservableCollection<CronusReference.Employee> Employees
+        {
+            get
+            {
+                if (employees == null)
+                {
+                    employees = new ObservableCollection<CronusReference.Employee>(cronusClient.GetEmployees());
+                }
+                return employees;
+
+            }
+            set
+            {
+                if (employees != value)
+                {
+                    employees = value;
+
+                    NotifyPropertyChanged("Employees");
+                }
+            }
+        }
+
         public List<string> TimesList
         {
             get
@@ -130,12 +153,13 @@ namespace Eventkalender.PK
 
         public void DeleteNation(int id)
         {
+            
             Database.Nation temp = new Database.Nation();
             temp.Id = id;
 
             Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
             eventkalenderDAL.DeleteNation(temp);
-
+            
             //NotifyPropertyChanged("Nations");
         }
         
@@ -179,6 +203,45 @@ namespace Eventkalender.PK
             eventkalenderDAL.DeleteEvent(temp);
 
             //NotifyPropertyChanged("Events");
+        }
+
+        public void DeleteEmployee(string no)
+        {
+            CronusReference.Employee temp = new CronusReference.Employee();
+            temp.No = no;
+
+            Employees.Remove(Employees.FirstOrDefault(e => e.No == temp.No));
+            cronusClient.DeleteEmployee(temp.No);
+        }
+
+
+        public List<CronusReference.Employee> GetEmployees()
+        {   
+            // Endast testkod för att värma upp Entity Framework
+            return cronusClient.GetEmployees().ToList();
+        }
+
+        public void UpdateEmployee(string no, string firstName, string lastName, int index)
+
+        {
+            CronusReference.Employee emp = new CronusReference.Employee();
+            emp.No = no;
+            emp.FirstName = firstName;
+            emp.LastName = lastName;
+            index = Employees.IndexOf(Employees.Where(e => e.No == no).FirstOrDefault());
+            Employees.ElementAt(index).FirstName = emp.FirstName;
+            Employees.ElementAt(index).LastName = emp.LastName;
+            cronusClient.UpdateEmployee(no, firstName, lastName);
+        }
+
+        public void AddEmployee(string no, string firstName, string lastName)
+        {
+            CronusReference.Employee emp = new CronusReference.Employee();
+            emp.No = no; // efterblivet intelisense som inte låter mig skapa employee med 3 inparameterar för "Konstruktorn finns inte bullshit"
+            emp.FirstName = firstName;
+            emp.LastName = lastName;
+            Employees.Add(emp);
+            cronusClient.AddEmployee(no, firstName, lastName);
         }
 
         private List<List<string>> data;
@@ -332,8 +395,6 @@ namespace Eventkalender.PK
             {
                 p.Events.Add(ev);
                 eventkalenderDAL.UpdatePerson(p);
-
-                //ev.Persons.Add(p);
             }
         }
 
@@ -453,6 +514,10 @@ namespace Eventkalender.PK
         public string GetFile(string path)
         {
             return eventkalenderClient.GetFile(path);
+        }
+        public List<string> GetFiles()
+        {
+            return eventkalenderClient.GetFiles();
         }
 
     }

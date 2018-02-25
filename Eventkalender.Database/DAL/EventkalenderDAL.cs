@@ -236,52 +236,62 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                Person dbPerson = context.Person.Find(p.Id);
+                Person dbPerson = GetPerson(p.Id);
                 if (dbPerson == null)
                 {
                     return;
                 }
+
+                if (context.Entry(dbPerson).State == EntityState.Detached)
+                {
+                    //context.Person.Attach(dbPerson);
+                }
+
+                List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
+                List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
+
+                deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
+
+                foreach (Event e in addedEvents)
+                {
+                    if (context.Entry(e).State == EntityState.Detached)
+                    {
+                        context.Event.Attach(e);
+                    }
+                    dbPerson.Events.Add(e);
+                }
                 
-                context.Entry(dbPerson).CurrentValues.SetValues(p);
+                //var deletedEvents = dbPerson.Events.Except(dbP.Events, cours => cours.Id).ToList();
 
-                //// Delete children
-                //foreach (var e in dbPerson.Events)
+                //Event dbEvent = context.Event.Find(2);
+                //if (dbEvent == null)
                 //{
-                //    if (!dbPerson.Events.Any(c => c.Id == e.Id))
-                //        context.Event.Remove(e);
+                //    return;
                 //}
 
-                //// Update and Insert children
-                //foreach (var childModel in p.Events)
+                //dbPerson.Events.Add(dbEvent);
+
+
+                ////get current entry from db (db is context)
+                //var item = context.Entry(p);
+
+                ////change item state to modified
+                //item.State = System.Data.Entity.EntityState.Modified;
+
+                ////load existing items for ManyToMany collection
+                ////item.Collection(i => i.Students).Load();
+
+                //List<int> ids = p.Events.Select(temp => temp.Id).ToList();
+
+                ////clear Student items
+                //p.Events.Clear();
+
+                ////add Toner items
+                //foreach (int studentId in ids)
                 //{
-                //    var existingChild = dbPerson.Events.Where(c => c.Id == childModel.Id).SingleOrDefault();
-
-                //    if (existingChild != null)
-                //        // Update child
-                //        context.Entry(existingChild).CurrentValues.SetValues(childModel);
-                //    else
-                //    {
-                //        // Insert child
-                //        var newChild = new Event
-                //        {
-                //            Id = childModel.Id,
-                //            Name = childModel.Name,
-                //            Summary = childModel.Summary,
-                //            StartTime = childModel.StartTime,
-                //            EndTime = childModel.EndTime,
-                //            NationId = childModel.NationId,
-                //            Nation = childModel.Nation,
-                //            Persons = childModel.Persons,
-
-                //            //...
-                //        };
-                //        dbPerson.Events.Add(newChild);
-                //    }
+                //    var student = context.Event.Find(studentId);
+                //    item.Entity.Events.Add(student);
                 //}
-
-                //context.Entry(dbPerson.Events).State = EntityState.Modified;
-                //context.Entry(dbPerson.Events).CurrentValues.SetValues(p.Events);
-
                 context.SaveChanges();
             }
         }

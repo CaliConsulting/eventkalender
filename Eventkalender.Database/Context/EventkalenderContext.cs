@@ -20,6 +20,10 @@ namespace Eventkalender.Database
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Add(new ForeignKeyNamingConvention());
+
+            //modelBuilder.Entity<Person>().ToTable("Person");
+            //modelBuilder.Entity<Event>().ToTable("Event");
+            //modelBuilder.Entity<Nation>().ToTable("Nation");
         }
 
         public DbSet<Nation> Nation { get; set; }

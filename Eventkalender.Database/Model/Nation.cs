@@ -39,7 +39,7 @@ namespace Eventkalender.Database
             {
                 return false;
             }
-            return Id == n.Id && string.Equals(Name, n.Name);
+            return Id == n.Id;/* && string.Equals(Name, n.Name);*/
         }
 
         public override int GetHashCode()
@@ -47,8 +47,8 @@ namespace Eventkalender.Database
             int prime = 31;
             int hash = 7;
             hash = prime * hash + Id;
-            hash = prime * hash + (Name == null ? 0 : Name.GetHashCode());
-            hash = prime * hash + base.GetHashCode();
+            //hash = prime * hash + (Name == null ? 0 : Name.GetHashCode());
+            //hash = prime * hash + base.GetHashCode();
             return hash;
         }
     }

@@ -64,9 +64,7 @@ namespace Eventkalender.Database
             {
                 return false;
             }
-            return Id == e.Id && string.Equals(Name, e.Name) && string.Equals(Summary, e.Summary) 
-                && DateTime.Equals(StartTime, e.StartTime) && DateTime.Equals(EndTime, e.EndTime) 
-                && NationId == e.NationId;
+            return Id == e.Id;
         }
 
         public override int GetHashCode()
@@ -74,12 +72,6 @@ namespace Eventkalender.Database
             int prime = 31;
             int hash = 7;
             hash = prime * hash + Id;
-            hash = prime * hash + (Name == null ? 0 : Name.GetHashCode());
-            hash = prime * hash + (Summary == null ? 0 : Summary.GetHashCode());
-            hash = prime * hash + (StartTime == null ? 0 : StartTime.GetHashCode());
-            hash = prime * hash + (EndTime == null ? 0 : EndTime.GetHashCode());
-            hash = prime * hash + NationId;
-            hash = prime * hash + base.GetHashCode();
             return hash;
         }
 

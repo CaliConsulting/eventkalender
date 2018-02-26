@@ -38,7 +38,7 @@ namespace Eventkalender.Database
         [XmlIgnore]
         public string FullName
         {
-            get { return String.Format("{0} {1}", FirstName, LastName); }
+            get { return string.Format("{0} {1}", FirstName, LastName); }
             private set { }
         }
         
@@ -51,7 +51,7 @@ namespace Eventkalender.Database
             {
                 return false;
             }
-            return Id == p.Id && string.Equals(FirstName, p.FirstName) && string.Equals(LastName, p.LastName);
+            return Id == p.Id;
         }
 
         public override int GetHashCode()
@@ -59,9 +59,6 @@ namespace Eventkalender.Database
             int prime = 31;
             int hash = 7;
             hash = prime * hash + Id;
-            hash = prime * hash + (FirstName == null ? 0 : FirstName.GetHashCode());
-            hash = prime * hash + (LastName == null ? 0 : LastName.GetHashCode());
-            hash = prime * hash + base.GetHashCode();
             return hash;
         }
     }

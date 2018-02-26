@@ -586,7 +586,13 @@
                                       ItemsSource="{Binding Path= Employees}" 
                                       SelectionChanged="dgEmployee_SelectionChanged" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}"/>
+                                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
                                     <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>
                                     <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path= FirstName}">
                                         <DataGridTextColumn.ElementStyle>

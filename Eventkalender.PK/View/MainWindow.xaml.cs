@@ -174,7 +174,6 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             if (txtNationName.Text != "")
-
             {
                 eventkalenderViewModel.AddNation(txtNationName.Text);
                 txtNationName.Text = "";
@@ -297,6 +296,7 @@ namespace Eventkalender.PK
             {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
+               // eventkalenderViewModel.Events.
             }
         }
 

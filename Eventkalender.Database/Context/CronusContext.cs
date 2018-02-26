@@ -22,6 +22,9 @@ namespace Eventkalender.Database
             modelBuilder.Entity<Employee>().ToTable("CRONUS Sverige AB$Employee");
         }
 
+        // HACK: Enable pre-compiled views
+        internal DbSet<PreCompiledView> PreCompiledViews { get; set; }
+
         public DbSet<Employee> Employee { get; set; }
     }
 }

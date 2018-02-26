@@ -54,31 +54,67 @@ namespace Eventkalender.PK
             int index = dgEmployee.SelectedIndex;
             if (index >= 0)
             {
-            CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
-            string no = emp.No;
-            eventkalenderViewModel.DeleteEmployee(no);
+                CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
+                string no = emp.No;
+                eventkalenderViewModel.DeleteEmployee(no);
             }
         }
 
         private void btnUpdateEmployee_Click(object sender, RoutedEventArgs e)
         {
             int index = dgEmployee.SelectedIndex;
-            if (index >= 0)
+            //bool exists = false;
+            if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
             {
-                CronusReference.Employee emp = eventkalenderViewModel.Employees.ElementAt(index);
                 string no = txtEmployeeNumber.Text;
-                string firstName = txtEmployeeFirstName.Text;
-                string lastName = txtEmployeeLastName.Text;
-                eventkalenderViewModel.UpdateEmployee(no, firstName, lastName);
+                if (eventkalenderViewModel.Employees.Any(temp => temp.No == no))
+                {
+                    string firstName = txtEmployeeFirstName.Text;
+                    string lastName = txtEmployeeLastName.Text;
+                    eventkalenderViewModel.UpdateEmployee(no, firstName, lastName, index);
+                }
+                else
+                {
+                    WriteOutput("Det finns ingen person med detta ID");
+                }
+            }
+            else
+            {
+                WriteOutput("Du måste fylla i alla fält");
             }
         }
 
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            string no = txtEmployeeNumber.Text;
-            string firstName = txtEmployeeFirstName.Text;
-            string lastName = txtEmployeeLastName.Text;
-            eventkalenderViewModel.AddEmployee(no, firstName, lastName);
+            //bool exists = true;
+            if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
+            {
+                string no = txtEmployeeNumber.Text;
+                if (!eventkalenderViewModel.Employees.Any(temp => temp.No == no))
+                {
+                    string firstName = txtEmployeeFirstName.Text;
+                    string lastName = txtEmployeeLastName.Text;
+                    eventkalenderViewModel.AddEmployee(no, firstName, lastName);
+                }
+                else
+                {
+                    WriteOutput("Det finns redan en person med detta ID");
+                }              
+            }
+            else
+            {
+                WriteOutput("Du måste fylla i alla fält");
+            }
+        }
+
+        private void dgEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = dgEmployee.SelectedIndex;
+            CronusReference.Employee temp = new CronusReference.Employee();
+            temp = eventkalenderViewModel.Employees.ElementAt(index);
+            txtEmployeeFirstName.Text = temp.FirstName;
+            txtEmployeeLastName.Text = temp.LastName;
+            txtEmployeeNumber.Text = temp.No;
         }
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -102,9 +138,7 @@ namespace Eventkalender.PK
         //                                  Programkonstruktion Eventhandlers
         //
         //-----------------------------------------------------------------------------------------------------------------------------------
-
         
-
         private void btnEraseFromPerson(object sender, RoutedEventArgs e)
         {
             int index = datagridPerson.SelectedIndex;
@@ -140,7 +174,6 @@ namespace Eventkalender.PK
             if (txtBoxNationName.Text != "")
             {
                 eventkalenderViewModel.AddNation(txtBoxNationName.Text);
-//                eventkalenderController.AddNation(txtBoxNationName.Text);
                 txtBoxNationName.Text = "";
             }
             else
@@ -154,7 +187,6 @@ namespace Eventkalender.PK
             if (txtBoxFirstName.Text != "" && txtBoxLastName.Text != "")
             {
                 eventkalenderViewModel.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
-                //eventkalenderController.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
                 txtBoxFirstName.Text = "";
                 txtBoxLastName.Text = "";
             }
@@ -268,9 +300,6 @@ namespace Eventkalender.PK
             else if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-
-                //datagridInviteEvent.Columns[2].val
-
                 datagridInviteEvent.ItemsSource = n.Events;
             }
             else
@@ -344,6 +373,12 @@ namespace Eventkalender.PK
                 string s = "Fyll i textboxen för att söka efter en fil";
                 WriteOutput(s);
             }
+        }
+
+        private void Webservices_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Warm up Entity Framework on WS
+            eventkalenderViewModel.GetEmployees();
         }
     }
 }

@@ -83,5 +83,10 @@ namespace Eventkalender.Database
         {
             return dal.GetPersons();
         }
+
+        public void UpdatePerson(Person p)
+        {
+            dal.UpdatePerson(p);
+        }
     }
 }

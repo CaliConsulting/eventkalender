@@ -85,7 +85,7 @@ namespace Eventkalender.WS.ConsoleApp
 
         public void GetEvents()
         {
-            Console.WriteLine("Följande är alla nationer: ");
+            Console.WriteLine("Följande är alla events: ");
             EventkalenderReference.Event[] events = eventClient.GetEvents();
             for (int j = 0; j < events.Length; j++)
             {

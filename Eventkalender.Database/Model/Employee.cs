@@ -13,17 +13,13 @@ namespace Eventkalender.Database
     {
         public Employee()
         {
-
-        }
-
-        public Employee(string no, string firstName, string lastName) : this()
-        {
-            No = no;
-            FirstName = firstName;
-            LastName = lastName;
+            DateTime date = new DateTime(2018, 02, 23);
 
             // Default values
+            No = "";
+            FirstName = "";
             MiddleName = "";
+            LastName = "";
             Initials = "";
             JobTitle = "";
             SearchName = "";
@@ -36,28 +32,28 @@ namespace Eventkalender.Database
             MobilePhoneNo = "";
             Email = "";
             AltAddressCode = "";
-            AltAddressStartDate = DateTime.Now;
-            AltAddressEndDate = DateTime.Now.AddDays(1);
+            AltAddressStartDate = date;
+            AltAddressEndDate = date.AddDays(1);
             Picture = null;
-            BirthDate = DateTime.Now.AddYears(-20);
+            BirthDate = date.AddYears(-20);
             SocialSecurityNo = "";
             UnionCode = "";
             UnionMembershipNo = "";
-            Sex = new Random().Next(1, 2);
+            Sex = 2;
             CountryRegionCode = "";
             ManagerNo = "";
             EmploymentContractCode = "";
             StatisticsGroupCode = "";
-            EmploymentDate = DateTime.Now.AddYears(-1);
-            Status = new Random().Next(1, 2);
-            InactiveDate = DateTime.Now.AddDays(-1);
+            EmploymentDate = date.AddYears(-1);
+            Status = 2;
+            InactiveDate = date.AddDays(-1);
             CauseOfInactivityCode = "";
-            TerminationDate = DateTime.Now;
+            TerminationDate = date;
             GroundsForTermCode = "";
             GlobalDimension1Code = "";
             GlobalDimension2Code = "";
             ResourceNo = "";
-            LastDateModified = DateTime.Now.AddDays(-20);
+            LastDateModified = date.AddDays(-20);
             Extension = "";
             Pager = "";
             FaxNo = "";
@@ -65,6 +61,13 @@ namespace Eventkalender.Database
             Title = "";
             SalesPersPurchCode = "";
             NoSeries = "";
+        }
+
+        public Employee(string no, string firstName, string lastName) : this()
+        {
+            No = no;
+            FirstName = firstName;
+            LastName = lastName;
         }
 
         [Column("timestamp")]

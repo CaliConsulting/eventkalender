@@ -52,8 +52,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Event.Attach(e);
-                context.Event.Remove(e);
+                Event dbEvent = context.Event.Find(e.Id);
+                if (dbEvent == null)
+                {
+                    return;
+                }
+                context.Event.Remove(dbEvent);
                 context.SaveChanges();
             }
         }
@@ -62,8 +66,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Nation.Attach(n);
-                context.Nation.Remove(n);
+                Nation dbNation = context.Nation.Find(n.Id);
+                if (dbNation == null)
+                {
+                    return;
+                }
+                context.Nation.Remove(dbNation);
                 context.SaveChanges();
             }
         }
@@ -72,8 +80,12 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                context.Person.Attach(p);
-                context.Person.Remove(p);
+                Person dbPerson = context.Person.Find(p.Id);
+                if (dbPerson == null)
+                {
+                    return;
+                }
+                context.Person.Remove(dbPerson);
                 context.SaveChanges();
             }
         }
@@ -229,6 +241,33 @@ namespace Eventkalender.Database
                     }
                 }
                 return dbPersons;
+            }
+        }
+
+        public void UpdatePerson(Person p)
+        {
+            using (var context = new EventkalenderContext(xmlPath))
+            {
+                Person dbPerson = context.Person.Include(temp => temp.Events).SingleOrDefault(temp => temp.Id == p.Id);
+                if (dbPerson == null)
+                {
+                    return;
+                }
+
+                List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
+                List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
+
+                deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
+
+                foreach (Event e in addedEvents)
+                {
+                    if (context.Entry(e).State == EntityState.Detached)
+                    {
+                        context.Event.Attach(e);
+                    }
+                    dbPerson.Events.Add(e);
+                }
+                context.SaveChanges();
             }
         }
 

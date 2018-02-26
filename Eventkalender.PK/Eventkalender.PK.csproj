@@ -288,15 +288,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\CronusReference\configuration91.svcinfo" />
-    <None Include="Connected Services\CronusReference\configuration.svcinfo" />
-    <None Include="Connected Services\CronusReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\EventkalenderReference\configuration91.svcinfo" />
     <None Include="Connected Services\EventkalenderReference\configuration.svcinfo" />
     <None Include="Connected Services\EventkalenderReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CronusReference\configuration91.svcinfo" />
+    <None Include="Connected Services\CronusReference\configuration.svcinfo" />
+    <None Include="Connected Services\CronusReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

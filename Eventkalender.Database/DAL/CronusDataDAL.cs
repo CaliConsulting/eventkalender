@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -148,6 +150,11 @@ namespace Eventkalender.Database
         {
             using (var context = new CronusContext(xmlPath))
             {
+                Employee dbEmployee = context.Employee.Find(e.No);
+                if (dbEmployee != null)
+                {
+                    return;
+                }
                 context.Employee.Add(e);
                 context.SaveChanges();
             }
@@ -157,8 +164,12 @@ namespace Eventkalender.Database
         {
             using (var context = new CronusContext(xmlPath))
             {
-                context.Employee.Attach(e);
-                context.Employee.Remove(e);
+                Employee dbEmployee = context.Employee.Find(e.No);
+                if (dbEmployee == null)
+                {
+                    return;
+                }
+                context.Employee.Remove(dbEmployee);
                 context.SaveChanges();
             }
         }

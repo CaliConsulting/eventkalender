@@ -194,7 +194,6 @@ namespace Eventkalender.PK
             }
             if (Utility.IsNotEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
             {
-                //  Database.Event eventet = new Database.Event();
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
 
@@ -205,12 +204,6 @@ namespace Eventkalender.PK
                 else
                 {
                     Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                    /*  eventet.Name = txtBoxEventName.Text;
-                    eventet.Summary = txtBoxSummary.Text;
-                    eventet.StartTime = dateStart;
-                    eventet.EndTime = dateEnd;
-
-                    n.Events.Add(eventet);*/
                     eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
 
                     dtpickStartDate.Text = "";
@@ -230,6 +223,10 @@ namespace Eventkalender.PK
             Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
 
             eventkalenderViewModel.InviteToEvent(datagridInvitePersons.SelectedItems, ev);
+        }
+        private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
+        {
+            datagridInvitePersons.SelectAllCells();
         }
 
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -348,11 +345,5 @@ namespace Eventkalender.PK
                 WriteOutput(s);
             }
         }
-
-        private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
-        {
-            datagridInvitePersons.SelectAllCells();
-        }
-
     }
 }

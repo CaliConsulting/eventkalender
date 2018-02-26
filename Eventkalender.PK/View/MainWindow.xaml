@@ -16,6 +16,8 @@
                     <TabControl Height="540" Margin="0,0,0,0" Background="LightGray">
                         <TabItem Header="Hitta events" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
+                                <TextBlock Text="Filtrera efter Nation" FontWeight="Bold"
+                                           Canvas.Left="20" Canvas.Top="20"/>
                                 <ComboBox x:Name="cmbEvents"
                                           ItemsSource="{Binding Path=Nations}"
                                           DisplayMemberPath="Name"
@@ -25,7 +27,7 @@
                                           Margin="0,0,0,0"
                                           Width="150"
                                           Canvas.Left="20"
-                                          Canvas.Top="20"/>
+                                          Canvas.Top="40"/>
                                 <DataGrid x:Name="dgFindEvents"
                                           SelectionMode="Extended"
                                           Canvas.Top="20"
@@ -127,26 +129,26 @@
                                             TabIndex="8"/>
                                 </StackPanel>
                                 <TextBlock Text="Tid: *"
-                                           Canvas.Top="100"
+                                           Canvas.Top="102"
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmbStartTime"
                                           IsEditable="True"
                                           Width="70"
                                           MaxWidth="70"
                                           Canvas.Left="170"
-                                          Canvas.Top="115"
+                                          Canvas.Top="117"
                                           ItemsSource="{Binding Path=TimesList}"
                                           TabIndex="4">
                                 </ComboBox>
                                 <TextBlock Text="Tid: *"
-                                           Canvas.Top="140"
+                                           Canvas.Top="142"
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmbEndTime"
                                           IsEditable="True"
                                           Width="70"
                                           MaxWidth="70"
                                           Canvas.Left="170"
-                                          Canvas.Top="155"
+                                          Canvas.Top="157"
                                           ItemsSource="{Binding Path=TimesList}"
                                           TabIndex="6">
                                 </ComboBox>
@@ -232,7 +234,8 @@
                                              TabIndex="2"/>
                                     <Button x:Name="btnRegisterPerson"
                                             Click="btnRegisterPerson_Click"
-                                            MaxWidth="100"
+                                            Width="100"
+                                            MaxWidth="150"
                                             HorizontalAlignment="Left"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
@@ -241,7 +244,7 @@
                                             TabIndex="3"/>
                                     <DataGrid x:Name="dgPerson"
                                               Height="290"
-                                              Width="400"
+                                              Width="590"
                                               Margin="0,15,0,0"
                                               HorizontalScrollBarVisibility="Auto"
                                               VerticalScrollBarVisibility="Auto"
@@ -253,21 +256,21 @@
                                               ToolTipService.InitialShowDelay="500" >
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="Förnamn" Width="0.7*" Binding="{Binding Path=FirstName}">
+                                            <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path=FirstName}">
                                                 <DataGridTextColumn.ElementStyle>
                                                     <Style TargetType="TextBlock">
                                                         <Setter Property="TextWrapping" Value="Wrap"/>
                                                     </Style>
                                                 </DataGridTextColumn.ElementStyle>
                                             </DataGridTextColumn>
-                                            <DataGridTextColumn Header="Efternamn" Width="0.7*" Binding="{Binding Path=LastName}">
+                                            <DataGridTextColumn Header="Efternamn" Width="*" Binding="{Binding Path=LastName}">
                                                 <DataGridTextColumn.ElementStyle>
                                                     <Style TargetType="TextBlock">
                                                         <Setter Property="TextWrapping" Value="Wrap"/>
                                                     </Style>
                                                 </DataGridTextColumn.ElementStyle>
                                             </DataGridTextColumn>
-                                            <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
+                                            <DataGridTextColumn Header="Evenemangsdeltagande" Width="0.65*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Button x:Name="btnDeletePerson"
@@ -279,7 +282,7 @@
                                             ToolTipService.InitialShowDelay="500"
                                             Click="btnDeletePerson_Click"/>
                                 </StackPanel>
-                                <StackPanel Canvas.Left="600" 
+                                <StackPanel Canvas.Left="640" 
                                             Canvas.Top="10">
                                     <TextBlock Text="Lägg till Nation"
                                                FontWeight="Bold"/>
@@ -300,7 +303,7 @@
                                             TabIndex="5"/>
                                     <DataGrid x:Name="dgNation"
                                               Height="290"
-                                              Width="400"
+                                              Width="590"
                                               Margin="0,50,0,0"
                                               Canvas.Top="70"
                                               Canvas.Left="330"
@@ -352,7 +355,7 @@
                                               SelectedValuePath="Id"
                                              HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="dgInvitePersons"
-                                             Height="300"
+                                             Height="370"
                                              Width="600"
                                              Margin="0,15,0,0"
                                              IsReadOnly="True"
@@ -380,11 +383,6 @@
                                             <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnMarkAllPerson"
-                                            Content="Markera alla"
-                                            Click="btnMarkAllPerson_Click"
-                                            Margin="0,15,0,0"
-                                            Width="100"/>
                                 </StackPanel>
                                 <StackPanel Canvas.Left="620"
                                             Canvas.Top="10">
@@ -401,7 +399,7 @@
                                               SelectedValuePath="Id"
                                               HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="dgInviteEvent"
-                                             Height="300"
+                                             Height="370"
                                              Width="620"
                                              Margin="0,15,0,0"
                                              IsReadOnly="True"
@@ -431,13 +429,21 @@
                                         </DataGrid.Columns>
                                     </DataGrid>
                                 </StackPanel>
+                                <Button x:Name="btnMarkAllPerson"
+                                        Content="Markera alla"
+                                        Click="btnMarkAllPerson_Click"
+                                        Canvas.Left="250"
+                                        Canvas.Top="42"
+                                        Margin="0,0,0,0"
+                                        Width="100"
+                                        Height="22"/>
                                 <Button x:Name="btnInviteToEvent"
                                         Click="btnInviteToEvent_Click"
-                                        Content="Bjud in!!!"
-                                        Canvas.Bottom="40"
-                                        Canvas.Left="570"
-                                        Width="90"
-                                        Height="50"/>
+                                        Content="Bjud in"
+                                        Canvas.Bottom="20"
+                                        Canvas.Left="565"
+                                        Height="30"
+                                        Width="100"/>
                             </Canvas>
                         </TabItem>
                     </TabControl>
@@ -509,14 +515,14 @@
                     <TabItem Header="Cronus">
                         <Canvas>
                             <TextBlock Text="Data" 
-                                       Canvas.Left="150"
+                                       Canvas.Left="450"
                                        Canvas.Top="15"/>
                             <TextBlock Text="Metadata" 
-                                       Canvas.Left="350"
+                                       Canvas.Left="650"
                                        Canvas.Top="15"/>
                             <ComboBox x:Name="cmbData"
                                       Canvas.Top="30"
-                                      Canvas.Left="150"
+                                      Canvas.Left="450"
                                       Width="150"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=DataCombobox}"
@@ -526,7 +532,7 @@
                             </ComboBox>
                             <ComboBox x:Name="cmbMetaData"
                                       Canvas.Top="30"
-                                      Canvas.Left="350"
+                                      Canvas.Left="650"
                                       Width="150"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
@@ -575,11 +581,16 @@
                                         Content="Uppdatera"
                                         Margin="0,15,0,0"
                                         Click="btnUpdateEmployee_Click"/>
+                                <Button x:Name="btnDeleteEmployee"
+                                        Click="btnDeleteEmployee_Click"
+                                        Content="Radera"
+                                        Margin="0,15,0,0"
+                                        Width="100"/>
                             </StackPanel>
                             <DataGrid x:Name="dgEmployee"
-                                      Canvas.Left="400"
+                                      Canvas.Left="150"
                                       Canvas.Top="20"
-                                      Width="850"
+                                      Width="1075"
                                       Height="480"
                                       IsReadOnly="True"
                                       AutoGenerateColumns="False"                                      
@@ -610,12 +621,6 @@
                                     </DataGridTextColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnDeleteEmployee"
-                                    Click="btnDeleteEmployee_Click"
-                                    Content="Radera"
-                                    Canvas.Top="20"
-                                    Canvas.Left="280"
-                                    Width="100"/>
                         </Canvas>
                     </TabItem>
                 </TabControl>
@@ -626,7 +631,6 @@
                  IsReadOnly="True"
                  Text="{Binding Path=StatusProperty}"
                  TextWrapping="NoWrap"
-                 VerticalScrollBarVisibility="Auto" 
-                 />
+                 VerticalScrollBarVisibility="Auto"/>
     </StackPanel>
 </Window>

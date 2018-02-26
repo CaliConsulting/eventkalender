@@ -65,7 +65,7 @@ namespace Eventkalender.PK
                 }
                 else
                 {
-                    WriteOutput("Det finns ingen person med detta ID");
+                    WriteOutput("Det finns ingen anställd med detta ID");
                 }
             }
             else
@@ -88,7 +88,7 @@ namespace Eventkalender.PK
                 }
                 else
                 {
-                    WriteOutput("Det finns redan en person med detta ID");
+                    WriteOutput("Det finns redan en anställd med detta ID");
                 }              
             }
             else
@@ -100,11 +100,14 @@ namespace Eventkalender.PK
         private void dgEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = dgEmployee.SelectedIndex;
-            CronusReference.Employee temp = new CronusReference.Employee();
-            temp = eventkalenderViewModel.Employees.ElementAt(index);
-            txtEmployeeFirstName.Text = temp.FirstName;
-            txtEmployeeLastName.Text = temp.LastName;
-            txtEmployeeNumber.Text = temp.No;
+            if(index > -1)
+            {
+                CronusReference.Employee temp = new CronusReference.Employee();
+                temp = eventkalenderViewModel.Employees.ElementAt(index);
+                txtEmployeeFirstName.Text = temp.FirstName;
+                txtEmployeeLastName.Text = temp.LastName;
+                txtEmployeeNumber.Text = temp.No;
+            }
         }
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -178,7 +181,7 @@ namespace Eventkalender.PK
             }
             else
             {
-                WriteOutput("Inget värde ifyllt");
+                WriteOutput("Ange ett namn till nationen.");
             }
         }
 
@@ -248,20 +251,9 @@ namespace Eventkalender.PK
                     txtEventName.Text = "";
                     txtSummary.Text = "";
                 }
-
             }
         }
 
-        private void btnInviteToEvent_Click(object sender, RoutedEventArgs e)
-        {
-            ClearOutput();
-            int index = dgInviteEvent.SelectedIndex;
-            if (index > -1)
-            {
-                Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
-                eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
-            }
-        }
         private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
         {
             ClearOutput();
@@ -295,6 +287,17 @@ namespace Eventkalender.PK
                 dgFindEvents.ItemsSource = n.Events;
             }
             
+        }
+
+        private void btnInviteToEvent_Click(object sender, RoutedEventArgs e)
+        {
+            ClearOutput();
+            int index = dgInviteEvent.SelectedIndex;
+            if (index > -1)
+            {
+                Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
+                eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
+            }
         }
 
         private void cmbInviteEvent_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -373,8 +376,7 @@ namespace Eventkalender.PK
                 string path = txtSearchFile.Text;
                 if(eventkalenderViewModel.GetFiles().Contains(path))
                 {
-                    txtOutput.Text = eventkalenderViewModel.GetFile(path);
-                    
+                    txtOutput.Text = eventkalenderViewModel.GetFile(path);                   
                 }
                 else
                 {

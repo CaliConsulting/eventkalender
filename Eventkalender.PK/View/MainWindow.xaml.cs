@@ -51,6 +51,7 @@ namespace Eventkalender.PK
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = dgEmployee.SelectedIndex;
             if (index >= 0)
             {
@@ -62,8 +63,8 @@ namespace Eventkalender.PK
 
         private void btnUpdateEmployee_Click(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = dgEmployee.SelectedIndex;
-            //bool exists = false;
             if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
             {
                 string no = txtEmployeeNumber.Text;
@@ -87,7 +88,7 @@ namespace Eventkalender.PK
 
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            //bool exists = true;
+            ClearOutput();
             if (Utility.IsNotEmpty(txtEmployeeNumber.Text, txtEmployeeFirstName.Text, txtEmployeeLastName.Text))
             {
                 string no = txtEmployeeNumber.Text;
@@ -146,6 +147,7 @@ namespace Eventkalender.PK
 
         private void btnEraseFromPerson(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = datagridPerson.SelectedIndex;
             if (index > -1)
             {
@@ -156,16 +158,18 @@ namespace Eventkalender.PK
 
         private void btnEraseFromNation_Click(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = datagridNation.SelectedIndex;
             if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                eventkalenderViewModel.DeleteNation(index);
+                eventkalenderViewModel.DeleteNation(n.Id);
             }
         }
 
         private void btnDeleteEventClick(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = datagridEvents.SelectedIndex;
             if(index > -1)
             {
@@ -176,6 +180,7 @@ namespace Eventkalender.PK
 
         private void btnRegNationNameClick(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             if (txtBoxNationName.Text != "")
             {
                 eventkalenderViewModel.AddNation(txtBoxNationName.Text);
@@ -190,6 +195,7 @@ namespace Eventkalender.PK
 
         private void btnRegPers_Click(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             if (txtBoxFirstName.Text != "" && txtBoxLastName.Text != "")
             {
                 eventkalenderViewModel.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
@@ -209,6 +215,7 @@ namespace Eventkalender.PK
 
         private void btnRegsterEventClick(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = cmBoxNation.SelectedIndex;
             
             if (txtBoxEventName.Text == "")
@@ -265,10 +272,13 @@ namespace Eventkalender.PK
 
         private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             int index = datagridInviteEvent.SelectedIndex;
-            Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
-
-            eventkalenderViewModel.InviteToEvent(datagridInvitePersons.SelectedItems, ev);
+            if(index > -1)
+            {
+                Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
+                eventkalenderViewModel.InviteToEvent(datagridInvitePersons.SelectedItems, ev);
+            }
         }
 
         private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -340,6 +350,11 @@ namespace Eventkalender.PK
             txtboxConsole.Text = message;
         }
 
+        public void ClearOutput()
+        {
+            txtboxConsole.Text = "";
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //
         //                                  Webservice eventhandlers
@@ -367,7 +382,8 @@ namespace Eventkalender.PK
         
         private void btnChoiceOfFile_Click(object sender, RoutedEventArgs e)
         {
-            if(txtboxSearchFile.Text != "")
+            ClearOutput();
+            if (txtboxSearchFile.Text != "")
             {
                 string path = txtboxSearchFile.Text;
                 if(eventkalenderViewModel.GetFiles().Contains(path))
@@ -390,6 +406,7 @@ namespace Eventkalender.PK
 
         private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
         {
+            ClearOutput();
             datagridInvitePersons.SelectAllCells();
         }
 

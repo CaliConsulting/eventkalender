@@ -255,27 +255,25 @@ namespace Eventkalender.Database
                     return;
                 }
 
+                List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
+                List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
 
-                using (var dbContextTransaction = context.Database.BeginTransaction())
+                deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
+
+                foreach (Event e in addedEvents)
                 {
-                    List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
-                    List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
+                    // Set fields to null to avoid circular references
+                    e.Nation = null;
+                    e.Persons = null;
 
-                    deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
-
-                    foreach (Event e in addedEvents)
+                    DbEntityEntry entry = context.Entry(e);
+                    if (entry.State == EntityState.Detached)
                     {
-                        DbEntityEntry entry = context.Entry(e);
-                        if (entry.State == EntityState.Detached)
-                        {
-                            context.Event.Attach(e);
-                        }
-                        dbPerson.Events.Add(e);
+                        context.Event.Attach(e);
                     }
-                    context.SaveChanges();
-
-                    dbContextTransaction.Commit();
+                    dbPerson.Events.Add(e);
                 }
+                context.SaveChanges();
             }
         }
 

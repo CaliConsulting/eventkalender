@@ -51,14 +51,7 @@ namespace Eventkalender.WS.ConsoleApp
             }
 
             Console.WriteLine("Följande personer har varit sjuka mellan år {0} och {1}", startYear, endYear);
-            try
-            {
-                GetOutput(cronusClient.GetIllPersonsByYear(startYear, endYear));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
-            }
+            GetOutput(cronusClient.GetIllPersonsByYear(startYear, endYear));
             ExitQuestion();
         }
 
@@ -154,45 +147,53 @@ namespace Eventkalender.WS.ConsoleApp
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 9!");
                     ExitQuestion();
                 }
-                switch (caseSwitch)
+                try
                 {
-                    case 1:
-                        GetIllestPerson();
+                    switch (caseSwitch)
+                    {
+                        case 1:
+                            GetIllestPerson();
+                            break;
+                        case 2:
+                            GetIllPersonsByYear();
+                            break;
+                        case 3:
+                            GetEmployeeAndRelatives();
+                            break;
+                        case 4:
+                            GetEmployeeData();
+                            break;
+                        case 5:
+                            GetEmployeeAbsenceData();
+                            break;
+                        case 6:
+                            GetEmployeeRelativeData();
+                            break;
+                        case 7:
+                            GetEmployeeQualificationData();
+                            break;
+                        case 8:
+                            GetEmployeePortalSetupData();
+                            break;
+                        case 9:
+                            GetEmployeeStatisticsGroupData();
+                            break;
+                        case 0:
+                            Program.VeryGoodMethod();
+                            break;
+                        case -1:
+                            ReturnMethod();
+                            break;
+                    }
+                    if (!returnBool)
+                    {
                         break;
-                    case 2:
-                        GetIllPersonsByYear();
-                        break;
-                    case 3:
-                        GetEmployeeAndRelatives();
-                        break;
-                    case 4:
-                        GetEmployeeData();
-                        break;
-                    case 5:
-                        GetEmployeeAbsenceData();
-                        break;
-                    case 6:
-                        GetEmployeeRelativeData();
-                        break;
-                    case 7:
-                        GetEmployeeQualificationData();
-                        break;
-                    case 8:
-                        GetEmployeePortalSetupData();
-                        break;
-                    case 9:
-                        GetEmployeeStatisticsGroupData();
-                        break;
-                    case 0:
-                        Program.VeryGoodMethod();
-                        break;
-                    case -1:
-                        ReturnMethod();
-                        break;
+                    }
                 }
-                if (!returnBool)
+                catch (Exception e)
                 {
-                    break;
+                    Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
+                    ExitQuestion();
                 }
             }
         }

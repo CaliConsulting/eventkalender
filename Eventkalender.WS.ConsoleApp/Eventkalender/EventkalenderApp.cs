@@ -210,42 +210,50 @@ namespace Eventkalender.WS.ConsoleApp
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 8!");
                     ExitQuestion();
                 }
-                switch (caseSwitch)
+                try
                 {
-                    case 1:
-                        GetNation();
+                    switch (caseSwitch)
+                    {
+                        case 1:
+                            GetNation();
+                            break;
+                        case 2:
+                            GetNations();
+                            break;
+                        case 3:
+                            GetEvent();
+                            break;
+                        case 4:
+                            GetEvents();
+                            break;
+                        case 5:
+                            GetPerson();
+                            break;
+                        case 6:
+                            GetPersons();
+                            break;
+                        case 7:
+                            GetFile();
+                            break;
+                        case 8:
+                            AddFile();
+                            break;
+                        case -1:
+                            ReturnMethod();
+                            break;
+                        case 0:
+                            Program.VeryGoodMethod();
+                            break;
+                    }
+                    if (!returnBool)
+                    {
                         break;
-                    case 2:
-                        GetNations();
-                        break;
-                    case 3:
-                        GetEvent();
-                        break;
-                    case 4:
-                        GetEvents();
-                        break;
-                    case 5:
-                        GetPerson();
-                        break;
-                    case 6:
-                        GetPersons();
-                        break;
-                    case 7:
-                        GetFile();
-                        break;
-                    case 8:
-                        AddFile();
-                        break;
-                    case -1:
-                        ReturnMethod();
-                        break;
-                    case 0:
-                        Program.VeryGoodMethod();
-                        break;
+                    }
                 }
-                if(!returnBool)
+                catch (Exception e)
                 {
-                    break;
+                    Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
+                    ExitQuestion();
                 }
             }
         }

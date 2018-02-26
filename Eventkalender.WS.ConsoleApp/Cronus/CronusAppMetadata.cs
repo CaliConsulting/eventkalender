@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.CronusReference;
 using Eventkalender.WS.ConsoleApp.Utility;
 
@@ -68,7 +69,7 @@ namespace Eventkalender.WS.ConsoleApp
             ExitQuestion();
         }
         
-        public void GetOutput(DataTuple[] inputTuple)
+        public void GetOutput(CronusReference.DataTuple[] inputTuple)
         {
             Console.WriteLine(ConversionUtility.ToString(inputTuple));
         }
@@ -158,56 +159,62 @@ namespace Eventkalender.WS.ConsoleApp
                 {
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 11!");
                     ExitQuestion();
-
                 }
-                switch (caseSwitch)
+                try
                 {
-                    case 1:
-                        GetKeys();
+                    switch (caseSwitch)
+                    {
+                        case 1:
+                            GetKeys();
+                            break;
+                        case 2:
+                            GetColumnsForEmployeeTable();
+                            break;
+                        case 3:
+                            GetIndexes();
+                            break;
+                        case 4:
+                            GetTableConstraints();
+                            break;
+                        case 5:
+                            GetTables();
+                            break;
+                        case 6:
+                            GetEmployeeMetadata();
+                            break;
+                        case 7:
+                            GetEmployeeAbsenceMetadata();
+                            break;
+                        case 8:
+                            GetEmployeeRelativeMetadata();
+                            break;
+                        case 9:
+                            GetEmployeeQualificationMetadata();
+                            break;
+                        case 10:
+                            GetEmployeePortalSetupMetadata();
+                            break;
+                        case 11:
+                            GetEmployeeStatisticsGroupMetadata();
+                            break;
+                        case 0:
+                            Program.VeryGoodMethod();
+                            break;
+                        case -1:
+                            ReturnMethod();
+                            break;
+                    }
+                    if (!returnBool)
+                    {
                         break;
-                    case 2:
-                        GetColumnsForEmployeeTable();
-                        break;
-                    case 3:
-                        GetIndexes();
-                        break;
-                    case 4:
-                        GetTableConstraints();
-                        break;
-                    case 5:
-                        GetTables();
-                        break;
-                    case 6:
-                        GetEmployeeMetadata();
-                        break;
-                    case 7:
-                        GetEmployeeAbsenceMetadata();
-                        break;
-                    case 8:
-                        GetEmployeeRelativeMetadata();
-                        break;
-                    case 9:
-                        GetEmployeeQualificationMetadata();
-                        break;
-                    case 10:
-                        GetEmployeePortalSetupMetadata();
-                        break;
-                    case 11:
-                        GetEmployeeStatisticsGroupMetadata();
-                        break;
-                    case 0:
-                        Program.VeryGoodMethod();
-                        break;
-                    case -1:
-                        ReturnMethod();
-                        break;
+                    }
                 }
-                if (!returnBool)
+                catch (Exception e)
                 {
-                    break;
+                    Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
+                    ExitQuestion();
                 }
             }
-
         }
     }
 }

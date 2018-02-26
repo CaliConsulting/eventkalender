@@ -433,7 +433,6 @@ namespace Eventkalender.PK
                 }
                 //Kanske skicka tillbaka att personen redan går på detta event
             }
-            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
         }
 
         public EventkalenderReference.Event[] GetEvents()

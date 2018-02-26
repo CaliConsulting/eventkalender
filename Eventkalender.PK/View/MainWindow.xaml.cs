@@ -222,6 +222,8 @@ namespace Eventkalender.PK
             else if (cmbStartTime.SelectedIndex == -1 || cmbEndTime.SelectedIndex == -1)
             {
                 WriteOutput("Ange start- och sluttid.");
+                cmbStartTime.Text = "";
+                cmbEndTime.Text = "";
             }
             else if (txtSummary.Text == "")
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -254,14 +255,19 @@ namespace Eventkalender.Database
                     return;
                 }
 
-                List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
                 List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
+                List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
 
                 deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
 
                 foreach (Event e in addedEvents)
                 {
-                    if (context.Entry(e).State == EntityState.Detached)
+                    // Set fields to null to avoid circular references
+                    e.Nation = null;
+                    e.Persons = null;
+
+                    DbEntityEntry entry = context.Entry(e);
+                    if (entry.State == EntityState.Detached)
                     {
                         context.Event.Attach(e);
                     }

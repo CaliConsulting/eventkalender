@@ -466,15 +466,9 @@ namespace Eventkalender.PK
 
             dgWebService.Columns.Add(col);
             dgWebService.Columns.Add(col1);
-
-            for (int i = 0; i < dgWebService.Columns.Count; i++)
-            {
-                dgWebService.Columns[i].Width = 0;
-                dgWebService.UpdateLayout();
-                dgWebService.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
-            }
+            Autosize(dgWebService);
         }
-
+    
         public void PersonGridWrapAutoSize(DataGrid dgWebService)
         {
             ClearColumns(dgWebService);
@@ -491,13 +485,7 @@ namespace Eventkalender.PK
             dgWebService.Columns.Add(col);
             dgWebService.Columns.Add(col1);
             dgWebService.Columns.Add(col2);
-
-            for (int i = 0; i < dgWebService.Columns.Count; i++)
-            {
-                dgWebService.Columns[i].Width = 0;
-                dgWebService.UpdateLayout();
-                dgWebService.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
-            }
+            Autosize(dgWebService);
         }
 
         private static void WrapColumn(DataGridTextColumn col) //DataGridTextColumn col
@@ -521,6 +509,16 @@ namespace Eventkalender.PK
         public List<string> GetFiles()
         {
             return eventkalenderClient.GetFiles();
+        }
+
+        public void Autosize(DataGrid grid)
+        {
+            for (int i = 0; i < grid.Columns.Count; i++)
+            {
+                grid.Columns[i].Width = 0;
+                grid.UpdateLayout();
+                grid.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
+            }
         }
 
     }

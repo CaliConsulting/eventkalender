@@ -124,6 +124,7 @@ namespace Eventkalender.PK
             datagridCronus.ItemsSource = null;
             Utility.AddColumns(datagridCronus, eventkalenderViewModel.Metadata);
             datagridCronus.ItemsSource = eventkalenderViewModel.Metadata;
+            eventkalenderViewModel.Autosize(datagridCronus);
         }
 
         private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -132,6 +133,7 @@ namespace Eventkalender.PK
             datagridCronus.ItemsSource = null;
             Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
             datagridCronus.ItemsSource = eventkalenderViewModel.Data;
+            eventkalenderViewModel.Autosize(datagridCronus);
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------
@@ -396,5 +398,6 @@ namespace Eventkalender.PK
             // Warm up Entity Framework on WS
             eventkalenderViewModel.GetEmployees();
         }
+
     }
 }

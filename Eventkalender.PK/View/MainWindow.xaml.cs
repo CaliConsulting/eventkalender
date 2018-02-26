@@ -128,7 +128,7 @@ namespace Eventkalender.PK
         //
         //-----------------------------------------------------------------------------------------------------------------------------------
         
-        private void btnEraseFromPerson(object sender, RoutedEventArgs e)
+        private void btnDeletePerson_Click(object sender, RoutedEventArgs e)
         {
             int index = dgPerson.SelectedIndex;
             if (index > -1)
@@ -138,13 +138,13 @@ namespace Eventkalender.PK
             }
         }
 
-        private void btnEraseFromNation_Click(object sender, RoutedEventArgs e)
+        private void btnDeleteNation_Click(object sender, RoutedEventArgs e)
         {
             int index = dgNation.SelectedIndex;
             if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                eventkalenderViewModel.DeleteNation(index);
+                eventkalenderViewModel.DeleteNation(n.Id);
             }
         }
 

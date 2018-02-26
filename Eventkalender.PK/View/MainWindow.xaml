@@ -233,14 +233,14 @@
                                             <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnEraseFromList"
+                                    <Button x:Name="btnDeletePerson"
                                             Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"
                                             MaxWidth="150"
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.InitialShowDelay="500"
-                                            Click="btnEraseFromPerson"/>
+                                            Click="btnDeletePerson_Click"/>
                                 </StackPanel>
                                 <StackPanel Canvas.Left="600" 
                                             Canvas.Top="10">
@@ -281,14 +281,14 @@
                                             <DataGridTextColumn Header="Evenemang arrangerade" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnEraseFromNation"
+                                    <Button x:Name="btnDeleteNation"
                                             Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"
                                             MaxWidth="150"
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.InitialShowDelay="500"
-                                            Click="btnEraseFromNation_Click"/>
+                                            Click="btnDeleteNation_Click"/>
                                 </StackPanel>
 
                             </Canvas>

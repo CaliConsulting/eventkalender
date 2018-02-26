@@ -26,7 +26,7 @@
                                           Width="150"
                                           Canvas.Left="20"
                                           Canvas.Top="20"/>
-                                <DataGrid x:Name="datagridFindEvents"
+                                <DataGrid x:Name="dgFindEvents"
                                           SelectionMode="Extended"
                                           Canvas.Top="20"
                                           Canvas.Left="200"
@@ -61,7 +61,7 @@
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
                                     <TextBlock Text="Eventnamn*"/>
-                                    <TextBox x:Name="txtBoxEventName"
+                                    <TextBox x:Name="txtEventName"
                                              Margin="0,0,0,0"
                                              AcceptsReturn="True"
                                              AcceptsTab="False"
@@ -69,7 +69,7 @@
                                              HorizontalAlignment="Left"
                                              TabIndex="1"/>
                                     <TextBlock Text="Nation*"/>
-                                    <ComboBox x:Name="cmBoxNation"
+                                    <ComboBox x:Name="cmbNation"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Left"
                                              MaxWidth="150"
@@ -99,13 +99,13 @@
                                                 TabIndex="5"/>
 
                                     <TextBlock Text="Beskrivning:*"/>
-                                    <TextBox x:Name="txtBoxSummary"
+                                    <TextBox x:Name="txtSummary"
                                              Height="200" 
                                              Width="350"
                                              TextWrapping="Wrap"
                                              TabIndex="7"/>
-                                    <Button x:Name="btnRegsterEvent"
-                                            Click="btnRegsterEventClick"
+                                    <Button x:Name="btnRegisterEvent"
+                                            Click="btnRegisterEvent_Click"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             Width="100"
@@ -140,7 +140,7 @@
                                 <StackPanel Canvas.Left="400" Canvas.Top="10">
                                     <TextBlock Text="Ta bort event" FontWeight="Bold"/>
                                     <TextBlock Text="Filtrera efter Nation"/>
-                                    <ComboBox x:Name="cmBoxSearchEvents"
+                                    <ComboBox x:Name="cmbSearchEvents"
                                               ItemsSource="{Binding Path=Nations, NotifyOnSourceUpdated=True}"
                                               DisplayMemberPath="Name"
                                               SelectedValuePath="Id"
@@ -148,9 +148,9 @@
                                               MaxWidth="150"
                                               HorizontalAlignment="Left"
                                               IsEditable="True"
-                                              SelectionChanged="cmBoxSearchEvents_SelectionChanged"
+                                              SelectionChanged="cmbSearchEvents_SelectionChanged"
                                               TabIndex="9"/>
-                                    <DataGrid x:Name="datagridEvents"
+                                    <DataGrid x:Name="dgEvents"
                                               SelectionMode="Single"
                                               Height="320"
                                               Width="850"
@@ -178,7 +178,7 @@
                                     </DataGrid>
 
                                     <Button x:Name="btnDeleteEvent"
-                                            Click="btnDeleteEventClick"
+                                            Click="btnDeleteEvent_Click"
                                             HorizontalAlignment="Left"
                                             Content="Radera"
                                             Margin="0,15,0,0"
@@ -194,19 +194,19 @@
                                     <TextBlock Text="Lägg till Person"
                                                FontWeight="Bold"/>
                                     <TextBlock Text="Förnamn*"/>
-                                    <TextBox x:Name="txtBoxFirstName"
+                                    <TextBox x:Name="txtFirstName"
                                              Margin="0,0,0,0"
                                              Width="150"
                                              HorizontalAlignment="Left"
                                              TabIndex="1"/>
                                     <TextBlock Text="Efternamn*"/>
-                                    <TextBox x:Name="txtBoxLastName"
+                                    <TextBox x:Name="txtLastName"
                                              Margin="0,0,0,0"
                                              Width="150"
                                              HorizontalAlignment="Left"
                                              TabIndex="2"/>
-                                    <Button x:Name="btnRegPers"
-                                            Click="btnRegPers_Click"
+                                    <Button x:Name="btnRegisterPerson"
+                                            Click="btnRegisterPerson_Click"
                                             MaxWidth="100"
                                             HorizontalAlignment="Left"
                                             Content="Registrera"
@@ -214,7 +214,7 @@
                                             ToolTip="Registerar en person med de ifyllda namnen"
                                             ToolTipService.InitialShowDelay="500"
                                             TabIndex="3"/>
-                                    <DataGrid x:Name="datagridPerson"
+                                    <DataGrid x:Name="dgPerson"
                                               Height="290"
                                               Width="400"
                                               Margin="0,15,0,0"
@@ -233,27 +233,27 @@
                                             <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnEraseFromList"
+                                    <Button x:Name="btnDeletePerson"
                                             Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"
                                             MaxWidth="150"
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.InitialShowDelay="500"
-                                            Click="btnEraseFromPerson"/>
+                                            Click="btnDeletePerson_Click"/>
                                 </StackPanel>
                                 <StackPanel Canvas.Left="600" 
                                             Canvas.Top="10">
                                     <TextBlock Text="Lägg till Nation"
                                                FontWeight="Bold"/>
                                     <TextBlock Text="Namn*"/>
-                                    <TextBox x:Name="txtBoxNationName"
+                                    <TextBox x:Name="txtNationName"
                                              MaxWidth="150"
                                              Width="150"
                                              HorizontalAlignment="Left"
                                              TabIndex="4"/>
-                                    <Button x:Name="btnRegNationName"
-                                            Click="btnRegNationNameClick"
+                                    <Button x:Name="btnRegisterNationName"
+                                            Click="btnRegisterNationName_Click"
                                             Content="Registrera"
                                             Margin="0,15,0,0"
                                             Width="100"
@@ -261,7 +261,7 @@
                                             ToolTip="Registerar en Nation med det ifyllda namnet"
                                             ToolTipService.InitialShowDelay="500"
                                             TabIndex="5"/>
-                                    <DataGrid x:Name="datagridNation"
+                                    <DataGrid x:Name="dgNation"
                                               Height="290"
                                               Width="400"
                                               Margin="0,50,0,0"
@@ -281,14 +281,14 @@
                                             <DataGridTextColumn Header="Evenemang arrangerade" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnEraseFromNation"
+                                    <Button x:Name="btnDeleteNation"
                                             Content="Radera"
                                             Margin="0,15,0,0"
                                             Width="100"
                                             MaxWidth="150"
                                             ToolTip="Raderar valda raderna från listan och databasen"
                                             ToolTipService.InitialShowDelay="500"
-                                            Click="btnEraseFromNation_Click"/>
+                                            Click="btnDeleteNation_Click"/>
                                 </StackPanel>
 
                             </Canvas>
@@ -309,7 +309,7 @@
                                               DisplayMemberPath="FullName"
                                               SelectedValuePath="Id"
                                              HorizontalAlignment="Left"/>
-                                    <DataGrid x:Name="datagridInvitePersons"
+                                    <DataGrid x:Name="dgInvitePersons"
                                              Height="300"
                                              Width="350"
                                              Margin="0,15,0,0"
@@ -321,7 +321,6 @@
                                              AutoGenerateColumns="False"
                                              >
                                         <DataGrid.Columns>
-                                            
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
                                             <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
@@ -348,7 +347,7 @@
                                               DisplayMemberPath="Name"
                                               SelectedValuePath="Id"
                                               HorizontalAlignment="Left"/>
-                                    <DataGrid x:Name="datagridInviteEvent"
+                                    <DataGrid x:Name="dgInviteEvent"
                                              Height="300"
                                              Width="500"
                                              Margin="0,15,0,0"
@@ -359,6 +358,7 @@
                                              ItemsSource="{Binding Path=Events}"
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                             <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
                                             <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
@@ -366,8 +366,8 @@
                                         </DataGrid.Columns>
                                     </DataGrid>
                                 </StackPanel>
-                                <Button x:Name="btnInvToEvent"
-                                        Click="btnInvToEvent_Click"
+                                <Button x:Name="btnInviteToEvent"
+                                        Click="btnInviteToEvent_Click"
                                         Content="Bjud in"
                                         Canvas.Bottom="40"
                                         Canvas.Left="340"
@@ -389,7 +389,7 @@
                             <StackPanel Canvas.Left="20" Canvas.Top="20">
                                 <TextBlock  HorizontalAlignment="Center"
                                             Text="Hämta fil" FontWeight="Bold"/>
-                                <TextBox x:Name="txtboxSearchFile"
+                                <TextBox x:Name="txtSearchFile"
                                          Width="100"
                                          MaxWidth="100"
                                          Margin="0,15,0,0"
@@ -402,12 +402,11 @@
                                         Content="Hämta Innehåll"
                                         Margin="0,10,0,0"
                                         Width="95"/>
-                                <TextBox x:Name="txtboxOutput"
+                                <TextBox x:Name="txtOutput"
                                          Margin="0,10,0,0"
                                          IsReadOnly="True"
                                          Width="1220"
                                          Height="390"/>
-
                             </StackPanel>
                         </Canvas>
                     </TabItem>
@@ -470,7 +469,7 @@
                                       SelectionChanged="cmbMetadata_SelectionChanged">
                             </ComboBox>
 
-                            <DataGrid x:Name="datagridCronus"
+                            <DataGrid x:Name="dgCronus"
                                       Canvas.Left="10"
                                       Canvas.Top="85"
                                       Width="1220"
@@ -518,7 +517,8 @@
                                       Height="480"
                                       IsReadOnly="True"
                                       AutoGenerateColumns="False"                                      
-                                      ItemsSource="{Binding Path= Employees}" SelectionChanged="dgEmployee_SelectionChanged" >
+                                      ItemsSource="{Binding Path= Employees}" 
+                                      SelectionChanged="dgEmployee_SelectionChanged" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}"/>
                                     <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>
@@ -537,7 +537,7 @@
                 </TabControl>
             </TabItem>
         </TabControl>
-        <TextBox x:Name="txtboxConsole"
+        <TextBox x:Name="txtConsole"
                  Height="100"
                  IsReadOnly="True"
                  Text="{Binding Path=StatusProperty}"

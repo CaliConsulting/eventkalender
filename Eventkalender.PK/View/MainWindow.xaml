@@ -321,7 +321,6 @@
                                              AutoGenerateColumns="False"
                                              >
                                         <DataGrid.Columns>
-                                            
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
                                             <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
@@ -359,6 +358,7 @@
                                              ItemsSource="{Binding Path=Events}"
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
                                             <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
                                             <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
                                             <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>

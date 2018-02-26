@@ -24,22 +24,11 @@ namespace Eventkalender.PK
     /// </summary>
     public partial class MainWindow : Window
     {
- //       private EventkalenderController eventkalenderController;
         private EventkalenderViewModel eventkalenderViewModel;
-
-        // Dessa två ska inte finnas kvar i vyn om det går att lösa 
-        // användandet av dem på ett snyggt sätt i ViewModel
-        private CronusServiceSoapClient cronusClient;
-        private EventkalenderServiceSoapClient eventkalenderWSClient;
-        
         public MainWindow()
         {
             InitializeComponent();
-
             eventkalenderViewModel = new EventkalenderViewModel();
-            cronusClient = new CronusServiceSoapClient();
-            eventkalenderWSClient = new EventkalenderServiceSoapClient();
-
             DataContext = eventkalenderViewModel;
         }
 
@@ -119,18 +108,18 @@ namespace Eventkalender.PK
 
         private void cmbMetadata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            datagridCronus.Columns.Clear();
-            datagridCronus.ItemsSource = null;
-            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Metadata);
-            datagridCronus.ItemsSource = eventkalenderViewModel.Metadata;
+            dgCronus.Columns.Clear();
+            dgCronus.ItemsSource = null;
+            Utility.AddColumns(dgCronus, eventkalenderViewModel.Metadata);
+            dgCronus.ItemsSource = eventkalenderViewModel.Metadata;
         }
 
         private void cmbData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            datagridCronus.Columns.Clear();
-            datagridCronus.ItemsSource = null;
-            Utility.AddColumns(datagridCronus, eventkalenderViewModel.Data);
-            datagridCronus.ItemsSource = eventkalenderViewModel.Data;
+            dgCronus.Columns.Clear();
+            dgCronus.ItemsSource = null;
+            Utility.AddColumns(dgCronus, eventkalenderViewModel.Data);
+            dgCronus.ItemsSource = eventkalenderViewModel.Data;
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------
@@ -141,7 +130,7 @@ namespace Eventkalender.PK
         
         private void btnEraseFromPerson(object sender, RoutedEventArgs e)
         {
-            int index = datagridPerson.SelectedIndex;
+            int index = dgPerson.SelectedIndex;
             if (index > -1)
             {
                 Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
@@ -151,7 +140,7 @@ namespace Eventkalender.PK
 
         private void btnEraseFromNation_Click(object sender, RoutedEventArgs e)
         {
-            int index = datagridNation.SelectedIndex;
+            int index = dgNation.SelectedIndex;
             if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
@@ -159,9 +148,9 @@ namespace Eventkalender.PK
             }
         }
 
-        private void btnDeleteEventClick(object sender, RoutedEventArgs e)
+        private void btnDeleteEvent_Click(object sender, RoutedEventArgs e)
         {
-            int index = datagridEvents.SelectedIndex;
+            int index = dgEvents.SelectedIndex;
             if(index > -1)
             {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
@@ -169,12 +158,12 @@ namespace Eventkalender.PK
             }          
         }
 
-        private void btnRegNationNameClick(object sender, RoutedEventArgs e)
+        private void btnRegisterNationName_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBoxNationName.Text != "")
+            if (txtNationName.Text != "")
             {
-                eventkalenderViewModel.AddNation(txtBoxNationName.Text);
-                txtBoxNationName.Text = "";
+                eventkalenderViewModel.AddNation(txtNationName.Text);
+                txtNationName.Text = "";
             }
             else
             {
@@ -182,33 +171,33 @@ namespace Eventkalender.PK
             }
         }
 
-        private void btnRegPers_Click(object sender, RoutedEventArgs e)
+        private void btnRegisterPerson_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBoxFirstName.Text != "" && txtBoxLastName.Text != "")
+            if (txtFirstName.Text != "" && txtLastName.Text != "")
             {
-                eventkalenderViewModel.AddPerson(txtBoxFirstName.Text, txtBoxLastName.Text);
-                txtBoxFirstName.Text = "";
-                txtBoxLastName.Text = "";
+                eventkalenderViewModel.AddPerson(txtFirstName.Text, txtLastName.Text);
+                txtFirstName.Text = "";
+                txtLastName.Text = "";
             }
-            else if (txtBoxLastName.Text == "")
+            else if (txtLastName.Text == "")
             {
                 WriteOutput("Glöm inte ange efternamnet");
             }
-            else if (txtBoxFirstName.Text == "")
+            else if (txtFirstName.Text == "")
             {
                 WriteOutput("Glöm inte ange förnamnet");
             }
         }
 
-        private void btnRegsterEventClick(object sender, RoutedEventArgs e)
+        private void btnRegisterEvent_Click(object sender, RoutedEventArgs e)
         {
-            int index = cmBoxNation.SelectedIndex;
+            int index = cmbNation.SelectedIndex;
             
-            if (txtBoxEventName.Text == "")
+            if (txtEventName.Text == "")
             {
                 WriteOutput("Ange ett namn till evenemanget.");
             }
-            else if (eventkalenderViewModel.Nations.Select(temp => temp.Name.Equals(Convert.ToString(cmBoxNation.SelectedItem))).Count() <= 0 || cmBoxNation.SelectedIndex == -1)
+            else if (eventkalenderViewModel.Nations.Select(temp => temp.Name.Equals(Convert.ToString(cmbNation.SelectedItem))).Count() <= 0 || cmbNation.SelectedIndex == -1)
             {
                 WriteOutput("Du måste välja en befintlig nation.");
             }
@@ -220,11 +209,11 @@ namespace Eventkalender.PK
             {
                 WriteOutput("Ange start- och sluttid.");
             }
-            else if (txtBoxSummary.Text == "")
+            else if (txtSummary.Text == "")
             {
                 WriteOutput("Ange en beskrivning till evenemanget.");
             }
-            if (Utility.IsNotEmpty(txtBoxEventName.Text, cmBoxNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtBoxSummary.Text))
+            if (Utility.IsNotEmpty(txtEventName.Text, cmbNation.Text, dtpickStartDate.Text, cmbStartTime.Text, dtpickEndDate.Text, cmbEndTime.Text, txtSummary.Text))
             {
                 DateTime dateStart = Utility.ToDate(dtpickStartDate.Text, cmbStartTime.Text);
                 DateTime dateEnd = Utility.ToDate(dtpickEndDate.Text, cmbEndTime.Text);
@@ -236,42 +225,42 @@ namespace Eventkalender.PK
                 else
                 {
                     Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                    eventkalenderViewModel.AddEvent(txtBoxEventName.Text, txtBoxSummary.Text, dateStart, dateEnd, n.Id);
+                    eventkalenderViewModel.AddEvent(txtEventName.Text, txtSummary.Text, dateStart, dateEnd, n.Id);
 
                     dtpickStartDate.Text = "";
                     dtpickEndDate.Text = "";
                     cmbStartTime.SelectedIndex = -1;
                     cmbEndTime.SelectedIndex = -1;
-                    txtBoxEventName.Text = "";
-                    txtBoxSummary.Text = "";
+                    txtEventName.Text = "";
+                    txtSummary.Text = "";
                 }
 
             }
         }
 
-        private void btnInvToEvent_Click(object sender, RoutedEventArgs e)
+        private void btnInviteToEvent_Click(object sender, RoutedEventArgs e)
         {
-            int index = datagridInviteEvent.SelectedIndex;
+            int index = dgInviteEvent.SelectedIndex;
             Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
 
-            eventkalenderViewModel.InviteToEvent(datagridInvitePersons.SelectedItems, ev);
+            eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
         }
         private void btnMarkAllPerson_Click(object sender, RoutedEventArgs e)
         {
-            datagridInvitePersons.SelectAllCells();
+            dgInvitePersons.SelectAllCells();
         }
 
-        private void cmBoxSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cmbSearchEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = cmBoxSearchEvents.SelectedIndex;
+            int index = cmbSearchEvents.SelectedIndex;
             if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                datagridEvents.ItemsSource = n.Events;
+                dgEvents.ItemsSource = n.Events;
             }
             else
             {
-                datagridEvents.ItemsSource = eventkalenderViewModel.Events;
+                dgEvents.ItemsSource = eventkalenderViewModel.Events;
             }
         }
 
@@ -280,12 +269,12 @@ namespace Eventkalender.PK
             int index = cmbEvents.SelectedIndex;
             if (index == -1)
             {
-                datagridFindEvents.ItemsSource = eventkalenderViewModel.Events;
+                dgFindEvents.ItemsSource = eventkalenderViewModel.Events;
             }
             else if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                datagridFindEvents.ItemsSource = n.Events;
+                dgFindEvents.ItemsSource = n.Events;
             }
             
         }
@@ -295,16 +284,16 @@ namespace Eventkalender.PK
             int index = cmbInviteEvent.SelectedIndex;
             if (index == -1)
             {
-                datagridInviteEvent.ItemsSource = eventkalenderViewModel.Events;
+                dgInviteEvent.ItemsSource = eventkalenderViewModel.Events;
             }
             else if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
-                datagridInviteEvent.ItemsSource = n.Events;
+                dgInviteEvent.ItemsSource = n.Events;
             }
             else
             {
-                datagridInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
+                dgInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
             }
         }
 
@@ -314,17 +303,17 @@ namespace Eventkalender.PK
             if (index > -1)
             {
                 Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
-                datagridInvitePersons.ItemsSource = new List<Database.Person>() { person };
+                dgInvitePersons.ItemsSource = new List<Database.Person>() { person };
             }
             else
             {
-                datagridInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
+                dgInvitePersons.ItemsSource = eventkalenderViewModel.Persons;
             }
         }
 
         public void WriteOutput(string message)
         {
-            txtboxConsole.Text = message;
+            txtConsole.Text = message;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -354,12 +343,12 @@ namespace Eventkalender.PK
         
         private void btnChoiceOfFile_Click(object sender, RoutedEventArgs e)
         {
-            if(txtboxSearchFile.Text != "")
+            if(txtSearchFile.Text != "")
             {
-                string path = txtboxSearchFile.Text;
+                string path = txtSearchFile.Text;
                 if(eventkalenderViewModel.GetFiles().Contains(path))
                 {
-                    txtboxOutput.Text = eventkalenderViewModel.GetFile(path);
+                    txtOutput.Text = eventkalenderViewModel.GetFile(path);
                     
                 }
                 else

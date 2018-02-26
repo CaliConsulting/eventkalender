@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -264,7 +265,8 @@ namespace Eventkalender.Database
 
                     foreach (Event e in addedEvents)
                     {
-                        if (context.Entry(e).State == EntityState.Detached)
+                        DbEntityEntry entry = context.Entry(e);
+                        if (entry.State == EntityState.Detached)
                         {
                             context.Event.Attach(e);
                         }

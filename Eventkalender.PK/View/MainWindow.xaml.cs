@@ -174,7 +174,6 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             if (txtNationName.Text != "")
-
             {
                 eventkalenderViewModel.AddNation(txtNationName.Text);
                 txtNationName.Text = "";
@@ -225,6 +224,8 @@ namespace Eventkalender.PK
             else if (cmbStartTime.SelectedIndex == -1 || cmbEndTime.SelectedIndex == -1)
             {
                 WriteOutput("Ange start- och sluttid.");
+                cmbStartTime.Text = "";
+                cmbEndTime.Text = "";
             }
             else if (txtSummary.Text == "")
             {
@@ -297,6 +298,7 @@ namespace Eventkalender.PK
             {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
+               // eventkalenderViewModel.Events.
             }
         }
 

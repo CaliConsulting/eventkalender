@@ -144,7 +144,6 @@ namespace Eventkalender.PK
         public void AddNation(string name)
         {
             Database.Nation temp = new Database.Nation(name);
-
             Nations.Add(temp);
             eventkalenderDAL.AddNation(temp);
 
@@ -189,9 +188,13 @@ namespace Eventkalender.PK
             Database.Event e = new Database.Event(name, summary, startTime, endTime, nationId);
 
             Events.Add(e);
+
+            Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
+            n1.Events.Add(e);
+          
             eventkalenderDAL.AddEvent(e);
 
-            //NotifyPropertyChanged("Events");
+            NotifyPropertyChanged("Nations");
         }
 
         public void DeleteEvent(int id)
@@ -412,6 +415,7 @@ namespace Eventkalender.PK
                     if (!p.Events.Contains(ev))
                     {
                         p.Events.Add(ev);
+                        ev.Persons.Add(p);
                         eventkalenderDAL.UpdatePerson(p);
                     }
                 }
@@ -419,6 +423,7 @@ namespace Eventkalender.PK
                 {
                     StatusProperty = e.Message;
                 }
+                //Kanske skicka tillbaka att personen redan går på detta event
             }
         }
 

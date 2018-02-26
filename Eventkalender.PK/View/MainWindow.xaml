@@ -39,8 +39,20 @@
                                           VerticalScrollBarVisibility="Auto"
                                           ItemsSource="{Binding Path=Events}" >
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
-                                        <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
+                                        <DataGridTextColumn Header="Evenemangsnamn" Width="0.25*" Binding="{Binding Path=Name}">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Header="Nation" Width="0.25*" Binding="{Binding Path=Nation.Name}">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
                                         <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
                                         <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
                                         <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
@@ -60,15 +72,16 @@
                                 <StackPanel Canvas.Left="10" Canvas.Top="10"  >
                                     <TextBlock Text="Lägg till Event"
                                                FontWeight="BOLD"/>
-                                    <TextBlock Text="Eventnamn*"/>
+                                    <TextBlock Text="Eventnamn *"/>
                                     <TextBox x:Name="txtEventName"
                                              Margin="0,0,0,0"
                                              AcceptsReturn="True"
                                              AcceptsTab="False"
                                              Width="150"
+                                             Height="22.5"
                                              HorizontalAlignment="Left"
                                              TabIndex="1"/>
-                                    <TextBlock Text="Nation*"/>
+                                    <TextBlock Text="Nation *"/>
                                     <ComboBox x:Name="cmbNation"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Left"
@@ -80,7 +93,7 @@
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"
                                               TabIndex="2"/>
-                                    <TextBlock Text="Start av event:*"/>
+                                    <TextBlock Text="Start av event: *"/>
                                     <DatePicker x:Name="dtpickStartDate"
                                               MaxWidth="150"
                                               Width="150"
@@ -89,7 +102,7 @@
                                               ToolTipService.InitialShowDelay="5000"
                                                 TabIndex="3"/>
 
-                                    <TextBlock Text="Eventets slut:*"/>
+                                    <TextBlock Text="Eventets slut: *"/>
                                     <DatePicker x:Name="dtpickEndDate"
                                               Width="150"
                                               MaxWidth="150"
@@ -98,9 +111,9 @@
                                             ToolTipService.InitialShowDelay="5000"
                                                 TabIndex="5"/>
 
-                                    <TextBlock Text="Beskrivning:*"/>
+                                    <TextBlock Text="Beskrivning: *"/>
                                     <TextBox x:Name="txtSummary"
-                                             Height="200" 
+                                             Height="205" 
                                              Width="350"
                                              TextWrapping="Wrap"
                                              TabIndex="7"/>
@@ -113,7 +126,7 @@
                                             ToolTipService.InitialShowDelay="5000"
                                             TabIndex="8"/>
                                 </StackPanel>
-                                <TextBlock Text="Tid:*"
+                                <TextBlock Text="Tid: *"
                                            Canvas.Top="100"
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmbStartTime"
@@ -125,7 +138,7 @@
                                           ItemsSource="{Binding Path=TimesList}"
                                           TabIndex="4">
                                 </ComboBox>
-                                <TextBlock Text="Tid:*"
+                                <TextBlock Text="Tid: *"
                                            Canvas.Top="140"
                                            Canvas.Left="170"/>
                                 <ComboBox x:Name="cmbEndTime"
@@ -162,8 +175,20 @@
                                               ItemsSource="{Binding Path=Events}"
                                               SelectedValuePath="Id">
                                         <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
-                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
+                                            <DataGridTextColumn Header="Evenemangsnamn" Width="0.4*" Binding="{Binding Path=Name}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+                                            <DataGridTextColumn Header="Nation" Width="0.4*" Binding="{Binding Path=Nation.Name}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
                                             <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
                                             <DataGridTextColumn Header="Start av evenemanget" Width="auto" Binding="{Binding Path=StartTime}"/>
                                             <DataGridTextColumn Header="Slut av evenemanget" Width="auto" Binding="{Binding Path=EndTime}"/>
@@ -193,13 +218,13 @@
                                 <StackPanel Canvas.Left="20" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Person"
                                                FontWeight="Bold"/>
-                                    <TextBlock Text="Förnamn*"/>
+                                    <TextBlock Text="Förnamn *"/>
                                     <TextBox x:Name="txtFirstName"
                                              Margin="0,0,0,0"
                                              Width="150"
                                              HorizontalAlignment="Left"
                                              TabIndex="1"/>
-                                    <TextBlock Text="Efternamn*"/>
+                                    <TextBlock Text="Efternamn *"/>
                                     <TextBox x:Name="txtLastName"
                                              Margin="0,0,0,0"
                                              Width="150"
@@ -228,8 +253,20 @@
                                               ToolTipService.InitialShowDelay="500" >
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
-                                            <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Förnamn" Width="0.7*" Binding="{Binding Path=FirstName}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+                                            <DataGridTextColumn Header="Efternamn" Width="0.7*" Binding="{Binding Path=LastName}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
                                             <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
@@ -246,7 +283,7 @@
                                             Canvas.Top="10">
                                     <TextBlock Text="Lägg till Nation"
                                                FontWeight="Bold"/>
-                                    <TextBlock Text="Namn*"/>
+                                    <TextBlock Text="Namn *"/>
                                     <TextBox x:Name="txtNationName"
                                              MaxWidth="150"
                                              Width="150"
@@ -277,7 +314,13 @@
                                               ToolTipService.InitialShowDelay="500">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="Namn" Width="auto" Binding="{Binding Path=Name}"/>
+                                            <DataGridTextColumn Header="Namn" Width="1.5*" Binding="{Binding Path=Name}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
                                             <DataGridTextColumn Header="Evenemang arrangerade" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
@@ -290,7 +333,6 @@
                                             ToolTipService.InitialShowDelay="500"
                                             Click="btnDeleteNation_Click"/>
                                 </StackPanel>
-
                             </Canvas>
                         </TabItem>
                         <TabItem Header="Inbjudningar" Margin="0,0,0,0">
@@ -311,19 +353,30 @@
                                              HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="dgInvitePersons"
                                              Height="300"
-                                             Width="350"
+                                             Width="600"
                                              Margin="0,15,0,0"
                                              IsReadOnly="True"
                                              HorizontalScrollBarVisibility="Auto"
                                              VerticalScrollBarVisibility="Auto"
                                              SelectionMode="Extended"
                                              ItemsSource="{Binding Path=Persons}"
-                                             AutoGenerateColumns="False"
-                                             >
+                                             AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="Förnamn" Width="auto" Binding="{Binding Path=FirstName}"/>
-                                            <DataGridTextColumn Header="Efternamn" Width="auto" Binding="{Binding Path=LastName}"/>
+                                            <DataGridTextColumn Header="Förnamn" Width="1*" Binding="{Binding Path=FirstName}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+                                            <DataGridTextColumn Header="Efternamn" Width="1*" Binding="{Binding Path=LastName}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
                                             <DataGridTextColumn Header="Evenemangsdeltagande" Width="*" Binding="{Binding Path=Events.Count}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
@@ -333,7 +386,7 @@
                                             Margin="0,15,0,0"
                                             Width="100"/>
                                 </StackPanel>
-                                <StackPanel Canvas.Left="400"
+                                <StackPanel Canvas.Left="620"
                                             Canvas.Top="10">
                                     <TextBlock Text="Events" FontWeight="Bold"/>
                                     <ComboBox x:Name="cmbInviteEvent"
@@ -349,7 +402,7 @@
                                               HorizontalAlignment="Left"/>
                                     <DataGrid x:Name="dgInviteEvent"
                                              Height="300"
-                                             Width="500"
+                                             Width="620"
                                              Margin="0,15,0,0"
                                              IsReadOnly="True"
                                              HorizontalScrollBarVisibility="Auto"
@@ -359,19 +412,32 @@
                                              AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Path=Id}"/>
-                                            <DataGridTextColumn Header="Evenemangsnamn" Width="auto" Binding="{Binding Path=Name}"/>
-                                            <DataGridTextColumn Header="Nation" Width="auto" Binding="{Binding Path=Nation.Name}"/>
+                                            <DataGridTextColumn Header="Evenemangsnamn" Width="0.5*" Binding="{Binding Path=Name}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
+                                            <DataGridTextColumn Header="Nation" Width="0.5*" Binding="{Binding Path=Nation.Name}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                            </DataGridTextColumn>
                                             <DataGridTextColumn Header="Inbjudna" Width="auto" Binding="{Binding Path=Persons.Count}"/>
-                                            <DataGridTextColumn Header="Start av evenemanget" Width="*" Binding="{Binding Path=StartTime}"/>
+                                            <DataGridTextColumn Header="Start av evenemanget" Width="0.35*" Binding="{Binding Path=StartTime}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                 </StackPanel>
                                 <Button x:Name="btnInviteToEvent"
                                         Click="btnInviteToEvent_Click"
-                                        Content="Bjud in"
+                                        Content="Bjud in!!!"
                                         Canvas.Bottom="40"
-                                        Canvas.Left="340"
-                                        Width="70"/>
+                                        Canvas.Left="570"
+                                        Width="90"
+                                        Height="50"/>
                             </Canvas>
                         </TabItem>
                     </TabControl>
@@ -489,26 +555,26 @@
                                     Width="100">
                                 <TextBlock Text="Employee"
                                        FontWeight="Bold"/>
-                                <TextBlock Text="Förnamn"
-                                       Margin="0,15,0,0"/>
-                                <TextBox x:Name="txtEmployeeFirstName"
-                                     Margin="0,5,0,0"/>
-                                <TextBlock Text="Efternamn"
-                                       Margin="0,5,0,0"/>
-                                <TextBox x:Name="txtEmployeeLastName"
-                                     Margin="0,5,0,0"/>
-                                <TextBlock Text="Id"
+                                <TextBlock Text="Id *"
                                        Margin="0,5,0,0"/>
                                 <TextBox x:Name="txtEmployeeNumber"
-                                 Margin="0,5,0,0"/>
+                                 Margin="0,0,0,0"/>
+                                <TextBlock Text="Förnamn *"
+                                       Margin="0,0,0,0"/>
+                                <TextBox x:Name="txtEmployeeFirstName"
+                                     Margin="0,0,0,0"/>
+                                <TextBlock Text="Efternamn *"
+                                       Margin="0,0,0,0"/>
+                                <TextBox x:Name="txtEmployeeLastName"
+                                     Margin="0,0,0,0"/>
                                 <Button x:Name="btnAddEmployee"
                                     Content="Lägg till"
                                     Margin="0,15,0,0"
-                                    Click="btnAddEmployee_Click"   />
+                                    Click="btnAddEmployee_Click"/>
                                 <Button x:Name="btnUpdateEmployee"
                                         Content="Uppdatera"
                                         Margin="0,15,0,0"
-                                        Click="btnUpdateEmployee_Click" />
+                                        Click="btnUpdateEmployee_Click"/>
                             </StackPanel>
                             <DataGrid x:Name="dgEmployee"
                                       Canvas.Left="400"
@@ -520,10 +586,28 @@
                                       ItemsSource="{Binding Path= Employees}" 
                                       SelectionChanged="dgEmployee_SelectionChanged" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}"/>
+                                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Path= No}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
                                     <DataGridTextColumn Header="Kön" Width="*" Binding="{Binding Path= Sex}"/>
-                                    <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path= FirstName}"/>
-                                    <DataGridTextColumn Header="Efternamn" Width="*" Binding="{Binding Path= LastName}"/>
+                                    <DataGridTextColumn Header="Förnamn" Width="*" Binding="{Binding Path= FirstName}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="Efternamn" Width="*" Binding="{Binding Path= LastName}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button x:Name="btnDeleteEmployee"

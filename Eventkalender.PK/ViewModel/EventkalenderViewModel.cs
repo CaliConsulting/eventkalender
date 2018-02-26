@@ -371,7 +371,6 @@ namespace Eventkalender.PK
         }
 
         private int wSSelectedIndex = -1;
-
         public int WSSelectedIndex
         {
             get
@@ -389,14 +388,36 @@ namespace Eventkalender.PK
                 }
             }
         }
+
+        public string statusProperty = "";
+        public string StatusProperty
+        {
+            get
+            {
+                return statusProperty;
+            }
+            set
+            {
+                statusProperty = value;
+                NotifyPropertyChanged("StatusProperty");
+            }
+        }
+
         public void InviteToEvent(IList list, Database.Event ev)
         {
             foreach (Database.Person p in list)
             {
-                if (!p.Events.Contains(ev))
+                try
                 {
-                    p.Events.Add(ev);
-                    eventkalenderDAL.UpdatePerson(p);
+                    if (!p.Events.Contains(ev))
+                    {
+                        p.Events.Add(ev);
+                        eventkalenderDAL.UpdatePerson(p);
+                    }
+                }
+                catch (Exception e)
+                {
+                    StatusProperty = e.Message;
                 }
             }
         }

@@ -254,20 +254,26 @@ namespace Eventkalender.Database
                     return;
                 }
 
-                List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
-                List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
 
-                deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
-
-                foreach (Event e in addedEvents)
+                using (var dbContextTransaction = context.Database.BeginTransaction())
                 {
-                    if (context.Entry(e).State == EntityState.Detached)
+                    List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
+                    List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
+
+                    deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
+
+                    foreach (Event e in addedEvents)
                     {
-                        context.Event.Attach(e);
+                        if (context.Entry(e).State == EntityState.Detached)
+                        {
+                            context.Event.Attach(e);
+                        }
+                        dbPerson.Events.Add(e);
                     }
-                    dbPerson.Events.Add(e);
+                    context.SaveChanges();
+
+                    dbContextTransaction.Commit();
                 }
-                context.SaveChanges();
             }
         }
 

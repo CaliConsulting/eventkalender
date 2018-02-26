@@ -188,10 +188,8 @@ namespace Eventkalender.PK
             Database.Event e = new Database.Event(name, summary, startTime, endTime, nationId);
 
             Events.Add(e);
-
             Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
-            n1.Events.Add(e);
-          
+            n1.Events.Add(e);          
             eventkalenderDAL.AddEvent(e);
 
             NotifyPropertyChanged("Nations");
@@ -399,8 +397,17 @@ namespace Eventkalender.PK
                 if (!p.Events.Contains(ev))
                 {
                     p.Events.Add(ev);
-                    ev.Persons.Add(p);
+
+                    Database.Event e1 = Events.First(temp => temp.Id == ev.Id);
+                    e1.Persons.Add(p);
+
+
                     eventkalenderDAL.UpdatePerson(p);
+       
+                    /*Events.Add(e);
+                    Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
+                    n1.Events.Add(e);
+                    eventkalenderDAL.AddEvent(e);*/
                 }
                 //Kanske skicka tillbaka att personen redan går på detta event
             }

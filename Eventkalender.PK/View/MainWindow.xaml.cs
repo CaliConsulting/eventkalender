@@ -298,7 +298,6 @@ namespace Eventkalender.PK
             {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
-               // eventkalenderViewModel.Events.
             }
         }
 

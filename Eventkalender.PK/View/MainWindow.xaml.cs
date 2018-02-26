@@ -1,21 +1,9 @@
-﻿using Eventkalender.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Collections.ObjectModel;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Eventkalender.PK.CronusReference;
-using Eventkalender.PK.EventkalenderReference;
-using System.Data;
 
 namespace Eventkalender.PK
 {
@@ -25,6 +13,7 @@ namespace Eventkalender.PK
     public partial class MainWindow : Window
     {
         private EventkalenderViewModel eventkalenderViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -89,7 +78,7 @@ namespace Eventkalender.PK
                 else
                 {
                     WriteOutput("Det finns redan en anställd med detta ID");
-                }              
+                }
             }
             else
             {
@@ -100,7 +89,7 @@ namespace Eventkalender.PK
         private void dgEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = dgEmployee.SelectedIndex;
-            if(index > -1)
+            if (index > -1)
             {
                 CronusReference.Employee temp = new CronusReference.Employee();
                 temp = eventkalenderViewModel.Employees.ElementAt(index);
@@ -138,7 +127,6 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             int index = dgPerson.SelectedIndex;
-
             if (index > -1)
             {
                 Database.Person person = eventkalenderViewModel.Persons.ElementAt(index);
@@ -150,7 +138,6 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             int index = dgNation.SelectedIndex;
-
             if (index > -1)
             {
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
@@ -162,12 +149,11 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             int index = dgEvents.SelectedIndex;
-
-            if(index > -1)
+            if (index > -1)
             {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.DeleteEvent(ev.Id);
-            }          
+            }
         }
 
         private void btnRegisterNationName_Click(object sender, RoutedEventArgs e)
@@ -188,7 +174,6 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             if (txtFirstName.Text != "" && txtLastName.Text != "")
-
             {
                 eventkalenderViewModel.AddPerson(txtFirstName.Text, txtLastName.Text);
                 txtFirstName.Text = "";
@@ -208,12 +193,12 @@ namespace Eventkalender.PK
         {
             ClearOutput();
             int index = cmbNation.SelectedIndex;
-            
+
             if (txtEventName.Text == "")
             {
                 WriteOutput("Ange ett namn till evenemanget.");
             }
-            else if (eventkalenderViewModel.Nations.Select(temp => temp.Name.Equals(Convert.ToString(cmbNation.SelectedItem))).Count() <= 0 || cmbNation.SelectedIndex == -1)
+            else if (!eventkalenderViewModel.Nations.Any(temp => temp.Name.Equals(Convert.ToString(cmbNation.SelectedItem))) || cmbNation.SelectedIndex == -1)
             {
                 WriteOutput("Du måste välja en befintlig nation.");
             }
@@ -287,7 +272,6 @@ namespace Eventkalender.PK
                 Database.Nation n = eventkalenderViewModel.Nations.ElementAt(index);
                 dgFindEvents.ItemsSource = n.Events;
             }
-            
         }
 
         private void btnInviteToEvent_Click(object sender, RoutedEventArgs e)
@@ -298,7 +282,7 @@ namespace Eventkalender.PK
             {
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.InviteToEvent(dgInvitePersons.SelectedItems, ev);
-               // eventkalenderViewModel.Events.
+                // eventkalenderViewModel.Events.
             }
         }
 
@@ -355,7 +339,7 @@ namespace Eventkalender.PK
             if (cmbWebService.SelectedIndex == 0) //event kalla webservicen
             {
                 eventkalenderViewModel.EventGridWrapAutoSize(dgWebService);
-                dgWebService.ItemsSource = eventkalenderViewModel.GetEvents(); 
+                dgWebService.ItemsSource = eventkalenderViewModel.GetEvents();
             }
             if (cmbWebService.SelectedIndex == 1) //nation
             {
@@ -368,17 +352,17 @@ namespace Eventkalender.PK
                 dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
         }
-        
+
         private void btnChoiceOfFile_Click(object sender, RoutedEventArgs e)
         {
             ClearOutput();
-            if(txtSearchFile.Text != "")
+            if (txtSearchFile.Text != "")
 
             {
                 string path = txtSearchFile.Text;
-                if(eventkalenderViewModel.GetFiles().Contains(path))
+                if (eventkalenderViewModel.GetFiles().Contains(path))
                 {
-                    txtOutput.Text = eventkalenderViewModel.GetFile(path);                   
+                    txtOutput.Text = eventkalenderViewModel.GetFile(path);
                 }
                 else
                 {
@@ -398,6 +382,5 @@ namespace Eventkalender.PK
             // Warm up Entity Framework on WS
             eventkalenderViewModel.GetEmployees();
         }
-
     }
 }

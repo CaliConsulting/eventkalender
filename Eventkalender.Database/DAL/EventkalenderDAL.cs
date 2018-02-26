@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
@@ -120,7 +116,7 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                List <Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
+                List<Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
 
                 // Set fields to null to avoid circular references
                 foreach (Event e in dbEvents ?? Enumerable.Empty<Event>())
@@ -266,8 +262,8 @@ namespace Eventkalender.Database
                     e.Nation = null;
                     e.Persons = null;
 
-                    DbEntityEntry entry = context.Entry(e);
-                    if (entry.State == EntityState.Detached)
+                    DbEntityEntry eventEntry = context.Entry(e);
+                    if (eventEntry.State == EntityState.Detached)
                     {
                         context.Event.Attach(e);
                     }

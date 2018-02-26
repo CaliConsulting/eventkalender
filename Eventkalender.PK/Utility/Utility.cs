@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -162,7 +160,6 @@ namespace Eventkalender.PK
             List<List<string>> stringValues = new List<List<string>>();
             switch (index)
             {
-               
                 case 0:
                     CronusReference.DataTuple[] values = new CronusReference.DataTuple[] { cronusClient.GetIllestPerson() };
                     return ExtractData(values);
@@ -193,6 +190,5 @@ namespace Eventkalender.PK
             }
             return null;
         }
-        
     }
 }

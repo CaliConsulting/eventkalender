@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
@@ -99,12 +94,12 @@ namespace Eventkalender.Database
 
         [Column("Address 2")]
         public string Address2 { get; set; }
-        
+
         public string City { get; set; }
 
         [Column("Post Code")]
         public string PostCode { get; set; }
-        
+
         public string County { get; set; }
 
         [Column("Phone No_")]
@@ -124,7 +119,7 @@ namespace Eventkalender.Database
 
         [Column("Alt_ Address End Date")]
         public DateTime AltAddressEndDate { get; set; }
-        
+
         public byte[] Picture { get; set; }
 
         [Column("Birth Date")]
@@ -156,7 +151,7 @@ namespace Eventkalender.Database
 
         [Column("Employment Date")]
         public DateTime EmploymentDate { get; set; }
-        
+
         public int Status { get; set; }
 
         [Column("Inactive Date")]
@@ -182,7 +177,7 @@ namespace Eventkalender.Database
 
         [Column("Last Date Modified")]
         public DateTime LastDateModified { get; set; }
-        
+
         public string Extension { get; set; }
 
         public string Pager { get; set; }
@@ -192,7 +187,7 @@ namespace Eventkalender.Database
 
         [Column("Company E-Mail")]
         public string CompanyEmail { get; set; }
-        
+
         public string Title { get; set; }
 
         [Column("Salespers__Purch_ Code")]

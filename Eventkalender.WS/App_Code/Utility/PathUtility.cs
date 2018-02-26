@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 
 namespace Eventkalender.WS
 {
@@ -9,7 +6,6 @@ namespace Eventkalender.WS
     {
         public PathUtility()
         {
-
         }
 
         public static string GetPhysicalPath(string folder)

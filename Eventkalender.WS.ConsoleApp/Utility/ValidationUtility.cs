@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -18,7 +14,8 @@ namespace Eventkalender.WS.ConsoleApp
             for (int i = 0; i < allAlternatives.Length; i++)
             {
                 string alternative = allAlternatives[i];
-                if (chosenAlternative != null && chosenAlternative.Length != 0 && chosenAlternative.ToUpper().Equals(alternative.ToUpper())) {
+                if (chosenAlternative != null && chosenAlternative.Length != 0 && chosenAlternative.ToUpper().Equals(alternative.ToUpper()))
+                {
                     return true;
                 }
             }

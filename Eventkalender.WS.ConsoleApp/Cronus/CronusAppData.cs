@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Eventkalender.Database;
+﻿using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.CronusReference;
 using Eventkalender.WS.ConsoleApp.Utility;
+using System;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -20,7 +16,7 @@ namespace Eventkalender.WS.ConsoleApp
         {
             cronusClient = new CronusServiceSoapClient();
         }
-      
+
         public void GetOutput(CronusReference.DataTuple[] inputTuple)
         {
             Console.WriteLine(ConversionUtility.ToString(inputTuple));
@@ -37,7 +33,7 @@ namespace Eventkalender.WS.ConsoleApp
         public void GetIllPersonsByYear()
         {
             Console.WriteLine("Skriv in årsintervallen, skriv först in startåret:");
-            string userInput = Console.ReadLine();            
+            string userInput = Console.ReadLine();
             bool isNumericStartYear = int.TryParse(userInput, out int startYear);
 
             Console.WriteLine("Skriv in slutåret");

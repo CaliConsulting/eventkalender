@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
-    interface IMessageHelper<T>
+    internal interface IMessageHelper<T>
     {
         string GetMessage(T ex);
     }
@@ -23,8 +21,10 @@ namespace Eventkalender.Database
         private static Dictionary<Type, dynamic> helpers;
 
         private const int CANNOT_INSERT_NULL = 515;
+
         //private const int CHECK_CONSTRAINT_CONFLICT = 547;
         private const int DATA_TYPE_CONVERSION_ERROR = 8114;
+
         private const int LOGIN_FAILED = 4060;
         private const int NON_MATCHING_TABLE_DEFINITION = 213;
         private const int PRIMARY_KEY_VIOLATION = 2627;
@@ -90,18 +90,24 @@ namespace Eventkalender.Database
                 {
                     case CANNOT_INSERT_NULL:
                         return GetCannotInsertNullMessage(message);
+
                     case DATA_TYPE_CONVERSION_ERROR:
                         return GetDataTypeConversionErrorMessage(message);
+
                     case LOGIN_FAILED:
                         return "Inloggningen till databasen misslyckades; kontrollera användarnamn och lösenord";
                     case NON_MATCHING_TABLE_DEFINITION:
                         return "Databasen accepterar inte indatan för ett fält";
+
                     case PRIMARY_KEY_VIOLATION:
                         return GetPrimaryKeyViolationMessage(message);
+
                     case RAISE_ERROR:
                         return message;
+
                     case TRUNCATED_DATA:
                         return "Ett indata-fält överskrider maximala tillåtna längden";
+
                     case WRONG_CREDENTIALS:
                         return GetWrongCredentialsMessage(message);
                 }

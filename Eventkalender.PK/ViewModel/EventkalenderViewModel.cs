@@ -410,18 +410,11 @@ namespace Eventkalender.PK
         {
             foreach (Database.Person p in list)
             {
-                try
+                if (!p.Events.Contains(ev))
                 {
-                    if (!p.Events.Contains(ev))
-                    {
-                        p.Events.Add(ev);
-                        ev.Persons.Add(p);
-                        eventkalenderDAL.UpdatePerson(p);
-                    }
-                }
-                catch (Exception e)
-                {
-                    StatusProperty = e.Message;
+                    p.Events.Add(ev);
+                    //ev.Persons.Add(p);
+                    eventkalenderDAL.UpdatePerson(p);
                 }
                 //Kanske skicka tillbaka att personen redan går på detta event
             }

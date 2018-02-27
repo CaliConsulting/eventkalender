@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.WS.ConsoleApp
 {
     public class CronusApp
-    {        
+    {
         private int caseSwitch;
         private bool returnBool;
 
@@ -55,7 +51,7 @@ namespace Eventkalender.WS.ConsoleApp
                         Program.VeryGoodMethod();
                         break;
                 }
-                if(!returnBool)
+                if (!returnBool)
                 {
                     break;
                 }

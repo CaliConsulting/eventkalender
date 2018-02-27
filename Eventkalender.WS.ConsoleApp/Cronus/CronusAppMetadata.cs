@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Eventkalender.Database;
+﻿using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.CronusReference;
 using Eventkalender.WS.ConsoleApp.Utility;
+using System;
+using System.Collections.Generic;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -47,7 +44,7 @@ namespace Eventkalender.WS.ConsoleApp
             GetOutput(cronusClient.GetKeys());
             ExitQuestion();
         }
-        
+
         public void GetIndexes()
         {
             Console.WriteLine("Följande är alla indexes: ");
@@ -68,7 +65,7 @@ namespace Eventkalender.WS.ConsoleApp
             GetOutput(cronusClient.GetTables());
             ExitQuestion();
         }
-        
+
         public void GetOutput(CronusReference.DataTuple[] inputTuple)
         {
             Console.WriteLine(ConversionUtility.ToString(inputTuple));
@@ -80,6 +77,7 @@ namespace Eventkalender.WS.ConsoleApp
             GetOutput(cronusClient.GetEmployeeMetadata());
             ExitQuestion();
         }
+
         public void GetEmployeeAbsenceMetadata()
         {
             Console.WriteLine("Employee Absence Metadata är följande:");
@@ -93,14 +91,14 @@ namespace Eventkalender.WS.ConsoleApp
             GetOutput(cronusClient.GetEmployeeRelativeMetadata());
             ExitQuestion();
         }
-        
+
         public void GetEmployeeQualificationMetadata()
         {
             Console.WriteLine("Employee Qualification Metadata är följande: ");
             GetOutput(cronusClient.GetEmployeeQualificationMetadata());
             ExitQuestion();
         }
-        
+
         public void GetEmployeePortalSetupMetadata()
         {
             Console.WriteLine("Employee Portal Setup Metadata är följande: ");
@@ -137,7 +135,7 @@ namespace Eventkalender.WS.ConsoleApp
             while (true)
             {
                 returnBool = true;
-                
+
                 Console.WriteLine("\nVad för Metadata är du intresserad av?!\n");
                 Console.WriteLine("Hämta alla nycklar: Tryck 1");
                 Console.WriteLine("Hämta kolumner i Personaltabellen : Tryck 2");

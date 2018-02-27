@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections;
-using Eventkalender.Database;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using Eventkalender.Database;
 using Eventkalender.PK.CronusReference;
 using Eventkalender.PK.EventkalenderReference;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows;
 
 namespace Eventkalender.PK
 {
@@ -115,7 +113,6 @@ namespace Eventkalender.PK
                     employees = new ObservableCollection<CronusReference.Employee>(cronusClient.GetEmployees());
                 }
                 return employees;
-
             }
             set
             {
@@ -152,16 +149,15 @@ namespace Eventkalender.PK
 
         public void DeleteNation(int id)
         {
-            
             Database.Nation temp = new Database.Nation();
             temp.Id = id;
 
             Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
             eventkalenderDAL.DeleteNation(temp);
-            
+
             //NotifyPropertyChanged("Nations");
         }
-        
+
         public void AddPerson(string name, string lastname)
         {
             Database.Person p = new Database.Person(name, lastname);
@@ -190,6 +186,7 @@ namespace Eventkalender.PK
             Events.Add(e);
             Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
             n1.Events.Add(e);          
+
             eventkalenderDAL.AddEvent(e);
 
             NotifyPropertyChanged("Nations");
@@ -215,9 +212,8 @@ namespace Eventkalender.PK
             cronusClient.DeleteEmployee(temp.No);
         }
 
-
         public List<CronusReference.Employee> GetEmployees()
-        {   
+        {
             // Endast testkod för att värma upp Entity Framework
             return cronusClient.GetEmployees().ToList();
         }
@@ -245,7 +241,18 @@ namespace Eventkalender.PK
             cronusClient.AddEmployee(no, firstName, lastName);
         }
 
+        public string GetFile(string path)
+        {
+            return eventkalenderClient.GetFile(path);
+        }
+
+        public List<string> GetFiles()
+        {
+            return eventkalenderClient.GetFiles();
+        }
+
         private List<List<string>> data;
+
         public List<List<string>> Data
         {
             get
@@ -263,6 +270,7 @@ namespace Eventkalender.PK
         }
 
         private List<List<string>> metadata;
+
         public List<List<string>> Metadata
         {
             get
@@ -280,6 +288,7 @@ namespace Eventkalender.PK
         }
 
         private int dataSelectedIndex = -1;
+
         public int DataSelectedIndex
         {
             get
@@ -299,6 +308,7 @@ namespace Eventkalender.PK
         }
 
         private int metadataSelectedIndex = -1;
+
         public int MetadataSelectedIndex
         {
             get
@@ -365,13 +375,14 @@ namespace Eventkalender.PK
                 lst.Add("Hämta Events");
                 lst.Add("Hämta Nationer");
                 lst.Add("Hämta Personer");
-              
+
                 return lst;
             }
             private set { }
         }
 
         private int wSSelectedIndex = -1;
+
         public int WSSelectedIndex
         {
             get
@@ -385,12 +396,13 @@ namespace Eventkalender.PK
                     wSSelectedIndex = value;
                     NotifyPropertyChanged("WSSelectedItem");
 
-                   // Data = Utility.(eventkalenderWSClient, wSSelectedIndex);
+                    // Data = Utility.(eventkalenderWSClient, wSSelectedIndex);
                 }
             }
         }
 
         public string statusProperty = "";
+
         public string StatusProperty
         {
             get
@@ -415,9 +427,9 @@ namespace Eventkalender.PK
                     Database.Event e1 = Events.First(temp => temp.Id == ev.Id);
                     e1.Persons.Add(p);
 
-                    eventkalenderDAL.UpdatePerson(p);
-                    
+                    eventkalenderDAL.UpdatePerson(p);      
                 }            
+
             }
   
         }
@@ -471,8 +483,8 @@ namespace Eventkalender.PK
                 dgWebService.Columns[i].Width = 0;
                 dgWebService.UpdateLayout();
                 dgWebService.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
-            }      
-                WrapColumn(col5);              
+            }
+            WrapColumn(col5);
         }
 
         public void NationGridWrapAutoSize(DataGrid dgWebService)
@@ -489,7 +501,7 @@ namespace Eventkalender.PK
             dgWebService.Columns.Add(col1);
             Autosize(dgWebService);
         }
-    
+
         public void PersonGridWrapAutoSize(DataGrid dgWebService)
         {
             ClearColumns(dgWebService);
@@ -511,25 +523,16 @@ namespace Eventkalender.PK
 
         private static void WrapColumn(DataGridTextColumn col) //DataGridTextColumn col
         {
-             var style = new Style(typeof(TextBlock));
-             style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
-             style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
-             col.ElementStyle = style;    
+            var style = new Style(typeof(TextBlock));
+            style.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
+            style.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
+            col.ElementStyle = style;
         }
 
         private static void ClearColumns(DataGrid dataGrid)
         {
             dataGrid.Columns.Clear();
             dataGrid.ItemsSource = null;
-        }
-
-        public string GetFile(string path)
-        {
-            return eventkalenderClient.GetFile(path);
-        }
-        public List<string> GetFiles()
-        {
-            return eventkalenderClient.GetFiles();
         }
 
         public void Autosize(DataGrid grid)
@@ -541,6 +544,5 @@ namespace Eventkalender.PK
                 grid.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
         }
-
     }
 }

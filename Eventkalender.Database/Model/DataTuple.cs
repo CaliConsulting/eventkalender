@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Eventkalender.Database
@@ -43,6 +41,7 @@ namespace Eventkalender.Database
             }
             return builder.ToString();
         }
+
         //[XmlIgnore]
         //public Dictionary<string, string>.KeyCollection Columns
         //{
@@ -63,7 +62,6 @@ namespace Eventkalender.Database
     {
         public SerializableKeyValuePair()
         {
-
         }
 
         public SerializableKeyValuePair(K key, V value)

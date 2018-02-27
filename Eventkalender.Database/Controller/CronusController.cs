@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
@@ -41,7 +38,7 @@ namespace Eventkalender.Database
         {
             return metadataDAL.GetColumnsForEmployeeTable();
         }
-        
+
         public List<DataTuple> GetEmployeeMetadata()
         {
             return metadataDAL.GetEmployeeMetadata();
@@ -148,6 +145,5 @@ namespace Eventkalender.Database
             Employee e = new Employee(no, firstName, lastName);
             dataDAL.UpdateEmployee(e);
         }
-
     }
 }

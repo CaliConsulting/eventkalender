@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
@@ -90,7 +87,6 @@ namespace Eventkalender.Database
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'");
             string inputQuery = builder.ToString();
             return GetMetadata(inputQuery);
-
         }
 
         public List<DataTuple> GetEmployeeAbsenceMetadata()
@@ -100,7 +96,6 @@ namespace Eventkalender.Database
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Absence'");
             string inputQuery = builder.ToString();
             return GetMetadata(inputQuery);
-            
         }
 
         public List<DataTuple> GetEmployeeRelativeMetadata()
@@ -110,7 +105,6 @@ namespace Eventkalender.Database
             builder.Append("WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee Relative'");
             string inputQuery = builder.ToString();
             return GetMetadata(inputQuery);
-
         }
 
         public List<DataTuple> GetEmployeePortalSetupMetadata()

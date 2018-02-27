@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
@@ -73,6 +70,7 @@ namespace Eventkalender.Database
                 return tuples;
             }
         }
+
         public List<DataTuple> GetEmployeeAndRelatives()
         {
             StringBuilder builder = new StringBuilder();

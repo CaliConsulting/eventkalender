@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Eventkalender.Database;
+﻿using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.EventkalenderReference;
+using System;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -59,7 +55,7 @@ namespace Eventkalender.WS.ConsoleApp
             }
             ExitQuestion();
         }
-        
+
         public void GetEvent()
         {
             Console.WriteLine("Ange eventets ID: ");
@@ -191,7 +187,7 @@ namespace Eventkalender.WS.ConsoleApp
             while (true)
             {
                 returnBool = true;
-                
+
                 Console.WriteLine("Välj vad du vill göra!\n");
                 Console.WriteLine("Hämta specifik Nation: Tryck 1");
                 Console.WriteLine("Hämta alla Nationer: Tryck 2");
@@ -206,7 +202,7 @@ namespace Eventkalender.WS.ConsoleApp
                 string userInput = Console.ReadLine();
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
                 if (!isNumeric || (caseSwitch < -1 || caseSwitch > 8))
-                {               
+                {
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 8!");
                     ExitQuestion();
                 }

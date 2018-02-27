@@ -198,7 +198,7 @@ namespace Eventkalender.PK
             {
                 WriteOutput("Ange ett namn till evenemanget.");
             }
-            else if (!eventkalenderViewModel.Nations.Any(temp => temp.Name.Equals(Convert.ToString(cmbNation.SelectedItem))) || cmbNation.SelectedIndex == -1)
+            else if (!eventkalenderViewModel.Nations.Any(temp => temp.Name.Equals(Convert.ToString(cmbNation.Text))) || cmbNation.SelectedIndex == -1)
             {
                 WriteOutput("Du måste välja en befintlig nation.");
             }

@@ -1,5 +1,4 @@
-﻿using Eventkalender.Database.Model;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Eventkalender.Database

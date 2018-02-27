@@ -186,7 +186,6 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
-
         }
 
         public void DeletePerson(int id)
@@ -205,8 +204,7 @@ namespace Eventkalender.PK
             catch (Exception ex)
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
-            }
-            
+            }    
         }
 
         public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
@@ -227,7 +225,6 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
-
         }
 
         public void DeleteEvent(int id)

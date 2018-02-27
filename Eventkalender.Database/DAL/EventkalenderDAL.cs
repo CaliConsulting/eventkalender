@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Eventkalender.Database
 {
@@ -98,15 +101,9 @@ namespace Eventkalender.Database
                 {
                     foreach (Person p in dbEvent.Persons ?? Enumerable.Empty<Person>())
                     {
-                        if (p != null)
-                        {
-                            p.Events = null;
-                        }
+                        p.Events = null;
                     }
-                    if (dbEvent.Nation != null)
-                    {
-                        dbEvent.Nation.Events = null;
-                    }
+                    dbEvent.Nation.Events = null;
                 }
                 return dbEvent;
             }
@@ -116,7 +113,7 @@ namespace Eventkalender.Database
         {
             using (var context = new EventkalenderContext(xmlPath))
             {
-                List<Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
+                List <Event> dbEvents = context.Event.Include(e => e.Nation).Include(e => e.Persons).ToList();
 
                 // Set fields to null to avoid circular references
                 foreach (Event e in dbEvents ?? Enumerable.Empty<Event>())
@@ -125,15 +122,9 @@ namespace Eventkalender.Database
                     {
                         foreach (Person p in e.Persons ?? Enumerable.Empty<Person>())
                         {
-                            if (p != null)
-                            {
-                                p.Events = null;
-                            }
+                            p.Events = null;
                         }
-                        if (e.Nation != null)
-                        {
-                            e.Nation.Events = null;
-                        }
+                        e.Nation.Events = null;
                     }
                 }
                 return dbEvents;
@@ -151,10 +142,7 @@ namespace Eventkalender.Database
                 {
                     foreach (Event e in dbNation.Events ?? Enumerable.Empty<Event>())
                     {
-                        if (e != null)
-                        {
-                            e.Nation = null;
-                        }
+                        e.Nation = null;
                     }
                 }
                 return dbNation;
@@ -174,16 +162,10 @@ namespace Eventkalender.Database
                     {
                         foreach (Event e in n.Events ?? Enumerable.Empty<Event>())
                         {
-                            if (e != null)
+                            e.Nation = null;
+                            foreach (Person p in e.Persons ?? Enumerable.Empty<Person>())
                             {
-                                e.Nation = null;
-                                foreach (Person p in e.Persons ?? Enumerable.Empty<Person>())
-                                {
-                                    if (p != null)
-                                    {
-                                        p.Events = null;
-                                    }
-                                }
+                                p.Events = null;
                             }
                         }
                     }
@@ -203,10 +185,7 @@ namespace Eventkalender.Database
                 {
                     foreach (Event e in dbPerson.Events ?? Enumerable.Empty<Event>())
                     {
-                        if (e != null)
-                        {
-                            e.Persons = null;
-                        }
+                        e.Persons = null;
                     }
                 }
                 return dbPerson;
@@ -226,14 +205,8 @@ namespace Eventkalender.Database
                     {
                         foreach (Event e in p.Events ?? Enumerable.Empty<Event>())
                         {
-                            if (e != null)
-                            {
-                                e.Persons = null;
-                            }
-                            if (e.Nation != null)
-                            {
-                                e.Nation.Events = null;
-                            }
+                            e.Persons = null;
+                            e.Nation.Events = null;
                         }
                     }
                 }
@@ -251,19 +224,14 @@ namespace Eventkalender.Database
                     return;
                 }
 
-                List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
                 List<Event> deletedEvents = dbPerson.Events.Except(p.Events).ToList();
+                List<Event> addedEvents = p.Events.Except(dbPerson.Events).ToList();
 
                 deletedEvents.ForEach(c => dbPerson.Events.Remove(c));
 
                 foreach (Event e in addedEvents)
                 {
-                    // Set fields to null to avoid circular references
-                    e.Nation = null;
-                    e.Persons = null;
-
-                    DbEntityEntry eventEntry = context.Entry(e);
-                    if (eventEntry.State == EntityState.Detached)
+                    if (context.Entry(e).State == EntityState.Detached)
                     {
                         context.Event.Attach(e);
                     }

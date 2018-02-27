@@ -238,7 +238,7 @@ namespace Eventkalender.PK
         public void AddEmployee(string no, string firstName, string lastName)
         {
             CronusReference.Employee emp = new CronusReference.Employee();
-            emp.No = no; // efterblivet intelisense som inte låter mig skapa employee med 3 inparameterar för "Konstruktorn finns inte bullshit"
+            emp.No = no;
             emp.FirstName = firstName;
             emp.LastName = lastName;
             Employees.Add(emp);
@@ -415,16 +415,11 @@ namespace Eventkalender.PK
                     Database.Event e1 = Events.First(temp => temp.Id == ev.Id);
                     e1.Persons.Add(p);
 
-
                     eventkalenderDAL.UpdatePerson(p);
-       
-                    /*Events.Add(e);
-                    Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
-                    n1.Events.Add(e);
-                    eventkalenderDAL.AddEvent(e);*/
-                }
-                //Kanske skicka tillbaka att personen redan går på detta event
+                    
+                }            
             }
+  
         }
 
         public EventkalenderReference.Event[] GetEvents()

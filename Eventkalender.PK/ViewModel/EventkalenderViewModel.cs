@@ -149,12 +149,20 @@ namespace Eventkalender.PK
 
         public void DeleteNation(int id)
         {
-            Database.Nation temp = new Database.Nation();
-            temp.Id = id;
+            try
+            {
+                Database.Nation temp = new Database.Nation();
+                temp.Id = id;
 
-            Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
-            eventkalenderDAL.DeleteNation(temp);
+                Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
+                eventkalenderDAL.DeleteNation(temp);
 
+                Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
             //NotifyPropertyChanged("Nations");
         }
 
@@ -176,6 +184,7 @@ namespace Eventkalender.PK
             Persons.Remove(Persons.FirstOrDefault(p => p.Id == temp.Id));
             eventkalenderDAL.DeletePerson(temp);
 
+            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
             //NotifyPropertyChanged("Persons");
         }
 
@@ -199,7 +208,8 @@ namespace Eventkalender.PK
 
             Events.Remove(Events.FirstOrDefault(e => e.Id == temp.Id));
             eventkalenderDAL.DeleteEvent(temp);
-
+           
+            Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
             //NotifyPropertyChanged("Events");
         }
 
@@ -252,7 +262,6 @@ namespace Eventkalender.PK
         }
 
         private List<List<string>> data;
-
         public List<List<string>> Data
         {
             get
@@ -270,7 +279,6 @@ namespace Eventkalender.PK
         }
 
         private List<List<string>> metadata;
-
         public List<List<string>> Metadata
         {
             get
@@ -288,7 +296,6 @@ namespace Eventkalender.PK
         }
 
         private int dataSelectedIndex = -1;
-
         public int DataSelectedIndex
         {
             get
@@ -308,7 +315,6 @@ namespace Eventkalender.PK
         }
 
         private int metadataSelectedIndex = -1;
-
         public int MetadataSelectedIndex
         {
             get
@@ -382,7 +388,6 @@ namespace Eventkalender.PK
         }
 
         private int wSSelectedIndex = -1;
-
         public int WSSelectedIndex
         {
             get
@@ -401,18 +406,17 @@ namespace Eventkalender.PK
             }
         }
 
-        public string statusProperty = "";
-
-        public string StatusProperty
+        public string status = "";
+        public string Status
         {
             get
             {
-                return statusProperty;
+                return status;
             }
             set
             {
-                statusProperty = value;
-                NotifyPropertyChanged("StatusProperty");
+                status = value;
+                NotifyPropertyChanged("Status");
             }
         }
 

@@ -154,6 +154,7 @@ namespace Eventkalender.PK
                 Database.Event ev = eventkalenderViewModel.Events.ElementAt(index);
                 eventkalenderViewModel.DeleteEvent(ev.Id);
             }
+            
         }
 
         private void btnRegisterNationName_Click(object sender, RoutedEventArgs e)

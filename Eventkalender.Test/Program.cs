@@ -1,5 +1,8 @@
 ﻿using Eventkalender.Database;
 using System;
+using System.IO;
+using System.Web;
+
 
 namespace Eventkalender.Test
 {
@@ -35,6 +38,7 @@ namespace Eventkalender.Test
 
             //cronusController.DeleteEmployee("FFF");
 
+            string[] files = Directory.GetFiles(filePath, "*.*", SearchOption.AllDirectories);
             Console.ReadKey();
         }
     }

@@ -140,11 +140,17 @@ namespace Eventkalender.PK
 
         public void AddNation(string name)
         {
-            Database.Nation temp = new Database.Nation(name);
-            Nations.Add(temp);
-            eventkalenderDAL.AddNation(temp);
-
-            //NotifyPropertyChanged("Nations");
+            try
+            {
+                Database.Nation temp = new Database.Nation(name);
+                Nations.Add(temp);
+                eventkalenderDAL.AddNation(temp);
+                //NotifyPropertyChanged("Nations");
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
         }
 
         public void DeleteNation(int id)
@@ -156,99 +162,156 @@ namespace Eventkalender.PK
 
                 Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
                 eventkalenderDAL.DeleteNation(temp);
-
                 Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+                //NotifyPropertyChanged("Nations");
             }
             catch (Exception ex)
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
-            //NotifyPropertyChanged("Nations");
         }
 
         public void AddPerson(string name, string lastname)
         {
-            Database.Person p = new Database.Person(name, lastname);
+            try
+            {
+                Database.Person p = new Database.Person(name, lastname);
 
-            Persons.Add(p);
-            eventkalenderDAL.AddPerson(p);
+                Persons.Add(p);
+                eventkalenderDAL.AddPerson(p);
 
-            //NotifyPropertyChanged("Persons");
+                //NotifyPropertyChanged("Persons");
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+
         }
 
         public void DeletePerson(int id)
         {
-            Database.Person temp = new Database.Person();
-            temp.Id = id;
+            try
+            {
+                Database.Person temp = new Database.Person();
+                temp.Id = id;
 
-            Persons.Remove(Persons.FirstOrDefault(p => p.Id == temp.Id));
-            eventkalenderDAL.DeletePerson(temp);
+                Persons.Remove(Persons.FirstOrDefault(p => p.Id == temp.Id));
+                eventkalenderDAL.DeletePerson(temp);
 
-            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
-            //NotifyPropertyChanged("Persons");
+                Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+                //NotifyPropertyChanged("Persons");
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+            
         }
 
         public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
         {
-            Database.Event e = new Database.Event(name, summary, startTime, endTime, nationId);
+            try
+            {
+                Database.Event e = new Database.Event(name, summary, startTime, endTime, nationId);
 
-            Events.Add(e);
-            Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
-            n1.Events.Add(e);          
+                Events.Add(e);
+                Database.Nation n1 = Nations.First(temp => temp.Id == nationId);
+                n1.Events.Add(e);
 
-            eventkalenderDAL.AddEvent(e);
+                eventkalenderDAL.AddEvent(e);
 
-            NotifyPropertyChanged("Nations");
+                NotifyPropertyChanged("Nations");
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+
         }
 
         public void DeleteEvent(int id)
         {
-            Database.Event temp = new Database.Event();
-            temp.Id = id;
+            try
+            {
+                Database.Event temp = new Database.Event();
+                temp.Id = id;
 
-            Events.Remove(Events.FirstOrDefault(e => e.Id == temp.Id));
-            eventkalenderDAL.DeleteEvent(temp);
-           
-            Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
-            //NotifyPropertyChanged("Events");
+                Events.Remove(Events.FirstOrDefault(e => e.Id == temp.Id));
+                eventkalenderDAL.DeleteEvent(temp);
+
+                Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
+                //NotifyPropertyChanged("Events");
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
         }
 
         public void DeleteEmployee(string no)
         {
-            CronusReference.Employee temp = new CronusReference.Employee();
-            temp.No = no;
+            try
+            {
+                CronusReference.Employee temp = new CronusReference.Employee();
+                temp.No = no;
 
-            Employees.Remove(Employees.FirstOrDefault(e => e.No == temp.No));
-            cronusClient.DeleteEmployee(temp.No);
+                Employees.Remove(Employees.FirstOrDefault(e => e.No == temp.No));
+                cronusClient.DeleteEmployee(temp.No);
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
         }
 
         public List<CronusReference.Employee> GetEmployees()
         {
-            // Endast testkod för att värma upp Entity Framework
-            return cronusClient.GetEmployees().ToList();
+            try
+            {
+                return cronusClient.GetEmployees().ToList();
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+            return new List<CronusReference.Employee>();
         }
 
         public void UpdateEmployee(string no, string firstName, string lastName, int index)
-
         {
-            CronusReference.Employee emp = new CronusReference.Employee();
-            emp.No = no;
-            emp.FirstName = firstName;
-            emp.LastName = lastName;
-            index = Employees.IndexOf(Employees.Where(e => e.No == no).FirstOrDefault());
-            Employees.ElementAt(index).FirstName = emp.FirstName;
-            Employees.ElementAt(index).LastName = emp.LastName;
-            cronusClient.UpdateEmployee(no, firstName, lastName);
+            try
+            {
+                CronusReference.Employee emp = new CronusReference.Employee();
+                emp.No = no;
+                emp.FirstName = firstName;
+                emp.LastName = lastName;
+                index = Employees.IndexOf(Employees.Where(e => e.No == no).FirstOrDefault());
+                Employees.ElementAt(index).FirstName = emp.FirstName;
+                Employees.ElementAt(index).LastName = emp.LastName;
+                cronusClient.UpdateEmployee(no, firstName, lastName);
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
         }
 
         public void AddEmployee(string no, string firstName, string lastName)
         {
-            CronusReference.Employee emp = new CronusReference.Employee();
-            emp.No = no;
-            emp.FirstName = firstName;
-            emp.LastName = lastName;
-            Employees.Add(emp);
-            cronusClient.AddEmployee(no, firstName, lastName);
+            try
+            {
+                CronusReference.Employee emp = new CronusReference.Employee();
+                emp.No = no;
+                emp.FirstName = firstName;
+                emp.LastName = lastName;
+                Employees.Add(emp);
+                cronusClient.AddEmployee(no, firstName, lastName);
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
         }
 
         public string GetFile(string path)
@@ -258,7 +321,15 @@ namespace Eventkalender.PK
 
         public List<string> GetFiles()
         {
-            return eventkalenderClient.GetFiles();
+            try
+            {
+                return eventkalenderClient.GetFiles();
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+            return new List<string>();
         }
 
         private List<List<string>> data;
@@ -422,31 +493,62 @@ namespace Eventkalender.PK
 
         public void InviteToEvent(IList list, Database.Event ev)
         {
-            foreach (Database.Person p in list)
+            try
             {
-                if (!p.Events.Contains(ev))
+                foreach (Database.Person p in list)
                 {
-                    p.Events.Add(ev);
-                    eventkalenderDAL.UpdatePerson(p);      
+                    if (!p.Events.Contains(ev))
+                    {
+                        p.Events.Add(ev);
+                        eventkalenderDAL.UpdatePerson(p);
+                    }
                 }
+                Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+                Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
             }
-            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
-            Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
         }
 
         public EventkalenderReference.Event[] GetEvents()
         {
-            return eventkalenderClient.GetEvents();
+            try
+            {
+                return eventkalenderClient.GetEvents();
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+            return new EventkalenderReference.Event[] { };
         }
 
         public EventkalenderReference.Nation[] GetNations()
         {
-            return eventkalenderClient.GetNations();
+            try
+            {
+                return eventkalenderClient.GetNations();
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+            return new EventkalenderReference.Nation[] { };
         }
 
         public EventkalenderReference.Person[] GetPersons()
         {
-            return eventkalenderClient.GetPersons();
+            try
+            {
+                return eventkalenderClient.GetPersons();
+            }
+            catch (Exception ex)
+            {
+                Status = ExceptionHandler.GetErrorMessage(ex);
+            }
+            return new EventkalenderReference.Person[] { };
         }
 
         public void EventGridWrapAutoSize(DataGrid dgWebService)

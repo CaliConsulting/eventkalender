@@ -628,7 +628,7 @@
         <TextBox x:Name="txtConsole"
                  Height="100"
                  IsReadOnly="True"
-                 Text="{Binding Path=StatusProperty}"
+                 Text="{Binding Path=Status}"
                  TextWrapping="NoWrap"
                  VerticalScrollBarVisibility="Auto" />
     </StackPanel>

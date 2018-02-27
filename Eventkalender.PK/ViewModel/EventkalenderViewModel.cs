@@ -427,7 +427,10 @@ namespace Eventkalender.PK
                     Database.Event e1 = Events.First(temp => temp.Id == ev.Id);
                     e1.Persons.Add(p);
 
-                    eventkalenderDAL.UpdatePerson(p);      
+                    eventkalenderDAL.UpdatePerson(p);
+                    events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+                    persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
+                    Events(events);
                 }            
 
             }

@@ -376,6 +376,10 @@ namespace Eventkalender.PK
                 WriteOutput(s);
             }
         }
+        private void cmbSearchFile_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 
         private void Webservices_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

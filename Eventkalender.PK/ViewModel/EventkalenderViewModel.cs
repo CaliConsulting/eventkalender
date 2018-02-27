@@ -423,10 +423,6 @@ namespace Eventkalender.PK
                 if (!p.Events.Contains(ev))
                 {
                     p.Events.Add(ev);
-
-                    Database.Event e1 = Events.First(temp => temp.Id == ev.Id);
-                    e1.Persons.Add(p);
-
                     eventkalenderDAL.UpdatePerson(p);      
                 }
             }

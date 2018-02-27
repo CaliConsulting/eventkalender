@@ -428,10 +428,10 @@ namespace Eventkalender.PK
                     e1.Persons.Add(p);
 
                     eventkalenderDAL.UpdatePerson(p);      
-                }            
-
+                }
             }
-  
+            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+            Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
         }
 
         public EventkalenderReference.Event[] GetEvents()

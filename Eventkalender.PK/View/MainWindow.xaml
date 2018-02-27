@@ -14,7 +14,7 @@
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
                     <TabControl Height="540" Margin="0,0,0,0" Background="LightGray">
-                        <TabItem Header="Hitta events" Margin="0,0,0,0">
+                        <TabItem Header="Hitta evenemang" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
                                 <TextBlock Text="Filtrera efter Nation" FontWeight="Bold"
                                            Canvas.Left="20" Canvas.Top="20" />
@@ -513,16 +513,16 @@
                 <TabControl Height="535" Background="LightGray">
                     <TabItem Header="Cronus">
                         <Canvas>
-                            <TextBlock Text="Data"
-                                       Canvas.Left="450"
+                            <TextBlock Text="Data:"
+                                       Canvas.Left="400"
                                        Canvas.Top="15" />
-                            <TextBlock Text="Metadata"
+                            <TextBlock Text="Metadata:"
                                        Canvas.Left="650"
                                        Canvas.Top="15" />
                             <ComboBox x:Name="cmbData"
                                       Canvas.Top="30"
-                                      Canvas.Left="450"
-                                      Width="150"
+                                      Canvas.Left="400"
+                                      Width="200"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=DataCombobox}"
                                       SelectedIndex="{Binding Path=DataSelectedIndex}"
@@ -532,7 +532,7 @@
                             <ComboBox x:Name="cmbMetaData"
                                       Canvas.Top="30"
                                       Canvas.Left="650"
-                                      Width="150"
+                                      Width="200"
                                       IsEditable="True"
                                       ItemsSource="{Binding Path=MetadataCombobox}"
                                       IsTextSearchEnabled="True"

@@ -2,7 +2,7 @@
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Eventkalender.Database.Model
+namespace Eventkalender.Database
 {
     public class ForeignKeyNamingConvention : IStoreModelConvention<AssociationType>
     {

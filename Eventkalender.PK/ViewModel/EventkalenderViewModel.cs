@@ -155,6 +155,8 @@ namespace Eventkalender.PK
             Nations.Remove(Nations.FirstOrDefault(n => n.Id == temp.Id));
             eventkalenderDAL.DeleteNation(temp);
 
+            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+
             //NotifyPropertyChanged("Nations");
         }
 
@@ -176,6 +178,7 @@ namespace Eventkalender.PK
             Persons.Remove(Persons.FirstOrDefault(p => p.Id == temp.Id));
             eventkalenderDAL.DeletePerson(temp);
 
+            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
             //NotifyPropertyChanged("Persons");
         }
 
@@ -199,7 +202,8 @@ namespace Eventkalender.PK
 
             Events.Remove(Events.FirstOrDefault(e => e.Id == temp.Id));
             eventkalenderDAL.DeleteEvent(temp);
-
+           
+            Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
             //NotifyPropertyChanged("Events");
         }
 

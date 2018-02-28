@@ -69,7 +69,7 @@
                                 </DataGrid>
                             </Canvas>
                         </TabItem>
-                        <TabItem Header="Eventhantering" Margin="0,0,0,0">
+                        <TabItem Header="Evenemangshantering" Margin="0,0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10">
                                     <TextBlock Text="Lägg till Event"

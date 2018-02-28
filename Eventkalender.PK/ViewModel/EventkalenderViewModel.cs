@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -47,7 +48,11 @@ namespace Eventkalender.PK
             {
                 if(files == null)
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     files = new ObservableCollection<string>(GetFiles());
+                    stopWatch.Stop();
+                    Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
                 }
                 return files;
             }
@@ -68,7 +73,11 @@ namespace Eventkalender.PK
             {
                 if (events == null)
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+                    stopWatch.Stop();
+                    Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
                 }
                 return events;
             }
@@ -89,7 +98,11 @@ namespace Eventkalender.PK
             {
                 if (nations == null)
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     nations = new ObservableCollection<Database.Nation>(eventkalenderDAL.GetNations());
+                    stopWatch.Stop();
+                    Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
                 }
                 return nations;
             }
@@ -110,7 +123,11 @@ namespace Eventkalender.PK
             {
                 if (persons == null)
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
+                    stopWatch.Stop();
+                    Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
                 }
                 return persons;
             }
@@ -131,7 +148,11 @@ namespace Eventkalender.PK
             {
                 if (employees == null)
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     employees = new ObservableCollection<CronusReference.Employee>(cronusClient.GetEmployees());
+                    stopWatch.Stop();
+                    Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
                 }
                 return employees;
             }
@@ -161,6 +182,8 @@ namespace Eventkalender.PK
 
         public void AddNation(string name)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 Database.Nation temp = new Database.Nation(name);
@@ -172,10 +195,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void DeleteNation(int id)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 Database.Nation temp = new Database.Nation();
@@ -190,10 +217,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void AddPerson(string name, string lastname)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 Database.Person p = new Database.Person(name, lastname);
@@ -207,10 +238,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void DeletePerson(int id)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 Database.Person temp = new Database.Person();
@@ -225,11 +260,15 @@ namespace Eventkalender.PK
             catch (Exception ex)
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
-            }    
+            }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void AddEvent(string name, string summary, DateTime startTime, DateTime endTime, int nationId)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 Database.Event e = new Database.Event(name, summary, startTime, endTime, nationId);
@@ -246,10 +285,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void DeleteEvent(int id)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 Database.Event temp = new Database.Event();
@@ -265,10 +308,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void DeleteEmployee(string no)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 CronusReference.Employee temp = new CronusReference.Employee();
@@ -281,10 +328,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public List<CronusReference.Employee> GetEmployees()
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 return cronusClient.GetEmployees().ToList();
@@ -293,11 +344,15 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
             return new List<CronusReference.Employee>();
         }
 
         public void UpdateEmployee(string no, string firstName, string lastName, int index)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 CronusReference.Employee emp = new CronusReference.Employee();
@@ -313,10 +368,14 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public void AddEmployee(string no, string firstName, string lastName)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
                 CronusReference.Employee emp = new CronusReference.Employee();
@@ -330,18 +389,31 @@ namespace Eventkalender.PK
             {
                 Status = ExceptionHandler.GetErrorMessage(ex);
             }
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
         }
 
         public string GetFile(string path)
         {
-            return eventkalenderClient.GetFile(path);
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            string s = eventkalenderClient.GetFile(path);
+            stopWatch.Stop();
+            Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
+            return s;
         }
 
         public List<string> GetFiles()
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             try
             {
-                return eventkalenderClient.GetFiles();
+                stopWatch.Stop();
+                List<string> files = eventkalenderClient.GetFiles();
+                Status = stopWatch.Elapsed.TotalMilliseconds.ToString();
+                System.Diagnostics.Debug.WriteLine("GetFiles: " + Status);
+                return files;
             }
             catch (Exception ex)
             {

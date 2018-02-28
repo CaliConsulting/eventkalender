@@ -3,6 +3,7 @@ using Eventkalender.WS.ConsoleApp.CronusReference;
 using Eventkalender.WS.ConsoleApp.Utility;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -35,35 +36,35 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("Följande är kolumner i personaltabellen: ");
             GetOutput(cronusClient.GetColumnsForEmployeeTable());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetKeys()
         {
             Console.WriteLine("Följande är alla nycklar: ");
             GetOutput(cronusClient.GetKeys());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetIndexes()
         {
             Console.WriteLine("Följande är alla indexes: ");
             GetOutput(cronusClient.GetIndexes());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetTableConstraints()
         {
             Console.WriteLine("Följande är alla constraints: ");
             GetOutput(cronusClient.GetTableConstraints());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetTables()
         {
             Console.WriteLine("Följande är alla tabeller: ");
             GetOutput(cronusClient.GetTables());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetOutput(CronusReference.DataTuple[] inputTuple)
@@ -75,42 +76,42 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("Employee Metadata är följande: ");
             GetOutput(cronusClient.GetEmployeeMetadata());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetEmployeeAbsenceMetadata()
         {
             Console.WriteLine("Employee Absence Metadata är följande:");
             GetOutput(cronusClient.GetEmployeeAbsenceMetadata());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetEmployeeRelativeMetadata()
         {
             Console.WriteLine("Employee Relative Metadata är följande: ");
             GetOutput(cronusClient.GetEmployeeRelativeMetadata());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetEmployeeQualificationMetadata()
         {
             Console.WriteLine("Employee Qualification Metadata är följande: ");
             GetOutput(cronusClient.GetEmployeeQualificationMetadata());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetEmployeePortalSetupMetadata()
         {
             Console.WriteLine("Employee Portal Setup Metadata är följande: ");
             GetOutput(cronusClient.GetEmployeePortalSetupMetadata());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetEmployeeStatisticsGroupMetadata()
         {
             Console.WriteLine("Employee Statistics Group Metadata är följande: ");
             GetOutput(cronusClient.GetEmployeeStatisticsGroupMetadata());
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void ReturnMethod()
@@ -156,10 +157,12 @@ namespace Eventkalender.WS.ConsoleApp
                 if (!isNumeric || (caseSwitch < -1 || caseSwitch > 11))
                 {
                     Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 11!");
-                    ExitQuestion();
+                    //ExitQuestion();
                 }
                 try
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     switch (caseSwitch)
                     {
                         case 1:
@@ -202,6 +205,8 @@ namespace Eventkalender.WS.ConsoleApp
                             ReturnMethod();
                             break;
                     }
+                    stopWatch.Stop();
+                    Console.WriteLine(stopWatch.Elapsed.TotalMilliseconds.ToString());
                     if (!returnBool)
                     {
                         break;
@@ -210,7 +215,7 @@ namespace Eventkalender.WS.ConsoleApp
                 catch (Exception e)
                 {
                     Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
-                    ExitQuestion();
+                    //ExitQuestion();
                 }
             }
         }

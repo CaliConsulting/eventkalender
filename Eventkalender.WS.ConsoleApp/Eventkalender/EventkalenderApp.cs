@@ -1,6 +1,7 @@
 ﻿using Eventkalender.Database;
 using Eventkalender.WS.ConsoleApp.EventkalenderReference;
 using System;
+using System.Diagnostics;
 
 namespace Eventkalender.WS.ConsoleApp
 {
@@ -53,7 +54,7 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 Console.WriteLine(nations[j].Name);
             }
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetEvent()
@@ -87,7 +88,7 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 Console.WriteLine(events[j].Name);
             }
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetPerson()
@@ -127,7 +128,7 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 Console.WriteLine("{0} {1}", personer[j].FirstName, personer[j].LastName);
             }
-            ExitQuestion();
+            //ExitQuestion();
         }
 
         public void GetFile()
@@ -208,6 +209,8 @@ namespace Eventkalender.WS.ConsoleApp
                 }
                 try
                 {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
                     switch (caseSwitch)
                     {
                         case 1:
@@ -241,6 +244,8 @@ namespace Eventkalender.WS.ConsoleApp
                             Program.VeryGoodMethod();
                             break;
                     }
+                    stopWatch.Stop();
+                    Console.WriteLine(stopWatch.Elapsed.TotalMilliseconds.ToString());
                     if (!returnBool)
                     {
                         break;

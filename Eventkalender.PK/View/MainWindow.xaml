@@ -475,7 +475,7 @@
                                       Width="150"
                                       IsTextSearchEnabled="True"
                                       IsEditable="True"
-                                      ItemsSource="{Binding Path=SearchFiles}"
+                                      ItemsSource="{Binding Path=Files}"
                                       SelectionChanged="cmbSearchFile_SelectionChanged"/>
                         </Canvas>
                     </TabItem>

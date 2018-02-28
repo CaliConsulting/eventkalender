@@ -18,7 +18,7 @@ namespace Eventkalender.PK
     {
         private List<string> timesList;
 
-        private ObservableCollection<string> searchfiles;
+        private ObservableCollection<string> files;
         private ObservableCollection<Database.Event> events;
         private ObservableCollection<Database.Nation> nations;
         private ObservableCollection<Database.Person> persons;
@@ -41,23 +41,23 @@ namespace Eventkalender.PK
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public ObservableCollection<string> SearchFiles
+        public ObservableCollection<string> Files
         {
             get
             {
-                if(searchfiles == null)
+                if(files == null)
                 {
-                    searchfiles = new ObservableCollection<string>(GetFiles());
+                    files = new ObservableCollection<string>(GetFiles());
                 }
-                return searchfiles;
+                return files;
             }
             set
             {
-                if (searchfiles != value)
+                if (files != value)
                 {
-                    searchfiles = value;
+                    files = value;
 
-                    NotifyPropertyChanged("SearchFiles");
+                    NotifyPropertyChanged("Files");
                 }
             }
         }

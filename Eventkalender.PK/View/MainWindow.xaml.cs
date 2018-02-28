@@ -375,27 +375,14 @@ namespace Eventkalender.PK
                 WriteOutput(s);
             }
         }
+
         private void cmbSearchFile_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ClearOutput();
-            string path = cmbSearchFile.Text;
-            if(cmbSearchFile.SelectedIndex > -1)
+            string path = cmbSearchFile.SelectedItem as string;
+            if (cmbSearchFile.SelectedIndex > -1)
             {
-                
-                if (eventkalenderViewModel.GetFiles().Contains(path))
-                {
-                    txtOutput.Text = eventkalenderViewModel.GetFile(path);
-                }
-            }
-            else if (eventkalenderViewModel.GetFiles().Contains(path))
-            { 
                 txtOutput.Text = eventkalenderViewModel.GetFile(path);
-            }
-            else
-            {
-                string error = path + " fanns ej i systemet. Skrev du rätt filnamn?";
-                WriteOutput(error);
-                txtOutput.Text = "";
             }
         }
 

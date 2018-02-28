@@ -134,15 +134,8 @@ namespace Eventkalender.WS.ConsoleApp
         {
             Console.WriteLine("Ange filsökvägen: ");
             string userInput = Console.ReadLine();
-            try
-            {
-                string content = eventClient.GetFile(userInput);
-                Console.WriteLine("Innehåll i filen {0}: {1}", userInput, content);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
-            }
+            string content = eventClient.GetFile(userInput);
+            Console.WriteLine("Innehåll i filen {0}: {1}", userInput, content);
             ExitQuestion();
         }
 
@@ -152,15 +145,8 @@ namespace Eventkalender.WS.ConsoleApp
             string fileName = Console.ReadLine();
             Console.WriteLine("Ange innehåll: ");
             string content = Console.ReadLine();
-            try
-            {
-                eventClient.AddFile(fileName, content);
-                Console.WriteLine("Fil tillagd!");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(ExceptionHandler.GetErrorMessage(e));
-            }
+            eventClient.AddFile(fileName, content);
+            Console.WriteLine("Fil tillagd!");
             ExitQuestion();
         }
 

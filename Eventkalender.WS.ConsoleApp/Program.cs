@@ -9,7 +9,7 @@ namespace Eventkalender.WS.ConsoleApp
             int caseSwitch;
             EventkalenderApp eventApp = new EventkalenderApp();
             CronusApp cronusApp = new CronusApp();
-            Console.WriteLine("Hej och välkommen till den perfekta Konsollapplikationen\n");
+            Console.WriteLine("Hej och välkommen till den perfekta Konsolapplikationen\n");
             Console.WriteLine("Vilken applikation vill du köra?");
 
             while (true)

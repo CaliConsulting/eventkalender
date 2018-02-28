@@ -25,6 +25,8 @@ namespace Eventkalender.WS.ConsoleApp
         public void Start()
         {
             Console.WriteLine("Hej och välkommen till CronusApp\n");
+            Console.WriteLine("Välj vad du vill göra!\n");
+
             while (true)
             {
                 returnBool = true;

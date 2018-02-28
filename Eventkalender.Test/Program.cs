@@ -38,7 +38,7 @@ namespace Eventkalender.Test
 
             //cronusController.DeleteEmployee("FFF");
 
-            string[] files = Directory.GetFiles(filePath, "*.*", SearchOption.AllDirectories);
+            //string[] files = Directory.GetFiles(filePath, "*.*", SearchOption.AllDirectories);
             Console.ReadKey();
         }
     }

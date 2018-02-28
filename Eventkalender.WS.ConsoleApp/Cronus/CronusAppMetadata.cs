@@ -136,7 +136,7 @@ namespace Eventkalender.WS.ConsoleApp
             {
                 returnBool = true;
 
-                Console.WriteLine("\nVad för Metadata är du intresserad av?!\n");
+                Console.WriteLine("\nVad för Metadata är du intresserad av?\n");
                 Console.WriteLine("Hämta alla nycklar: Tryck 1");
                 Console.WriteLine("Hämta kolumner i Personaltabellen : Tryck 2");
                 Console.WriteLine("Hämta alla indexes: Tryck 3");

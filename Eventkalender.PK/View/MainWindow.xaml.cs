@@ -352,29 +352,6 @@ namespace Eventkalender.PK
                 dgWebService.ItemsSource = eventkalenderViewModel.GetPersons();
             }
         }
-
-        private void btnChoiceOfFile_Click(object sender, RoutedEventArgs e)
-        {
-            ClearOutput();
-            if (txtSearchFile.Text != "")
-            {
-                string path = txtSearchFile.Text;
-                if (eventkalenderViewModel.GetFiles().Contains(path))
-                {
-                    txtOutput.Text = eventkalenderViewModel.GetFile(path);
-                }
-                else
-                {
-                    string error = path + " fanns ej i systemet. Skrev du rätt filnamn?";
-                    WriteOutput(error);
-                }
-            }
-            else
-            {
-                string s = "Fyll i textboxen för att söka efter en fil";
-                WriteOutput(s);
-            }
-        }
         private void cmbSearchFile_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ClearOutput();

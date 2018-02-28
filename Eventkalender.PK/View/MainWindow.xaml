@@ -461,29 +461,17 @@
                             <StackPanel Canvas.Left="20" Canvas.Top="20">
                                 <TextBlock  HorizontalAlignment="Center"
                                             Text="Hämta fil" FontWeight="Bold" />
-                                <Button x:Name="btnChoiceOfFile"
-                                        Click="btnChoiceOfFile_Click"
-                                        Content="Hämta Innehåll"
-                                        Margin="0,40,0,0"
-                                        Width="95" />
                                 <TextBox x:Name="txtOutput"
-                                         Margin="0,10,0,0"
+                                         Margin="0,40,0,0"
                                          IsReadOnly="True"
                                          Width="1220"
-                                         Height="390" />
+                                         Height="420"
+                                         TextWrapping="Wrap"
+                                         VerticalScrollBarVisibility="Auto"/>
                             </StackPanel>
-                            <TextBox x:Name="txtSearchFile"
-                                       Width="100"
-                                       MaxWidth="100"
-                                       Margin="0,15,0,0"
-                                       ToolTip="Sök efter hello.txt"
-                                       ToolTipService.InitialShowDelay="50"
-                                       ToolTipService.ShowDuration="5000"
-                                       Canvas.Left="580"
-                                       Canvas.Top="35"/>
                             <ComboBox x:Name="cmbSearchFile"
-                                      Canvas.Left="800"
-                                      Canvas.Top="50"
+                                      Canvas.Left="560"
+                                      Canvas.Top="40"
                                       Width="150"
                                       IsTextSearchEnabled="True"
                                       IsEditable="True"

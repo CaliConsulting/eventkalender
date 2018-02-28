@@ -100,18 +100,18 @@
                                               MaxWidth="150"
                                               Width="150"
                                               HorizontalAlignment="Left"
-                                              ToolTip="Vilket datum äger evenemanget rum?"
-                                              ToolTipService.InitialShowDelay="5000"
-                                                TabIndex="3" />
+                                              ToolTip="Vilket datum äger evenemanget rum? YYYY-MM-DD"
+                                              ToolTipService.InitialShowDelay="500"
+                                              TabIndex="3" />
 
                                     <TextBlock Text="Eventets slut: *" />
                                     <DatePicker x:Name="dtpickEndDate"
-                                              Width="150"
-                                              MaxWidth="150"
-                                              HorizontalAlignment="Left"
-                                              ToolTip="Vilket datum slutar evenemanget?"
-                                            ToolTipService.InitialShowDelay="5000"
-                                                TabIndex="5" />
+                                               Width="150"
+                                               MaxWidth="150"
+                                               HorizontalAlignment="Left"
+                                               ToolTip="Vilket datum slutar evenemanget? YYYY-MM-DD"
+                                               ToolTipService.InitialShowDelay="500"
+                                               TabIndex="5" />
 
                                     <TextBlock Text="Beskrivning: *" />
                                     <TextBox x:Name="txtSummary"
@@ -125,7 +125,7 @@
                                             Margin="0,15,0,0"
                                             Width="100"
                                             ToolTip="Registrerar evenemanget med de ifyllda attributen"
-                                            ToolTipService.InitialShowDelay="5000"
+                                            ToolTipService.InitialShowDelay="500"
                                             TabIndex="8" />
                                 </StackPanel>
                                 <TextBlock Text="Tid: *"
@@ -486,13 +486,13 @@
                                 <TextBlock Text="Visa listor"
                                            HorizontalAlignment="Center"
                                            FontWeight="Bold" />
-                                <ComboBox   x:Name="cmbWebService"
-                                            IsEditable="True"
-                                            IsTextSearchEnabled="True"
-                                            MaxWidth="200"
-                                            ItemsSource="{Binding Path=WSCombobox}"
-                                            SelectedIndex="{Binding Path=WSSelectedIndex}"
-                                            SelectionChanged="cmbWebService_SelectionChanged">
+                                <ComboBox x:Name="cmbWebService"
+                                          IsEditable="True"
+                                          IsTextSearchEnabled="True"
+                                          MaxWidth="200"
+                                          ItemsSource="{Binding Path=WSCombobox}"
+                                          SelectedIndex="{Binding Path=WSSelectedIndex}"
+                                          SelectionChanged="cmbWebService_SelectionChanged">
                                 </ComboBox>
                                 <DataGrid x:Name="dgWebService"
                                           Width="1240"

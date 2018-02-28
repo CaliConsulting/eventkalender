@@ -467,9 +467,9 @@ namespace Eventkalender.PK
             get
             {
                 List<string> lst = new List<string>();
-                lst.Add("Hämta Events");
-                lst.Add("Hämta Nationer");
-                lst.Add("Hämta Personer");
+                lst.Add("Evenemang");
+                lst.Add("Nationer");
+                lst.Add("Personer");
 
                 return lst;
             }

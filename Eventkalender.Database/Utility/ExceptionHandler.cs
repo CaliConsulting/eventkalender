@@ -81,24 +81,18 @@ namespace Eventkalender.Database
                 {
                     case CANNOT_INSERT_NULL:
                         return GetCannotInsertNullMessage();
-
                     case DATA_TYPE_CONVERSION_ERROR:
                         return GetDataTypeConversionErrorMessage();
-
                     case LOGIN_FAILED:
                         return "Inloggningen till databasen misslyckades; kontrollera användarnamn och lösenord";
                     case NON_MATCHING_TABLE_DEFINITION:
                         return "Databasen accepterar inte indatan för ett fält";
-
                     case PRIMARY_KEY_VIOLATION:
                         return GetPrimaryKeyViolationMessage();
-
                     case RAISE_ERROR:
                         return message;
-
                     case TRUNCATED_DATA:
                         return "Ett indata-fält överskrider maximala tillåtna längden";
-
                     case WRONG_CREDENTIALS:
                         return GetWrongCredentialsMessage();
                 }

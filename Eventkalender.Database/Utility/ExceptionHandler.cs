@@ -21,10 +21,7 @@ namespace Eventkalender.Database
         private static Dictionary<Type, dynamic> helpers;
 
         private const int CANNOT_INSERT_NULL = 515;
-
-        //private const int CHECK_CONSTRAINT_CONFLICT = 547;
         private const int DATA_TYPE_CONVERSION_ERROR = 8114;
-
         private const int LOGIN_FAILED = 4060;
         private const int NON_MATCHING_TABLE_DEFINITION = 213;
         private const int PRIMARY_KEY_VIOLATION = 2627;
@@ -38,7 +35,6 @@ namespace Eventkalender.Database
             helpers.Add(typeof(IOException), new IOMessageHelper());
             helpers.Add(typeof(SqlException), new SqlMessageHelper());
             helpers.Add(typeof(DataException), new DataMessageHelper());
-            //helpers.Add(typeof(SqlTypeException), new SqlTypeMessageHelper());
             helpers.Add(typeof(FaultException), new FaultExceptionMessageHelper());
         }
 
@@ -64,11 +60,6 @@ namespace Eventkalender.Database
                 FaultException faultEx = ex as FaultException;
                 return helpers[typeof(FaultException)].GetMessage(faultEx);
             }
-            //else if (ex is SqlTypeException)
-            //{
-            //    SqlTypeException sqlTypeEx = ex as SqlTypeException;
-            //    return helpers[typeof(SqlTypeException)].GetMessage(sqlTypeEx);
-            //}
             return GetGenericErrorMessage(ex);
         }
 
@@ -89,49 +80,41 @@ namespace Eventkalender.Database
                 switch (ex.ErrorCode)
                 {
                     case CANNOT_INSERT_NULL:
-                        return GetCannotInsertNullMessage(message);
-
+                        return GetCannotInsertNullMessage();
                     case DATA_TYPE_CONVERSION_ERROR:
-                        return GetDataTypeConversionErrorMessage(message);
-
+                        return GetDataTypeConversionErrorMessage();
                     case LOGIN_FAILED:
                         return "Inloggningen till databasen misslyckades; kontrollera användarnamn och lösenord";
                     case NON_MATCHING_TABLE_DEFINITION:
                         return "Databasen accepterar inte indatan för ett fält";
-
                     case PRIMARY_KEY_VIOLATION:
-                        return GetPrimaryKeyViolationMessage(message);
-
+                        return GetPrimaryKeyViolationMessage();
                     case RAISE_ERROR:
                         return message;
-
                     case TRUNCATED_DATA:
                         return "Ett indata-fält överskrider maximala tillåtna längden";
-
                     case WRONG_CREDENTIALS:
-                        return GetWrongCredentialsMessage(message);
+                        return GetWrongCredentialsMessage();
                 }
                 return "Ett SQL-fel (SqlException) uppstod.";
             }
-
-            // Kanske förbättra dessa meddelande? T.ex. genom att extrahera värden från message-variabeln
-            // som vi gjorde i databasprojektet.
-            public static string GetCannotInsertNullMessage(string message)
+            
+            public static string GetCannotInsertNullMessage()
             {
                 return "Databasen accepterar inte null-värde, var god fyll i alla fält.";
             }
 
-            public static string GetDataTypeConversionErrorMessage(string message)
+            public static string GetDataTypeConversionErrorMessage()
             {
                 return "Kan inte konvertera datatypen.";
             }
 
-            public static string GetPrimaryKeyViolationMessage(string message)
+            public static string GetPrimaryKeyViolationMessage()
             {
                 return "Primärnyckeln används redan av en viss tupel, var god välj en annan.";
             }
 
-            public static string GetWrongCredentialsMessage(string message)
+            public static string GetWrongCredentialsMessage()
             {
                 return "Fel inloggningsuppgifter till databasen, var god kontrollera dessa och försök igen.";
             }
@@ -195,19 +178,6 @@ namespace Eventkalender.Database
             }
         }
 
-        //private class SqlTypeMessageHelper : IMessageHelper<SqlTypeException>
-        //{
-        //    public string GetMessage(SqlTypeException ex)
-        //    {
-        //        return GetSqlTypeExceptionMessage(ex);
-        //    }
-
-        //    public static string GetSqlTypeExceptionMessage(SqlTypeException ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //}
-
         // Hanterar SOAP-fel
         private class FaultExceptionMessageHelper : IMessageHelper<FaultException>
         {
@@ -216,14 +186,12 @@ namespace Eventkalender.Database
                 string message = ex.Message;
                 if (message.Contains("SqlDateTime overflow"))
                 {
-                    return GetDateTimeOverflowMessage(message);
+                    return GetDateTimeOverflowMessage();
                 }
                 return "Ett SOAP-fel (FaultException) uppstod.";
             }
-
-            // Kanske förbättra dessa meddelande? T.ex. genom att extrahera värden från message-variabeln
-            // som vi gjorde i databasprojektet.
-            public string GetDateTimeOverflowMessage(string message)
+            
+            public string GetDateTimeOverflowMessage()
             {
                 return "För stort eller för litet dag/månad/år/datum, var god ange ett giltigt värde.";
             }

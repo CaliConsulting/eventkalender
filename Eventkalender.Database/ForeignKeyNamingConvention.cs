@@ -46,13 +46,13 @@ namespace Eventkalender.Database
             for (int i = 0; i < properties.Count; ++i)
             {
                 string defaultPropertyName = properties[i].Name;
-                int ichUnderscore = defaultPropertyName.IndexOf('_');
-                if (ichUnderscore <= 0)
+                int underscoreIndex = defaultPropertyName.IndexOf('_');
+                if (underscoreIndex <= 0)
                 {
                     continue;
                 }
-                string navigationPropertyName = defaultPropertyName.Substring(0, ichUnderscore);
-                string targetKey = defaultPropertyName.Substring(ichUnderscore + 1);
+                string navigationPropertyName = defaultPropertyName.Substring(0, underscoreIndex);
+                string targetKey = defaultPropertyName.Substring(underscoreIndex + 1);
 
                 string newPropertyName;
                 if (targetKey.StartsWith(navigationPropertyName))

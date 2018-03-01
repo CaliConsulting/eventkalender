@@ -14,17 +14,6 @@ namespace Eventkalender.Database
             return connection;
         }
 
-        public static string GetOdbcConnectionString(string xmlPath)
-        {
-            Dictionary<string, string> values = ReadXmlFile(xmlPath);
-            string dataSource = values["DataSource"];
-            string database = values["Database"];
-            string username = values["Username"];
-            string password = values["Password"];
-
-            return String.Format("Driver={{ODBC Driver 13 for SQL Server}};server={0};database={1};uid={2};pwd={3};", dataSource, database, username, password);
-        }
-
         public static string GetSqlServerConnectionString(string xmlPath)
         {
             Dictionary<string, string> values = ReadXmlFile(xmlPath);
@@ -33,7 +22,7 @@ namespace Eventkalender.Database
             string username = values["Username"];
             string password = values["Password"];
 
-            return String.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3};", dataSource, database, username, password);
+            return string.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3};", dataSource, database, username, password);
         }
 
         public static Dictionary<string, string> ReadXmlFile(string xmlPath)
@@ -45,34 +34,6 @@ namespace Eventkalender.Database
             xmlValues.Add("Username", doc.Root.Element("Username").Value);
             xmlValues.Add("Password", doc.Root.Element("Password").Value);
             return xmlValues;
-        }
-
-        public static void WarmupEntityFramework2(object xmlPath)
-        {
-            string path = xmlPath as string;
-            EventkalenderController c = new EventkalenderController(path);
-            List<Nation> nations = c.GetNations();
-
-            Console.WriteLine("WARMUP2 DONE");
-
-            //foreach (Nation n in nations)
-            //{
-            //    Console.WriteLine(n);
-            //}
-
-            //string path = xmlPath as string;
-            //using (EventkalenderContext context = new EventkalenderContext(path))
-            //{
-            //    context.Nation.FirstOrDefault();
-            //}
-        }
-
-        public static void WarmupEntityFramework(string xmlPath)
-        {
-            ParameterizedThreadStart pts = new ParameterizedThreadStart(WarmupEntityFramework2);
-            Thread t = new Thread(pts);
-            t.Start(xmlPath);
-            Console.WriteLine("WARMUP DONE");
         }
     }
 }

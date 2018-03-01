@@ -16,7 +16,7 @@
                     <TabControl Height="540" Margin="0,0,0,0" Background="LightGray">
                         <TabItem Header="Hitta evenemang" Margin="0,0,0,0">
                             <Canvas Margin="0,0,0,0">
-                                <TextBlock Text="Filtrera efter Nation" FontWeight="Bold"
+                                <TextBlock Text="Filtrera efter nation" FontWeight="Bold"
                                            Canvas.Left="20" Canvas.Top="20" />
                                 <ComboBox x:Name="cmbEvents"
                                           ItemsSource="{Binding Path=Nations}"
@@ -72,9 +72,9 @@
                         <TabItem Header="Evenemangshantering" Margin="0,0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="10" Canvas.Top="10">
-                                    <TextBlock Text="Lägg till Event"
+                                    <TextBlock Text="Lägg till evenemang"
                                                FontWeight="BOLD" />
-                                    <TextBlock Text="Eventnamn *" />
+                                    <TextBlock Text="Evenemangsnamn *" />
                                     <TextBox x:Name="txtEventName"
                                              Margin="0,0,0,0"
                                              AcceptsReturn="True"
@@ -95,7 +95,7 @@
                                              IsEditable="True"
                                              IsTextSearchEnabled="True"
                                               TabIndex="2" />
-                                    <TextBlock Text="Start av event: *" />
+                                    <TextBlock Text="Start av evenemang: *" />
                                     <DatePicker x:Name="dtpickStartDate"
                                               MaxWidth="150"
                                               Width="150"
@@ -104,7 +104,7 @@
                                               ToolTipService.InitialShowDelay="500"
                                               TabIndex="3" />
 
-                                    <TextBlock Text="Eventets slut: *" />
+                                    <TextBlock Text="Evenemangets slut: *" />
                                     <DatePicker x:Name="dtpickEndDate"
                                                Width="150"
                                                MaxWidth="150"
@@ -153,8 +153,8 @@
                                           TabIndex="6">
                                 </ComboBox>
                                 <StackPanel Canvas.Left="400" Canvas.Top="10">
-                                    <TextBlock Text="Ta bort event" FontWeight="Bold" />
-                                    <TextBlock Text="Filtrera efter Nation" />
+                                    <TextBlock Text="Ta bort evenemang" FontWeight="Bold" />
+                                    <TextBlock Text="Filtrera efter nation" />
                                     <ComboBox x:Name="cmbSearchEvents"
                                               ItemsSource="{Binding Path=Nations, NotifyOnSourceUpdated=True}"
                                               DisplayMemberPath="Name"
@@ -218,7 +218,7 @@
                         <TabItem Header="Person- och nationshantering" Margin="0,-0,0,0">
                             <Canvas Height="510" Margin="0,0,0,0">
                                 <StackPanel Canvas.Left="20" Canvas.Top="10">
-                                    <TextBlock Text="Lägg till Person"
+                                    <TextBlock Text="Lägg till person"
                                                FontWeight="Bold" />
                                     <TextBlock Text="Förnamn *" />
                                     <TextBox x:Name="txtFirstName"
@@ -284,7 +284,7 @@
                                 </StackPanel>
                                 <StackPanel Canvas.Left="640"
                                             Canvas.Top="10">
-                                    <TextBlock Text="Lägg till Nation"
+                                    <TextBlock Text="Lägg till nation"
                                                FontWeight="Bold" />
                                     <TextBlock Text="Namn *" />
                                     <TextBox x:Name="txtNationName"
@@ -386,7 +386,7 @@
                                 </StackPanel>
                                 <StackPanel Canvas.Left="620"
                                             Canvas.Top="10">
-                                    <TextBlock Text="Events" FontWeight="Bold" />
+                                    <TextBlock Text="Evenemang" FontWeight="Bold" />
                                     <ComboBox x:Name="cmbInviteEvent"
                                               SelectionChanged="cmbInviteEvent_SelectionChanged"
                                               Margin="0,15,0,0"

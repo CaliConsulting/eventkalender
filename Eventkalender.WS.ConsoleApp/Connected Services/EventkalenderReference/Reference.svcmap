@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b11b983a-571e-4233-9778-9d53b2facbd5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="718d8f2c-88e8-42ad-8fd7-7a6a75a1a497" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost/EventkalenderWS/EventkalenderService.asmx?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EventkalenderService.wsdl" MetadataType="Wsdl" ID="13a79153-47e7-4a27-87f4-3ed5e17e36e7" SourceId="1" SourceUrl="http://localhost/EventkalenderWS/EventkalenderService.asmx?wsdl" />
+    <MetadataFile FileName="EventkalenderService.wsdl" MetadataType="Wsdl" ID="e92956c0-9cca-4d5d-b137-b76dd090e15e" SourceId="1" SourceUrl="http://localhost/EventkalenderWS/EventkalenderService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

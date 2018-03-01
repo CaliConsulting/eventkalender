@@ -167,6 +167,9 @@
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.AddPersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -177,6 +180,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetFilesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\EventkalenderReference\Eventkalender.WS.ConsoleApp.EventkalenderReference.GetNationResponse.datasource">

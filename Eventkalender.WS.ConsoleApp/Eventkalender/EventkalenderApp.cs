@@ -135,7 +135,8 @@ namespace Eventkalender.WS.ConsoleApp
             Console.WriteLine("Ange filsökvägen: ");
             string userInput = Console.ReadLine();
             string content = eventClient.GetFile(userInput);
-            Console.WriteLine("Innehåll i filen {0}: {1}", userInput, content);
+            Console.WriteLine("Innehåll i filen {0}:", userInput);
+            Console.WriteLine(content);
             ExitQuestion();
         }
 
@@ -147,6 +148,16 @@ namespace Eventkalender.WS.ConsoleApp
             string content = Console.ReadLine();
             eventClient.AddFile(fileName, content);
             Console.WriteLine("Fil tillagd!");
+            ExitQuestion();
+        }
+
+        public void GetFiles()
+        {
+            ArrayOfString files = eventClient.GetFiles();
+            for (int i = 0; i < files.Count; i++)
+            {
+                Console.WriteLine(files[i]);
+            }
             ExitQuestion();
         }
 
@@ -183,13 +194,14 @@ namespace Eventkalender.WS.ConsoleApp
                 Console.WriteLine("Hämta alla Personer: Tryck 6");
                 Console.WriteLine("Hämta en fil: Tryck 7");
                 Console.WriteLine("Lägg till en fil: Tryck 8");
+                Console.WriteLine("Visa alla filer: Tryck 9");
                 Console.WriteLine("För att gå tillbaka: Tryck -1");
 
                 string userInput = Console.ReadLine();
                 bool isNumeric = int.TryParse(userInput, out caseSwitch);
-                if (!isNumeric || (caseSwitch < -1 || caseSwitch > 8))
+                if (!isNumeric || (caseSwitch < -1 || caseSwitch > 9))
                 {
-                    Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 8!");
+                    Console.WriteLine("Du måste sätta in ett nummer mellan -1 och 9!");
                     ExitQuestion();
                 }
                 try
@@ -219,6 +231,9 @@ namespace Eventkalender.WS.ConsoleApp
                             break;
                         case 8:
                             AddFile();
+                            break;
+                        case 9:
+                            GetFiles();
                             break;
                         case -1:
                             ReturnMethod();

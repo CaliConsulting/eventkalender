@@ -367,5 +367,25 @@ namespace Eventkalender.PK
             // Warm up Entity Framework on WS
             eventkalenderViewModel.GetEmployees();
         }
+
+        private void btnUpdatePersonNation_Click(object sender, RoutedEventArgs e)
+        {
+            eventkalenderViewModel.UpdateDatabase();
+        }
+
+        private void btnUpdateInvites_Click(object sender, RoutedEventArgs e)
+        {
+            eventkalenderViewModel.UpdateDatabase();
+        }
+
+        private void btnUpdateEvent_Click(object sender, RoutedEventArgs e)
+        {
+            eventkalenderViewModel.UpdateDatabase();
+        }
+
+        private void btnUpdateFind_Click(object sender, RoutedEventArgs e)
+        {
+            eventkalenderViewModel.UpdateDatabase();
+        }
     }
 }

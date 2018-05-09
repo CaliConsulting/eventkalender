@@ -14,7 +14,7 @@
             <TabItem Header="Programkonstruktion">
                 <StackPanel>
                     <TabControl Height="540" Margin="0,0,0,0" Background="LightGray">
-                        <TabItem Header="Hitta evenemang" Margin="0,0,0,0">
+                        <TabItem Header="Hitta evenemang" Margin="0,0,-0.2,0" Height="20" VerticalAlignment="Top">
                             <Canvas Margin="0,0,0,0">
                                 <TextBlock Text="Filtrera efter nation" FontWeight="Bold"
                                            Canvas.Left="20" Canvas.Top="20" />
@@ -28,6 +28,12 @@
                                           Width="150"
                                           Canvas.Left="20"
                                           Canvas.Top="40" />
+                                <Button x:Name="btnUpdateFind"
+                                        Content="Uppdatera från Databas"
+                                        Click="btnUpdateFind_Click"
+                                        Margin="20,70,0,0"
+                                        Width="130"
+                                        Height="22" />
                                 <DataGrid x:Name="dgFindEvents"
                                           SelectionMode="Extended"
                                           Canvas.Top="20"
@@ -165,6 +171,12 @@
                                               IsEditable="True"
                                               SelectionChanged="cmbSearchEvents_SelectionChanged"
                                               TabIndex="9" />
+                                    <Button x:Name="btnUpdateEvent"
+                                        Content="Uppdatera från Databas"
+                                        Click="btnUpdateEvent_Click"
+                                        Margin="0,-20,0,0"
+                                        Width="130"
+                                        Height="22" />
                                     <DataGrid x:Name="dgEvents"
                                               SelectionMode="Single"
                                               Height="320"
@@ -242,6 +254,12 @@
                                             ToolTip="Registerar en person med de ifyllda namnen"
                                             ToolTipService.InitialShowDelay="500"
                                             TabIndex="3" />
+                                    <Button x:Name="btnUpdatePersonNation"
+                                        Content="Uppdatera från Databas"
+                                        Click="btnUpdatePersonNation_Click"
+                                        Margin="0,-20,0,0"
+                                        Width="130"
+                                        Height="22" />
                                     <DataGrid x:Name="dgPerson"
                                               Height="290"
                                               Width="590"
@@ -436,6 +454,14 @@
                                         Canvas.Top="42"
                                         Margin="0,0,0,0"
                                         Width="100"
+                                        Height="22" />
+                                <Button x:Name="btnUpdateInvites"
+                                        Content="Uppdatera från Databas"
+                                        Click="btnUpdateInvites_Click"
+                                        Canvas.Left="400"
+                                        Canvas.Top="42"
+                                        Margin="0,0,0,0"
+                                        Width="130"
                                         Height="22" />
                                 <Button x:Name="btnInviteToEvent"
                                         Click="btnInviteToEvent_Click"

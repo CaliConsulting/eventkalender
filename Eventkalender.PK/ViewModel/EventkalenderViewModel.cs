@@ -664,5 +664,11 @@ namespace Eventkalender.PK
                 grid.Columns[i].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
         }
+        public void UpdateDatabase()
+        {
+            Events = new ObservableCollection<Database.Event>(eventkalenderDAL.GetEvents());
+            Persons = new ObservableCollection<Database.Person>(eventkalenderDAL.GetPersons());
+            Nations = new ObservableCollection<Database.Nation>(eventkalenderDAL.GetNations());
+        }
     }
 }

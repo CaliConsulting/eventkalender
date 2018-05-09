@@ -32,7 +32,7 @@
                                         Content="Uppdatera från Databas"
                                         Click="btnUpdateFind_Click"
                                         Margin="20,70,0,0"
-                                        Width="130"
+                                        Width="140"
                                         Height="22" />
                                 <DataGrid x:Name="dgFindEvents"
                                           SelectionMode="Extended"
@@ -175,7 +175,7 @@
                                         Content="Uppdatera från Databas"
                                         Click="btnUpdateEvent_Click"
                                         Margin="0,-20,0,0"
-                                        Width="130"
+                                        Width="140"
                                         Height="22" />
                                     <DataGrid x:Name="dgEvents"
                                               SelectionMode="Single"
@@ -258,7 +258,7 @@
                                         Content="Uppdatera från Databas"
                                         Click="btnUpdatePersonNation_Click"
                                         Margin="0,-20,0,0"
-                                        Width="130"
+                                        Width="140"
                                         Height="22" />
                                     <DataGrid x:Name="dgPerson"
                                               Height="290"
@@ -461,7 +461,7 @@
                                         Canvas.Left="400"
                                         Canvas.Top="42"
                                         Margin="0,0,0,0"
-                                        Width="130"
+                                        Width="140"
                                         Height="22" />
                                 <Button x:Name="btnInviteToEvent"
                                         Click="btnInviteToEvent_Click"
